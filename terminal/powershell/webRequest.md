@@ -1,4 +1,8 @@
-# Web Request
+---
+layout: page
+title: Powershell Web Request
+permalink: /terminal/powershell/web-request
+---
 
 ## Get request piped into a for each
 ```powershell

@@ -1,4 +1,8 @@
-# VPN with WSL
+---
+layout: page
+title: VPN with WSL
+permalink: /terminal/zsh/vpn-with-wsl
+---
 
 ## Make vpn work with wsl
 

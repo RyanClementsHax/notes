@@ -1,4 +1,8 @@
-# Tests
+---
+layout: page
+title: Tests
+permalink: /dotnet/tests
+---
 
 ## Property count equals
 ```c#

@@ -1,4 +1,8 @@
-# Hitting SOAP Endpoints
+---
+layout: page
+title: Hitting SOAP Endpoints
+permalink: /terminal/linux/hitting-soap-endpoints
+---
 
 ## Load testing using Hey
 ```shell

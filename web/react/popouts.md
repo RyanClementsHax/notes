@@ -1,4 +1,8 @@
-# Popouts
+---
+layout: page
+title: React Popouts
+permalink: /web/react/popouts
+---
 
 ## Popout Component
 - to close popout on window close, hook onto the `beforeunload` event on the main window

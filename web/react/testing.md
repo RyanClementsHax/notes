@@ -1,4 +1,8 @@
-# Testing
+---
+layout: page
+title: React Testing
+permalink: /web/react/testing
+---
 
 ## Wrappers
 - updating the wrapper

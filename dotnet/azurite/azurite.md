@@ -1,4 +1,8 @@
-# Azurite
+---
+layout: page
+title: Azurite
+permalink: /dotnet/azurite
+---
 
 ## Connecting to azurite in docker compose
 1. Set your storage connection string to the following

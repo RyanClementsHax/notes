@@ -1,4 +1,8 @@
-# Redux Tool Kit
+---
+layout: page
+title: Redux Tool Kit
+permalink: /web/redux/tool-kit
+---
 
 ## Component loading
 

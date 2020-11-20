@@ -1,4 +1,8 @@
-# HTTP
+---
+layout: page
+title: HTTP
+permalink: /web/http
+---
 
 - upgrade all http ajax requests
 ```html

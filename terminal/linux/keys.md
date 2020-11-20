@@ -1,4 +1,8 @@
-# Keys
+---
+layout: page
+title: Keys
+permalink: /terminal/linux/keys
+---
 
 ## Verify public keys
 - This generates a public key for a given private key

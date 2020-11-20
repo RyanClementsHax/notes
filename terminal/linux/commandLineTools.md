@@ -1,4 +1,8 @@
-# Command Line Tools
+---
+layout: page
+title: Command Line Tools
+permalink: /terminal/linux/command-line-tools
+---
 
 ## Get OS info
 ```shell

@@ -1,4 +1,8 @@
-# Controllers
+---
+layout: page
+title: Controllers
+permalink: /dotnet/webapi/controllers
+---
 
 ## Response types
 ```c#

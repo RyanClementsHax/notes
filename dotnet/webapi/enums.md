@@ -1,4 +1,8 @@
-# Enums
+---
+layout: page
+title: Enums
+permalink: /dotnet/webapi/enums
+---
 
 # Serializing enums
 ```c#

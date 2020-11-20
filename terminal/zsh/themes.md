@@ -1,4 +1,8 @@
-# Themes
+---
+layout: page
+title: Z-Shell Themes
+permalink: /terminal/zsh/themes
+---
 
 ## Themes I really like:
 1. fino

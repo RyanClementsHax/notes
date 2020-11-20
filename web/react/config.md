@@ -1,4 +1,8 @@
-# Config
+---
+layout: page
+title: React Config
+permalink: /web/react/config
+---
 
 ## Absolute imports
 ```json

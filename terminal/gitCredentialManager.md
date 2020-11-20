@@ -1,4 +1,8 @@
-# Git Credential Manager
+---
+layout: page
+title: Git Credential Manager
+permalink: /terminal/git-credential-manager
+---
 
 ## Set up git credential manager in wsl
     ```bash

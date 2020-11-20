@@ -1,4 +1,8 @@
-# Axios
+---
+layout: page
+title: Axios
+permalink: /web/axios
+---
 
 ## Interceptors
 - Interceptors override config placed in the request

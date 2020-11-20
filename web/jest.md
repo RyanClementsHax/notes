@@ -1,4 +1,8 @@
-# Jest
+---
+layout: page
+title: Jest
+permalink: /web/jest
+---
 
 ## Global
 - When mocking out anything in the global scope, you mock it out on the `global` object

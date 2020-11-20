@@ -1,4 +1,8 @@
-# CORS
+---
+layout: page
+title: CORS
+permalink: /dotnet/webapi/cors
+---
 
 # Configuring CORS
 ```c#

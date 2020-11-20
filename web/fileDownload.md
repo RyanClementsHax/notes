@@ -1,4 +1,8 @@
-# File Download
+---
+layout: page
+title: File Download
+permalink: /web/file-download
+---
 
 ## Downloading a file in js
 ```js

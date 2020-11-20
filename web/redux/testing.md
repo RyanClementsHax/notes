@@ -1,4 +1,8 @@
-# Testing Redux
+---
+layout: page
+title: Redux Testing
+permalink: /web/redux/testing
+---
 
 ## Reducers and Selectors
 - Can parameterize selector/reducer tests

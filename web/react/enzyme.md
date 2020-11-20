@@ -1,4 +1,8 @@
-# Enzyme
+---
+layout: page
+title: React Enzyme
+permalink: /web/react/enzyme
+---
 
 ## General
 - Finding component by props

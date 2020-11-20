@@ -1,4 +1,8 @@
-# OAUTH
+---
+layout: page
+title: OAUTH
+permalink: /dotnet/webapi/oauth
+---
 
 ## Setup with Swagger
 

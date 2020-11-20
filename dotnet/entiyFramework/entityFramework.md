@@ -1,4 +1,8 @@
-# Entity Framework
+---
+layout: page
+title: Entity Framework
+permalink: /dotnet/entity-framework
+---
 
 ## Code first
 

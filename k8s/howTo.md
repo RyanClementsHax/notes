@@ -1,4 +1,8 @@
-# How To
+---
+layout: page
+title: How To
+permalink: /k8s/how-to
+---
 
 ## Get logs
 ```shell

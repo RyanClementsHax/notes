@@ -1,4 +1,8 @@
-# How To
+---
+layout: page
+title: Docker How To
+permalink: /docker/how-to
+---
 
 ## Run azurite
 ```shell

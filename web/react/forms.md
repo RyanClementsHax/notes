@@ -1,4 +1,8 @@
-# Forms
+---
+layout: page
+title: React Forms
+permalink: /web/react/forms
+---
 
 - preventing page reload on form submit
     ```js
@@ -9,4 +13,4 @@
     ```
 - good form libraries
     1. [Formik](https://formik.org/docs/overview)
-    1. [Redux Form](https://redux-form.com/8.3.0/)
+    2. [Redux Form](https://redux-form.com/8.3.0/)

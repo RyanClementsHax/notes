@@ -1,4 +1,8 @@
-# Upgrading Projects
+---
+layout: page
+title: Upgrading Projects
+permalink: /misc/upgrading-projects
+---
 
 ## Tips
 - Sometimes you can delete dependencies instead of going through the hastle of upgrading them

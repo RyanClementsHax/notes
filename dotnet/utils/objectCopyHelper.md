@@ -1,4 +1,8 @@
-# Object Copy Helper
+---
+layout: page
+title: Object Copy Helper
+permalink: /dotnet/object-copy-helper
+---
 
 ```c#
 public static class ObjectCopyHelper
