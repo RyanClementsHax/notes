@@ -30,3 +30,8 @@ mkdir -p /opt/local_folder
 sudo mount -t cifs -v -o credentials=/opt/smbcreds //network_drive_location/remote_folder /opt/local_folder
 ```
 - `//` is very important
+
+## Delete all containers
+```bash
+docker rm $(docker ps -a -q)
+```
