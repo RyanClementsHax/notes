@@ -8,6 +8,7 @@
 - Do the upgrade on a feature branch
 - Never assume that every line of code in the repo is correct
     - Ex: When upgrading, I once found a preexisting faulty config file that was causing errors in a newer version of a package
+- Sometimes you have to bite the bullet and read tons of documentation to figure out how your tech works
 
 ## Upgrading Java Projects
 - Just because it doesn't show up in the maven dependency tree, it doesn't mean that it isn't a dependency
