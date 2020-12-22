@@ -1,0 +1,35 @@
+# Chapter 3: Stability and Reliability
+
+- check list
+    - it has a standardized development cycle
+    - its code is thoroughly testing through lint, unit, integration, and e2e testing
+    - its test, packaging, build, and release process is completely automated
+    - it has a standardized deployment pipeline, containing staging, canary, and production phases
+    - its clients are known
+    - its dependencies are known, and there are backups, alternatives, fallbacks, and caching in place in case of failures
+- staging
+    - treat staging and production as separate deployments of the same service
+    - full staging
+        - complete mirror copy of production
+        - although host parity need not be held
+        - may need coordination with other teams to prevent breaking staging
+    - partial staging
+        - the service to be deployed communicates with upstream and downstream production services
+        - be sure to mark any data written as test data, also called test tenancy, and remove it regularly
+        - realize that production access has big risks even with only read access
+            - can still overload production servers or return bad responses
+- canary
+    - the canary pool should contain servers in each data center being deployed to
+- hotfixes
+    - bypassing the normal deployment pipeline is an antipattern
+    - bypassing should only be reserved for absolute emergencies and even then, rolling back to a previous version is preferred if possible
+- dependencies
+    - the quality of your service can be bottle necked by the quality of your service's dependencies
+    - these need to be fully known for a production ready microservice
+    - caches can be helpful for when dependencies go down
+- routing and discovery
+    - route to only healthy serivces
+        - health checks should aggregate dependency health into them if possible instead of hardcoding OK, although that may be appropriate for some services
+    - circuit breaker pattern helpful here
+- deprication and decommissioning
+    - this is more of a organizational and managerial problem than a technical one

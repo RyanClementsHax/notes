@@ -30,3 +30,10 @@ cat sealed_file \
 ```shell
 kubectl rollout restart deploy/your_deployment --context your_context
 ```
+
+## Delete replicaset
+```shell
+kubectl delete replicaset $NAME
+```
+- this can be useful when the old versions are still running and the new ones failed
+- this will allow the new ones to take over without a completely new rollout
