@@ -1,7 +1,7 @@
 # How To
 
 ## Run azurite
-```shell
+```bash
 docker run -d -p 10000:10000 -p 10001:10001 --name azurite -v path_to_where_you_want_azurite_to_save_files_to:/data mcr.microsoft.com/azure-storage/azurite:latest
 ```
 

@@ -28,3 +28,8 @@ curl -O downloaded_file_name -L url_to_download_from \
   - you can also do `curl <address> -o <file>`
 - curl can be configured to follow redirects with the `-L` option
 - tar can be given an output directory with the `-C` option
+
+## Print all env vars
+```bash
+printenv
+```
