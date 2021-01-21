@@ -5,6 +5,13 @@
 uname -a
 ```
 
+## Get Debian Version
+```bash
+cat /etc/issue
+# or
+cat /etc/os-release
+```
+
 ## Make file of random bits
 ```bash
 dd if=/dev/urandom of=sample.dat bs=1M count=64
