@@ -33,3 +33,13 @@ curl -O downloaded_file_name -L url_to_download_from \
 ```bash
 printenv
 ```
+
+## Find package source for package
+```bash
+apt-cache policy <package name>
+```
+
+## List all installed packages
+```bash
+apt list --installed
+```
