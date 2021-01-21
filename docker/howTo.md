@@ -35,3 +35,8 @@ sudo mount -t cifs -v -o credentials=/opt/smbcreds //network_drive_location/remo
 ```bash
 docker rm $(docker ps -a -q)
 ```
+
+## Delete all images
+```bash
+docker rmi $(docker images -a -q)
+```
