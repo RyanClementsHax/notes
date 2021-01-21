@@ -1,4 +1,4 @@
-# How To
+# cmd
 
 ## Create a symbolic link with a network drive
 ```cmd

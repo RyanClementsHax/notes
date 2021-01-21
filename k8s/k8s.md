@@ -1,4 +1,4 @@
-# How To
+# k8s
 
 ## Get logs
 ```bash

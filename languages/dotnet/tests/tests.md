@@ -67,26 +67,37 @@ public static void AssertAll<T>(this IEnumerable<T> enumerable, Action<T> assert
 ```
 
 ## Writing a large test using docker compose
+- refer to [Large Tests Using Docker](../../../docker/largeTestsUsingDocker.md) for more resources
 1. create a large test
 1. create a docker file that runs the test
-    - the base image should be the sdk you are using instead of the runtime env (likely)
+    - the base image should be the sdk you are using instead of the runtime env (ex: `mcr.microsoft.com/dotnet/sdk:3.1`)
     - the entrypoint should be the test command with a [filter](https://docs.microsoft.com/en-us/dotnet/core/testing/selective-unit-tests?pivots=mstest) for the test/tests you want to run
     ```dockerfile
-    ENTRYPOINT ["dotnet", "test", "--filter", "FullyQualifiedName=namespace.to.your.test.class.test_name"]
+    FROM mcr.microsoft.com/dotnet/sdk:3.1
+    COPY . /app
+    WORKDIR /app
+    RUN dotnet build
+    ENTRYPOINT ["dotnet", "test", "--no-build", "--filter", "FullyQualifiedName=namespace.to.your.test.class.test_name"]
     ```
-1. create a docker compose that starts your service using the docker file you created
+      - you can leave out the `RUN dotnet build` and `--no-build` flag if you want the build to happen when you run the container
+2. create a docker compose that starts your service using the docker file you created
     ```yml
     services:
+      db:
+        image: mcr.microsoft.com/mssql/server:2019-latest
+        environment:
+          ACCEPT_EULA: "Y"
+          SA_PASSWORD: "$DB_PASSWORD"
       your_service:
         build:
           context: .
           dockerfile: your-large-test.Dockerfile
           image: your-large-test # can be whatever
+        depends_on:
+          - db
     ```
-1. run the following commands to run your test
+3. run the following commands to run your test
     ```bash
-    docker-compose -f your-large-test.docker-compose.yml build
-    docker-compose -f your-large-test.docker-compose.yml up
+    docker-compose -f your-large-test.docker-compose.yml up --build
     ```
-    - you need to rerun the first command every time you want to run the test again, else it will use the previously built one (there might be a way around this)
-1. preferrably leave a comment on the large test and/or in the README with instructions on how to run this test
+4. preferrably leave a comment on the large test and/or in the README with instructions on how to run this test
