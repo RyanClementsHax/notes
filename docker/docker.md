@@ -43,3 +43,8 @@ docker rmi $(docker images -a -q)
 
 ## Ports
 host_port:container_port
+
+## Exec into running container
+```bash
+docker exec -it container_name_or_id /bin/bash
+```
