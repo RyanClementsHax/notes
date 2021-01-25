@@ -40,3 +40,6 @@ docker rm $(docker ps -a -q)
 ```bash
 docker rmi $(docker images -a -q)
 ```
+
+## Ports
+host_port:container_port
