@@ -48,3 +48,16 @@ apt list --installed
 ```bash
 cat /etc/shells
 ```
+
+## Count the number of files in a directory
+```bash
+find <dir> -type f | wc -l
+```
+
+## Get size of directory
+```bash
+du -sh
+```
+- `du` estimates the disk usage (du) of the directory recursively in question
+- `-s` is to print out size
+- `-h` is to make it human readable
