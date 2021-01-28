@@ -10,3 +10,5 @@
 set -euo pipefail
 IFS=$'\n\t'
 ```
+- using `set -u` will cause you to have to make sure variables are defined before using them
+  - when using arguments, you need to give a default value when using it to make the script happy

@@ -43,3 +43,8 @@ apt-cache policy <package name>
 ```bash
 apt list --installed
 ```
+
+## Print all available shells
+```bash
+cat /etc/shells
+```

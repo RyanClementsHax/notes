@@ -23,3 +23,7 @@ services:
     build:
       context: .
 ```
+
+## Force recreating the containers
+- add `--force-recreate` to `docker-compose up` to recreate the containers (using cache) instead of spinning up the last container made
+- this is good if the containers go through mutations when running
