@@ -48,3 +48,10 @@ host_port:container_port
 ```bash
 docker exec -it container_name_or_id /bin/bash
 ```
+
+## `.dockerignore`
+- only used at build time
+- when docker sends over the build context to the daemon, it won't include anything specified in this file
+- can specify a `.dockerignore` per docker file
+  - `foo.Dockerfile` gets `foo.dockerignore`
+  - `bar.Dockerfile` gets `bar.dockerignore`
