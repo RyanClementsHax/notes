@@ -12,3 +12,5 @@ IFS=$'\n\t'
 ```
 - using `set -u` will cause you to have to make sure variables are defined before using them
   - when using arguments, you need to give a default value when using it to make the script happy
+- getting `set -e` functionality within a function is tricky
+  - [this](https://stackoverflow.com/questions/4072984/how-do-i-get-the-effect-and-usefulness-of-set-e-inside-a-shell-function) this Stack Overflow article explains how to achieve this
