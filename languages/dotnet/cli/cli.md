@@ -18,3 +18,13 @@
 
 ## `dotnet clean`
 - cleans out the `bin` and `obj` folders but doesn't delete the folder structures created by `dotnet build` and `dotnet restore`
+
+## [`dotnet sln`](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-sln)
+- adding a project to a solution:
+    ```bash
+    dotnet sln your.sln add proj1.csproj [proj2.csproj...]
+    ```
+- creating a new sln
+    ```bash
+    dotnet new sln name_of_sln.sln
+    ```
