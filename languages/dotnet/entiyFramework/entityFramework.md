@@ -3,7 +3,7 @@
 ## Code first
 
 ### Migration
-```shell
+```bash
 dotnet ef database update last_migration_name --startup-project your_database_project --verbose
 dotnet ef migrations remove --startup-project your_database_project
 dotnet ef migrations add new_migration_name --startup-project your_database_project

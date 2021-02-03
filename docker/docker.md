@@ -1,7 +1,7 @@
-# How To
+# Docker
 
 ## Run azurite
-```shell
+```bash
 docker run -d -p 10000:10000 -p 10001:10001 --name azurite -v path_to_where_you_want_azurite_to_save_files_to:/data mcr.microsoft.com/azure-storage/azurite:latest
 ```
 
@@ -35,3 +35,23 @@ sudo mount -t cifs -v -o credentials=/opt/smbcreds //network_drive_location/remo
 ```bash
 docker rm $(docker ps -a -q)
 ```
+
+## Delete all images
+```bash
+docker rmi $(docker images -a -q)
+```
+
+## Ports
+host_port:container_port
+
+## Exec into running container
+```bash
+docker exec -it container_name_or_id /bin/bash
+```
+
+## `.dockerignore`
+- only used at build time
+- when docker sends over the build context to the daemon, it won't include anything specified in this file
+- can specify a `.dockerignore` per docker file
+  - `foo.Dockerfile` gets `foo.dockerignore`
+  - `bar.Dockerfile` gets `bar.dockerignore`
