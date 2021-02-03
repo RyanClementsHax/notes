@@ -10,6 +10,47 @@ dotnet ef migrations add new_migration_name --startup-project your_database_proj
 dotnet ef database update --startup-project your_database_project --verbose
 ```
 
+### Issue with migration script generation
+
+Due to an issue in the ef-core cli tool, the --idempotent flag forces the IF statement making the changes idempotent cannot have a batch inside it. This is normally fine but for ALTER FUNCTION statements that need to be in their own batch, this causes an issue. The solution is to put the in a dynamic sql query.
+
+Fails
+```c#
+protected override void Up(MigrationBuilder migrationBuilder)
+{
+    var sp = @"
+        ALTER FUNCTION [dbo].[thing]
+        (
+            @ContactID INT = NULL,
+            @OperationID INT = NULL
+        )
+        ...
+        ";
+
+    migrationBuilder.Sql(sp);
+}
+```
+
+Works
+```c#
+protected override void Up(MigrationBuilder migrationBuilder)
+{
+    var sp = @"
+        DECLARE @Sql NVARCHAR(MAX)
+        SET @Sql = '
+        ALTER FUNCTION [dbo].[thing]
+        (
+            @ContactID INT = NULL,
+            @OperationID INT = NULL
+        )
+        ...'
+        EXEC(@Sql)
+        ";
+
+    migrationBuilder.Sql(sp);
+}
+```
+
 ### SQLite issue
 - put this in the context class to avoid errors with the date format for `SQLite`
     - `SQLite` is handy when you want to use it for in memory unit testing
