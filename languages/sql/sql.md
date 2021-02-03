@@ -17,3 +17,12 @@
     select @@Identity
     -- 111
     ```
+
+## `sys.databases`
+- contains information about all the databases on the server
+- can be querried like any other table
+
+    ```sql
+    select *
+    from sys.databases
+    ```

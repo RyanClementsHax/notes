@@ -1,5 +1,12 @@
 # Basics
 
+## Variables
+- readonly
+    ```bash
+    declare -r myVar='foo'
+    myVar='bar' # errors
+    ```
+
 ## #?
 - this is the return code of the previous statement
 - "touching" this will clear out its value
@@ -137,6 +144,53 @@ bash -c "echo 'hello world'"
 - used to call functions on failure or interrupt
 - [useful article](https://opensource.com/article/20/6/bash-trap)
 - can use `trap --list` to see all of the signals it can catch
+
+## Strings
+- lowercase the first letter of a string
+    ```bash
+    str="HELLO"
+    lowerCase=${str,}
+    echo $lowerCase
+    # hELLO
+    ```
+- lowercase a string
+    ```bash
+    str="HELLO"
+    lowerCase=${str,,}
+    echo $lowerCase
+    # hello
+    ```
+- uppercase the first letter of a string
+    ```bash
+    str="hello"
+    upperCase=${str^}
+    echo $upperCase
+    # Hello
+    ```
+- uppercase a string
+    ```bash
+    str="hello"
+    upperCase=${str^^}
+    echo $upperCase
+    # HELLO
+    ```
+
+## touch
+- creates a file
+    ```bash
+    touch file_name
+    ```
+
+## Linking a file
+
+```bash
+ln -s file.txt link1
+```
+
+## Debugging a bash script
+- `bash -x ./myScript.sh` will print out all of the commands and branches taken by that script
+- you can also put this option in the `shebang` as such: `#!/bin/bash -x`
+- to select specific areas to print this debug information, use `set -x` to turn it on and `set +x` to turn it off
 
 ## Misc
 - i've run into problems running a script that I was also modifying at the same time
