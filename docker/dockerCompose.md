@@ -6,7 +6,7 @@ services:
   my_service:
     image: my_image
     logging:
-      driver: none
+      driver: none # default is "local"
 ```
 
 ## Networking
