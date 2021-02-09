@@ -55,3 +55,13 @@ docker exec -it container_name_or_id /bin/bash
 - can specify a `.dockerignore` per docker file
   - `foo.Dockerfile` gets `foo.dockerignore`
   - `bar.Dockerfile` gets `bar.dockerignore`
+
+## COPY move vs rename
+```Dockerfile
+# this moves the file into the container's file path of /some/container/path/ and keeps its same name of file
+COPY ./some/host/path/file /some/container/path/
+# this moves the file into the container's file path of /some/container/ and renames it to path
+COPY ./some/host/path/file /some/container/path
+```
+
+
