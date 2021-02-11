@@ -1,7 +1,7 @@
 # CORS
 
 # Configuring CORS
-```c#
+```cs
 services
     .AddCors(options =>
     {

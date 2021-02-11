@@ -2,7 +2,7 @@
 
 ## Setup with Swagger
 
-```c#
+```cs
 services
     .UseSwaggerUi3(config =>
     {
@@ -20,7 +20,7 @@ services
 ```
 
 ## Config
-```c#
+```cs
 /// <summary>
 /// Call to hold AAD configuration
 /// </summary>
@@ -36,7 +36,7 @@ public class AzureADSettings
 ```
 
 ## Auth logger
-```c#
+```cs
 public class AuthenticationLogger
 {
     private readonly RequestDelegate _next;

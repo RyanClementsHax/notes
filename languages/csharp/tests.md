@@ -1,7 +1,7 @@
 # Tests
 
 ## Property count equals
-```c#
+```cs
 /// <summary>
 /// Asserts that he given type has exactly a number of properties.
 /// </summary>
@@ -19,7 +19,7 @@ public static void PropertyCountEquals(int count, Type type)
 ```
 
 ## Collection assert extensions
-```c#
+```cs
 /// <summary>
 /// Calls .ToList() on both of the IEnumerables first then checks to make sure the lengths are equal,
 /// then lastly asserts that each item of the first list matches the corresponding one in the other list

@@ -1,6 +1,6 @@
 # Object Copy Helper
 
-```c#
+```cs
 public static class ObjectCopyHelper
 {
     /// <summary>
