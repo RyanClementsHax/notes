@@ -26,3 +26,11 @@
     select *
     from sys.databases
     ```
+
+## Strings
+
+## Escape char
+- `'`, its a single quote
+    ```sql
+    '''hello''' -- 'hello'
+    ```
