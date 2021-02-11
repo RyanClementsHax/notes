@@ -64,4 +64,14 @@ COPY ./some/host/path/file /some/container/path/
 COPY ./some/host/path/file /some/container/path
 ```
 
+## Running containers
+- running a container with `-it` allows you to exit it without stopping it by pressing `ctrl+p` then `ctrl+q`
+  - [ref](https://stackoverflow.com/questions/19688314/how-do-you-attach-and-detach-from-dockers-process)
 
+## Tags
+ - [ref](https://forums.docker.com/t/what-is-the-naming-conventions-of-docker-tag/34042)
+ - regex
+    ```go
+    // TagRegexp matches valid tag names. From docker/docker:graph/tags.go.
+    TagRegexp = match(`[\w][\w.-]{0,127}`)
+    ```
