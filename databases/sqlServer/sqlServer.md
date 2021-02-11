@@ -133,3 +133,9 @@ where object_id(quotename(name) + '.[dbo].[the_table]', 'U') is not null
 
     execute sp_executesql @sqlCommand, N'@city nvarchar(75)', @city = @city
     ```
+
+## Multiple Active Result Sets (MARS)
+- [example](https://docs.microsoft.com/en-us/sql/connect/ado-net/sql/manipulate-data?view=sql-server-ver15)
+- allows for concurrent querries on one sql connection
+- _**not thread safe**_
+- needs to explicitly be set in the connection string by setting `MultipleActiveResultSets=True`
