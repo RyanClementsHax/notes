@@ -75,3 +75,8 @@ COPY ./some/host/path/file /some/container/path
     // TagRegexp matches valid tag names. From docker/docker:graph/tags.go.
     TagRegexp = match(`[\w][\w.-]{0,127}`)
     ```
+
+## The daemon
+- this is the process running in the background controlling all of your containers
+- this is not always configured to start up when the os starts up
+  - this can lead to unexpected downtime when your vm restarts but doesn't restart docker
