@@ -1,5 +1,11 @@
 # Fault Tolerance and Catastrophe Preparedness
 
+- check list
+  - it has no single point of failure
+  - all failure scenarios and possible catastrophes have been identified
+  it is tested for resiliency through code testing, load testing, and chaos testing
+  - failure detection and remediation has been automated
+  - there are standardized incident and outage procedures in place within microservice development team and across the organization
 - no microservice is immune to production fires
 - identify and architect away single points of failure
 - identify failure scenarios
@@ -14,3 +20,84 @@
   - it is crucial that this failure testing also happens in production
   - any new failures that occur need to be added to this test suite
 - failure detection and mitigation need to be departmentally standardized
+- single points of failure
+  - they can affect entire ecosystems (even unrelated services) if you aren't careful
+  - task processor breaks -> queue builds up -> queue's machine runs out of memory -> everything on that machine dies
+  - identifying: draw out your architecture and ask the question "what happens if this fails?" for each piece
+- common failure causes
+  - insufficient design reviews
+  - incomplete code reviews
+  - poor development process
+  - unstable deployment procedure
+- common hardware failures
+  - host
+  - rack
+  - datacenter
+  - cloud provider
+  - server provisioning
+  - resource isolation and/or abstraction technology failure
+  - broken config management
+  - failures caused by config changes
+  - failures and gaps in host-level monitoring
+  - failures and gaps in host-level logging
+  - network failure
+  - operational downtime
+  - lack of infrastructure redundancy
+- common communication and application failures
+  - network
+  - DNS
+  - RPC
+  - improper handling of requests/responses
+  - messaging system failures
+  - failures in service discovery and service registry
+  - improper load balancing
+  - failure of development tools and development env
+  - failures in the test, package, build, and release pipelines
+  - deployment pipeline failures
+  - failures and gaps in microservice-level logging
+  - failures and gaps in microservice-level monitoring
+- common dependency failures
+  - downstream microservice failurs
+  - internal service outages
+  - external (third-party) service outages
+  - internal library failures
+  - external (third-party) library failures
+  - dependency failing to meet its SLA
+    - the SLA of a service can only be as good as the product of all of the uptime percentages of downstream dependencies
+  - api endpoint deprecation
+  - api endpoint decommissioning
+  - microservice deprecation
+  - microservice decommissioning
+  - interface or endpoint deprecation
+  - timeouts to a downstream service
+  - timeoutes to an external dependency
+- common internal failures
+  - this is the most common scenario that a microservice team would be concerned with
+  - incomplete code reviews
+  - poor architecture and design
+  - lack of proper unit and integration tests
+  - bad deployments
+  - lack of proper monitoring
+  - improper error and exception handling
+  - db failure
+  - scalability limitations
+- resiliency testing
+  - code testing
+    - lint
+    - unit
+    - integration
+    - e2e
+    - automating tests
+  - load testing
+    - it can be used to verify that a microservice meets a specification for load
+    - it can also be used to find what a microservice can handle so that specifications for load can be set
+    - good for staging environments
+    - still need to load test prod tho
+    - alert downstream dependencies
+    - this needs standardization if being done department wide
+    - scheduled regularly
+    - test during periods of low trafic **never during peak hours**
+    - target traffic loads are calculated using qualitative and quantitative growth scales
+    - runs at each stage of the deployment pipeline
+    - it is logged
+    - it is automated
