@@ -101,3 +101,53 @@
     - runs at each stage of the deployment pipeline
     - it is logged
     - it is automated
+  - chaos testing
+    - logging is critical in case things go rogue
+    - expect teams to run standard tests
+    - give teams the abilities to create new custom ones too
+    - examples
+      - disable the api endpoint of one of a microservice's deps
+      - stop all traffic requests to a dep
+      - introduce latency between various parts of the ecosystem to mimic network problems
+        - between clients and deps
+        - between microservices and shared dbs
+        - between microservices and distrib task processinc systems
+        - etc
+      - stop all traffic to a datacenter or a region
+      - take out a host at random by shutting down one machine
+- failure detection and remediation
+  - number 1 goal: reduce impact on users
+  - rolling back changes (even low level ones) is one good strategy
+  - failing over to stable alternative is good too
+    - like rerouting traffic to a different datacenter
+  - **requires monitoring**
+  - automating mitigation strategies reduces the human error chance (prob faster too)
+- incidents and outages
+  - categorization
+    - categorizing microservices
+      - based on impact to overall ecosystem and criticality to business
+      - infrastructure and application platform layers are always of highest criticality
+    - categorizing indicents
+      - so everyone knows the severity of a failure
+      - two axes: severity and scope
+      - severity is linked to the categorization of the application, microservice, or system in question
+      - scope relates to how much of the ecosystem is affected
+- incident response stages
+  1. assessment
+     - needs monitoring
+     - for determining the severity and scope
+  2. coordination
+     - communication with other developers and teams
+     - need clear channels for this
+  3. mitigation
+     - first worry about users/clients
+     - this isn't resolution
+     - issues are mitigated when both its availability and availability of its clients are no longer compromised
+  4. resolution
+     - this is when the clock stops ticking
+  5. follow up
+     - postmortems need to be made
+       - most effective when blameless
+     - learning what happened
+     - plans of action for how to avoid it in the future
+     - 
