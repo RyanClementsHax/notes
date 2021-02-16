@@ -26,3 +26,20 @@
     select *
     from sys.databases
     ```
+
+## Idempotent Scripts
+
+- Can be useful if a script needed to be able to be run more than once but only have a single effect
+- Many ways to do this but here is one of the easiest 
+
+    ```sql
+    IF NOT EXISTS (SELECT 1 FROM SOME_TABLE WHERE ID = 123)
+    BEGIN
+
+        INSERT INTO SOME_TABLE
+        (ID, stuff, stuff2, stuff3)
+        VALUES
+        ('123', 'Foo', 'Barr', 'Bang');
+
+    END
+    ```
