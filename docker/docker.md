@@ -64,6 +64,15 @@ COPY ./some/host/path/file /some/container/path/
 COPY ./some/host/path/file /some/container/path
 ```
 
+## RUN
+- a `cd` in this command doesn't change the working directory
+```Dockerfile
+WORKDIR /app
+RUN cd src/
+# this will run in context of /app
+RUN npm install
+```
+
 ## Running containers
 - running a container with `-it` allows you to exit it without stopping it by pressing `ctrl+p` then `ctrl+q`
   - [ref](https://stackoverflow.com/questions/19688314/how-do-you-attach-and-detach-from-dockers-process)
@@ -80,3 +89,6 @@ COPY ./some/host/path/file /some/container/path
 - this is the process running in the background controlling all of your containers
 - this is not always configured to start up when the os starts up
   - this can lead to unexpected downtime when your vm restarts but doesn't restart docker
+
+## restart
+- this is just a light wrapper around `docker stop <container>` and `docker start <container>`

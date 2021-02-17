@@ -96,3 +96,29 @@
         }
     }
     ```
+
+## Query multiple
+- it is possible to execute multiple queries in one statement
+- it is unknown to me if you have the fancy splitting features available to you when using this feature
+```cs
+string sql = "SELECT * FROM Invoice WHERE InvoiceID = @InvoiceID; SELECT * FROM InvoiceItem WHERE InvoiceID = @InvoiceID;";
+
+using (var connection = My.ConnectionFactory())
+{
+    connection.Open();
+
+    using (var multi = connection.QueryMultiple(sql, new {InvoiceID = 1}))
+    {
+        var invoice = multi.Read<Invoice>().First();
+        var invoiceItems = multi.Read<InvoiceItem>().ToList();
+    }
+}
+```
+
+## Query for a dictionary
+```cs
+var dict = conn.Query(sql, args).ToDictionary(
+    row => (string)row.UniqueString,
+    row => (int)row.Id
+);
+```

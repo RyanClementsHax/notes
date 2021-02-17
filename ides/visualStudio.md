@@ -8,3 +8,7 @@
 1. create a folder on your windows file system to symlink into the WSL file system
 2. [create the symlink](../../../terminals/cmd/cmd.md#create-a-symbolic-link-with-a-network-drive)
 3. open the code in visual studio using the file path that contains this symlink
+
+## Debuggging unit tests
+- you would expect visual studio to break on unhandled exception when running unit tests
+- [this is not the case](https://stackoverflow.com/questions/1488282/why-doesnt-visual-studio-break-on-exceptions-when-debugging-unit-tests) as the test framework technically catches it

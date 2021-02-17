@@ -24,7 +24,8 @@
 
 ## Snapshots
 - creates a read only version of the db at the time of creation
-- you can only create one from what I know
+- you can only create one at a time by design
+- the snapshot can be found like any other db in `sys.databases` but it will reference the db it was created off of in the `source_database_id` column
 - comparison with backups \
 ![Comparison with backups](./snapshotVsBackup.png)
 - creating
@@ -59,6 +60,27 @@
         ```
     - the performance of restore scales with the number of pages you "dirty" since creating the snapshot
     - unoptimized, even without "dirtying" pages, the snapshots seem to take 1.5sec each
+    - conditionally restoring is pretty simple, but should be broken up over a few queries as there is no support to do this in one statement
+    - if the condition is to only apply an update if the db has been modified since taking the snapshot, you have to do a light hack to get this working
+      - there is no date field that stores when a snapshot was applied
+      - you would need to create your own table
+      - if that is not an option, you can take the last write date that happened to a database and compare that with when the snapshot was created
+      - the following query can be used to check this, but sql server will wipe the last right time on server restart, so on restart it would be ideal to restore the snapshot (cuz there is no other way of telling if the database has been modified since that I know of) and then recreate the snapshot (which is instant) so you can update the create data
+        ```sql
+          select dbs.name as catalogName, snapshots.name as snapshotName, snapshots.create_date as createDate,
+          case
+              when snapshots.name is null then null
+              when max(last_user_update) is null and (select sqlserver_start_time from sys.dm_os_sys_info) < snapshots.create_date then 1
+              when max(last_user_update) < snapshots.create_date then 1
+              else 0
+          end as isInSyncWithCatalog
+          from sys.databases dbs
+          left join sys.databases snapshots on dbs.database_id = snapshots.source_database_id
+          left join sys.dm_db_index_usage_stats stats on dbs.database_id = stats.database_id
+          where dbs.source_database_id is null
+          group by dbs.name, snapshots.name, snapshots.create_date
+        ```
+          - it is important to do `max(last_user_update)` because there could be many stats rows for the same db snapshot pair in this query
 - snapshots can be optimized a [few ways](https://dba.stackexchange.com/questions/179695/fastest-way-to-restore-a-sql-server-database)
 
 ## Instant file initialization
@@ -139,3 +161,54 @@ where object_id(quotename(name) + '.[dbo].[the_table]', 'U') is not null
 - allows for concurrent querries on one sql connection
 - _**not thread safe**_
 - needs to explicitly be set in the connection string by setting `MultipleActiveResultSets=True`
+
+## Check if db exists
+```sql
+declare @dbName nvarchar(max) = 'my_db'
+
+if (
+    exists (
+        select name 
+        from master.dbo.sysdatabases 
+        where '[' + name + ']' = @dbName 
+        or name = @dbName
+    )
+)
+begin
+    print('exists');
+end
+else
+begin
+    print('doesnt exist');
+end
+```
+
+## `sys.databases`
+- contains information about all the databases on the server
+- can be querried like any other table
+
+    ```sql
+    select *
+    from sys.databases
+    ```
+
+## `@@Identity`
+- returns the most recently generated identity value
+    ```sql
+    select max(id) as MaxUsedIdentity
+    from EmployeeData
+    -- lets say this outputs 110
+
+    insert into EmployeeData values ('Raj')
+    -- generates id of 111
+
+    select max(id) as MaxUsedIdentity
+    from EmployeeData
+    -- 111
+
+    select @@Identity
+    -- 111
+    ```
+
+## `sys.dm_db_index_usage_stats`
+- holds some stats on the databases on the server
