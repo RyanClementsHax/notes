@@ -15,6 +15,7 @@
   - can disable implicit restore with `--no-restore`
   - can disable implicit build with `--no-build`
 - running `dotnet test --no-build` without building the project first will result in odd errors like: `error MSB4181: The "Microsoft.TestPlatform.Build.Tasks.VSTestTask" task returned false but did not log an error.`
+- logging in tests not showwing up? try adding the following command line option: `--logger:"console;verbosity=detailed"`
 
 ## `dotnet clean`
 - cleans out the `bin` and `obj` folders but doesn't delete the folder structures created by `dotnet build` and `dotnet restore`

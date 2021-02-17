@@ -1,7 +1,7 @@
 # Controllers
 
 ## Response types
-```c#
+```cs
 [HttpPost("foo")]
 [ProducesResponseType(StatusCodes.Status200OK)]
 [ProducesResponseType(typeof(ValidationResult), StatusCodes.Status400BadRequest)]
@@ -28,7 +28,7 @@ public IActionResult Foo([FromQuery, Required] DateTime beginDate)
 ```
 
 ## Regex
-```c#
+```cs
 [HttpGet("foo/{param}")]
 public IActionResult Foo([RegularExpression(@"^\d{10}$", ErrorMessage="param must be 10 digits")] string param)
 ```

@@ -6,7 +6,7 @@ services:
   my_service:
     image: my_image
     logging:
-      driver: none
+      driver: none # default is "local"
 ```
 
 ## Networking
@@ -40,3 +40,15 @@ docker-compose -f base.docker-compose.yml -f prod.docker-compose.yml up
 
 ## `.dockerignore`
 - as of 1/28/21, there is no way to tell `docker-compose` to use a specific `.dockerignore` file, it will only use the one it finds in the root of the build context directory you supply it
+
+## Using env vars
+- `docker-compose` files allow you to do [env subsitution](https://docs.docker.com/compose/compose-file/compose-file-v3/#variable-substitution)
+- it uses the variables from the shell env it is run from
+- example
+  ```yml
+  db:
+    image: "postgres:${POSTGRES_VERSION}"
+  ```
+- default values are supported too
+  - `${VARIABLE:-default}` evaluates to default if `VARIABLE` is unset or empty in the environment
+  - `${VARIABLE-default}` evaluates to default if `VARIABLE` is unset in the environment

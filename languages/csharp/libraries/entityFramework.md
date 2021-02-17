@@ -15,7 +15,7 @@ dotnet ef database update --startup-project your_database_project --verbose
 Due to an issue in the ef-core cli tool, the --idempotent flag forces the IF statement making the changes idempotent cannot have a batch inside it. This is normally fine but for ALTER FUNCTION statements that need to be in their own batch, this causes an issue. The solution is to put the in a dynamic sql query.
 
 Fails
-```c#
+```cs
 protected override void Up(MigrationBuilder migrationBuilder)
 {
     var sp = @"
@@ -32,7 +32,7 @@ protected override void Up(MigrationBuilder migrationBuilder)
 ```
 
 Works
-```c#
+```cs
 protected override void Up(MigrationBuilder migrationBuilder)
 {
     var sp = @"
@@ -54,7 +54,7 @@ protected override void Up(MigrationBuilder migrationBuilder)
 ### SQLite issue
 - put this in the context class to avoid errors with the date format for `SQLite`
     - `SQLite` is handy when you want to use it for in memory unit testing
-    ```c#
+    ```cs
     if (Database.ProviderName == "Microsoft.EntityFrameworkCore.Sqlite")
     {
         modelBuilder.Entity<EntityWithDateTimeOffsetProperty>()
@@ -63,7 +63,7 @@ protected override void Up(MigrationBuilder migrationBuilder)
     }
     ```
     or more generically
-    ```c#
+    ```cs
     if (Database.ProviderName == "Microsoft.EntityFrameworkCore.Sqlite")
     {
         foreach (var entityType in modelBuilder.Model.GetEntityTypes())

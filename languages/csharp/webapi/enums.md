@@ -1,7 +1,7 @@
 # Enums
 
 # Serializing enums
-```c#
+```cs
 services
     .AddControllers()
         .AddNewtonsoftJson(opts => opts.SerializerSettings.Converters.Add(new StringEnumConverter()))

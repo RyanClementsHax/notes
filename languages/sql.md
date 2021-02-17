@@ -43,3 +43,13 @@
 
     END
     ```
+- If you are in a highly concurrent env where this needs to happen in a transaction, Microsoft has a good article on this: https://devblogs.microsoft.com/azure-sql/the-insert-if-not-exists-challenge-a-solution/
+
+
+## Strings
+
+## Escape char
+- `'`, its a single quote
+    ```sql
+    '''hello''' -- 'hello'
+    ```
