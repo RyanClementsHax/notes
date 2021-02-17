@@ -61,3 +61,20 @@ du -sh
 - `du` estimates the disk usage (du) of the directory recursively in question
 - `-s` is to print out size
 - `-h` is to make it human readable
+
+## Get all processes you started
+```bash
+ps -ef | grep `whoami`
+```
+
+## Kill all processes you started
+```bash
+pkill -u `whoami`
+```
+
+## Check if two files are the same
+```bash
+cmp file1 file2
+```
+- this will output the first byte they mismatch
+- if they are the same, it will output nothing
