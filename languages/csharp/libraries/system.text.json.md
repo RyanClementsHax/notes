@@ -46,3 +46,85 @@
         PropertyNamingPolicy = new SnakeCaseNamingPolicy()
     };
     ```
+
+## Deserializing abstract classes
+- [ref](https://josef.codes/polymorphic-deserialization-with-system-text-json/)
+- extending upon the reference listed above, I have added the ability to define type discriminators via attribute
+    ```cs
+    internal class AbstractClassConverter<T> : JsonConverter<T> where T : class
+    {
+        private IDictionary<string, Type> _discriminatorToTypeMap;
+
+        // JsonSerializer caches converters, so you can be sure that this only runs once per type T
+        public AbstractClassConverter()
+            => _discriminatorToTypeMap = Assembly.GetAssembly(typeof(T))
+                .GetTypes()
+                .Where(x => x.IsClass && x.IsSubclassOf(typeof(T)) && x.GetCustomAttributes(typeof(JsonDiscriminatorAttribute)).Any())
+                .ToDictionary(
+                    x => ((JsonDiscriminatorAttribute)x.GetCustomAttribute(typeof(JsonDiscriminatorAttribute))).Discriminator.ToLower(),
+                    x => x
+                );
+
+        public override bool CanConvert(Type typeToConvert) =>
+            typeToConvert.IsAssignableFrom(typeof(T));
+
+        public override T Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        {
+            if (JsonDocument.TryParseValue(ref reader, out var doc))
+            {
+                if (doc.RootElement.TryGetProperty("type", out var typeProp))
+                {
+                    var typeValue = typeProp.GetString();
+
+                    if (_discriminatorToTypeMap.TryGetValue(typeValue.ToLower(), out var type))
+                    {
+                        return JsonSerializer.Deserialize(doc.RootElement.GetRawText(), type, options) as T;
+                    }
+                    else
+                    {
+                        throw new JsonException($"{typeValue} has not been mapped to a custom type yet!");
+                    }
+                }
+
+                throw new JsonException("Failed to extract type property, it might be missing?");
+            }
+
+            throw new JsonException("Failed to parse JsonDocument");
+        }
+
+        public override void Write(Utf8JsonWriter writer, T value, JsonSerializerOptions options)
+        {
+            throw new NotImplementedException();
+        }
+    }
+    ```
+- the attribute is defined as this (no inheritance is important in case multiple classes in the same inheritance chain use this deserializer)
+    ```cs
+    [AttributeUsage(AttributeTargets.Class, Inherited = false, AllowMultiple = false)]
+    internal class JsonDiscriminatorAttribute : Attribute
+    {
+        public string Discriminator { get; init; }
+
+        public JsonDiscriminatorAttribute(string discriminator)
+        {
+            this.Discriminator = discriminator;
+        }
+    }
+    ```
+- declaration on the super class looks like this
+    ```cs
+    [JsonConverter(typeof(AbstractClassConverter<Location>))]
+    public abstract record Location(
+        Vector3 Center
+    );
+    ```
+- declaration on the subclass looks like this
+    ```cs
+    [JsonDiscriminator("cylinder")]
+    public record CylinderLocation(
+        Vector3 Center,
+        double Height,
+        double Radius,
+        double Rotation
+    ) : Location(Center);
+    ```
