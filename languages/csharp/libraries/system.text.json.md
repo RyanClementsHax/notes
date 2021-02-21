@@ -6,6 +6,19 @@
 - as of 2/2021, there doesn't seem to be much of an ecosystem around this, so you might have to build out some of your own wrappers to do what you want
 - otherwise it seems like a solid library and looks a lot like Newtonsoft
 
+## Converter precedence
+- there is an open [github issue](https://github.com/dotnet/runtime/issues/1130) for this
+- converters can be registered at design-time vs run-time and at a property-level vs. class-level. The basic rules for priority over which is selected
+    - Run-time has precedence over design-time
+    - Property-level has precedence over class-level
+    - User-specified has precedence over built-in
+- thus the priority from highest to lowest:
+    - runtime+property: Future feature: options.Converters.Add(converter, property)
+    - designtime+property: [JsonConverter] applied to a property.
+    - runtime+class: options.Converters.Add(converter)
+    - designtime+class: [JsonConverter] applied to a custom data type or POCO.
+    - Built-in converters (primitive types, JsonElement, arrays, etc).
+
 ## Serializing Enums
 - as expected, enum serialization is as ints
 - you need to specifically include an enum converter to map strings to enums and vice versa
