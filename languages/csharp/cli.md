@@ -1,5 +1,8 @@
 # [CLI](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet)
 
+## Installing the SDK
+- [there is a command line helper for installing this](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-install-script)
+
 ## `dotnet restore`
 - `dotnet restore` restores the packages, but does not build
 - i have come by a problem where this command when run in a dockerfile would stall
@@ -29,3 +32,13 @@
     ```bash
     dotnet new sln name_of_sln.sln
     ```
+
+## `dotnet tools`
+- for installing add on cli features like `dotnet ef`
+- needs a path to the tools installation folder in order to work
+  - i had to manually add it to my path for wsl `PATH="$PATH:$HOME/.dotnet/tools"`, but it should be automatically configured
+  - not having this on your path will lead to frustrating errors
+- installing a tool
+  ```bash
+  dotnet tool install --global dotnet-ef [--version some.version.number]
+  ```

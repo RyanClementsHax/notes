@@ -2,6 +2,19 @@
 
 ## Code first
 
+### Ensuring a db created on startup
+- [ref](http://www.binaryintellect.net/articles/87446533-54b3-41ad-bea9-994091686a55.aspx)
+```cs
+public void Configure(IApplicationBuilder app, IWebHostEnvironment env, AppDbContext db)
+{
+    // ...
+
+    db.Database.EnsureCreated();
+
+    // ...
+}
+```
+
 ### Migration
 ```bash
 dotnet ef database update last_migration_name --startup-project your_database_project --verbose
@@ -88,3 +101,8 @@ protected override void Up(MigrationBuilder migrationBuilder)
 Scaffold-DbContext "Data Source=your_db_server_host_name; Integrated Security=True;MultipleActiveResultSets=True; Initial Catalog=your_db" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Tables "Table1","Table2" -f
 ```
 - `-f` is for overriding existing class files generated previously
+
+
+## Handling migrations
+- [there are many ways to create migrations](https://www.thereformedprogrammer.net/handling-entity-framework-core-database-migrations-in-production-part-1/#1a-standard-ef-core-c-migration-script) each has tradeoffs
+- [there are many ways to apply migrations](https://www.thereformedprogrammer.net/handling-entity-framework-core-database-migrations-in-production-part-2/) each has tradeoffs

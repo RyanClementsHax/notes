@@ -233,6 +233,65 @@ end
   ```sql
   dbcc shrinkfile(file_name, percentage_to_shrink_to)
   ```
+- get file utilization for a given db
+  ```sql
+  use db_to_check
+
+  select 
+    LogicalName = dbf.name
+    ,FileType = dbf.type_desc
+    ,FilegroupName = fg.name
+    ,PhysicalFileLocation = dbf.physical_name
+    ,FileSizeMB = convert(decimal(10,2),dbf.size/128.0)
+    ,UsedSpaceMB = convert(decimal(10,2),dbf.size/128.0 
+      - ((dbf.size/128.0) - cast(fileproperty(dbf.name, 'SPACEUSED') as int)/128.0))
+    ,FreeSpaceMB = convert(decimal(10,2),dbf.size/128.0 
+      - cast(fileproperty(dbf.name, 'SPACEUSED') as int)/128.0)
+  from sys.database_files dbf 
+  left join sys.filegroups fg on dbf.data_space_id = fg.data_space_id 
+  order by dbf.type desc, dbf.name; 
+  ```
+- get index utilization
+  ```sql
+  select 
+    index_id, partition_number, alloc_unit_type_desc
+    ,index_level, page_count, avg_page_space_used_in_percent
+  from sys.dm_db_index_physical_stats
+    (
+      db_id() /*Database */
+      ,object_id(N'dbo.MyTable') /* Table (Object_ID) */
+      ,-1 /* Index ID */
+      ,null /* Partition ID – NULL – all partitions */
+      ,'detailed' /* Mode */
+    )
+  ```
+- get table usage stats
+  ```sql
+  use db_to_check
+
+  select 
+    s.Name + N'.' + t.name as [Table]
+    ,i.name as [Index] 
+    ,i.is_unique as [IsUnique]
+    ,ius.user_seeks as [Seeks], ius.user_scans as [Scans]
+    ,ius.user_lookups as [Lookups]
+    ,ius.user_seeks + ius.user_scans + ius.user_lookups as [Reads]
+    ,ius.user_updates as [Updates], ius.last_user_seek as [Last Seek]
+    ,ius.last_user_scan as [Last Scan], ius.last_user_lookup as [Last Lookup]
+    ,ius.last_user_update as [Last Update]
+  from 
+    sys.tables t with (nolock) join sys.indexes i with (nolock) on
+      t.object_id = i.object_id
+    join sys.schemas s with (nolock) on 
+      t.schema_id = s.schema_id
+    left outer join sys.dm_db_index_usage_stats ius on
+      ius.database_id = db_id() and
+      ius.object_id = i.object_id and 
+      ius.index_id = i.index_id
+  order by
+    s.name, t.name, i.index_id
+  option (recompile)
+  ```
 
 ## `xp_cmdshell`
 - this is an extension that allows you to send handy commands through sql to manage the server

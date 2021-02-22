@@ -20,3 +20,8 @@
         ```
 - Consider moving to C#
     - "I would argue that Java is not a serious language" - Alin Dobra, PhD
+
+## Rewrites
+- sometimes you need to reimplement bugs to keep consistency
+- use the old version for verification
+  - Shopify sent the requests to both versions during in production during their rewrite and recorded the diffs between the two
