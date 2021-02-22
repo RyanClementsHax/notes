@@ -212,3 +212,58 @@ end
 
 ## `sys.dm_db_index_usage_stats`
 - holds some stats on the databases on the server
+
+## Managing db size
+- [ref](https://aboutsqlserver.com/2014/12/02/size-does-matter-10-ways-to-reduce-the-database-size-and-improve-performance-in-sql-server/)
+  1. reducing index fragmentation
+  2. implementing data compression
+  3. removing unused indexes
+  4. removing redundant indexes
+  5. implementing filtered indexes
+  6. using appropriate data types
+  7. storing LOB data outside of the database
+  8. compressing LOB data in the database
+  9. storing data in clustered columnstore indexes
+  10. reducing amount of free space in the database
+- when creating a catalog, you can specify the file size
+  - [ref](https://stackoverflow.com/questions/51371188/create-sql-server-database-with-defined-file-size)
+- you can also reduce file sizes via sql
+  - [ref](https://dba.stackexchange.com/questions/134524/reduce-mdf-file-size)
+  - warning: this may lose some data or make things funky if you go about this way, but I could be wrong
+  ```sql
+  dbcc shrinkfile(file_name, percentage_to_shrink_to)
+  ```
+
+## `xp_cmdshell`
+- this is an extension that allows you to send handy commands through sql to manage the server
+- this is only available on the windows version, [not the linux version](https://stackoverflow.com/questions/59971345/cannot-enable-xp-cmdshell-on-sql-server-2017-express-on-linux)
+- checking if enabled
+  ```sql
+  select convert(int, isnull(value, value_in_use)) as config_value
+  from  sys.configurations
+  where name = 'xp_cmdshell' ;
+  ```
+- enabling this via sql
+  ```sql
+  print 'Enabling Advanced Options'
+  exec sp_configure 'show advanced options', 1
+  go
+
+  print 'reconfigure'
+  reconfigure -- these are needed after changing settings on the db for them to take effect
+  go
+
+  print 'Enabling xp_cmdshell'
+  exec sp_configure 'xp_cmdshell', 1
+  go
+
+  print 'reconfigure'
+  reconfigure
+  go
+  ```
+
+## Duplicating dbs
+- cannot do it with snapshots because snapshots can only be used for the db they were created from
+- you can do this with backups, but need shell access to the server to copy and rename the mdf files
+  - this is one place where enabling `xp_cmdshell` comes in handy
+- [ref](https://serverfault.com/questions/62590/how-to-duplicate-mssql-database-on-the-same-or-another-server)

@@ -92,3 +92,10 @@ RUN npm install
 
 ## restart
 - this is just a light wrapper around `docker stop <container>` and `docker start <container>`
+
+## Moving files via cli
+- `docker cp` can be used to move files around between containers, from a container to your host, or within a container
+```bash
+docker cp containerA/fileA host/file
+docker cp host/file containerB/fileB
+```

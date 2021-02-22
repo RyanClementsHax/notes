@@ -52,3 +52,9 @@ docker-compose -f base.docker-compose.yml -f prod.docker-compose.yml up
 - default values are supported too
   - `${VARIABLE:-default}` evaluates to default if `VARIABLE` is unset or empty in the environment
   - `${VARIABLE-default}` evaluates to default if `VARIABLE` is unset in the environment
+- if you need to actually use the `${var}` syntax, double up the `$` like `$${var}`
+
+## Deploying remotely
+- you configure the docker host env var or use wrappers like docker context (recommended) to do this for you
+- you do need to set up ssh keys beforehand though
+- [ref](https://www.docker.com/blog/how-to-deploy-on-remote-docker-hosts-with-docker-compose/)
