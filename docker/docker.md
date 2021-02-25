@@ -99,3 +99,7 @@ RUN npm install
 docker cp containerA/fileA host/file
 docker cp host/file containerB/fileB
 ```
+
+## Volumes
+- sometimes I run into mounting problems
+- they seem to be caused by volumes already existing so try to remove the volume using `docker volume rm`

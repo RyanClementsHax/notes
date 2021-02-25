@@ -46,5 +46,8 @@
 - its ok not to know everything
   - complex systems are exactly that and no experienced group of people can predict anything no matter how experienced they are
 
+## Messaging
+- giving consumers leases for messages they consume allows for the message not to be lost and to quickly be consumed by some other consumer if that consumer goes down
+
 ## Misc
 - relaxing constraints on the business requirements can lead to opportunities like amazon overselling items, but handing out gift cards when they can't fulfill everything
