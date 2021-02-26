@@ -103,3 +103,7 @@ docker cp host/file containerB/fileB
 ## Volumes
 - sometimes I run into mounting problems
 - they seem to be caused by volumes already existing so try to remove the volume using `docker volume rm`
+
+## `commit`
+- takes a running container and commits it into an image
+- any data in volumes are not committed to the image as you would expect
