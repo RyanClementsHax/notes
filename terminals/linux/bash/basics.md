@@ -90,6 +90,7 @@ seq 5
     >&2 echo "error"
     ```
   - [this](https://stackoverflow.com/questions/818255/in-the-shell-what-does-21-mean) Stack Overflow post explains further
+  - discarding stderr: `2>/dev/null`
     
 
 ## bash

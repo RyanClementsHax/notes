@@ -19,3 +19,8 @@ git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec
 
 ## Line endings
 - these can be annoying to manage in git, but there are facilities exposed to you as good 'ole [Scotty](https://www.hanselman.com/blog/carriage-returns-and-line-feeds-will-ultimately-bite-you-some-git-tips) shows us
+
+## Get default branch
+```bash
+git symbolic-ref -q HEAD | sed 's@^refs/heads/@@'
+```
