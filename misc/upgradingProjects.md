@@ -20,3 +20,13 @@
         ```
 - Consider moving to C#
     - "I would argue that Java is not a serious language" - Alin Dobra, PhD
+
+## Rewrites
+- sometimes you need to reimplement bugs to keep consistency
+- use the old version for verification
+  - Shopify sent the requests to both versions during in production during their rewrite and recorded the diffs between the two
+- make sure to get a very short feedback loop for verification
+- start with a tiny scope for proof of concept
+- make it easy and frictionless to transfer
+  - aim that your new system is the path of least resistance
+- figure out what your trip wires are that will cause you to bail your rewrite like not being able to catch up the project with internal changes or production problems

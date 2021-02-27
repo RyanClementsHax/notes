@@ -122,3 +122,24 @@ var dict = conn.Query(sql, args).ToDictionary(
     row => (int)row.Id
 );
 ```
+
+## Get datetime as UTC
+- [you can use type handlers to accomplish this](https://stackoverflow.com/questions/12510299/get-datetime-as-utc-with-dapper)
+```cs
+public class DateTimeHandler : SqlMapper.TypeHandler<DateTime>
+{
+    public override void SetValue(IDbDataParameter parameter, DateTime value)
+    {
+        parameter.Value = value;
+    }
+
+    public override DateTime Parse(object value)
+    {
+        return DateTime.SpecifyKind((DateTime)value, DateTimeKind.Utc);
+    }
+}
+```
+```cs
+// in some startup file
+SqlMapper.AddTypeHandler(new DateTimeHandler());
+```

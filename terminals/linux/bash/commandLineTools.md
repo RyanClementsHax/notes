@@ -78,3 +78,11 @@ cmp file1 file2
 ```
 - this will output the first byte they mismatch
 - if they are the same, it will output nothing
+
+## Changing line endings
+```bash
+# from windows to linux
+find . -type f -exec dos2unix {} \;
+# from linux to windows
+find . -type f -exec unix2dos {} \;
+```

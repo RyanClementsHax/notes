@@ -212,3 +212,117 @@ end
 
 ## `sys.dm_db_index_usage_stats`
 - holds some stats on the databases on the server
+
+## Managing db size
+- [ref](https://aboutsqlserver.com/2014/12/02/size-does-matter-10-ways-to-reduce-the-database-size-and-improve-performance-in-sql-server/)
+  1. reducing index fragmentation
+  2. implementing data compression
+  3. removing unused indexes
+  4. removing redundant indexes
+  5. implementing filtered indexes
+  6. using appropriate data types
+  7. storing LOB data outside of the database
+  8. compressing LOB data in the database
+  9. storing data in clustered columnstore indexes
+  10. reducing amount of free space in the database
+- when creating a catalog, you can specify the file size
+  - [ref](https://stackoverflow.com/questions/51371188/create-sql-server-database-with-defined-file-size)
+- you can also reduce file sizes via sql
+  - [ref](https://dba.stackexchange.com/questions/134524/reduce-mdf-file-size)
+  - warning: this may lose some data or make things funky if you go about this way, but I could be wrong
+  ```sql
+  dbcc shrinkfile(file_name, percentage_to_shrink_to)
+  ```
+- get file utilization for a given db
+  ```sql
+  use db_to_check
+
+  select 
+    LogicalName = dbf.name
+    ,FileType = dbf.type_desc
+    ,FilegroupName = fg.name
+    ,PhysicalFileLocation = dbf.physical_name
+    ,FileSizeMB = convert(decimal(10,2),dbf.size/128.0)
+    ,UsedSpaceMB = convert(decimal(10,2),dbf.size/128.0 
+      - ((dbf.size/128.0) - cast(fileproperty(dbf.name, 'SPACEUSED') as int)/128.0))
+    ,FreeSpaceMB = convert(decimal(10,2),dbf.size/128.0 
+      - cast(fileproperty(dbf.name, 'SPACEUSED') as int)/128.0)
+  from sys.database_files dbf 
+  left join sys.filegroups fg on dbf.data_space_id = fg.data_space_id 
+  order by dbf.type desc, dbf.name; 
+  ```
+- get index utilization
+  ```sql
+  select 
+    index_id, partition_number, alloc_unit_type_desc
+    ,index_level, page_count, avg_page_space_used_in_percent
+  from sys.dm_db_index_physical_stats
+    (
+      db_id() /*Database */
+      ,object_id(N'dbo.MyTable') /* Table (Object_ID) */
+      ,-1 /* Index ID */
+      ,null /* Partition ID – NULL – all partitions */
+      ,'detailed' /* Mode */
+    )
+  ```
+- get table usage stats
+  ```sql
+  use db_to_check
+
+  select 
+    s.Name + N'.' + t.name as [Table]
+    ,i.name as [Index] 
+    ,i.is_unique as [IsUnique]
+    ,ius.user_seeks as [Seeks], ius.user_scans as [Scans]
+    ,ius.user_lookups as [Lookups]
+    ,ius.user_seeks + ius.user_scans + ius.user_lookups as [Reads]
+    ,ius.user_updates as [Updates], ius.last_user_seek as [Last Seek]
+    ,ius.last_user_scan as [Last Scan], ius.last_user_lookup as [Last Lookup]
+    ,ius.last_user_update as [Last Update]
+  from 
+    sys.tables t with (nolock) join sys.indexes i with (nolock) on
+      t.object_id = i.object_id
+    join sys.schemas s with (nolock) on 
+      t.schema_id = s.schema_id
+    left outer join sys.dm_db_index_usage_stats ius on
+      ius.database_id = db_id() and
+      ius.object_id = i.object_id and 
+      ius.index_id = i.index_id
+  order by
+    s.name, t.name, i.index_id
+  option (recompile)
+  ```
+
+## `xp_cmdshell`
+- this is an extension that allows you to send handy commands through sql to manage the server
+- this is only available on the windows version, [not the linux version](https://stackoverflow.com/questions/59971345/cannot-enable-xp-cmdshell-on-sql-server-2017-express-on-linux)
+- checking if enabled
+  ```sql
+  select convert(int, isnull(value, value_in_use)) as config_value
+  from  sys.configurations
+  where name = 'xp_cmdshell' ;
+  ```
+- enabling this via sql
+  ```sql
+  print 'Enabling Advanced Options'
+  exec sp_configure 'show advanced options', 1
+  go
+
+  print 'reconfigure'
+  reconfigure -- these are needed after changing settings on the db for them to take effect
+  go
+
+  print 'Enabling xp_cmdshell'
+  exec sp_configure 'xp_cmdshell', 1
+  go
+
+  print 'reconfigure'
+  reconfigure
+  go
+  ```
+
+## Duplicating dbs
+- cannot do it with snapshots because snapshots can only be used for the db they were created from
+- you can do this with backups, but need shell access to the server to copy and rename the mdf files
+  - this is one place where enabling `xp_cmdshell` comes in handy
+- [ref](https://serverfault.com/questions/62590/how-to-duplicate-mssql-database-on-the-same-or-another-server)

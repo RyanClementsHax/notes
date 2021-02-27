@@ -92,3 +92,18 @@ RUN npm install
 
 ## restart
 - this is just a light wrapper around `docker stop <container>` and `docker start <container>`
+
+## Moving files via cli
+- `docker cp` can be used to move files around between containers, from a container to your host, or within a container
+```bash
+docker cp containerA/fileA host/file
+docker cp host/file containerB/fileB
+```
+
+## Volumes
+- sometimes I run into mounting problems
+- they seem to be caused by volumes already existing so try to remove the volume using `docker volume rm`
+
+## `commit`
+- takes a running container and commits it into an image
+- any data in volumes are not committed to the image as you would expect
