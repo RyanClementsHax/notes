@@ -45,6 +45,7 @@
   - requirements inherently make a system fragile
 - its ok not to know everything
   - complex systems are exactly that and no experienced group of people can predict anything no matter how experienced they are
+- everyone has a different viewpoint on complexity and what is considered complex
 
 ## Misc
 - relaxing constraints on the business requirements can lead to opportunities like amazon overselling items, but handing out gift cards when they can't fulfill everything
