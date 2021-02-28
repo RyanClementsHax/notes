@@ -60,3 +60,16 @@
   - higher customer satisfaction levels
 - requirements must be measurable and testable
 - "Requirements rarely lie on the surface. Normally, they are buried deep beneath layers of assumptions, misconceptions, and politics." - Andrew Hunt and David Thomas in *The Pragmatic Programmer*
+- getting access to the sources of requirements may be difficult
+  - it is also difficult to get all stakeholders in one room especially if they are external
+- techniques to get requirements
+  - interviews
+  - requirements workshops
+  - brainstorming
+  - observation
+  - focus groups
+  - surveys
+  - document analysis
+  - prototyping
+  - reverse engineering
+  - getting access to proper stakeholders
