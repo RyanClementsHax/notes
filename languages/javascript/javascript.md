@@ -7,3 +7,7 @@
 - because turn based processing unwinds the stack after every turn and there are no blocks, exceptions from IO can't be "thrown"
   - this is because the stack trace is list
   - this is a big reason why promises are used
+
+## class extends syntax
+- this just compiles down to higher order components
+- [ref](https://blog.sessionstack.com/how-javascript-works-the-internals-of-classes-and-inheritance-transpiling-in-babel-and-113612cdc220)
