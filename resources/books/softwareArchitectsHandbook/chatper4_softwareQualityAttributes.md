@@ -46,3 +46,88 @@
   - cyclomatic complexity
     - `CC = E - N + 2P`
   - depth of inheritance (DIT) tree
+
+## Usability
+- directly correlates with user satisfaction
+- user's perception of the quality of the software increases with usability
+- can be one of the cheapest ways to increase the quality of a software system
+- increases productivity of users
+- you will have problems if your users don't want to use your application
+- when software systems exhibit this, it allows users to complete their tasks efficiently
+- the speed in which a user performs their actions reflects a systems usability
+- needs to be considered as early as the requirements phase
+
+## Learnability
+- straight forward
+- very imporant for new users
+- includes how easy it is for experienced users to learn new functionality
+- providing useful feedback goes a long way
+  - appropriate validation and helpful error messages
+  - friendly and informative messages to user
+  - tooltips
+  - feedback for long-running processes
+- usability testing should begin when there is a working version of the software available
+- help/documentation systems go a long way in this area
+  - FAQs
+
+## Accessibility
+- can include
+  - making software usable with just a keyboard
+  - support for assistive tech like screen readers
+  - non-text content has text alternative
+  - there are ways to help users navigate software
+  - enough time to read and use web page or screen
+  - using colors well
+  - logical tab order for controls and input fields
+
+## Availability
+- how many 9's
+- achieving more 9's will result in diminishing returns and prevents your teams from focusing on other work
+- most users won't be able to tell the difference between 5 9's and 4 9's
+  - other factors will drown this out like network speed
+- multiple ways of calculating
+- detecting
+  - ping/echo
+    - the watcher pings the service to see it is up and after timeout considers it unavailable
+  - heartbeat
+    - the service sends the watcher a message every so often and after timeout considers it unavaiable
+  - timestamp
+    - detecting errors by analyzing timestamps of events
+  - voting
+    - detecting faults by detecting outliers in voting
+  - sanity test
+    - simple input and output comparison
+  - condition monitoring
+  - self tests
+- recovering
+  - exception handling
+  - retry
+  - varying leves of redundancy
+  - rollback
+  - graceful degredation
+  - ignore faulty behavior
+  - preventing faults
+  - removal from service
+  - transactions
+  - increasing competence sets
+    - essentially modifying the system to handle the edge cases
+  - exception prevention
+
+## Other *ilities*
+- portability
+  - also includes i18n and localization
+    - changes in text should not change code
+    - unicode should be used for this
+- adaptability
+- installability
+  - also how a system handles update/upgrade process
+- replaceability
+- interoperability
+  - includes locating system
+  - uses common standards
+  - needs testing
+- testability
+  - controllability
+  - observability
+  - isolability
+  - automatability
