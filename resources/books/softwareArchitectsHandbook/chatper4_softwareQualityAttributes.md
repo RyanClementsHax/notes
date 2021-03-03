@@ -131,3 +131,7 @@
   - observability
   - isolability
   - automatability
+  - test documentation
+    - having documentation is a sign of higher organizational maturity
+    - avoids tribal knowledge
+    - too much can become a risk
