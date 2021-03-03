@@ -8,11 +8,19 @@
 
 1. setup a docker file that runs your tests like this
     ```dockerfile
-    FROM mcr.microsoft.com/dotnet/sdk:3.1
-    COPY . /app
-    WORKDIR /app
-    RUN dotnet build
+    FROM mcr.microsoft.com/dotnet/sdk:5.0
+
+    WORKDIR /src
+    COPY My.Api.sln ./
+    COPY My.Api/My.Api.csproj ./My.Api/
+    COPY My.Api.IntegrationTests/My.Api.IntegrationTests.csproj ./My.Api.IntegrationTests/
+    RUN dotnet restore My.Api.sln
+
+    COPY ./ ./
+    WORKDIR /src/My.Api.IntegrationTests/
+    RUN dotnet build --no-restore
     ```
+      - this copies the `.sln` and `.csproj` files before the restore to take advantage of caching
 2. create your docker compose file with env variable overrides to point to the service running in docker compose
     ```yml
     services:
@@ -23,16 +31,18 @@
           SA_PASSWORD: "some password"
         ports:
           - 1433:1433
-      your_service:
+      tests:
         build:
           context: .
+        working_dir: /src/My.Api.IntegrationTests
+        entrypoint: dotnet test --no-build
         depends_on:
           - db
         environment:
           ConnectionString: "some connection string that references the db used in docker compose"
-        entrypoint: bash /app/wait_for_it.sh db:1433 -t 0 -- dotnet test --no-build
     ```
-    - [wait_for_it.sh](https://github.com/vishnubob/wait-for-it) is a handy script that waits for the port to open before running the tests, can be replaced for other methods of waiting
+    - consider using [wait_for_it.sh](https://github.com/vishnubob/wait-for-it)
+    - it is a handy script that waits for the port to open before running the tests, can be replaced for other methods of waiting
 3. `docker-compose up`
   - yeah, its that simple
 

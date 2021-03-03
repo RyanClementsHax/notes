@@ -5,3 +5,6 @@
 
 ## User Secrets
 - this can be configured with visual studio and only load when the environment is set to `Development` if you use the default host builder
+
+## Stronly typed config
+- it might be tempting to only create getters for the properties you create for your config, but this will result in the properties never being bound

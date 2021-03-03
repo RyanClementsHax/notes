@@ -117,3 +117,66 @@ Scaffold-DbContext "Data Source=your_db_server_host_name; Integrated Security=Tr
 - does nothing if the db exists
 - creates the database with schema if not created
 - does not apply migrations and any migrations applied after this is called won't work
+
+## Change tracking
+- if you, say, have an autogenerating id field, the model instance you create will automatically have that change applied to it, so no need to query the db again
+    ```cs
+    
+    var thing = new Thing(); // thing.Id won't be populated
+
+    await _db.Things.AddAsync(thing, cancellationToken);
+    await _db.SaveChangesAsync(cancellationToken);
+
+    var newId = thing.Id; // this will have the Id created by the db automatically populated into it
+    ```
+- if changes are made to the db outside of the context you are working in, you need to recreate that context to get the fresh changes
+  - you can do this by re-resolving the db context with the DI container
+  - this is important for int testing something like a web api
+
+## DbContext
+- configuring entities
+  - this can be done in `OnModelCreating`, but can be broken out into separate files by creating an `IEntityTypeConfiguration<TheModelType>` implementation
+    ```cs
+    internal class ThingConfig : IEntityTypeConfiguration<Thing>
+    {
+        public void Configure(EntityTypeBuilder<Thing> builder)
+            => builder
+                .HasIndex(a => a.Name)
+                .IsUnique();
+    }
+    ```
+  - then you need to hook this up with `OnModelCreating`
+    ```cs
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        base.OnModelCreating(builder);
+
+        builder.ApplyConfiguration(new ThingConfig());
+    }
+    ```
+
+- binding all entity type configurations automatically from the assembly
+    ```cs
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        base.OnModelCreating(builder);
+
+        builder.ApplyConfigurationsFromAssembly(GetType().Assembly);
+    }
+    ```
+- conditionally applying seed data
+  - the recommended way this seems to be done is `OnModelCreating`
+    - doing it this way means that this will only run if you call `db.Database.Migrate()` or don't have a migrated db when you run `db.Database.EnsureCreated()`
+    - you may need to delete docker volumes if you are using a docker container for your db
+  - you can inject `IOptions<YourConfig>` into `DbContext` to get this value
+    ```cs
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        base.OnModelCreating(builder);
+
+        if (_config.Value.UseSeedData)
+        {
+            builder.AddSeedData();
+        }
+    }
+
