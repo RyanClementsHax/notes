@@ -20,7 +20,7 @@
     WORKDIR /src/My.Api.IntegrationTests/
     RUN dotnet build --no-restore
     ```
-      - this copies the `.sln` and `.csproj` files before the restore to take advantage of caching
+      - this copies the `.sln` and `.csproj` files before the build to take advantage of docker layer caching
 2. create your docker compose file with env variable overrides to point to the service running in docker compose
     ```yml
     services:

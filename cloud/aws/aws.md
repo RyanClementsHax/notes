@@ -1,5 +1,7 @@
 # AWS
 
+- [hands on tutorials](https://aws.amazon.com/getting-started/hands-on/)
+
 ## Regions
 - made up of availability zones
 
