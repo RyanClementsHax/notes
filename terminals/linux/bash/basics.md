@@ -1,10 +1,20 @@
 # Basics
 
+- [cheat sheet](https://devhints.io/bash)
+
 ## Variables
 - readonly
     ```bash
     declare -r myVar='foo'
     myVar='bar' # errors
+    ```
+- check if variable null or empty
+    ```bash
+    if [ -z "${tag}" ]; then
+        echo "var is null or empty"
+    else
+        echo "var is not null or empty"
+    fi
     ```
 
 ## #?
@@ -171,16 +181,6 @@ bash -c "echo 'hello world'"
   - `BASH_SOURCE[0]` holds the directory of the currently running script (fails when symlinks are used)
   - [BASH_SOURCE[0] vs $0](https://stackoverflow.com/questions/35006457/choosing-between-0-and-bash-source)
 
-## Variables
-- check if variable null or empty
-    ```bash
-    if [ -z "${tag}" ]; then
-        echo "var is null or empty"
-    else
-        echo "var is not null or empty"
-    fi
-    ```
-
 ## trap
 - used to call functions on failure or interrupt
 - [useful article](https://opensource.com/article/20/6/bash-trap)
@@ -309,9 +309,10 @@ ln -s file.txt link1
 - you can also put this option in the `shebang` as such: `#!/bin/bash -x`
 - to select specific areas to print this debug information, use `set -x` to turn it on and `set +x` to turn it off
 
+## `chmod`
+- [cheat sheet](https://chmodcommand.com/chmod-400/)
+
 ## Misc
 - i've run into problems running a script that I was also modifying at the same time
   - it may be that bash is not inherently thread safe when it comes to this
   - it could also be just what happens when I do this on ubuntu in WSL
-
-
