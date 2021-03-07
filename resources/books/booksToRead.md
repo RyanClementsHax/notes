@@ -17,3 +17,7 @@
 
 ## Project management
 - The Mythical Man Month
+
+## Personal development
+- Deep Work
+- The Effective Executive

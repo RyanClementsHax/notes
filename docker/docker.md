@@ -107,3 +107,6 @@ docker cp host/file containerB/fileB
 ## `commit`
 - takes a running container and commits it into an image
 - any data in volumes are not committed to the image as you would expect
+
+## Builds
+- it doesn't seem like there is native support to use local caches like your hosts `.m2` cache to build docker containers, but there seem to be [wrappers](https://aboullaite.me/speed-up-your-java-application-images-build-with-buildkit/) that exist to try to provide such a functionality

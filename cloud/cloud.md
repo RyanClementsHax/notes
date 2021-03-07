@@ -8,6 +8,7 @@
   - discounts are provided for certain services being reserved
   - no capital costs
   - no long-term contracts or up-front commitments
+  - analogy: you can pay an upfront cost for a DVD and have to deal with taking care of it, storing it, and making your investment worth while, but if you have a subscription to Netflix, you can watch whatever you want, cancel whenever you want, and never have to worry about maintenance
 - elasticity
   -  growing and shrinking based on demand
 - scalability
@@ -15,6 +16,8 @@
 - high availability and fault tolerance
 - performance
 - security
+- efficiency
+  - no lead time for purchasing hardware
 
 ## Cloud types
 - public
@@ -27,3 +30,8 @@
 - IaaS
 - PaaS
 - Saas
+
+## Misc
+- confidence is needed to move to the cloud
+  - start off with small projects
+  - use price calculators
