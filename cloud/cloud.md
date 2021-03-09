@@ -3,6 +3,7 @@
 ## Benefits
 - flexibility
   - choosing whatever services we want
+  - being able to bail out because of the pay as you go pricing
 - cost effectiveness
   - pay for only what you need
   - discounts are provided for certain services being reserved

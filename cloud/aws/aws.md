@@ -3,12 +3,18 @@
 - [hands on tutorials](https://aws.amazon.com/getting-started/hands-on/)
 
 ## Regions
-- made up of availability zones
+- distinct geographic area
+- made up of 2 or more availability zones
 
 ### Availability zones
 - where resources located
 - contains datacenters
 - availability zones in same region have low latency between each other
+
+## Edge locations
+- CDN cache locations
+- where Cloud Front stores its data
+- tons of these
 
 ### Points of presence
 - edge places where AWS can replicate data
