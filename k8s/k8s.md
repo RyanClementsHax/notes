@@ -37,3 +37,5 @@ kubectl delete replicaset $NAME
 ```
 - this can be useful when the old versions are still running and the new ones failed
 - this will allow the new ones to take over without a completely new rollout
+
+## [Zsh plugin shortcuts](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/kubectl)

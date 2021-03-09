@@ -29,3 +29,18 @@
             Console.WriteLine("Contains numbers <= 3");
     }
     ```
+
+## Permuting values
+- [ref](https://stackoverflow.com/questions/3575925/linq-to-return-all-pairs-of-elements-from-two-lists)
+```cs
+public static IEnumerable<IEnumerable<T>> CartesianProduct<T>(this IEnumerable<IEnumerable<T>> sequences)
+{
+    IEnumerable<IEnumerable<T>> emptyProduct = new[] { Enumerable.Empty<T>() };
+    return sequences.Aggregate(
+        emptyProduct,
+        (accumulator, sequence) =>
+        from accseq in accumulator
+        from item in sequence
+        select accseq.Concat(new[] { item }));
+}
+```
