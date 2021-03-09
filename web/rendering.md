@@ -7,3 +7,7 @@
 
 ## CSR (Client Side Rendering)
 - subsequent page loads are typically faster because they only require additional data (unless you do lazy loading or code splitting)
+- has some problems
+  - caching
+  - seo
+  - sharability of content

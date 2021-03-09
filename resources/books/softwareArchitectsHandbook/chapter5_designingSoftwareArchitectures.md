@@ -58,6 +58,12 @@
     - doesn't lend itself well to sharing between teams
       - can be mitigated with colloaboration tools or up front abstraction on the part of the architect
     - be careful not to become an ivory tower architect
+  - good for projects that
+    - are large
+    - are complex
+    - need enterprise software designed for the organization
+    - the team is large or there are multiple teams
+    - the domain is well understood
 - bottom up
   - begins with components
   - combine components like lego bricks into larger modules until all requirements met
@@ -76,3 +82,27 @@
     - more difficult to estimate the entire project
     - entire scope of work may not be known when using this approach
     - design flaws may not be detected until later
+  - good for projects that
+    - are small
+    - are not complex
+    - don't need enterprise software to be designed
+    - the team is small or there is only one team
+    - the domain isn't well understood
+- choosing the right one
+  - either extreme isn't a good idea
+  - typically a mix of both is healthy
+
+## Greenfield systems
+- usually don't have a lot of architectures to referrence if this is a new domain
+- regardless, you will likely (and should) spend time creating prototypes to do proof of concepts and to explore the domain further
+
+## Brownfield systems
+- once you understand the architecture already built and systems already being used, you can think of it as a greenfield project that's been through some iterations
+
+## Architectural drivers
+- these are considerations that need to be made for the software system that are architecturally significant
+- they drive the design of the arch
+- design objectives
+- primary functional requirements
+- quality attribute scenarios
+- constraints
