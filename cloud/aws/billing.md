@@ -5,6 +5,9 @@
 - policy based mgmt of accounts via SCPs (Service Control Policies)
 - automate the creation of new accounts
 - free for all customers at no charge
+- best practice is to have root account only be used for billing (no resources deployed in them)
+- policies can be applied hierarchically
+- linking accounts counts towards scaling discounts
 
 ## Pricing model
 - pay as you go
