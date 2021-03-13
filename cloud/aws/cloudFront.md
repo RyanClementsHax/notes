@@ -5,3 +5,24 @@
 - can have different "origins" of content
   - ELB in front of EC2
   - S3
+- caches at edge locations
+- origin
+  - the origin of all the files that the CDN will distribute
+  - can be an S3 bucket, an EC2 instance, an ELB, or Route53
+- distribution
+  - the name given the CDN which consists of a collection of edge locations
+  - web (for web sites typically)
+  - RTMP (media streaming)
+- can be used for entire website including content that is
+  - dynamic
+  - static
+  - streaming
+  - interactive
+- objects cached for TTL
+- edge locations can be written to too
+- can clear cached objects/directories/etc by creating an invalidation, but with a fee
+- signing
+  - root user manages signed urls
+  - urls (for one file)
+  - cookies (for multiple files)
+  - can filter by date, path, IP address, expiration, etc

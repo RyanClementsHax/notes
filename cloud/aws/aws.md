@@ -1,6 +1,7 @@
 # AWS
 
 - [hands on tutorials](https://aws.amazon.com/getting-started/hands-on/)
+- create an account with your work email to help establish account ownership if things go wrong
 
 ## Regions
 - distinct geographic area
@@ -44,8 +45,20 @@
   - athena
     - analyze data in S3 using SQL
     - serverless
+    - pay per query
+    - no need to set up ETL
+    - can be used to query log files stored in s3
+    - can be used to generate business reports on data stored in s3
+    - analyze aws cost and usage reports
+    - run queries on click-stream data
   - EMR (Elastic Map Reduce)
     - hadoop framework
+- macie
+  - uses ML and NLP to discover, classify, and protect sensitive data stored in S3
+  - dashboards, reporting, and alerts
+  - works directly with data stored in S3
+  - can also analyze cloud trail logs
+  - great for PCI-DCS and preventing id theft
 - lightsail
   - private virtual server
   - for getting started very quickly
