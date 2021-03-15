@@ -3,14 +3,29 @@
 - provides *logical* computers
 - scales
 - you need to explicitly assign a public IP to access it from outside of the VPC
+- user data
+  - optional
+  - "bootstraping"
+  - a script you want run on instance launch time
+- tags
+  - labeling
+  - cost
+  - envrionments
+  - searching
+  - for whatever you want really
+- instance metadata
+- need to do work to make it highly available
 
 ## AMI (Amazon Machine Image)
 - OS
+- ids are region specific
 - community
   - free to use
+  - use at your own risk
 - AWS marketplace
   - pay to use
   - typically comes with license
+  - created by partners of amazon
 - My AMIs
   - AMIs you create yourself
 - components
@@ -19,7 +34,14 @@
     - application software
   - launch permissions
   - block device mapping
-    - EBS (hard drive mapping)
+    - EBS
+      - recommended
+    - instance store
+      - only survives reboot
+      - host based storage (physically attached)
+      - faster
+    - priced apart from the instance price
+    - depending on the size of instance, can add more
 
 ## Instance Type
 - processor
@@ -35,10 +57,28 @@
 ## EBS (Elastic Block Storage)
 - disk
 - only one ebs volume to one ec2 instance
+- by default delete on termination
 - an option for higher IOPS performance
 - root volume created by default
   - deleted when instance terminated by default
 - block storage (attachable and detachable)
+- can persist across the life of the instance but will delete on termination by default
+- network storage (the reason why it can persist across the life of the instance)
+- highly available at the AZ level
+  - if az goes down, so does your ebs
+- snapshots are backed up to s3
+  - they are incremental
+- workloads
+  - hard drive
+  - general (self explanitory)
+    - solid state
+  - provisioned iops
+    - great for database instances
+    - solid state
+
+## Lifecyle
+- stoping an instance means you can restart it
+- terminating an instance means you totally delete it
 
 ## Purchasing options
 - on demand
@@ -47,6 +87,7 @@
   - leased for 1 or 3 years
 - spot
   - bidding on unused instances
+  - by default, persistant bids disabled
 
 ## How you will be charged
 - purchasing options
@@ -76,7 +117,8 @@
 ## Security groups
 - all inbound traffic is denied by default
 - all outbound traffic is allowed by default
-- if certain traffic allowed inbound, by default, it allows it outbound too
-- denies aren't available here
+- stateful
+  - if certain traffic allowed inbound, by default, it allows it outbound too
+- denies aren't available here, only port open rules
   - this needs to be done at the NACL level
 - even though your rules permit some traffic, some might be denied by the NACL

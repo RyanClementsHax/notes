@@ -5,6 +5,7 @@
 - default vpc created when account created
 - spans all availability zones in the region
 - subnets
+  - subnets that come with default vpc are public
   - exist in availability zones
   - cannot span availability zones
   - public/private subnets
