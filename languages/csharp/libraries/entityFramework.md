@@ -180,3 +180,8 @@ Scaffold-DbContext "Data Source=your_db_server_host_name; Integrated Security=Tr
         }
     }
 
+## Handling db resets
+- when deleting and re-migrating a db out from under a service, if pooling is not disabled, any pooled connections, when it gets used again, will cause an error like the following to happen: `57P01: terminating connection due to administrator command`
+  - after using that connection is used once and receiving this error, the connection seems to reset and work fine from then on
+  - the easiest way to handle this is to disable pooling in the connection string with `Pooling=false`
+

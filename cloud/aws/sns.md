@@ -5,3 +5,4 @@
   - reminds me a lot of RabbitMQ
 - any email addresses hooked up needs to be confirmed
 - can also send SMS
+- push service

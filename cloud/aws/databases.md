@@ -1,5 +1,7 @@
 # Databases
 
+- typically you want your storage on private subnets
+
 ## RDS
 - relational db service
 - options
@@ -21,6 +23,7 @@
 - fully managed
 
 ## ElastiCache
+- read only
 - supports
   - redis
   - memcached

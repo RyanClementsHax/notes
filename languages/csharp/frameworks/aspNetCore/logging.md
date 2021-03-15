@@ -21,3 +21,6 @@ private static ILogger _logger = LoggerFactory.Create(x => x.AddConsole()).Creat
     String.Format("{0:0.##}", 123.4);         // "123.4"
     String.Format("{0:0.##}", 123.0);         // "123"
     ```
+
+## Logging categories
+- [configure logging](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging/?view=aspnetcore-5.0#configure-logging)

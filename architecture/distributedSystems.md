@@ -6,6 +6,8 @@
   - it is preferred to go for naturally occuring IDs or public keys
   - this helps with the location independence property distrib systems should have
 - progressive web apps might connect to different db when coming back online which will lead to consistency issues
+- ex
+  - bank statements become immutable after the month and any adjustments are added on to a new statement which makes transactions so much easier
 
 ## Databases
 - db sharding is hard because of the overhead needed to determine where someone's data lies on top of allowing your database to perform efficient join or aggregation type queries

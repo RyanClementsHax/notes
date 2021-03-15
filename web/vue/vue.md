@@ -92,3 +92,6 @@
 
 ## Scoped css
 - [deep selectors in vue](https://vue-loader.vuejs.org/guide/scoped-css.html#child-component-root-elements)
+
+## Misc
+- `import MyComponent from './MyComponent'` will first grab `MyComponent.js` over `MyComponent.vue`

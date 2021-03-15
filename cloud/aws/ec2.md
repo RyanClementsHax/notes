@@ -29,8 +29,12 @@
 - memory optimized
 - storage optimized
 
+## EFS (Elastic File Share)
+- the aws cloud offering for a file share
+
 ## EBS (Elastic Block Storage)
 - disk
+- only one ebs volume to one ec2 instance
 - an option for higher IOPS performance
 - root volume created by default
   - deleted when instance terminated by default

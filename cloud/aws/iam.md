@@ -12,6 +12,11 @@
   - not the same as a password
   - only used for programatic access
 - can only view password/access keys once
+- global service (not scoped to select regions)
+  - but can provide regional based access
+- doesn't allow biometric auth
+- power users
+  - full access to aws services but management of iam users/groups/roles
 
 ## Best practices
 - delete your root access keys
