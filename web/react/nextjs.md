@@ -30,9 +30,13 @@
   - make sure you return serializable data from this method as this is what gets sent over the wire to the front end for rendering
   - from the docs
     > For the initial page load, `getInitialProps` will run on the server only. `getInitialProps` will then run on the client when navigating to a different route via the `next/link` component or by using next/router. However, if `getInitialProps` is used in a custom `_app.js`, and the page being navigated to implements `getServerSideProps`, then `getInitialProps` will run on the server.
+- `componentDidMount` does not run on the server
+- typically, you want a separate, spacially close server to handle api requests so that your render requests on the next server don't get hung (remember that node is single threaded)
+
 
 ## `lib`
 - code in this folder gets imported to pages and can run both on the server and browser
+- data fetching logic should also go here because api calls can happen either on the client or the server depending on how the page is accessed
 
 ## `server`
 - code in this folder only gets run on the server
