@@ -38,3 +38,9 @@
 
 ### Code snippets
 - [they](https://docs.microsoft.com/en-us/visualstudio/ide/code-snippets?view=vs-2019) look pretty cool
+
+## Multiple startup projects
+- you can spin up multiple projects with with one instance of visual studio by right clicking on the solution in the solution explorer, clicking on `Properties`, going to `Common Properties > Startup Projects`, clicking `Multiple startup projects:`, selecting `Start` in the drop down for all of the projects you want to start up at the same time, and then clicking `Ok`
+- you can configure visual studio to open web apis automatically in any chrome windows that are already open by going to `Tools > Options > Projects and Solutions > Web Projects` and unchecking `Stop debugger when browser window is closed, close browser when debugging stops`
+    - doing this means that spinning up any api projects will open tabs in the same window instead of separate ones
+    - this also means that closing the tab or window wont automatically shut down the application, however

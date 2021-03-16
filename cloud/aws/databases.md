@@ -1,7 +1,11 @@
 # Databases
 
+- typically you want your storage on private subnets
+
 ## RDS
 - relational db service
+- not highly available by default unless its aurora
+  - it really is just an instance under the hood
 - options
   - amazon aurora
     - serverless
@@ -21,6 +25,7 @@
 - fully managed
 
 ## ElastiCache
+- read only
 - supports
   - redis
   - memcached

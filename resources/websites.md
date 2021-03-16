@@ -8,6 +8,10 @@
 - css tricks lists a bunch [here](https://css-tricks.com/teaching-web-dev-for-free-is-good-business/)
 - [explorers.netlify.com](https://explorers.netlify.com/)
 - [scrimba.com](https://scrimba.com/)
+- [frontendmasters.com](https://frontendmasters.com/)
+
+## Architecture
+- [micro-frontends.org](https://micro-frontends.org/)
 
 ## Docs
 - [google web fundamentals](https://developers.google.com/web/fundamentals)

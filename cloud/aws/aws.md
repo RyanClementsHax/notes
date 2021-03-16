@@ -2,12 +2,15 @@
 
 - [hands on tutorials](https://aws.amazon.com/getting-started/hands-on/)
 - create an account with your work email to help establish account ownership if things go wrong
+- not all services available in all regions
 
 ## Regions
 - distinct geographic area
 - made up of 2 or more availability zones
+- set up services in multiple regions for disaster recovery
 
 ### Availability zones
+- identified by the region prefix with an alphabetic character at the end (a-z)
 - where resources located
 - contains datacenters
 - availability zones in same region have low latency between each other
@@ -23,6 +26,7 @@
 ## Networking
 - direct connect
   - allows direct corporate connection to the cloud
+  - without going over the internet
 - route 53
   - DNS service
 - virtual private cloud
@@ -33,6 +37,7 @@
 
 ## Storage
 - S3
+- RDS
 - Glacier
 
 ## Other services
@@ -69,3 +74,19 @@
 - mechanical turk
   - outsource processes or jobs to a distributed workforce
   - crowdsourcing marketplace
+- elastic beanstalk
+  - fastest way to deploy and application
+  - reminds me of build packs
+- workdocs
+  - aws's offering to compete with google docs
+- x-ray
+  - developer tools to figure out if something is broken
+- kenesis
+  - realtime streaming
+- cloud formation
+  - infrastructure as code
+  - templates written as json or yml
+  - automating the provisioning of rsources with these templates
+- sqs (simple queue service)
+  - like rabbitmq
+  - pull service

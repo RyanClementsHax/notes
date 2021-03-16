@@ -1,4 +1,4 @@
-# Command Line Tools
+# Tools
 
 ## Get OS info
 ```bash
@@ -85,4 +85,9 @@ cmp file1 file2
 find . -type f -exec dos2unix {} \;
 # from linux to windows
 find . -type f -exec unix2dos {} \;
+```
+
+## Print date
+```bash
+date +"%T"
 ```
