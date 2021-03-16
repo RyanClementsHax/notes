@@ -11,6 +11,7 @@
 
 ### Availability zones
 - identified by the region prefix with an alphabetic character at the end (a-z)
+  - what is considered 1a for one account might be totally different for another account (its randomized)
 - where resources located
 - contains datacenters
 - availability zones in same region have low latency between each other

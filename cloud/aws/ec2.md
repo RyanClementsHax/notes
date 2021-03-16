@@ -15,6 +15,10 @@
   - for whatever you want really
 - instance metadata
 - need to do work to make it highly available
+- can turn on termination protection
+  - disables terminating an instance
+  - can disable this manually when you actually want to terminate an instance
+  - off by default
 
 ## AMI (Amazon Machine Image)
 - OS
@@ -29,9 +33,11 @@
 - My AMIs
   - AMIs you create yourself
 - components
+  - region
   - root volume template
     - OS
     - application software
+  - architecture
   - launch permissions
   - block device mapping
     - EBS
@@ -50,31 +56,98 @@
 - accelerated computing
 - memory optimized
 - storage optimized
+- organized into families (FIGHT DR MC'PXZ AU)
+  - F: FPGA
+  - I: IOPS
+  - G: Graphics
+  - H: High disk throughput
+  - T: cheap general purpose (think T2 micro)
+  - D: density
+  - R: RAM
+  - M: main choice for general purpose apps
+  - C: for compute
+  - P: Graphics (think pics)
+  - X: extreme memory
+  - Z: extreme memory AND cpu
+  - A: arm based workloads
+  - U: bare metal
 
 ## EFS (Elastic File Share)
 - the aws cloud offering for a file share
 
 ## EBS (Elastic Block Storage)
 - disk
+- in same AZ as instance
 - only one ebs volume to one ec2 instance
-- by default delete on termination
-- an option for higher IOPS performance
-- root volume created by default
-  - deleted when instance terminated by default
 - block storage (attachable and detachable)
 - can persist across the life of the instance but will delete on termination by default
 - network storage (the reason why it can persist across the life of the instance)
 - highly available at the AZ level
+  - replicated within AZ
   - if az goes down, so does your ebs
 - snapshots are backed up to s3
   - they are incremental
-- workloads
-  - hard drive
-  - general (self explanitory)
+- root volume created by default
+  - deleted when instance terminated by default
+  - where os installed
+  - can encrypt these
+  - can be one of these
+    - general purpose
+    - provisioned iops
+    - magnetic (standard)
+- additional volumes can be added on
+  - these won't be deleted by default
+  - general (self explanitory) (gp2)
     - solid state
-  - provisioned iops
+    - balance price/performance for most workloads
+    - 16k iops
+    - 1 GiB - 16 TiB
+  - provisioned iops (io1)
     - great for database instances
     - solid state
+    - 64k iops
+    - 4 GiB - 16 TiB
+  - cold HDD (sc1)
+    - low cost HDD volume for less frequently accessed workloads
+    - file servers
+    - 250 iopps
+    - 500 GiB - 16 TiB
+  - throughput optimized HDD (st1)
+    - low cost HDD volume designed for frequently accessed, throughput intensive workloads
+    - big data and data warehouses
+    - 500 iops
+    - 500 GiB - 16 TiB
+  - magnetic (standard)
+    - previous generation HDD
+    - workloads where data is infrequently accessed
+    - 1 GiB - 1 TiB
+    - 40 - 200 iops
+- modifying volumes in run time
+  - can modify size and storage type
+  - might require you to nudge the os by running some esoteric bash command to get the os to realize something changed
+  - may take some time for performance changes to take full effect
+- moving a volume to a different AZ
+  - using snapshots
+    - take a snapshot
+    - create an image from it
+      - need to choose virtualization
+        - PV (Paravirtual)
+        - HVM (hardware virtual): uses hardware-assist technology provided by the aws platform where the guest vm runs as if it were on a native harware platform except that it uses PV network and storage drivers for improved performance
+          - default and more versitile
+        - some instance types support both, while others support only one
+    - launch an instance from that image in a new AZ
+  - moving an image
+    - create an ami from the snapshot
+    - copy the ami into a different region
+- best practice to stop instance before taking snapshot, but can take a snapshot while the instance is running
+
+## Instance store
+- ephemeral
+- not supported by all instance types
+- cannot attach additional instance store volumes after creating the instance
+- cannot be stopped
+- if underlying host fails, you lose all of your data
+- by default root volume deleted on termination
 
 ## Lifecyle
 - stoping an instance means you can restart it
@@ -85,9 +158,26 @@
   - only charged by the hour
 - reserved
   - leased for 1 or 3 years
+  - standard
+    - up to 75% off of on demand instances
+    - the more you pay up front and the longer contract, the greater the discount
+  - convertable
+    - up to 54% off of on demand instances
+    - can change the attributes of the RI as long as the exchange results in the creation of reserved instances of greater or equal value
+  - scheduled
+    - available to launch within the time windows to reserve
+- dedicated hosts
+  - phyisical ec2 server dedicated for your use
+  - allows you to use your existing server-bound software licenses
+  - useful for
+    - regulatory requirements that may not support multi-tenant virtualization
+    - great for licensing which does not support multi-tenancy or cloud deployments
+    - can be purchased on demand
 - spot
   - bidding on unused instances
   - by default, persistant bids disabled
+  - if spot instance terminated by aws, you don't pay for that full hour
+  - if you terminate that instance, you pay for that full hour
 
 ## How you will be charged
 - purchasing options
@@ -120,5 +210,8 @@
 - stateful
   - if certain traffic allowed inbound, by default, it allows it outbound too
 - denies aren't available here, only port open rules
+  - also can't deny any IP ranges
   - this needs to be done at the NACL level
 - even though your rules permit some traffic, some might be denied by the NACL
+- any changes take effect IMMEDIATELY
+- have a many-to-many relationship with instances
