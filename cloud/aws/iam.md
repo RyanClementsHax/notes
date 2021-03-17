@@ -4,6 +4,7 @@
 - they have to be explicitly granted
 - allows for identity federation (AD, Facebook, Linkedin)
 - MFA
+  - no charge
 - can provide temporary access
 - PCI DSS compliance (credit card stuff)
 - universal (doesn't apply to regions)
@@ -29,3 +30,13 @@
 - inline policies are for one off permissions
 - managed policies exist separately from users or groups
 - explicit `Deny`'s will always override any allows
+- written in json (not yml)
+
+## Roles
+- secure way to grant permissions to entities that you trust
+- can apply to
+  - iam user in another account
+  - application code
+  - aws service
+  - users from a corporate directory who use identity federation with SAML
+- iam rules issue keys are valid for short durations, making them a more secure way to grant access

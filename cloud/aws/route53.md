@@ -3,7 +3,39 @@
 - can register domain names
   - can also use dns from other registrars
 - dns service
-- health checking
+  - can route to s3 buckets, ec2 instances, elb
+- health checking of endpoints
 - automatic failover
 - traffic flow
 - integrates with other services
+- routing policy
+  - simple
+    - for a single resource that performs a given function for your domain
+    - ex: web server that serves content from some domain
+  - failover
+    - when you want to configure active-passive failover
+    - one active app, and a standby one to be routed traffic to when the active one fails
+  - geolocation
+    - when you want to route traffic based on the location of your users
+    - lets you balance load by directing requests to specific endpoints based on geographic location from which the request originates
+    - allows for customization of localized content
+      - presenting the right language
+      - restricting distribution of content to only the markets you have licensed
+    - 3 levels of granularity
+      - continent
+      - country
+      - state
+    - provides a global record for which is served in cases where an end user's location doesn't match any of the specific geo dns record you have created
+    - can also combine geo dns with other routing types such as latency based, and failover
+  - geoproximity
+    - when you want to route traffic based on the location of your resources and optionally shift traffic from resources in one location to resources in another
+  - latency
+    - when you have resources in multiple regions and you want to route traffic to the region that provides the best latency
+  - multivalue answer
+    - when you want route 53 to respond to dns queries with up to eight healthy records selected at random
+  - weighted
+    - use to route traffic to multiple resources in proportions that you specify
+    - ex: 80% to one resource, 5% to another, and the rest to another
+- dns resolution updates take time to propagate
+  - because it is a global service and need to wait for ttl to expire
+  - by default, gotta give it 24h

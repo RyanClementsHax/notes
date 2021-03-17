@@ -1,14 +1,21 @@
 # Cloud Front
 
 - CDN
+- first hit goes to origin, caches then get filled with expiry policy
 - provides security like protection against DDoS attacks (AWS Shield)
 - can have different "origins" of content
   - ELB in front of EC2
   - S3
 - caches at edge locations
+  - can customize caching at each edge locations
 - origin
   - the origin of all the files that the CDN will distribute
   - can be an S3 bucket, an EC2 instance, an ELB, or Route53
+  - can also be on prem
+- content types
+  - static
+  - dynamic
+    - video
 - distribution
   - the name given the CDN which consists of a collection of edge locations
   - web (for web sites typically)

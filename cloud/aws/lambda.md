@@ -6,3 +6,6 @@
 - don't even need to worry about VPC's/security groups/NACLs/subnets/etc
 - continuous scaling
 - integrates with almost all other AWS services
+- flexible resource model
+- first step is to upload your code
+- can run at edge locations

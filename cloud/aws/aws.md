@@ -26,8 +26,13 @@
 
 ## Networking
 - direct connect
-  - allows direct corporate connection to the cloud
+  - ability to connect on-prem servers into the VPC via a VPN
   - without going over the internet
+  - scales
+  - reduces network costs
+  - creates consistent network performance
+  - a literal direct connection (no vpns)
+- you can use vpns to connect to your private cloud
 - route 53
   - DNS service
 - virtual private cloud
@@ -42,8 +47,6 @@
 - Glacier
 
 ## Other services
-- direct connect
-  - ability to connect on-prem servers into the VPC via a VPN
 - quick start
   - ability to use templates for AWS architecture like bash-in-host
 - aws analytics
@@ -78,6 +81,16 @@
 - elastic beanstalk
   - fastest way to deploy and application
   - reminds me of build packs
+  - wide selection of application platforms
+  - management and updates
+  - variety of application deployment options
+  - monitoring
+  - application health
+  - monitoring, logging, and tracing
+  - management and updates
+  - scaling
+  - customization
+  - compliance
 - workdocs
   - aws's offering to compete with google docs
 - x-ray
@@ -88,6 +101,36 @@
   - infrastructure as code
   - templates written as json or yml
   - automating the provisioning of rsources with these templates
+  - handles dependency management
+    - i.e. it creates a vpc before it creates a security group
+  - stores templates in s3
+    - this will charge you
+    - you can store these yourself to avoid this tho
+  - automatic rollback if errors occur
+  - only charged for things created
+  - can create templates from existing resources
+  - creates resources within "stacks"
+    - collection of resources that you can manage as a single unit
+  - stack sets
+    - enables you to create, update, or delete stacks across multiple accounts and regions in a single operation
+  - change sets
+    - allow you to preview how proposed changes to a stack might impact your running resources
+  - UI provided to create these
 - sqs (simple queue service)
   - like rabbitmq
   - pull service
+  - created at the region level
+- quick sight
+  - showing results of data analytics on data lakes like redshift
+  - imbedable dashboards
+- certificate manager
+  - handles ssl certs for you
+  - handles cert expiry
+  - public and private certs provisioned through aws cert manager for use with acm-integrated services are free
+  - you only pay for the aws resources you create to run your app
+  - with private cert auth, you pay monthly for the operation of the private ca and for the private certs you use
+- outposts
+  - bring native aws services, infra, and operating models to virtually any data center, co-location space, or on-premises facility
+  - you can use the same apis, same tools, same hardware, and same functionality across on-prem and the cloud
+- amazon workspaces
+  - fully managed desktop service

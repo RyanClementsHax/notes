@@ -8,6 +8,12 @@
 
 ## AWS Trusted Advisor
 - all accounts have access to this
+- helps with
+  - cost optimization
+  - performance
+  - security
+  - fault tolerance
+  - service limits
 - access to the 7 core trusted advisor checks and guidance to provision your resources following best practices to increase performance and improve security
 - core checks
   - security groups

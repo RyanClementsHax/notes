@@ -12,13 +12,27 @@
   - cost
   - envrionments
   - searching
+  - iam
   - for whatever you want really
+  - case sensitive
+  - can use tag editor to edit
 - instance metadata
 - need to do work to make it highly available
 - can turn on termination protection
   - disables terminating an instance
   - can disable this manually when you actually want to terminate an instance
   - off by default
+- shared tenancy
+  - this is the default
+  - run on host potentially with other instances
+  - cannot guarantee that the instance will be on the same host when restart (but you can on reboot)
+  - this is why instance stores cannot survive reboot
+- dedicated instance
+  - you have a host and no other customers are on that host
+  - but when you stop, you could start on a totally different host (that again has no other customers on it)
+- dedicated host
+  - you will always be the only one to have this host regardless of restarts
+  - good for licenses that require this
 
 ## AMI (Amazon Machine Image)
 - OS
@@ -215,3 +229,6 @@
 - even though your rules permit some traffic, some might be denied by the NACL
 - any changes take effect IMMEDIATELY
 - have a many-to-many relationship with instances
+- rdp port: 3389
+- no charges associated with these
+- can change security groups even when instances running
