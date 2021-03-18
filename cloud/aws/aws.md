@@ -53,13 +53,15 @@
   - many services
   - athena
     - analyze data in S3 using SQL
-    - serverless
+    - serverless (basically)
     - pay per query
     - no need to set up ETL
     - can be used to query log files stored in s3
     - can be used to generate business reports on data stored in s3
     - analyze aws cost and usage reports
     - run queries on click-stream data
+    - can do this over tons of data
+    - no data warehouses or clusters to manage
   - EMR (Elastic Map Reduce)
     - hadoop framework
 - macie
@@ -97,6 +99,18 @@
   - developer tools to figure out if something is broken
 - kenesis
   - realtime streaming
+  - analytics
+    - use sql to process the data from your data stream
+  - streams
+    - fully managed
+    - ingestion service that provides data streams to consumers (e.g. analytic applications)
+  - client library
+    - process and query streaming
+    - used by streams
+    - very complex
+    - sql interface
+  - firehose
+    - loading data streams and not creating sql-based applications
 - cloud formation
   - infrastructure as code
   - templates written as json or yml
@@ -134,3 +148,11 @@
   - you can use the same apis, same tools, same hardware, and same functionality across on-prem and the cloud
 - amazon workspaces
   - fully managed desktop service
+- service catalog
+  - allows it organizations to createa a portfolio of products that end users can use to deploy resources as defined by the portfolio
+  - uses iam and cloud formation
+- code deploy
+  - self explanatory
+- config
+  - keep track of config changes on AWS resources
+  - keeping multiple date stamped version in a reviewable history

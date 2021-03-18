@@ -50,6 +50,7 @@
   - multiple data source events
     - cloud trail
     - vpc flow logs
+    - dns logs
   - customizable
     - add own threat lists and ip lists
 - Amazon Inspector
@@ -65,14 +66,14 @@
   - provides DDoS protection
   - next level of support allows for AWS to actively assist you when problems arise
   - standard
+    - free
     - protects ip and transport layers
   - advanced protection
-    - ddos cost protection
+    - ddos cost protection (protection from spikes in aws usage, not something like lost business)
     - enhanced detection
     - visibility and attack notification
     - 24/7 response team
     - application layer protection
-  - 
 - AWS WAF (Web Application Firewall)
   - application layer
   - protects against common exploits like
@@ -80,6 +81,7 @@
     - sql injection
   - monitors web requests forwarded by an ELB, CloudFront or API Gateway
   - allow/deny access based on specified conditions
+  - integrates with aws shield advanced
 - AWS Artifact
   - portal that provides access to AWS's compliance documentation such as PCI and ISO certifications, and SOC (System and Organization Control) reports
   - go-to resource for compliance related info

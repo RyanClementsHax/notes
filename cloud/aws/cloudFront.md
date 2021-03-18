@@ -33,3 +33,5 @@
   - urls (for one file)
   - cookies (for multiple files)
   - can filter by date, path, IP address, expiration, etc
+- localization
+  - can achieve with lambda edge functions

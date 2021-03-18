@@ -32,7 +32,7 @@
   - mssql
 - automating annoying tasks like hardware provisioning and scaling
 - fully managed
-  - failover arch
+  - multiple availability zone deployments (failover arch)
     - data replication happens sync
     - active-passive model
     - can't send read requests to secondary

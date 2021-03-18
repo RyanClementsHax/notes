@@ -3,6 +3,7 @@
 - by default any additional users created on the AWS account are created with no access to any AWS resources
 - they have to be explicitly granted
 - allows for identity federation (AD, Facebook, Linkedin)
+  - includes web identity federation
 - MFA
   - no charge
 - can provide temporary access

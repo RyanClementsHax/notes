@@ -2,7 +2,17 @@
 
 - provides *logical* computers
 - scales
-- you need to explicitly assign a public IP to access it from outside of the VPC
+- 
+- ip addresses
+  - public 
+    - dynamic
+      - can only assign this at launch time
+    - static (elastic)
+      - can have one elastic ip address associated with a running instance at no charge
+      - can have up to 5 elastic ips
+      - the elastic part refers to being able to associate it with any instance
+      - "cheap failover"
+  - you need to explicitly assign a public IP to access it from outside of the VPC
 - user data
   - optional
   - "bootstraping"
@@ -169,7 +179,10 @@
 
 ## Purchasing options
 - on demand
-  - only charged by the hour
+  - only charged by the hour or by second
+  - use cases
+    - users who prefer the low cost and flexibility of ec2 without upfront payment or long-term commitments
+    - applications that have spikes in workload that cannot be interrupted
 - reserved
   - leased for 1 or 3 years
   - standard
@@ -192,6 +205,10 @@
   - by default, persistant bids disabled
   - if spot instance terminated by aws, you don't pay for that full hour
   - if you terminate that instance, you pay for that full hour
+  - use cases
+    - flexible start and end times
+    - applications only feasible at very low compute prices
+    - users with fault-tolerant and/or stateless workloads
 
 ## How you will be charged
 - purchasing options

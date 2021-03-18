@@ -5,6 +5,8 @@
     - only email access during normal business hours
   - business: $100/mo
   - enterprise: $15,000/mo
+    - access to TAM (Technical Account Manager)
+- all plans have default support
 
 ## AWS Trusted Advisor
 - all accounts have access to this

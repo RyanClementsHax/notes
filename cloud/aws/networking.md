@@ -13,6 +13,19 @@
     - if there exists entries that point a subnet to the IGW, it can reach the internet
     - need to explicitly associate routing tables with subnets (except default routing table which lets everyone talk to everyone within a VPC)
   - one subnet per availability zone is created with an account
+- peering
+  - networking connection between two VPCs that enables you to route traffic between them using private IPv4 addresses or IPv6 addresses
+  - instances in either VPC can communicate with each other as if they are within the same network
+  - don't have to be in the same account
+  - don't have to be in the same region
+  - can't have matching or overlapping cidr blocks
+  - doesn't support transitive connections
+  - don't have to set up single points of failure
+  - use cases
+    - sharing resources
+    - one vpc has centralized access to some resource needed in other vpc's
+- flow logs
+  - only capture ip traffic-related info passing through and from network interfaces within VPC
 
 ## IGWs (Internet Gateways)
 - allow instances in VPC to communicate with internet
@@ -26,6 +39,7 @@
 
 ## Networking security
 - NACL (Network Access Control List)
+  - associate with subnets
   - firewall on the subnet level
   - inbound and outbound rules
   - can configure traffic between subnets
