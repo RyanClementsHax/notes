@@ -2,7 +2,6 @@
 
 - provides *logical* computers
 - scales
-- 
 - ip addresses
   - public 
     - dynamic
@@ -179,7 +178,7 @@
 
 ## Purchasing options
 - on demand
-  - only charged by the hour or by second
+  - charged by the second at the hourly rate
   - use cases
     - users who prefer the low cost and flexibility of ec2 without upfront payment or long-term commitments
     - applications that have spikes in workload that cannot be interrupted
@@ -193,6 +192,7 @@
     - can change the attributes of the RI as long as the exchange results in the creation of reserved instances of greater or equal value
   - scheduled
     - available to launch within the time windows to reserve
+  - within an account or accounts that have access to these instances, its first come first serve
 - dedicated hosts
   - phyisical ec2 server dedicated for your use
   - allows you to use your existing server-bound software licenses

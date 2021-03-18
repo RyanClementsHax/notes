@@ -160,10 +160,13 @@
 - service catalog
   - allows it organizations to createa a portfolio of products that end users can use to deploy resources as defined by the portfolio
   - uses iam and cloud formation
+  - helps ensure that people are launching services that meet organizational constraints or configuration
+  - can create catalogs of products by importing cloud formation templates
 - code deploy
   - self explanatory
 - config
   - keep track of config changes on AWS resources
   - keeping multiple date stamped version in a reviewable history
+  - also good for auditing
 - fargate
   - compute service for containers
