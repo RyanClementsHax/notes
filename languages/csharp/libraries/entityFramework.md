@@ -185,3 +185,5 @@ Scaffold-DbContext "Data Source=your_db_server_host_name; Integrated Security=Tr
   - after using that connection is used once and receiving this error, the connection seems to reset and work fine from then on
   - the easiest way to handle this is to disable pooling in the connection string with `Pooling=false`
 
+## Misc
+- [Entity Framework doesn't provide DeleteAsync or AddAsync. Why?](https://stackoverflow.com/questions/42422656/entity-framework-doesnt-provide-deleteasync-or-addasync-why)

@@ -32,3 +32,6 @@ public IActionResult Foo([FromQuery, Required] DateTime beginDate)
 [HttpGet("foo/{param}")]
 public IActionResult Foo([RegularExpression(@"^\d{10}$", ErrorMessage="param must be 10 digits")] string param)
 ```
+
+## Conditionally using mapping
+- [UseWhen and MapWhen](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/middleware/?view=aspnetcore-5.0#branch-the-middleware-pipeline)

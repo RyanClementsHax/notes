@@ -27,6 +27,8 @@
 - the default enum serializer ignores the naming policy you give it
 - there is currently (as of 2/2021) a [github issue](https://github.com/dotnet/runtime/issues/31619) for this
 - [Macross.Json.Extensions](https://github.com/Macross-Software/core/tree/develop/ClassLibraries/Macross.Json.Extensions) offers a solid workaround
+- you need to make sure that properties have public setters when deserializing them, otherwise they will never get set
+  - [example](https://github.com/dotnet/aspnetcore/issues/21030)
 
 ## Snake case
 - you first need to write something that transfers a string to snake case

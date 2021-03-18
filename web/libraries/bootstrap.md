@@ -10,13 +10,47 @@
 ## Double gutter problem
 - sometimes you want the spacing between the columns to match the spacing between the containing row and container containing that row
 - you can overwrite the class and row classes to get this spacing to match
-```css
-.row {
-  margin: 0 7.5px;
+```scss
+@mixin gutters-mixin() {
+  margin-right: 7.5px;
+  margin-left: 7.5px;
+
+  > .col,
+  > [class*='col-'] {
+    padding-right: 7.5px;
+    padding-left: 7.5px;
+  }
 }
 
-[class^='col'] {
-  padding: 0 7.5px;
+@mixin no-gutters-mixin() {
+  margin-right: 0;
+  margin-left: 0;
+
+  > .col,
+  > [class*='col-'] {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+// for overriding on screen size change
+@mixin no-gutters-override-mixin() {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+
+  > .col,
+  > [class*='col-'] {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
 }
 ```
   - it is safe to hard code these numbers because bootstrap hard codes them to `15px`
+- you should probably override container padding too
+```scss
+.container,
+.container-fluid {
+  padding: 0;
+}
+```
+- it should also be noted that you can use the `no-gutters` for when you need no gutters

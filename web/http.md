@@ -38,3 +38,8 @@
     }
     ```
 
+## 207
+- for reporing multiple statuses for one response
+- the client will need to inspect the response to determine the statuses
+- [specification](https://evertpot.com/http/207-multi-status)
+- [how to use](https://softwareengineering.stackexchange.com/questions/329596/what-http-status-code-to-return-if-multiple-actions-finish-with-different-status)

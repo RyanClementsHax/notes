@@ -25,6 +25,7 @@
     <!-- shorthand with dynamic argument (2.6.0+) -->
     <a :[key]="url"> ... </a>
     ```
+    - can bind all attrs with `v-bind="$attrs"` (good for passthrough props)
   - `v-on` shorthand
     ```html
     <!-- full syntax -->
@@ -36,6 +37,7 @@
     <!-- shorthand with dynamic argument (2.6.0+) -->
     <a @[event]="doSomething"> ... </a>
     ```
+    - can bind all event listeners with `v-on="$listeners"` (good for passthrough listeners)
 - computed
   - essentially fields that derive their values from `data`
   - caches values

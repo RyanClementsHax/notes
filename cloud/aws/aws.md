@@ -3,6 +3,15 @@
 - [hands on tutorials](https://aws.amazon.com/getting-started/hands-on/)
 - create an account with your work email to help establish account ownership if things go wrong
 - not all services available in all regions
+- quotas
+  - all services have default limits
+  - aws needs to do capacity planning
+  - helps prevent you from fat fingering spinning up more instances than you wanted
+- support center
+  - account and billing support
+  - service limit increase
+    - some limits are hard like s3 object size limits
+  - technical support
 
 ## Regions
 - distinct geographic area
@@ -156,3 +165,5 @@
 - config
   - keep track of config changes on AWS resources
   - keeping multiple date stamped version in a reviewable history
+- fargate
+  - compute service for containers
