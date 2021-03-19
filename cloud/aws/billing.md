@@ -7,6 +7,7 @@
 - free for all customers at no charge
 - best practice is to have root account only be used for billing (no resources deployed in them)
 - policies can be applied hierarchically
+  - can create policy that enforces the use of tags
 - linking accounts counts towards scaling discounts
 - can create new accounts
 - can even do that with api calls

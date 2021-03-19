@@ -66,6 +66,7 @@
   - cassandra
   - oracle nosql
 - fully managed
+- acid compliant
 - provision read throughput
 - provision write throughput
 - ability to encrypt
@@ -116,3 +117,5 @@
 - self explanatory
 - from any on prem db to any in cloud db
 - can consolidate dbs into redshift
+- leader/worker nodes
+  - leader handles client requests and receives queries

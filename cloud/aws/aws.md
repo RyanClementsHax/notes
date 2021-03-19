@@ -12,6 +12,8 @@
   - service limit increase
     - some limits are hard like s3 object size limits
   - technical support
+- resource tags
+  - can add to lots of stuff that helps with classification, identification, etc
 
 ## Regions
 - distinct geographic area
@@ -45,6 +47,7 @@
 - route 53
   - DNS service
 - virtual private cloud
+- nat gateway
 
 ## Compute
 - EC2
@@ -54,6 +57,37 @@
 - S3
 - RDS
 - Glacier
+
+## Disaster recovery
+- need to understand business objectives
+  - RTO (Recovery Time Objectives)
+    - how long the business can tolerate waiting for recovery
+  - RPO (Recovery Point Objectives)
+    - to what point should the business recover to
+- methods
+  - backup & restore
+    - RPO / RTO: hours
+    - lower priority use cases
+    - restore data after event
+    - deploy resources after event
+    - cost: $
+  - pilot light
+    - RPO / RTO: 10s of mins
+    - less stringent RTO and RPO
+    - core services
+    - start and scale resources after
+    - cost: $$
+  - warm standby
+    - RPO / RTO: minutes
+    - more stringent RTO and RPO
+    - business critial services
+    - scale resources after event
+    - cost: $$$
+  - multi-site active/active
+    - zero downtime
+    - near zero loss
+    - mission critical services
+    - cost: $$$$
 
 ## Other services
 - quick start
@@ -106,6 +140,9 @@
   - aws's offering to compete with google docs
 - x-ray
   - developer tools to figure out if something is broken
+  - good for microservices
+  - end to end view of requests as they travel through an application
+  - map of application's underlying components
 - kenesis
   - realtime streaming
   - analytics
@@ -120,6 +157,9 @@
     - sql interface
   - firehose
     - loading data streams and not creating sql-based applications
+    - its more about "pointing" the data to a specific endpoint
+      - s3
+      - redshift
 - cloud formation
   - infrastructure as code
   - templates written as json or yml
@@ -138,7 +178,11 @@
     - enables you to create, update, or delete stacks across multiple accounts and regions in a single operation
   - change sets
     - allow you to preview how proposed changes to a stack might impact your running resources
+  - drift protection
+    - detect any changes you made to resources outside of cloud formation templates
   - UI provided to create these
+  - automates deployments of aws resources, but not applications and code onto hosts
+    - not to on prem tho
 - sqs (simple queue service)
   - like rabbitmq
   - pull service
@@ -158,15 +202,111 @@
 - amazon workspaces
   - fully managed desktop service
 - service catalog
-  - allows it organizations to createa a portfolio of products that end users can use to deploy resources as defined by the portfolio
+  - allows it organizations to create a portfolio of products that end users can use to deploy resources as defined by the portfolio
   - uses iam and cloud formation
   - helps ensure that people are launching services that meet organizational constraints or configuration
   - can create catalogs of products by importing cloud formation templates
+  - can be multi-tiered application architectures
 - code deploy
   - self explanatory
+  - automate installation of applications to hosts, ec2 instances, lambda, or on prem servers
 - config
-  - keep track of config changes on AWS resources
+  - keep track of config changes on AWS resources using the configuration recorder
   - keeping multiple date stamped version in a reviewable history
   - also good for auditing
+  - stored in s3 as log files
 - fargate
   - compute service for containers
+- opsworks
+  - config mgmt service
+  - helps you configure and operate applications using Chef and Puppet
+  - has concept of layers that form a stack
+  - when using for servers in customer data centers
+    - the servers should have linux and windows operating systems
+    - the servers should have access to aws public endpoints
+  - automates the configuration of ec2 instances including replication
+  - can be used for ec2 or on prem
+- SES (Simple Email Service)
+  - cloud based email sending service
+  - smtp interface and sdk support
+- well architected framework
+  - guide for designing resilient, secure, etc infrastructures
+  - principles
+    - perform operations as code
+    - annotate documentation
+    - make requent, small, reversible changes
+    - refine operations procedures frequently
+    - anticipate failure
+    - learn from all operational failures
+  - areas of focus
+    - security
+      - implement a strong identity foundation
+      - enable traceability
+      - apply security at all layers
+      - automate security best practices
+      - protect data in transit and at rest
+      - prepare for security events
+    - reliability
+      - test recovery procedures
+      - automatically recover from failure
+      - scale horizontally to increase aggregate system availability
+      - stop guessing capacity
+      - manage change in automation
+    - performance efficiency
+      - democratize advanced technologies
+      - go global in minutes
+      - use serverless architectures
+      - experiment more often
+      - apply mechanical sympathy
+    - cost optimization
+      - adopt a consumption model
+      - measure overall efficiency
+      - stop spending money on data center operations
+      - analyze and attribute expenditure
+      - use managed services to reduce cost of ownership
+  - tool
+    - reviews the state of your workloads and compares them to the framework
+    - gives you free access to knowledge and best practices used by aws architects, whenever you need it
+    - provides a consistent process for you to review and measure your architecture using aws best practices
+    - provides recommendations for making your workloads more reliable, secure, efficient, etc
+- cognito
+  - handles identity mgmt
+  - offers pools and identiy pools
+  - user pools are user directories that provide sign-up and sign-in options for your app users
+  - identity pools provide aws creds to grant your users access to other aws services
+  - syncs data across all devices
+- global accelerator
+  - networking service that improves the availability and performance of the applications that you offer to your global users
+  - use highly available and congestion-free aws global network to direct internet traffic from your users to your applications on aws, making your users' experience more consistent
+  - continuously monitoring the health of your application endpoints and routing traffic to the closest healthy endpoints
+  - provides static ip addresses that act as a fixed entry point to your application hosted on aws which eliminates the complexity of managing specific ip addresses for different aws regions and AZs
+  - doesn't cache content
+  - makes use of edge infrastructure and edge locations
+  - anycast routing techniques
+- aws privatelink
+  - vpc endpoints that you can call from a private subnet to access certain resources like SES (and a few others) that normally would need a connection to an email gateway
+- detective
+  - persistent machine learning service
+  - automatically collates log data from ALL aws services
+  - data collected is then applied to ML algorithms to derive data patterns between aws services and resources, grph theory and statistical analysis
+- codestar
+  - unified user interface
+  - enabling you to manage your software development activities in one place easily
+  - set up entire CD toolchain in minutes
+  - secure
+- codepipeline
+  - managed service for automation of delivery pipeline for application updates
+- resource center
+  - repository of tutorials, whitepapers, digital training, and project use cases that aid in learning the core concepts of aws
+- directory service
+  - provides multiple ways to use amazon cloud directory and microsoft active directory with other aws services
+- license manager
+  - differentiating, maintaining third-party software provisioning vendor licenses
+  - decreases the risk of license expiry and the penalties
+- systems manager
+  - unifying resources across regions into one UI
+  - can view, automate, and monitor operational tasks
+- resource groups
+  - collection of aws resources in a single aws region
+- ram (Resource Access Manager)
+  - allows users to share resources with other aws accounts or via aws organizations

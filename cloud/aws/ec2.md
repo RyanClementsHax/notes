@@ -97,6 +97,7 @@
 
 ## EFS (Elastic File Share)
 - the aws cloud offering for a file share
+- petabyte scale
 
 ## EBS (Elastic Block Storage)
 - disk

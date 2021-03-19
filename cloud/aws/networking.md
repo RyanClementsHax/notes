@@ -26,6 +26,12 @@
     - one vpc has centralized access to some resource needed in other vpc's
 - flow logs
   - only capture ip traffic-related info passing through and from network interfaces within VPC
+- endpoints
+  - enables private connections between your vpc and supported aws services and vpc endpoint services powered by aws private link
+  - traffic doesn't leave the aws network
+  - does not require an internet gateway, virtual private gateway, or NAT
+  - interface endpoints
+    - elastic network interface with a private ip address from the ip address range of your subnet
 
 ## IGWs (Internet Gateways)
 - allow instances in VPC to communicate with internet

@@ -11,3 +11,7 @@
   - balances across AZs
 - can replace impaired instances automatically
 - free of charge
+- launch configuration
+  - instance config template that an auto scaling group uses to launch ec2 instances
+  - blueprint of the autoscaling group
+  - determines config output of each instance

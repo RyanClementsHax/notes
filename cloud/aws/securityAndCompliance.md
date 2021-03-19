@@ -82,6 +82,8 @@
   - monitors web requests forwarded by an ELB, CloudFront or API Gateway
   - allow/deny access based on specified conditions
   - integrates with aws shield advanced
+  - firewall manager
+    - helps in the administration of WAF by presenting a centralized point of setting firewall rules across different web resources
 - AWS Artifact
   - portal that provides access to AWS's compliance documentation such as PCI and ISO certifications, and SOC (System and Organization Control) reports
   - go-to resource for compliance related info

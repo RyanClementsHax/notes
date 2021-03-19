@@ -10,3 +10,6 @@
 - can configure actions like turn off an instance
 - by default, for free, you get metrics every 5min
 - can also aggregate logs from on prem too
+- anomaly detection
+  - ML service to find problems in metrics
+  - only scoped to cloud watch metrics
