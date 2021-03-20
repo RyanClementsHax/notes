@@ -42,7 +42,9 @@
 - dedicated host
   - you will always be the only one to have this host regardless of restarts
   - good for licenses that require this
-
+- ec2 image builder
+  - fully managed
+  - helps build secure images of operating systems for use on aws
 ## AMI (Amazon Machine Image)
 - OS
 - ids are region specific

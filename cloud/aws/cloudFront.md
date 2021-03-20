@@ -7,7 +7,7 @@
   - ELB in front of EC2
   - S3
 - caches at edge locations
-  - can customize caching at each edge locations
+  - can customize caching at each edge locations using lambda@edge
 - origin
   - the origin of all the files that the CDN will distribute
   - can be an S3 bucket, an EC2 instance, an ELB, or Route53
@@ -35,3 +35,4 @@
   - can filter by date, path, IP address, expiration, etc
 - localization
   - can achieve with lambda edge functions
+- supports geoblocking

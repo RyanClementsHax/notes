@@ -22,6 +22,8 @@
 - prohibited testing
   - DNS zone walking via Amazon Route 53 hosted zones
   - DoS, DDos, simulated Dos, or simulated DDoS
+    - [some simulated dos is allowed](https://aws.amazon.com/security/ddos-simulation-testing/) with constraints
+    - if permitted, only allowed up to 50,000 requests/sec
   - port flooding
   - protocol flooding
   - request flooding
@@ -40,6 +42,8 @@
 - uses hardware security modules (HSMs) to safely store the keys
 - cloud hsm is an alternative to this where your client manages
   - "you are on your own" for key management
+- uses envelope encryption with other services
+  - data is first encrypted with the key in that service, then encrypted using the CMK (Customer Master Key) in KMS
 
 ## Other security services
 - AWS Organizations
@@ -70,10 +74,15 @@
     - protects ip and transport layers
   - advanced protection
     - ddos cost protection (protection from spikes in aws usage, not something like lost business)
-    - enhanced detection
+    - enhanced detection (real-time)
     - visibility and attack notification
     - 24/7 response team
-    - application layer protection
+    - application layer protection for applications on or using
+      - ec2
+      - elb
+      - cloud front
+      - global accelerator
+      - route 53
 - AWS WAF (Web Application Firewall)
   - application layer
   - protects against common exploits like
@@ -84,6 +93,15 @@
   - integrates with aws shield advanced
   - firewall manager
     - helps in the administration of WAF by presenting a centralized point of setting firewall rules across different web resources
+  - integrates with
+    - cloudfront
+    - application load balancer
+    - api gateway
+    - appsync
+  - does not integrate with
+    - internet gateway
+    - ec2 directly
+    - s3 (like static sites hosted on there)
 - AWS Artifact
   - portal that provides access to AWS's compliance documentation such as PCI and ISO certifications, and SOC (System and Organization Control) reports
   - go-to resource for compliance related info
@@ -92,6 +110,10 @@
   - rotate, manage, and retrieve secrets
   - can audit access
   - integrates with other services
+- AWS Security Hub
+  - view of across account security status status
+  - security alerts
+  - identifies deviations and best practices and suggests recommended resolution steps
 
 ## Compliance
 - aws is hella compliant with a lot of things

@@ -22,6 +22,26 @@
     - architectural guidance:  consultative review and guidace based on your applications
     - access to online self-paced labs
 - all plans have default support
+- [support severity](https://docs.aws.amazon.com/awssupport/latest/user/case-management.html#choosing-severity)
+  - general guidance
+    - developer plan or up required
+    - development question
+    - feature request
+  - system impaired
+    - developer plan or up required
+    - non-critical functions behaving abnormally
+    - time-sensitive development questions
+  - production system impaired
+    - business plan or up required
+    - important functions of your application are impaired or degraded
+  - production system down
+    - buesiness plan or up required
+    - your business is significantly impacted
+    - important functions of your application aren't available
+  - business critical system down
+    - enterprise plan required
+    - your business is at risk
+    - critical functions of your application aren't available
 
 ## AWS Trusted Advisor
 - all accounts have access to this
@@ -40,6 +60,8 @@
   - RDS public snapshots
   - service limits
   - S3 bucket permissions
+- notifications
+  - need to be set up in the dashboard
 
 ## AWS Service Health Dashboard
 - displays general status of aws services

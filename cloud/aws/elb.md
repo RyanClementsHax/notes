@@ -16,3 +16,4 @@
   - tcp (network load balancer)
     - for speed
     - all of the ec2 instances in the backend can share the same static ip
+- also supports routing to lambda functions

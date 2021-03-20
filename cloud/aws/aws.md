@@ -43,6 +43,11 @@
   - reduces network costs
   - creates consistent network performance
   - a literal direct connection (no vpns)
+  - only supports BGP routing protocol (no static routing protocol)
+  - public VIF (virtual interface)
+    - needed to access public services like s3
+  - private VIF
+    - needed to access stuff in a VPC
 - you can use vpns to connect to your private cloud
 - route 53
   - DNS service
@@ -116,6 +121,9 @@
 - lightsail
   - private virtual server
   - for getting started very quickly
+  - upgrade to ec2
+    - copy existing lightsail instance to ec2
+    - can choose from available ec2 pricing options among others
 - rekognition
   - video/image analysis
 - device farm (mobile lab)
@@ -207,6 +215,7 @@
   - helps ensure that people are launching services that meet organizational constraints or configuration
   - can create catalogs of products by importing cloud formation templates
   - can be multi-tiered application architectures
+  - can restrict access to these products using permissions
 - code deploy
   - self explanatory
   - automate installation of applications to hosts, ec2 instances, lambda, or on prem servers
@@ -215,8 +224,13 @@
   - keeping multiple date stamped version in a reviewable history
   - also good for auditing
   - stored in s3 as log files
+- ECS (Elastic Container Service)
+  - container mgmt service that facilitates containers' mgmt on the cluster including running and stopping the containers
+  - can use api calls
 - fargate
   - compute service for containers
+  - serverless
+  - ECS and EKS compatible
 - opsworks
   - config mgmt service
   - helps you configure and operate applications using Chef and Puppet
@@ -276,6 +290,7 @@
   - identity pools provide aws creds to grant your users access to other aws services
   - syncs data across all devices
 - global accelerator
+  - focuses on optimizing "user to application" path
   - networking service that improves the availability and performance of the applications that you offer to your global users
   - use highly available and congestion-free aws global network to direct internet traffic from your users to your applications on aws, making your users' experience more consistent
   - continuously monitoring the health of your application endpoints and routing traffic to the closest healthy endpoints
@@ -296,6 +311,7 @@
   - secure
 - codepipeline
   - managed service for automation of delivery pipeline for application updates
+  - uses codecommit, codebuild, and codedeploy under the hood
 - resource center
   - repository of tutorials, whitepapers, digital training, and project use cases that aid in learning the core concepts of aws
 - directory service
@@ -310,3 +326,19 @@
   - collection of aws resources in a single aws region
 - ram (Resource Access Manager)
   - allows users to share resources with other aws accounts or via aws organizations
+- glue
+  - ETL offering
+- STS (Security Token Service)
+  - web service that enables you to request temporary, limited-privilege credentials for aws iam users, federated users, or aws services with roles
+- cloud9
+  - web based ide
+- sso
+  - central management of access to accounts and business applications
+- parallel cluster
+  - open source cluster mgmt tool supported by aws
+  - helps manage high performance computing
+- professional services
+  - helps clients move to the cloud
+  - CART (Cloud Adoption Readiness Tool)
+- managed services
+  - provides abstractions to the aws infrastructure services layer and ongoing management of aws infrastructure that helps reduce operational overhead and risk

@@ -25,6 +25,8 @@
     - continuous backup to s3
     - up to 15 read replicas
     - up to 64 TiB of auto scaling storage
+    - can scale up to 128 TiB
+    - self healing storage system
   - mysql
   - mariadb
   - prostres
@@ -119,3 +121,4 @@
 - can consolidate dbs into redshift
 - leader/worker nodes
   - leader handles client requests and receives queries
+- uses schema conversion tool under the hood for heterogeneous database migrations
