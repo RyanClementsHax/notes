@@ -45,6 +45,7 @@
 - ec2 image builder
   - fully managed
   - helps build secure images of operating systems for use on aws
+
 ## AMI (Amazon Machine Image)
 - OS
 - ids are region specific
@@ -97,6 +98,47 @@
   - A: arm based workloads
   - U: bare metal
 
+## Networking
+- ENI (Elastic Network Interface)
+  - virtual network card for ec2 instances
+  - it allows
+    - a primary private IPv4 addr from the IPv4 addr range of your vpc
+    - one or more secondary private IPv4 addresses from the IPv4 address range of your vpc
+    - one elastic IP address (IPv4) per private IPv4 address
+    - one public IPv4 address
+    - one or more IPv6 addresses
+    - one or more security groups
+    - a MAC address
+    - a src/dest check flag
+    - a description
+  - scenarios
+    - create a mgmt network
+    - use network and security appliances in your vpc
+    - create dual-homed instances with norkloads/roles on distinct subnets
+      - like one for logging and another for production traffic
+    - create a low-budget, high-availability solution
+- EN (Enhanced Networking)
+  - single root I/O virtualization (SR-IOV) to provide high-performance networking capabilities on supported instance types
+  - SR-IOV is a method of device virtualization that provides higher I/O performance and lower CPU utilization when compared to traditional virtualized network interfaces
+  - enhanced networking provides higher bandwidth, higher packet per second (PPS) performance, and consistently lower inter-instance latencies
+  - there is no additional charge for using enhanced networking
+  - use where you want good network performance
+  - can be enabled using
+    - ENA (Elastic Network Adapter)
+      - supports network speeds of up to 100 Gbps for supported instance types
+    - Intel 825999 VF (Virtual Function) interface
+      - supports network speeds of up to 10 Gbps for supported instance types
+      - typically used on older instances
+    - probably want to choose ENA over the VF option in every circumstance
+- EFA (Elastic Fabric Adapter)
+  - network device that you can attach to you  ec2 instance to accelerate HPC (High Performance Computing) and machine learning applications
+  - lower and more consistent latency and higher throughput than the TCP transport used in cloud-based HPC systems
+  - can use OS-bypass
+    - enables HPC and machine learning applications to bypass the OS kernel and communicate directly with the EFA device
+    - makes it a lot faster with a lot lower latency
+    - not supported with windows, only linux
+  - 
+
 ## EFS (Elastic File Share)
 - the aws cloud offering for a file share
 - petabyte scale
@@ -121,6 +163,19 @@
     - general purpose
     - provisioned iops
     - magnetic (standard)
+  - encrypting
+    - used to be very laborsome to create an encrypted root device snapshot
+    - simple option when adding a volume on an ec2 instance at start time
+    - if encrypting a root volume after an instance was started
+      - create a snapshot
+      - copy that snapshot and check the encypt check box in that process
+      - create an ami from that snapshot
+      - launch a new instance from that ami
+      - note: cannot create an instance with an unencrypted root volume from an ami with an encrypted root volume
+    - snapshots of encrypted volumes are encrypted automatically
+    - volumes restored from encrypted snapshots are encrypted automatically
+    - can only share snapshots if unencrypted
+    - these shapshots can be shared with other aws accounts or made public
 - additional volumes can be added on
   - these won't be deleted by default
   - general (self explanitory) (gp2)
@@ -205,6 +260,7 @@
     - can be purchased on demand
 - spot
   - bidding on unused instances
+  - up to 90% discount
   - by default, persistant bids disabled
   - if spot instance terminated by aws, you don't pay for that full hour
   - if you terminate that instance, you pay for that full hour
@@ -212,6 +268,72 @@
     - flexible start and end times
     - applications only feasible at very low compute prices
     - users with fault-tolerant and/or stateless workloads
+    - big data and analytics
+    - containerized workloads
+    - CI/CD and testing
+    - web services
+    - image and media rendering
+    - HPC
+  - not good for
+    - persistent workloads
+    - critical jobs
+    - databases
+  - spot blocks
+    - can stop your spot instances from stopping even if the spot price goes over your max spot price
+    - you can set this for between 1 to 6h currently
+  - spot requests
+    - maximum price
+    - desited number of instances
+    - launch specification
+    - request type
+      - one-time
+        - doesn't try to restart after you lose your instance
+      - presistent
+        - restarts once the spot price is <= your max price
+    - valid from
+    - valid until
+    - there are state charts for this
+  - spot fleets
+    - collection of spot instances and optionally on-demand instances
+    - attempts to launch the number of spot instances and on-demand instances to meet the target capacity you specified in the spot fleet request
+    - the request for spot instances is fulfilled if there is available capacity and the maximum price you specified in the request exceeds the surrent spot price
+    - the spot fleet also attempts to maintain its target capacity fleet if your spot instances are interrupted
+    - set up different launch pools
+    - can have multiple launch pools
+    - will stop launching instances once you reach your price threshold or capacity desire
+    - strategies
+      - lowest price (default)
+        - spot instances come from the pool with the lowest price
+      - capacityOptimized
+        - spot instances come from the pool with optimal capacity for the number of instances launching
+      - diversified
+        - spot instances are distributed across all pools
+      - instancePoolsToUseCount
+        - spot instances are distributed across the number of spot instance pools you specified
+        - this parameter in valid only when used in combination with lowestPrice
+
+## Hibernate
+- ec2 startup process
+  - os boots
+  - bootstrap scripts run
+  - application loads
+- os is told to perform hibernate
+- saves contents from the instance memory to ebs root volume
+- then persist the root volume and any attached ebs volumes
+- circumvents startup process
+- previously attached data volumes are reattached and instance retains its instance id
+- available for
+  - windows
+  - linux 2 ami
+  - ubuntu
+  - on-demand instances
+  - reserved instances
+- good for
+  - long-running processes
+  - services that take time to initialize
+- limitations
+  - instance ram must be less than 150 GB
+  - can't be hibernated for more than 60 days
 
 ## How you will be charged
 - purchasing options
