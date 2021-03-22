@@ -1,4 +1,6 @@
 # Patching Service
+
+## Main service
 ``` csharp
 public abstract class PatchService<TDbContext, TModel, TEntity> : IPatchService<TModel, TEntity>
     where TDbContext : DbContext
@@ -33,7 +35,11 @@ public abstract class PatchService<TDbContext, TModel, TEntity> : IPatchService<
         return new PatchedEntity<TEntity>{ Entity = existingEntity };
     }
 }
+```
 
+## Mapping Service
+
+``` csharp
 public abstract class EntityMapper<TEntity, TModel> : IEntityMapper<TEntity, TModel>
     where TEntity : class, ICloneable
     where TModel : class
@@ -80,7 +86,11 @@ public abstract class EntityMapper<TEntity, TModel> : IEntityMapper<TEntity, TMo
         throw new NotImplementedException();
     }
 }
+```
 
+## Helper classes
+
+``` csharp
 public class UpdateEntityAuthenticationException : Exception
 {
     public UpdateEntityAuthenticationException(string fieldName) : base($"You are unauthorized to edit the field {fieldName}.") { }
