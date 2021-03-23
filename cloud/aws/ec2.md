@@ -16,6 +16,8 @@
   - optional
   - "bootstraping"
   - a script you want run on instance launch time
+  - cannot modify once created
+  - need to use `sudo` in the script to run as the root user
 - tags
   - labeling
   - cost
@@ -26,6 +28,8 @@
   - case sensitive
   - can use tag editor to edit
 - instance metadata
+  - is available to ec2 instances by default without the need to provide an iam role for accessing it
+  - can be edited after launch
 - need to do work to make it highly available
 - can turn on termination protection
   - disables terminating an instance
@@ -45,6 +49,9 @@
 - ec2 image builder
   - fully managed
   - helps build secure images of operating systems for use on aws
+- compute optimizer
+  - ML based tool that analyzes metrics of historical utilization
+  - makes recommendations of compute services to be used for the workload
 
 ## AMI (Amazon Machine Image)
 - OS
@@ -74,6 +81,7 @@
       - faster
     - priced apart from the instance price
     - depending on the size of instance, can add more
+- can copy ami into another region to use it there
 
 ## Instance Type
 - processor
@@ -117,6 +125,10 @@
     - create dual-homed instances with norkloads/roles on distinct subnets
       - like one for logging and another for production traffic
     - create a low-budget, high-availability solution
+  - cannot detach the primary ENI of one EC2 instance and connect it to another instance for moving its elastic IP
+  - can configure a security group for the ENI and restrict traffic to the ec2 instance
+  - can detach a secondary ENI containing a private ip from one ec2 instance and attach it to another
+  - can attach an elastic ip to an ec2 instance in another subnet by releasing it from the ENI in the current subnet to which it is currently attached to
 - EN (Enhanced Networking)
   - single root I/O virtualization (SR-IOV) to provide high-performance networking capabilities on supported instance types
   - SR-IOV is a method of device virtualization that provides higher I/O performance and lower CPU utilization when compared to traditional virtualized network interfaces
@@ -137,7 +149,6 @@
     - enables HPC and machine learning applications to bypass the OS kernel and communicate directly with the EFA device
     - makes it a lot faster with a lot lower latency
     - not supported with windows, only linux
-  - 
 
 ## EFS (Elastic File Share)
 - the aws cloud offering for a file share
@@ -221,6 +232,9 @@
     - create an ami from the snapshot
     - copy the ami into a different region
 - best practice to stop instance before taking snapshot, but can take a snapshot while the instance is running
+- stopping an instance preserves its EBS volume
+- terminating an instance removes its volumes
+  - good to prevent continued charging for ebs volumes associated with an instance you dont use
 
 ## Instance store
 - ephemeral
@@ -251,6 +265,9 @@
   - scheduled
     - available to launch within the time windows to reserve
   - within an account or accounts that have access to these instances, its first come first serve
+  - can't always guarantee capacity
+  - can extend boundaries across AZs
+  - can sell unused reserved instances on the marketplace
 - dedicated hosts
   - phyisical ec2 server dedicated for your use
   - allows you to use your existing server-bound software licenses

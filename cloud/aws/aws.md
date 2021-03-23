@@ -24,7 +24,7 @@
 - identified by the region prefix with an alphabetic character at the end (a-z)
   - what is considered 1a for one account might be totally different for another account (its randomized)
 - where resources located
-- contains datacenters
+- contains one or more datacenters
 - availability zones in same region have low latency between each other
 
 ## Edge locations
@@ -49,10 +49,14 @@
   - private VIF
     - needed to access stuff in a VPC
 - you can use vpns to connect to your private cloud
+  - typically used to connect on-prem servers to aws services using the internet
 - route 53
   - DNS service
 - virtual private cloud
 - nat gateway
+  - provides an egress only access to the internet
+  - safe to use for things hosted in private subnets as this only allows egress
+  - useful for downloading security patches
 
 ## Compute
 - EC2
@@ -97,6 +101,8 @@
 ## Other services
 - quick start
   - ability to use templates for AWS architecture like bash-in-host
+  - automates deployments aligned with best practice
+  - cloud formation templates are included
 - aws analytics
   - many services
   - athena
@@ -204,6 +210,9 @@
   - public and private certs provisioned through aws cert manager for use with acm-integrated services are free
   - you only pay for the aws resources you create to run your app
   - with private cert auth, you pay monthly for the operation of the private ca and for the private certs you use
+  - two ways to verify the issuance of a security cert
+    - creating a CNAME record in the hosted zone of the domain
+    - via email confirmation send to the requester's email address
 - outposts
   - bring native aws services, infra, and operating models to virtually any data center, co-location space, or on-premises facility
   - you can use the same apis, same tools, same hardware, and same functionality across on-prem and the cloud
@@ -245,6 +254,11 @@
   - smtp interface and sdk support
 - well architected framework
   - guide for designing resilient, secure, etc infrastructures
+  - service characteristics ("ilities")
+    - resiliency
+      - the ability to recover from and mitigate disruptions
+    - durability
+      - the ability to remain functional and perform despite unexpected events
   - principles
     - perform operations as code
     - annotate documentation
@@ -253,20 +267,30 @@
     - anticipate failure
     - learn from all operational failures
   - areas of focus
+    - operational excellence (focuses on visibility into daily routines and providing continuous business value)
+      - responsiveness
+      - enactment of operational standards
+      - automated processes to champion daily operations
+      - perform operations as code
+      - make frequent, small, reversible changes
+      - refine operations procedures frequently
+      - anticipate failure
+      - learn from all operational failures
     - security
       - implement a strong identity foundation
       - enable traceability
       - apply security at all layers
       - automate security best practices
       - protect data in transit and at rest
+      - keep people away from data
       - prepare for security events
-    - reliability
+    - reliability (focuses on recovering)
       - test recovery procedures
       - automatically recover from failure
       - scale horizontally to increase aggregate system availability
       - stop guessing capacity
       - manage change in automation
-    - performance efficiency
+    - performance efficiency (focuses on monitoring the performance of a system)
       - democratize advanced technologies
       - go global in minutes
       - use serverless architectures
@@ -312,6 +336,8 @@
 - codepipeline
   - managed service for automation of delivery pipeline for application updates
   - uses codecommit, codebuild, and codedeploy under the hood
+  - cannot alone provision IT infrastructure
+  - uses targets like ec2, s3, and beanstalk for deploying generated artifacts
 - resource center
   - repository of tutorials, whitepapers, digital training, and project use cases that aid in learning the core concepts of aws
 - directory service
@@ -322,8 +348,24 @@
 - systems manager
   - unifying resources across regions into one UI
   - can view, automate, and monitor operational tasks
+  - makes it possible to 'run command' to ec2 instances with the appropriate iam role
+  - isn't configured on an instance
 - resource groups
-  - collection of aws resources in a single aws region
+  - collection of aws resources in a single aws region and match the criteria specified by the group's query
+  - good for bulk actions
+    - applying updates or security patches
+    - upgrading applications
+    - opening or closing ports to network traffic
+    - collecting specific log and monitoring data from your fleet of instances
+  - tag based
+  - cloud formation stack-based
+  - can be nested
+  - use cases
+    - application with different environments
+    - projects managed by multiple departments or individuals
+    - set of resources that you use together for a common project or that you want to manage or monitor as a group
+    - set of resources related to applications that run on a specific platform such as android or ios
+  - permissions are on the account level
 - ram (Resource Access Manager)
   - allows users to share resources with other aws accounts or via aws organizations
 - glue
@@ -332,6 +374,7 @@
   - web service that enables you to request temporary, limited-privilege credentials for aws iam users, federated users, or aws services with roles
 - cloud9
   - web based ide
+  - serverless
 - sso
   - central management of access to accounts and business applications
 - parallel cluster
@@ -342,3 +385,10 @@
   - CART (Cloud Adoption Readiness Tool)
 - managed services
   - provides abstractions to the aws infrastructure services layer and ongoing management of aws infrastructure that helps reduce operational overhead and risk
+- transit gateway
+  - connects vpcs and on-prem networks through a central hub
+  - acts as a cloud router
+  - automatically encrypted and never travels over the public internet
+  - gives you single view of your network
+  - supports multicast without need to buy special hardware
+  - need to use RAM (Resource Access Manager) to share the transit gateway between vpcs

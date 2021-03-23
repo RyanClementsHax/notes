@@ -5,9 +5,18 @@
   - i.e. tagging all of your resources with the environment their in
 - reports can be stored in s3
   - could then be querried against using athena
+- CUR (Cost and Usage Report)
+  - granular billing data
+- DBR (Detailed Billing Reports)
+  - granular billing data like CUR but with different permutations on the data
 
 ## Organizations
 - allow you to manage billing and access to multiple aws accounts
+- root account is a logical entity or parent contianer for all accounts and organization units within an organization
+  - automatically created along with the aws organization
+- master account creates the organization itself which has to exist before creating the organization
+  - aka "payer account"
+- accounts managed by the master account are known as member accounts
 - policy based mgmt of accounts via SCPs (Service Control Policies)
 - automate the creation of new accounts
 - free for all customers at no charge
@@ -17,6 +26,7 @@
 - linking accounts counts towards scaling discounts
 - can create new accounts
 - can even do that with api calls
+- cloud trail logs from individual accounts can be aggregated into a single s3 bucket in the master account
 - reports are only stored in the master account's s3
 
 ## Pricing model
@@ -26,7 +36,8 @@
 - automatic volume discounts
 - no long term contracts or complex licensing
 - no termination fees
-- no data transfer costs for any service in any region
+- no inbound data transfer costs for any service in any region
+- outbound data transfer is dependent on service and region
 - free tier
   - only for 12 mo (with limits)
     - ec2

@@ -16,6 +16,7 @@
 - peering
   - networking connection between two VPCs that enables you to route traffic between them using private IPv4 addresses or IPv6 addresses
   - instances in either VPC can communicate with each other as if they are within the same network
+  - encrypts traffic by default
   - don't have to be in the same account
   - don't have to be in the same region
   - can't have matching or overlapping cidr blocks
@@ -24,6 +25,7 @@
   - use cases
     - sharing resources
     - one vpc has centralized access to some resource needed in other vpc's
+    - replicating data to geographically distinct locations for fault-tolerance, disaster recovery and redundancy
 - flow logs
   - only capture ip traffic-related info passing through and from network interfaces within VPC
 - endpoints

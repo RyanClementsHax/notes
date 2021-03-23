@@ -44,6 +44,11 @@
   - "you are on your own" for key management
 - uses envelope encryption with other services
   - data is first encrypted with the key in that service, then encrypted using the CMK (Customer Master Key) in KMS
+- cannot manage these keys at all
+  - can't delete
+  - can't rotate
+  - can't set policies
+  - can't integrate them with iam
 
 ## Other security services
 - AWS Organizations
@@ -93,6 +98,7 @@
   - integrates with aws shield advanced
   - firewall manager
     - helps in the administration of WAF by presenting a centralized point of setting firewall rules across different web resources
+    - manages vpc security groups, aws shield advanced, and waf rules on one platform even across multiple aws accounts
   - integrates with
     - cloudfront
     - application load balancer
@@ -110,6 +116,7 @@
   - rotate, manage, and retrieve secrets
   - can audit access
   - integrates with other services
+  - can make api calls to it to grab secrets data
 - AWS Security Hub
   - view of across account security status status
   - security alerts

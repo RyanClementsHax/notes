@@ -62,6 +62,8 @@
   - S3 bucket permissions
 - notifications
   - need to be set up in the dashboard
+- basic and dev support customers get access to 6 security checks and 50 service limit checks
+- business and enterprise support customers get accss to all 115 checks
 
 ## AWS Service Health Dashboard
 - displays general status of aws services
