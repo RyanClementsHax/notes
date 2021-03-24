@@ -19,6 +19,10 @@
 - doesn't allow biometric auth
 - power users
   - full access to aws services but management of iam users/groups/roles
+- https certs
+  - iam can be used to store and deploy these
+  - use iam only when you must support https connections in a region that is not supported by ACM
+  - must obtain cert from external source to use in iam
 
 ## Best practices
 - delete your root access keys

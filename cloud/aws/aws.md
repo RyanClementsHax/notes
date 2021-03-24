@@ -14,6 +14,8 @@
   - technical support
 - resource tags
   - can add to lots of stuff that helps with classification, identification, etc
+- storage devices
+  - when decommissioned, they are destroyed in accordance with industry-standard practices
 
 ## Regions
 - distinct geographic area
@@ -103,6 +105,7 @@
   - ability to use templates for AWS architecture like bash-in-host
   - automates deployments aligned with best practice
   - cloud formation templates are included
+  - doesn't create rds instances
 - aws analytics
   - many services
   - athena
@@ -118,6 +121,7 @@
     - no data warehouses or clusters to manage
   - EMR (Elastic Map Reduce)
     - hadoop framework
+    - need to hook up with auto scaling in order to scale automatically
 - macie
   - uses ML and NLP to discover, classify, and protect sensitive data stored in S3
   - dashboards, reporting, and alerts
@@ -150,6 +154,9 @@
   - scaling
   - customization
   - compliance
+  - any instances for beanstalk that are manually terminated by you will automatically be relaunched as part of beanstalk's self healing feature set
+    - this can lead into unexpected bills
+    - if you need to terminate instances, terminate your beanstalk instance
 - workdocs
   - aws's offering to compete with google docs
 - x-ray
@@ -249,6 +256,9 @@
     - the servers should have access to aws public endpoints
   - automates the configuration of ec2 instances including replication
   - can be used for ec2 or on prem
+  - any instances created by opsworks that are manually terminated will be automatically restarted as part of opsworks self-healing feature
+    - this can lead to unexpected prices
+    - if you need to terminate an instance, you must use opsworks to terminate that instance
 - SES (Simple Email Service)
   - cloud based email sending service
   - smtp interface and sdk support
@@ -276,6 +286,7 @@
       - refine operations procedures frequently
       - anticipate failure
       - learn from all operational failures
+      - running and monitoring systems to deliver business value and to continually improve supporting processes and procedures
     - security
       - implement a strong identity foundation
       - enable traceability
@@ -383,6 +394,9 @@
 - professional services
   - helps clients move to the cloud
   - CART (Cloud Adoption Readiness Tool)
+  - shares a collection of offerings to help you achieve specific outcomes related to enterprise cloud adoption
+  - helps train your teams with specialized skills
+  - improves global specialty practices to support your efforts in focused ereas of enterprise cloud computing
 - managed services
   - provides abstractions to the aws infrastructure services layer and ongoing management of aws infrastructure that helps reduce operational overhead and risk
 - transit gateway
@@ -392,3 +406,15 @@
   - gives you single view of your network
   - supports multicast without need to buy special hardware
   - need to use RAM (Resource Access Manager) to share the transit gateway between vpcs
+- application discovery service
+  - helps enterprise customers plan migration projects by gathering info about their on-prem data centers
+- aws batch
+  - batch service
+  - enables you to run hundreds of thousands of batch computing jobs
+- cloud endure migration
+  - simplifies the process of migrating applications from physical, virtual, and cloud-based infra
+  - ensures that they are fully operational in any aws region without compatibility issues
+- migration hub
+  - provides a single location to track the progress of application migrations across multiple aws and partner solutions
+- pin point
+  - to engage your customers by sending them targeted and transactional email, sms, push notifications, and voice messages

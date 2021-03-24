@@ -17,3 +17,6 @@
     - for speed
     - all of the ec2 instances in the backend can share the same static ip
 - also supports routing to lambda functions
+- priced on
+  - the number of hours run
+  - the amount of data it processes

@@ -19,6 +19,7 @@
   - amazon aurora
     - serverless
     - auto scaling storage capacity
+    - auto scaling instances
     - HA: 6 way replication across three AZs
     - mssql or postgresql compatible
     - faster than mssql or postgres
@@ -61,6 +62,7 @@
   - postgres
   - these "forklift" into aurora
 - scales vertically not horizontally
+- resizable compute capacity
 
 ## DynamoDB
 - similar to
@@ -69,6 +71,7 @@
   - oracle nosql
 - fully managed
 - acid compliant
+- automatically scales to meet required throughput capacity
 - provision read throughput
 - provision write throughput
 - ability to encrypt

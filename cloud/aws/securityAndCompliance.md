@@ -111,6 +111,10 @@
 - AWS Artifact
   - portal that provides access to AWS's compliance documentation such as PCI and ISO certifications, and SOC (System and Organization Control) reports
   - go-to resource for compliance related info
+  - can view and manage agreements with aws
+    - such as BAA (Business Associate Addendum)
+  - no cost
+  - self-service portal
 - AWS Secret Manager
   - self explanatory
   - rotate, manage, and retrieve secrets

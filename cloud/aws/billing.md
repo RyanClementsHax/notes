@@ -56,7 +56,8 @@
   - lifecycle transition request
   - data retrieval, archive and restore
 - ec2
-  - billed per second of compute (unless reserved)
+  - linux: billed per second of compute for a minimum of one minute (unless reserved)
+  - non-linux/windows: billed per hour for a minimum of one hour
   - purchasing option
   - instance type
     - reserved instances
