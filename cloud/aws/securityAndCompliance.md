@@ -125,6 +125,8 @@
   - view of across account security status status
   - security alerts
   - identifies deviations and best practices and suggests recommended resolution steps
+- Security Bulletins
+  - aws publishes security bulletins about the latest security and privacy events with aws services on the Security Bulletins page
 
 ## Compliance
 - aws is hella compliant with a lot of things

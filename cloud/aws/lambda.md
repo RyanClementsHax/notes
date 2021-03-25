@@ -10,3 +10,12 @@
 - first step is to upload your code
 - can run at edge locations
 - can participate in savings plans
+- natively supports
+  - java
+  - go
+  - powershell
+  - node.js
+  - c#
+  - python
+  - ruby
+- can support any language through a runtime api

@@ -7,6 +7,7 @@
   - metrics
 - cannot scale fully managed services
   - can only vertically scale them if allowed
+- az level service
 - fleet management
   - balances across AZs
 - can replace impaired instances automatically

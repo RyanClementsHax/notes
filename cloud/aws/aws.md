@@ -136,6 +136,10 @@
     - can choose from available ec2 pricing options among others
 - rekognition
   - video/image analysis
+  - i.e. facial recognition
+- comprehend
+  - NLP service
+  - fully managed
 - device farm (mobile lab)
   - physical devices to test mobile applications on
 - mechanical turk
@@ -164,6 +168,7 @@
   - good for microservices
   - end to end view of requests as they travel through an application
   - map of application's underlying components
+  - helps improve application performance by helping you find performance bottlenecks
 - kenesis
   - realtime streaming
   - analytics
@@ -418,3 +423,11 @@
   - provides a single location to track the progress of application migrations across multiple aws and partner solutions
 - pin point
   - to engage your customers by sending them targeted and transactional email, sms, push notifications, and voice messages
+- chime
+  - communications service
+  - used for online meetings, video conferencing, calls, and chat
+- cloud directory
+  - web based directories to make it easy for your to organize and manage all your application resources such as users, groups, locations, devices, policies, and the rich relationships around them
+  - supports hierarchies
+- polly
+  - turns text into lifelike speech

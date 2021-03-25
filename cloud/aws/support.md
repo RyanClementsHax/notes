@@ -44,6 +44,7 @@
     - buesiness plan or up required
     - your business is significantly impacted
     - important functions of your application aren't available
+    - response time < 1h
   - business critical system down
     - enterprise plan required
     - your business is at risk
