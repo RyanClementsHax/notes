@@ -149,3 +149,18 @@
   - robust set of tools to automate and accelerate common migration scenarios
   - experienced partner ecosystem
   - progessional services team
+
+## Migration services
+- cloud endure migration
+  - simplifies the process of migrating applications from physical, virtual, and cloud-based infra
+  - ensures that they are fully operational in any aws region without compatibility issues
+- migration hub
+  - provides a single location to track the progress of application migrations across multiple aws and partner solutions
+- professional services
+  - helps clients move to the cloud
+  - CART (Cloud Adoption Readiness Tool)
+  - shares a collection of offerings to help you achieve specific outcomes related to enterprise cloud adoption
+  - helps train your teams with specialized skills
+  - improves global specialty practices to support your efforts in focused ereas of enterprise cloud computing
+- application discovery service
+  - helps enterprise customers plan migration projects by gathering info about their on-prem data centers

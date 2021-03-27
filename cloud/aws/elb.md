@@ -16,6 +16,10 @@
   - tcp (network load balancer)
     - for speed
     - all of the ec2 instances in the backend can share the same static ip
+- classic load balancing
+  - balances across multiple ec2 instances
+  - operates at both the request level and connection level
+  - intended for applications that were built within the ec2-classic network
 - also supports routing to lambda functions
 - priced on
   - the number of hours run

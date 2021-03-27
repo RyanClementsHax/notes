@@ -27,6 +27,9 @@
   - port flooding
   - protocol flooding
   - request flooding
+- customer service policy for penetration testing
+  - the policy defining this
+  - i think it's also called the acceptable use policy
 
 ## AWS KMS (Key Management Service)
 - can generate keys in an AWS CloudHSM hardware cluster
@@ -49,6 +52,20 @@
   - can't rotate
   - can't set policies
   - can't integrate them with iam
+
+## Login/permission services
+- STS (Security Token Service)
+  - web service that enables you to request temporary, limited-privilege credentials for aws iam users, federated users, or aws services with roles
+- sso
+  - central management of access to accounts and business applications
+- cognito
+  - handles identity mgmt
+  - offers pools and identiy pools
+  - user pools are user directories that provide sign-up and sign-in options for your app users
+  - identity pools provide aws creds to grant your users access to other aws services
+  - syncs data across all devices
+- directory service
+  - provides multiple ways to use amazon cloud directory and microsoft active directory with other aws services
 
 ## Other security services
 - AWS Organizations
@@ -127,6 +144,21 @@
   - identifies deviations and best practices and suggests recommended resolution steps
 - Security Bulletins
   - aws publishes security bulletins about the latest security and privacy events with aws services on the Security Bulletins page
+- certificate manager
+  - handles ssl certs for you
+  - handles cert expiry
+  - public and private certs provisioned through aws cert manager for use with acm-integrated services are free
+  - you only pay for the aws resources you create to run your app
+  - with private cert auth, you pay monthly for the operation of the private ca and for the private certs you use
+  - two ways to verify the issuance of a security cert
+    - creating a CNAME record in the hosted zone of the domain
+    - via email confirmation send to the requester's email address
+- config
+  - keep track of config changes on AWS resources using the configuration recorder
+  - real time
+  - keeping multiple date stamped version in a reviewable history
+  - also good for auditing
+  - stored in s3 as log files
 
 ## Compliance
 - aws is hella compliant with a lot of things

@@ -1,0 +1,56 @@
+# Analytics
+
+- aws analytics
+  - many services
+  - athena
+    - analyze data in S3 using SQL
+    - serverless (basically)
+    - pay per query
+    - no need to set up ETL
+    - can be used to query log files stored in s3
+    - can be used to generate business reports on data stored in s3
+    - analyze aws cost and usage reports
+    - run queries on click-stream data
+    - can do this over tons of data
+    - no data warehouses or clusters to manage
+  - EMR (Elastic Map Reduce)
+    - hadoop framework
+    - need to hook up with auto scaling in order to scale automatically
+- macie
+  - uses ML and NLP to discover, classify, and protect sensitive data stored in S3
+  - dashboards, reporting, and alerts
+  - works directly with data stored in S3
+  - can also analyze cloud trail logs
+  - great for PCI-DCS and preventing id theft
+- rekognition
+  - video/image analysis
+  - i.e. facial recognition
+- comprehend
+  - NLP service
+  - fully managed
+- kenesis
+  - realtime streaming
+  - analytics
+    - use sql to process the data from your data stream
+  - streams
+    - fully managed
+    - ingestion service that provides data streams to consumers (e.g. analytic applications)
+  - client library
+    - process and query streaming
+    - used by streams
+    - very complex
+    - sql interface
+  - firehose
+    - loading data streams and not creating sql-based applications
+    - its more about "pointing" the data to a specific endpoint
+      - s3
+      - redshift
+- quick sight
+  - showing results of data analytics on data lakes like redshift
+  - imbedable dashboards
+- detective
+  - persistent machine learning service
+  - automatically collates log data from ALL aws services
+  - data collected is then applied to ML algorithms to derive data patterns between aws services and resources, grph theory and statistical analysis
+- polly
+  - turns text into lifelike speech

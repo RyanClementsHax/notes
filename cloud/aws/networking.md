@@ -58,3 +58,41 @@
   - default has everything allowed by default
 - SG (Security Group)
   - firewall on the instance/serve level
+
+## Other services
+- direct connect
+  - ability to connect on-prem servers into the VPC via a VPN
+  - without going over the internet
+  - scales
+  - reduces network costs
+  - creates consistent network performance
+  - a literal direct connection (no vpns)
+  - only supports BGP routing protocol (no static routing protocol)
+  - public VIF (virtual interface)
+    - needed to access public services like s3
+  - private VIF
+    - needed to access stuff in a VPC
+- aws vpn
+  - typically used to connect on-prem servers to aws services using the internet
+- nat gateway
+  - provides an egress only access to the internet
+  - safe to use for things hosted in private subnets as this only allows egress
+  - useful for downloading security patches
+- global accelerator
+  - focuses on optimizing "user to application" path
+  - networking service that improves the availability and performance of the applications that you offer to your global users
+  - use highly available and congestion-free aws global network to direct internet traffic from your users to your applications on aws, making your users' experience more consistent
+  - continuously monitoring the health of your application endpoints and routing traffic to the closest healthy endpoints
+  - provides static ip addresses that act as a fixed entry point to your application hosted on aws which eliminates the complexity of managing specific ip addresses for different aws regions and AZs
+  - doesn't cache content
+  - makes use of edge infrastructure and edge locations
+  - anycast routing techniques
+- aws privatelink
+  - vpc endpoints that you can call from a private subnet to access certain resources like SES (and a few others) that normally would need a connection to an email gateway
+- transit gateway
+  - connects vpcs and on-prem networks through a central hub
+  - acts as a cloud router
+  - automatically encrypted and never travels over the public internet
+  - gives you single view of your network
+  - supports multicast without need to buy special hardware
+  - need to use RAM (Resource Access Manager) to share the transit gateway between vpcs
