@@ -63,6 +63,8 @@
   - pay to use
   - typically comes with license
   - created by partners of amazon
+  - protects customers by performing periodic security checks on listed products
+  - flexible pricing options
 - My AMIs
   - AMIs you create yourself
 - components

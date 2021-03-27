@@ -63,6 +63,10 @@
   - these "forklift" into aurora
 - scales vertically not horizontally
 - resizable compute capacity
+- considered a "servered" offering
+- security groups 
+  - used to control which IP address ranges can connect to your databases on a db instance
+  - when you initially create a db instance, its firewall prevents any database access except through rules specified by an associated security group
 
 ## DynamoDB
 - similar to

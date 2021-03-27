@@ -28,6 +28,8 @@
 - can even do that with api calls
 - cloud trail logs from individual accounts can be aggregated into a single s3 bucket in the master account
 - reports are only stored in the master account's s3
+- does not let you manage your organization's payment methods
+- can manage control to multiple aws services
 
 ## Pricing model
 - pay as you go

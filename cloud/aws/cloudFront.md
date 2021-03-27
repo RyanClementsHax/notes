@@ -36,3 +36,7 @@
 - localization
   - can achieve with lambda edge functions
 - supports geoblocking
+- pricing
+  - traffic distribution
+    - pricing is dependent on the edge location you are serving out of
+  - number of requests

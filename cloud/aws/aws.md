@@ -242,6 +242,7 @@
   - automate installation of applications to hosts, ec2 instances, lambda, or on prem servers
 - config
   - keep track of config changes on AWS resources using the configuration recorder
+  - real time
   - keeping multiple date stamped version in a reviewable history
   - also good for auditing
   - stored in s3 as log files
@@ -382,6 +383,7 @@
     - set of resources that you use together for a common project or that you want to manage or monitor as a group
     - set of resources related to applications that run on a specific platform such as android or ios
   - permissions are on the account level
+  - can use to configure custom consoles
 - ram (Resource Access Manager)
   - allows users to share resources with other aws accounts or via aws organizations
 - glue
@@ -431,3 +433,5 @@
   - supports hierarchies
 - polly
   - turns text into lifelike speech
+- elastic transcoder
+  - media transcoding service
