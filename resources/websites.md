@@ -9,6 +9,7 @@
 - [explorers.netlify.com](https://explorers.netlify.com/)
 - [scrimba.com](https://scrimba.com/)
 - [frontendmasters.com](https://frontendmasters.com/)
+  - [Production-Grade Next.js](https://frontendmasters.com/courses/production-next/)
 
 ## Architecture
 - [micro-frontends.org](https://micro-frontends.org/)

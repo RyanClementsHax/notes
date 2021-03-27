@@ -42,3 +42,5 @@
         return NoContent();
     }
     ```
+
+## [Integrating with JsonPatchDocument](https://michael-mckenna.com/swagger-with-asp-net-core-3-1-json-patch/)

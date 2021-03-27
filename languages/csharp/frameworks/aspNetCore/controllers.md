@@ -35,3 +35,7 @@ public IActionResult Foo([RegularExpression(@"^\d{10}$", ErrorMessage="param mus
 
 ## Conditionally using mapping
 - [UseWhen and MapWhen](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/middleware/?view=aspnetcore-5.0#branch-the-middleware-pipeline)
+
+## Patch endpoints
+- one easy way to implement partial patching of a document is to use `JsonPatchDocument<TypeToUpdate>`
+- just know that `JsonPatchDocument` doesn't support `System.Text.Json` if you are using that

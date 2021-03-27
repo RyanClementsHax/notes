@@ -16,6 +16,11 @@ DEBUG=cypress:* npx cypress run
 
 ## Asserting network calls
 - use [cy.intercept()](https://docs.cypress.io/api/commands/intercept.html)
+- the placement of this relative to other code can introduce race conditions
+  - be sure to place this earlier in the chain of commands so that cypress can actually intercept the request being called as a result of some action
+
+## Conditional tests
+- [not a good idea and HIGHLY not recommended by cypress](https://docs.cypress.io/guides/core-concepts/conditional-testing) due to the async nature of dom updates
 
 ## Waiting on responses
 - use [cy.wait(@alias)](https://docs.cypress.io/api/commands/wait.html) to wait for responses
@@ -52,3 +57,14 @@ DEBUG=cypress:* npx cypress run
    - cons
      - need to implement and maintain a separate service
      - potentially need access to the repo
+
+## [Failed to deserialize the V8 snapshot blob](https://github.com/cypress-io/cypress/issues/5440)
+- this happens sometimes when trying to start cypress
+- this is due to a corrupted cache
+- the quick fix (and seemingly the one that the cypress staff recommends) is to just delete the cache and reinstall by running `npx cypress install --force`
+
+## Tools
+- for filling out a form without having to wait on each keypress, consider using [cypress-fill-command](https://github.com/DanielFerrariR/cypress-fill-command)
+- [webpack-preprocessor](https://github.com/cypress-io/cypress/tree/master/npm/webpack-preprocessor#readme)
+  - integrating webpack support into cypress test file compilation
+  - [as of 3/27/20 doesn't work well with webpack 5.x](https://github.com/cypress-io/cypress/issues/15447)

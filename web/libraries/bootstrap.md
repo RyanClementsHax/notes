@@ -54,3 +54,6 @@
 }
 ```
 - it should also be noted that you can use the `no-gutters` for when you need no gutters
+
+## Complex component creation
+- [building a sidebar](https://bootstrapious.com/p/bootstrap-sidebar)

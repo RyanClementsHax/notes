@@ -5,6 +5,7 @@
 - as of 2/2021, there is no glaring need to switch to `System.Text.Json` if using `Newtonsoft.Json`
 - as of 2/2021, there doesn't seem to be much of an ecosystem around this, so you might have to build out some of your own wrappers to do what you want
 - otherwise it seems like a solid library and looks a lot like Newtonsoft
+- as of 3/27/20, `JsonPatchDocument` [doesn't support this serialization library](https://stackoverflow.com/questions/64377440/unexpected-error-using-jsonpatchdocument-with-blazor), better to stick to something like `Newtonsoft` for that type
 
 ## Converter precedence
 - there is an open [github issue](https://github.com/dotnet/runtime/issues/1130) for this

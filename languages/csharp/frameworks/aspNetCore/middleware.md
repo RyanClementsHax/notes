@@ -22,6 +22,7 @@
             await context.Response.WriteAsync("There was an error caught in the exception handler lambda");
         }));
     ```
+    - as stated in the github issue, this is an intentional design on the part of the aspnet core team
 - as a work around, you can use the following
     ```cs
     app.Use(async (context, next) =>
