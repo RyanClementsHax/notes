@@ -21,6 +21,22 @@ DEBUG=cypress:* npx cypress run
 
 ## Conditional tests
 - [not a good idea and HIGHLY not recommended by cypress](https://docs.cypress.io/guides/core-concepts/conditional-testing) due to the async nature of dom updates
+- conditionally doing something based on a class
+    ```js
+    cy.get('#navbar').within(() => {
+      cy.get('#nav-collapse')
+        .first()
+        .invoke('attr', 'class')
+        .then(classes => {
+          if (!classes.includes('show')) {
+            cy.get('#navbar-toggler').click()
+          }
+          cy.get('.nav-link')
+            .contains('my page')
+            .click()
+        })
+    })
+    ```
 
 ## Waiting on responses
 - use [cy.wait(@alias)](https://docs.cypress.io/api/commands/wait.html) to wait for responses

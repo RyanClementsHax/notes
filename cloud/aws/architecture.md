@@ -115,6 +115,7 @@
   - managed service for automation of delivery pipeline for application updates
   - uses codecommit, codebuild, and codedeploy under the hood
   - cannot alone provision IT infrastructure
+  - [single tenant pipelines](https://aws.amazon.com/blogs/devops/cross-account-ci-cd-pipeline-single-tenant-saas/)
 - code deploy
   - self explanatory
   - automate installation of applications to hosts, ec2 instances, lambda, or on prem servers
