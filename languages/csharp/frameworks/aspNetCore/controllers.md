@@ -40,11 +40,5 @@ public IActionResult Foo([RegularExpression(@"^\d{10}$", ErrorMessage="param mus
 - one easy way to implement partial patching of a document is to use `JsonPatchDocument<TypeToUpdate>`
 - just know that `JsonPatchDocument` doesn't support `System.Text.Json` if you are using that
 
-## [CORS](https://docs.microsoft.com/en-us/aspnet/core/security/cors?view=aspnetcore-5.0)
-- many ways to enable
-  - middleware
-  - attribute
-  - endpoint routing
-
 ## [[ApiController]](https://docs.microsoft.com/en-us/aspnet/core/web-api/?view=aspnetcore-5.0)
 - opinionated way of defining api controller bahaviors like automatic model validation

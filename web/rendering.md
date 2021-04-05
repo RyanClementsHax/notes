@@ -12,3 +12,13 @@
   - caching
   - seo
   - sharability of content
+- routing
+  - hash
+    - this is when your url in the browser includes a `#` after the domain name like `www.example.com/#/some/route`
+    - this is a trick to use html ids that don't exist to store routing info in the url
+    - no server configuration necessary
+  - history
+    - this is when your client uses the history api in the browser to make your route look normal without the `#` like `www.example.com/some/path`
+    - this requires that your server is configured to handle these extra routes by serving the same `index.html` on all of these paths
+    - doing this potentially means that you will no longer return 404s (which would then never show up in logging)
+    - you should also implement a 404 page on the client side to handle routes not found
