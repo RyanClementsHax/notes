@@ -1,16 +1,21 @@
 # Websites
 
 ## [Dotnet architecture guides](https://dotnet.microsoft.com/learn/dotnet/architecture-guides)
+
 ## [Execute program](https://www.executeprogram.com/)
 - good js/ts subscription based learning site
 
 ## Learning websites
 - css tricks lists a bunch [here](https://css-tricks.com/teaching-web-dev-for-free-is-good-business/)
+- [20 best places to learn programming for free](https://catalins.tech/20-best-places-to-learn-programming-for-free)
 - [explorers.netlify.com](https://explorers.netlify.com/)
 - [scrimba.com](https://scrimba.com/)
 - [frontendmasters.com](https://frontendmasters.com/)
   - [Production-Grade Next.js](https://frontendmasters.com/courses/production-next/)
 - [leveluptutorials.com](https://www.leveluptutorials.com/)
+
+## Practice
+- [kata-log.rocks](https://kata-log.rocks/starter)
 
 ## Architecture
 - [micro-frontends.org](https://micro-frontends.org/)
