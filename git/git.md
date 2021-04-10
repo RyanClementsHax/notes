@@ -24,3 +24,7 @@ git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec
 ```bash
 git symbolic-ref -q HEAD | sed 's@^refs/heads/@@'
 ```
+
+## SSH keys
+- [generating ssh keys and adding them to github](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+- [setting up ssh on windows for aws codecommit](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-ssh-windows.html)

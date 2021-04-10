@@ -8,3 +8,6 @@
   - anticipate failure
   - learn from all operational failures
   - see "well architected framework" for more details
+
+## Tenancy
+- [differences between multi and single tenancy](https://www.netsolutions.com/insights/5-reasons-why-you-should-choose-multi-tenant-architecture-for-your-saas-application/)
