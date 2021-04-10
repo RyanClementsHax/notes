@@ -62,6 +62,8 @@
 - styles
   - same syntax as classes
   - a css property that requires vendor prefixes will automatically be added those prefixes by vue
+  - [cannot style bind to a pseudo element](https://stackoverflow.com/questions/50625973/vue-js-v-bindstyle-pseudo-element-after-content-icon)
+    - I would just create an actual element to do what you want
 - conditional rendering
   - vue will try to reuse elements so if you don't want state to be shared between two rendering branches, you can use the `key` prop to differentiate them
   - `v-if` and `v-show` are [different](https://vuejs.org/v2/guide/conditional.html#v-if-vs-v-show)
@@ -85,6 +87,15 @@
     ```
 - props
   - object or array defaults must be returned from a factory function
+  - if you specify a default value, it must be of the type you specify too otherwise you will run into odd, slient errors
+- watch
+  - can get creative with watch properties
+  - you can specify deep watches
+    ```js
+    'form.title'() {
+      console.log(this.form.title)
+    }
+    ```
 
 ### Lifecycle
 ![vueLifecycle.png](./vueLifecycle.png)

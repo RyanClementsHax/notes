@@ -11,11 +11,21 @@
 - [frontendmasters.com](https://frontendmasters.com/)
   - [Production-Grade Next.js](https://frontendmasters.com/courses/production-next/)
 
+## Practice
+- [flexboxfroggy.com](https://flexboxfroggy.com/)
+- [cssgridgarden.com](https://cssgridgarden.com/)
+
 ## Architecture
 - [micro-frontends.org](https://micro-frontends.org/)
 
 ## Docs
 - [google web fundamentals](https://developers.google.com/web/fundamentals)
+
+## Projects
+- [kata-log.rocks](https://kata-log.rocks/banking-kata)
+
+## Interview prep
+- [5 JavaSript GitHub Repositories for Interview Prep!](https://pranav-birajdar.vercel.app/blog/5-javasript-github-repositories-for-interview-prep-306h)
 
 ## Misc
 - [Software Folklore](http://beza1e1.tuxen.de/lore/index.html)
