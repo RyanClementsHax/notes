@@ -85,6 +85,11 @@
     ```
 - props
   - object or array defaults must be returned from a factory function
+- async components
+  - only fetched if referenced during render
+  - if the component is not rendered, for example, because the value passed to the `v-if` directive on it evaluated to false, it won't be fetched
+  - [lazy loading individual vue components and prefetching](https://vueschool.io/articles/vuejs-tutorials/lazy-loading-individual-vue-components-and-prefetching/)
+  - [lazy loading and code splitting in vue js](https://vueschool.io/articles/vuejs-tutorials/lazy-loading-and-code-splitting-in-vue-js/)
 
 ### Lifecycle
 ![vueLifecycle.png](./vueLifecycle.png)
