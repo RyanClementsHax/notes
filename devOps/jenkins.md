@@ -54,6 +54,9 @@ volumes:
 - The uri for the docker host to use when configuring docker in jenkins is `tcp://docker:2375` in this case
 
 ## Setup docker in docker build agents
+- some of these resources may be useful
+  - [installing docker](https://www.jenkins.io/doc/book/installing/docker/)
+  - [build a multibranch pipeline project](https://www.jenkins.io/doc/tutorials/build-a-multibranch-pipeline-project/)
 
 ### Plugin setup
 1. Instal Docker plugin
@@ -94,3 +97,7 @@ volumes:
    1. From the dashboard, go to `Configure System`
    2. Scroll down to `Declarative Pipeline (Docker)`
    3. Enter `docker-agent` for the docker label
+
+## Multibranch pipelines
+- [doesn't support multiple repos](https://issues.jenkins.io/browse/JENKINS-62082?jql=labels%20%3D%20multibranch)
+  - you may want other data or code to be kept in a separate repo, but this screws up jenkins's ability to do checkouts properly
