@@ -96,6 +96,8 @@
       console.log(this.form.title)
     }
     ```
+- methods
+  - calling methods from the parent component is possible, but know that any state changes made by calling those methods from parent components may not hook into vue's reactivity
 
 ### Lifecycle
 ![vueLifecycle.png](./vueLifecycle.png)
@@ -105,6 +107,7 @@
 
 ## Scoped css
 - [deep selectors in vue](https://vue-loader.vuejs.org/guide/scoped-css.html#child-component-root-elements)
+- hot reload cannot handle a change from unscoped to scoped so you will need to reload the page to see the changes
 
 ## Misc
 - `import MyComponent from './MyComponent'` will first grab `MyComponent.js` over `MyComponent.vue`

@@ -19,3 +19,10 @@ label.form-group-required :after {
 ## [Performant collapse animations](https://css-tricks.com/performant-expandable-animations-building-keyframes-on-the-fly/)
 - cannot do without js
 - [Using CSS Transitions Auto Dimensions](https://css-tricks.com/using-css-transitions-auto-dimensions/)
+- in my experience, transitioning width/height is ok for a small, one-off animation is ok
+
+## Flexbox
+- if you want flexbox children to be constrained to the width/height of the container, you need to set a definite width to some parent so the width/height so the constraint can trickle down to the children, else your children will blow out the width/height of the parent since it has flexible width/height
+
+## Box shadow
+- there needs to be space around the component using box shadow as defined by the the component's parent, otherwise the shadow will be clipped
