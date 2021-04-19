@@ -4,3 +4,26 @@
 - it isn't about what you wrote, it's about what they read
 - assume positive intent when talking with someone
   - especially when they are giving critique
+- the level of specificity communicates certainty
+  - this is why scrum poker uses 20 instead of 21
+
+## Critique
+- remember that someone’s work is their lively hood so critiquing it should be done with care
+- seek first to understand
+- studies show that people behind bars overwhelmingly don't view themselves as wrong, why do you expect your coworkers to act differently?
+- encouragement works better than critique to change someone's behavior
+- criticism can make people to strive to justify themselves instead of change the way they think
+
+## Appreciation
+- this goes a long way to make people feel good about their work
+- extremely powerful motivator
+
+## Advice
+- ask people if they want your advice before giving it
+- sometimes people just want to be heard or to vent
+
+## Techniques
+- personal operating documents
+  - these are literally manuals on how a person works
+  - you can have all of your team members fill out theirs and share them
+  - they can be very useful for a manager

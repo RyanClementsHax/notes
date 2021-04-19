@@ -44,3 +44,8 @@
             ((IDisposable)myRes).Dispose();
     }
     ```
+
+## [Default accessibility modifiers](https://stackoverflow.com/questions/2521459/what-are-the-default-access-modifiers-in-c)
+
+## Inspecting generated code
+- you can use [sharplab.io](https://sharplab.io/) to see C# without all of its sugar

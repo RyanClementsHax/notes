@@ -57,3 +57,19 @@
 
 ## Complex component creation
 - [building a sidebar](https://bootstrapious.com/p/bootstrap-sidebar)
+
+## Extracting breakpoints from dom
+```js
+function getBreakpoints() {
+  const style = getComputedStyle(document.body)
+  return {
+    xs: +style.getPropertyValue('--breakpoint-xs').replace('px', ''),
+    sm: +style.getPropertyValue('--breakpoint-sm').replace('px', ''),
+    md: +style.getPropertyValue('--breakpoint-md').replace('px', ''),
+    lg: +style.getPropertyValue('--breakpoint-lg').replace('px', ''),
+    xl: +style.getPropertyValue('--breakpoint-xl').replace('px', '')
+  }
+}
+```
+- this seems to have problems sometimes where the initial render doesn't grab these
+- there probably is a way around it that I haven't figured out yet

@@ -110,3 +110,18 @@ docker cp host/file containerB/fileB
 
 ## Builds
 - it doesn't seem like there is native support to use local caches like your hosts `.m2` cache to build docker containers, but there seem to be [wrappers](https://aboullaite.me/speed-up-your-java-application-images-build-with-buildkit/) that exist to try to provide such a functionality
+
+## Dynamically removing a volume attached to a container
+```bash
+docker volume rm $(docker inspect -f '{{range $p, $conf := .Mounts}} {{$conf.Name}} {{end}}' $(docker inspect --format='{{.Id}}' container_name))
+```
+
+## Restarting docker desktop
+```powershell
+$processes = Get-Process "*docker desktop*"
+if ($processes.Count -gt 0) {
+  $processes[0].Kill()
+  $processes[0].WaitForExit()
+}
+Start-Process "C:\Program Files\Docker\Docker\Docker Desktop.exe"
+```
