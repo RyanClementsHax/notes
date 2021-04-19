@@ -28,3 +28,5 @@ git symbolic-ref -q HEAD | sed 's@^refs/heads/@@'
 ## SSH keys
 - [generating ssh keys and adding them to github](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 - [setting up ssh on windows for aws codecommit](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-ssh-windows.html)
+  - [setting up for multiple accounts](https://gist.github.com/justinpawela/3a7056cd592d688425e59de2ef6f1da0)
+  - [setting up for multiple accounts using local git config](https://hands-on.cloud/how-to-manage-multiple-codecommit-repositories-from-the-single-machine/)
