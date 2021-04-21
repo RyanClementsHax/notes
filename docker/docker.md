@@ -125,3 +125,6 @@ if ($processes.Count -gt 0) {
 }
 Start-Process "C:\Program Files\Docker\Docker\Docker Desktop.exe"
 ```
+
+## [Rate limiting](https://www.docker.com/increase-rate-limits)
+- the only way around this is to create an account and use that and potentially pay, or use your own repo

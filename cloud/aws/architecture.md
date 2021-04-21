@@ -116,6 +116,14 @@
   - uses codecommit, codebuild, and codedeploy under the hood
   - cannot alone provision IT infrastructure
   - [single tenant pipelines](https://aws.amazon.com/blogs/devops/cross-account-ci-cd-pipeline-single-tenant-saas/)
+- codebuild
+  - managed service for pipeline tasks
+  - used by codepipeline for tasks
+  - building docker images
+    - doesn't do a good job of caching docker images
+      - to get around this [you have to create an ECR repository as the cache](https://aws.amazon.com/blogs/devops/reducing-docker-image-build-time-on-aws-codebuild-using-an-external-cache/)
+    - if you run the task without specifying your own vpc and you don't use docker with authentication, you will run into throttling errors even if you don't reach anywhere near the throttle because codebuild's default vpc config will have tons of other people's build tasks in it which will all look like they are coming from the same IP which is what docker uses to throttle anonymous pulls
+      - to get around this, [you either need to create an account and use it, use ECR as your repository, or throw the code build task in your own vpc](https://cloudkatha.com/too-many-requests-you-reached-pull-rate-limit/#:~:text=Reddit%20Pinterest%20WhatsApp-,AWS%20CodeBuild%3A%20toomanyrequests%3A%20You%20have%20reached%20your%20pull%20rate%20limit,Docker%20Hub%20went%20into%20effect.&text=Free%20Docker%20Hub%20users%20are,pull%20requests%20per%20six%20hours.)
 - code deploy
   - self explanatory
   - automate installation of applications to hosts, ec2 instances, lambda, or on prem servers

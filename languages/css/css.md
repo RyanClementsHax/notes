@@ -18,7 +18,9 @@ label.form-group-required :after {
 
 ## [Performant collapse animations](https://css-tricks.com/performant-expandable-animations-building-keyframes-on-the-fly/)
 - cannot do without js
+- the article linked in the header relies on transitions which doesn't change the width/height that the element takes up so you cannot take this approach if you are looking to cause layout shifts with expansions
 - in my experience, transitioning width/height is ok for a small, one-off animation is ok
+- [Building performant expand & collapse animations](https://developers.google.com/web/updates/2017/03/performant-expand-and-collapse)
 - [Using CSS Transitions Auto Dimensions](https://css-tricks.com/using-css-transitions-auto-dimensions/)
 - [How can I transition height 0 to height auto using css](https://stackoverflow.com/questions/3508605/how-can-i-transition-height-0-to-height-auto-using-css)
 
@@ -33,3 +35,6 @@ label.form-group-required :after {
 
 ## Box shadow
 - there needs to be space around the component using box shadow as defined by the the component's parent, otherwise the shadow will be clipped
+
+## [will-change](https://developer.mozilla.org/en-US/docs/Web/CSS/will-change)
+- gives a hint to the css engine that a property will change so it can do optimzations ahead of time

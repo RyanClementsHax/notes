@@ -85,3 +85,7 @@ DEBUG=cypress:* npx cypress run
 - [webpack-preprocessor](https://github.com/cypress-io/cypress/tree/master/npm/webpack-preprocessor#readme)
   - integrating webpack support into cypress test file compilation
   - [as of 3/27/20 doesn't work well with webpack 5.x](https://github.com/cypress-io/cypress/issues/15447)
+
+## Misc
+- it seems that on slower or overloaded dev machines, the cypress timeouts in the UI are sensitive to the window being visible
+  - perhaps the windows os scheduler gives lower priority to windows that aren't visible, thus causing timeouts to happen

@@ -59,45 +59,58 @@ volumes:
   - [build a multibranch pipeline project](https://www.jenkins.io/doc/tutorials/build-a-multibranch-pipeline-project/)
 
 ### Plugin setup
-1. Instal Docker plugin
-   1. From the dashboard, go to `Manage Jenkins > Manage Plugins > Available`
-   2. Select the `Docker` plugin
-   3. Click `Install without restart`
-2. Setup Docker plugin
-   1. From the dashboard, go to `Manage Jenkins > Manage Nodes and Clouds > Configure Clouds`
-   2. Add a new Docker cloud
-   3. Enter `docker` for the name
-   4. Click `Docker Cloud details...` so we can configure how jenkins connects with docker
-   5. Set the `Docker Host URI` to the docker host you want to use
-   6. Click `Test Connection`
+1. instal Docker plugin
+   1. from the dashboard, go to `Manage Jenkins > Manage Plugins > Available`
+   2. select the `Docker` plugin
+   3. click `Install without restart`
+2. setup Docker plugin
+   1. from the dashboard, go to `Manage Jenkins > Manage Nodes and Clouds > Configure Clouds`
+   2. add a new Docker cloud
+   3. enter `docker` for the name
+   4. click `Docker Cloud details...` so we can configure how jenkins connects with docker
+   5. set the `Docker Host URI` to the docker host you want to use
+   6. click `Test Connection`
       - If the connection fails, make sure the docker host is running and you entered in the right uri
-   7. Check the `Enabled` checkbox
+   7. check the `Enabled` checkbox
       - If you don't do this, jenkins won't use this cloud at all, and you will cry when your pipelines break when they can't find any docker nodes to run on
-   8. Click `Docker Agent templates...` so we can configure a build agent that has docker installed on it
-   9. Enter `docker-agent` for the label
-   10. Check the `Enabled` checkbox
+   8. click `Docker Agent templates...` so we can configure a build agent that has docker installed on it
+   9. enter `docker-agent` for the label
+   10. check the `Enabled` checkbox
        - If you don't do this, jenkins won't use this cloud at all, and you will cry when your pipelines break when they can't find any docker nodes to run on
-   11. Enter `docker-agent` for the name
-   12. Enter an image that has a jenkins build agent with docker installed on it for the docker image
-       - [ghcr.io/felipecrs/jenkins-agent-dind](https://github.com/felipecrs/jenkins-agent-dind) is one open source option
-   13. Click `Container settings...`
-   14. Configure the docker agent image as needed
-       - For `ghcr.io/felipecrs/jenkins-agent-dind`, do the following
+   11. enter `docker-agent` for the name
+   12. enter an image that has a jenkins build agent with docker installed on it for the docker image
+       - [felipecrs/jenkins-agent-dind](https://github.com/felipecrs/jenkins-agent-dind) is one open source option
+   13. click `Container settings...`
+   14. enter the network you want the container to be on for `Network`
+      - For local, containerized development, this will be the docker network configured in your compose file (i.e. `jenkins`)
+   15. configure the `DOCKER_HOST` variable to be whatever you put in the `Docker Host URI` earlier
+      - For local, containerized development, use `tcp://docker:2375`
+      - Configuring this is how we can get the build agents to cache docker images by pointing it to the external docker host
+   16. configure the docker agent image as needed
+       - For `felipecrs/jenkins-agent-dind`, do the following
            1.  Check the `Run container privileged` checkbox
            2.  Enter `/home/jenkins/agent` for the remote file system root
            3.  Choose `Attach Docker container` for `Connect method`
            4.  Enter `jenkins` as the user
-           5.  Check the `Remote volumes` checkbox
-   1.  Make sure you checked the `Enabled` checkbox for both the docker cloud and agent template
-   2.  Click save
+           5.  Check the `Remove volumes` checkbox
+   17. make sure you checked the `Enabled` checkbox for both the docker cloud and agent template
+   18. click save
 
 ### Pipeline setup
-1. Create the pipeline project
-2. Configure pipeline with build agent
-   1. From the dashboard, go to `Configure System`
-   2. Scroll down to `Declarative Pipeline (Docker)`
-   3. Enter `docker-agent` for the docker label
+1. create the pipeline project
+2. configure pipeline with build agent
+   1. from the dashboard, go to `Configure System`
+   2. scroll down to `Declarative Pipeline (Docker)`
+   3. enter `docker-agent` for the docker label
 
 ## Multibranch pipelines
 - [doesn't support multiple repos](https://issues.jenkins.io/browse/JENKINS-62082?jql=labels%20%3D%20multibranch)
   - you may want other data or code to be kept in a separate repo, but this screws up jenkins's ability to do checkouts properly
+
+## Dynamic branch param
+- when configuring the pipeline
+   1. check the `This project is parameterized` checkbox
+   2. enter `branch` for the name
+   3. check `Trim the string` checkbox for good measure
+   4. enter `*/${branch}` as the `Branch Specifier`
+   5. uncheck `Lightweight checkout` if the pipeline is complaining about not being able to find the branch 
