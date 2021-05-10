@@ -1,7 +1,15 @@
 # CSS
 
-## Multiple sticky headers
+## Sticky
+
+### Multiple sticky headers
 - the only way to implement this properly seems to be using [sticky positions with hardcoded offset values](https://stackoverflow.com/questions/54689034/pure-css-multiple-stacked-position-sticky)
+
+### [Sticky position not working](https://www.designcise.com/web/tutorial/how-to-fix-issues-with-css-position-sticky-not-working)
+- if any parent/ancestory of the sticky element has any of the following `overflow` properties set, `position: sticky` won't work
+  - `overflow: hidden`
+  - `overflow: scroll`
+  - `overflow: auto`
 
 ## Asterisk on form fields
 - in this example, add the `form-group-required` class to the `label` you want to add an asterisk to
@@ -20,6 +28,7 @@ label.form-group-required :after {
 - cannot do without js
 - the article linked in the header relies on transitions which doesn't change the width/height that the element takes up so you cannot take this approach if you are looking to cause layout shifts with expansions
 - in my experience, transitioning width/height is ok for a small, one-off animation is ok
+  - lucid chart animates their side nav collapse with a transition on the width property
 - [Building performant expand & collapse animations](https://developers.google.com/web/updates/2017/03/performant-expand-and-collapse)
 - [Using CSS Transitions Auto Dimensions](https://css-tricks.com/using-css-transitions-auto-dimensions/)
 - [How can I transition height 0 to height auto using css](https://stackoverflow.com/questions/3508605/how-can-i-transition-height-0-to-height-auto-using-css)

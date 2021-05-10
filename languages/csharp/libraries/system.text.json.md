@@ -7,6 +7,9 @@
 - otherwise it seems like a solid library and looks a lot like Newtonsoft
 - as of 3/27/20, `JsonPatchDocument` [doesn't support this serialization library](https://stackoverflow.com/questions/64377440/unexpected-error-using-jsonpatchdocument-with-blazor), better to stick to something like `Newtonsoft` for that type
 
+## Deserializing dictionaries
+- the serializer is smart enough to convert `IDicionary<int, something>` without additional configuration
+
 ## Converter precedence
 - there is an open [github issue](https://github.com/dotnet/runtime/issues/1130) for this
 - converters can be registered at design-time vs run-time and at a property-level vs. class-level. The basic rules for priority over which is selected

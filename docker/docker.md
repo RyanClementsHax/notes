@@ -116,6 +116,10 @@ docker cp host/file containerB/fileB
 docker volume rm $(docker inspect -f '{{range $p, $conf := .Mounts}} {{$conf.Name}} {{end}}' $(docker inspect --format='{{.Id}}' container_name))
 ```
 
+## Purging all data
+- sometimes you want to purge all of docker's data (can be useful for cleaning up space on disk)
+- in the docker desktop dashboard, click the bug icon at the top, then click the `Clean/Purge data` button
+
 ## Restarting docker desktop
 ```powershell
 $processes = Get-Process "*docker desktop*"

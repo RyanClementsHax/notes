@@ -9,6 +9,7 @@
 - even then, [not everything works](https://github.com/cypress-io/cypress/issues/15251)
 - if you have a GUI configured, and `npx cypress run` hangs, it is likely because the `DISPLAY` env var is set to point to the `X-Server`
   - to fix, just reset it when you run the command: `DISPLAY= npx cypress run`
+- check out [this](https://scottspence.com/2021/01/05/use-chrome-in-ubuntu-wsl/) if you want to run chrome in ubuntu on wsl
 
 ## Debug mode
 ```bash
@@ -74,6 +75,10 @@ DEBUG=cypress:* npx cypress run
    - cons
      - need to implement and maintain a separate service
      - potentially need access to the repo
+
+## Component visibility
+- by default, there is no `.should('not.be.visible')` or `.should('be.visible')` assertion
+- [you have to write your own](https://github.com/cypress-io/cypress/issues/877)
 
 ## [Failed to deserialize the V8 snapshot blob](https://github.com/cypress-io/cypress/issues/5440)
 - this happens sometimes when trying to start cypress

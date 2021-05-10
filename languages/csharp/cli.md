@@ -3,6 +3,9 @@
 ## Installing the SDK
 - [there is a command line helper for installing this](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-install-script)
 
+## Uninstalling an sdk
+- [there is a script for doing this](https://docs.microsoft.com/en-us/dotnet/core/additional-tools/uninstall-tool?tabs=windows)
+
 ## `dotnet restore`
 - `dotnet restore` restores the packages, but does not build
 - i have come by a problem where this command when run in a dockerfile would stall

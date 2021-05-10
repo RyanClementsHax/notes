@@ -12,6 +12,7 @@
   - caching
   - seo
   - sharability of content
+  - not accessible out of the box (ex: needs extra code to annouce to screen readers)
 - routing
   - hash
     - this is when your url in the browser includes a `#` after the domain name like `www.example.com/#/some/route`
@@ -22,3 +23,6 @@
     - this requires that your server is configured to handle these extra routes by serving the same `index.html` on all of these paths
     - doing this potentially means that you will no longer return 404s (which would then never show up in logging)
     - you should also implement a 404 page on the client side to handle routes not found
+
+## Core web vitals
+- [An In-Depth Guide To Measuring Core Web Vitals](https://www.smashingmagazine.com/2021/04/complete-guide-measure-core-web-vitals/)

@@ -32,3 +32,6 @@
 - Extra reducers can get to be a long list and may involve duplicated logic like updating a row
 - Consider making a separate action/thunk that needs to be dispatched from thunks/components to update that slice
 - This will also help avoid circular dependencies
+
+## RTK Query
+- inspired by [react query](https://react-query.tanstack.com/), rtk now has its [own way](https://github.com/reduxjs/redux-toolkit/releases/tag/v1.6.0-alpha.1) to do data fetching with fancy features

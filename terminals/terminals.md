@@ -14,3 +14,6 @@
 ## [Source vs Run](https://superuser.com/questions/176783/what-is-the-difference-between-executing-a-bash-script-vs-sourcing-it)
 - `source` brings a script into the context of the running process
 - running a script creates a new process
+
+## [Vim adventures](https://vim-adventures.com/)
+- a game to learn vim keybindings
