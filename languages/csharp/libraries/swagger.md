@@ -47,21 +47,19 @@
 
 ## Create generated clients based on swagger docs
 
-Only works for .NET Core 3.1 and up
-
 1. Find and copy the url of the json spec of the api (link to it in the top of the swagger page)
-2. Open up the project using Visual Studio
-3. Right click "Connected Services" and select the "Add Connected Service" option
-4. Depending on your version of VS, the next screen will look different. You need to select the add button which will look like a green plus on all version of VS.
-5. Then select "URL" from the radio buttons and past in the url copied before
-6. You can then leave the rest of the options default because we can edit those in csproj
-7. After you add it, you should see something like this in the csproj
+1. Open up the project using Visual Studio
+1. Right click "Connected Services" and select the "Add Connected Service" option
+1. Depending on your version of VS, the next screen will look different. You need to select the add button which will look like a green plus on all version of VS.
+1. Then select "URL" from the radio buttons and past in the url copied before
+1. You can then leave the rest of the options default because we can edit those in csproj
+1. After you add it, you should see something like this in the csproj
     ``` xml
     <OpenApiReference Include="OpenAPIs\swagger1.json" CodeGenerator="NSwagCSharp">
       <SourceUri>https://example.com/swagger/v1/swagger.json</SourceUri>
     </OpenApiReference>
    ```
-8. Edit the setting by updating the csproj:
+1. Edit the setting by updating the csproj:
    ``` xml
     <OpenApiReference Include="OpenAPIs\swagger1.json" CodeGenerator="NSwagCSharp">
       <SourceUri>https://example.com/swagger/v1/swagger.json</SourceUri>
@@ -71,5 +69,5 @@ Only works for .NET Core 3.1 and up
       <OutputPath>WeatherServiceClient.cs</OutputPath>
     </OpenApiReference>
    ```
-9. After you build the project, the generated client should be created and show up in the obj folder of the project
-10. If the api updates, you can update the client by going back to the "Connected Services" page in VS and "Refreshing" the reference.
+1. After you build the project, the generated client should be created and show up in the obj folder of the project
+1. If the api updates, you can update the client by going back to the "Connected Services" page in VS and "Refreshing" the reference.
