@@ -38,6 +38,8 @@
     <a @[event]="doSomething"> ... </a>
     ```
     - can bind all event listeners with `v-on="$listeners"` (good for passthrough listeners)
+- name
+  - [this is not needed unless you are writing recursive components, but still recommended](https://stackoverflow.com/questions/62958194/does-the-vue-js-component-require-a-name-option#:~:text=1%20Answer&text=When%20register%20one%20component%2C%20its,As%20Vue%20Guide%3A%20Vue.&text=But%20it%20will%20be%20a,give%20names%20to%20your%20components.)
 - computed
   - essentially fields that derive their values from `data`
   - caches values
@@ -62,6 +64,8 @@
 - styles
   - same syntax as classes
   - a css property that requires vendor prefixes will automatically be added those prefixes by vue
+  - [cannot style bind to a pseudo element](https://stackoverflow.com/questions/50625973/vue-js-v-bindstyle-pseudo-element-after-content-icon)
+    - I would just create an actual element to do what you want
 - conditional rendering
   - vue will try to reuse elements so if you don't want state to be shared between two rendering branches, you can use the `key` prop to differentiate them
   - `v-if` and `v-show` are [different](https://vuejs.org/v2/guide/conditional.html#v-if-vs-v-show)
@@ -85,6 +89,22 @@
     ```
 - props
   - object or array defaults must be returned from a factory function
+  - if you specify a default value, it must be of the type you specify too otherwise you will run into odd, slient errors
+- async components
+  - only fetched if referenced during render
+  - if the component is not rendered, for example, because the value passed to the `v-if` directive on it evaluated to false, it won't be fetched
+  - [lazy loading individual vue components and prefetching](https://vueschool.io/articles/vuejs-tutorials/lazy-loading-individual-vue-components-and-prefetching/)
+  - [lazy loading and code splitting in vue js](https://vueschool.io/articles/vuejs-tutorials/lazy-loading-and-code-splitting-in-vue-js/)
+- watch
+  - can get creative with watch properties
+  - you can specify deep watches
+    ```js
+    'form.title'() {
+      console.log(this.form.title)
+    }
+    ```
+- methods
+  - calling methods from the parent component is possible, but know that any state changes made by calling those methods from parent components may not hook into vue's reactivity
 
 ### Lifecycle
 ![vueLifecycle.png](./vueLifecycle.png)
@@ -94,6 +114,8 @@
 
 ## Scoped css
 - [deep selectors in vue](https://vue-loader.vuejs.org/guide/scoped-css.html#child-component-root-elements)
+- hot reload cannot handle a change from unscoped to scoped so you will need to reload the page to see the changes
+- can have both scoped and unscoped `<style>` tags in the same component
 
 ## Misc
 - `import MyComponent from './MyComponent'` will first grab `MyComponent.js` over `MyComponent.vue`

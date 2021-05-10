@@ -24,3 +24,10 @@ public record User(
     [property:JsonProperty("DateOfBirth")] DateTime DOB
 );
 ```
+
+## Complex properties
+- records don't override the default equality comparators for its properties so two records with the same list items in two different list references won't be equal
+- [this article](https://www.romanx.co.uk/posts/playing-with-my-record-collection) describes the ugly way around this (requires overriding the equality and hash code operators)
+
+## Equality
+- the equality overloads leads to a [performance hit](https://gmanvel.medium.com/interesting-performance-implications-of-c-9-records-equality-check-f0d0a3612919) as expected

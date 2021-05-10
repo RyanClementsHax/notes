@@ -64,3 +64,28 @@
     await channel.Writer.WriteAsync(msg).AsTask();
     ```
 
+## [Processing tasks as they complete](https://devblogs.microsoft.com/pfxteam/processing-tasks-as-they-complete/)
+- [doing this performantly](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/start-multiple-async-tasks-and-process-them-as-they-complete)
+- doing this performantly and nicely
+  ```cs
+  public static class TaskExt
+  {
+      public static IAsyncEnumerable<T> Race<T>(this IEnumerable<Task<T>> tasks)
+      {
+          var channel = Channel.CreateUnbounded<T>();
+
+          Task.Run(async () =>
+          {
+              foreach (var task in tasks)
+              {
+                  #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+                  task.ContinueWith(async x => await channel.Writer.WriteAsync(await x), CancellationToken.None, TaskContinuationOptions.ExecuteSynchronously, TaskScheduler.Default);
+                  #pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+                  await Task.Delay(120);
+              }
+          });
+
+          return channel.Reader.ReadAllAsync();
+      }
+  }
+  ```

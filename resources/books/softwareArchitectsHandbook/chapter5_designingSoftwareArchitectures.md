@@ -103,6 +103,83 @@
 - these are considerations that need to be made for the software system that are architecturally significant
 - they drive the design of the arch
 - design objectives
+  - purpose of the specific architecture design
 - primary functional requirements
+  - business critical functions
 - quality attribute scenarios
+  - how the architecture should respond to particular stimuli
+  - these need to be testable and not vague
 - constraints
+  - decisions imposed on the software architecture that typically cannot be changed
+
+## Software architecture patterns
+- reference architecture
+- externally developed software
+  - commercial
+  - open source
+
+## Design rationale
+- the design decisions for what was decided on and what WASN'T decided on should be documented for many reasons including
+  - evaluation
+  - verification
+  - knowledge transfer
+  - communication
+  - maintenance
+  - documentation
+  - reuse
+    - also can include variation points to let implementers modify the architecture to fit their own needs
+
+## Using a systematic approach to architecture design
+- general model
+  1. architectural analysis
+  2. architectural synthesis
+  3. architectural evaluation
+- selecting a process
+  - what are the activities and artifacts of the design process?
+  - are there any activities/artifacts that you think are not needed?
+  - are there any activities/artifacts that you feel are lacking?
+  - what are the techniques and tools of the design process?
+- ADD (Attribute-Driven Design)
+  - iterative
+  - close attention to quality attributes early in process
+  - doesn't cover other parts like documentation
+  - 8 steps
+    1. review inputs
+      - design objectives
+      - primary functional requirements
+      - quality attribute scenarios
+      - constraints
+      - architectural concerns 
+    2. establish iteration goal by selecting inputs
+    3. choose one or more elements of the system to refine
+    4. choose one or more design concepts that satisfy the inputs
+    5. instantiate architectural elements, allocate responsibilities and define interfaces
+    6. sketch views and record design decisions
+    7. perform analysis of current design and review iteration goal and achievement of design purpose
+    8. iterating if necessary
+- Microsoft's technique for architecture and design
+  - also iterative
+  - 5 steps
+    1. identifying architecture objectives
+    2. identifying key scenarios
+    3. creating application overview
+       - what an architecture looks like when complete
+       - intended to connect architecture design with real world decisions
+       - consists of determining your application type, identifying deployment constraints, identifying architecture design styles, and determining relevant technologies
+    4. identifying key issues
+    5. defining candidate solutions
+  - each iteration reviews a scenario
+  - seems more user/client focused
+- ACDM (Architecture-Centric Design Method)
+  - also iterative
+  - lightweight method with a product focus
+  - seeks to ensure software arch maintains a balance between business and technical concerns
+  - attempts to make the software arch the intersection between requirements and the solution
+  - 7 steps
+    1. discover arch drivers
+    2. establish project scope
+    3. creating notional arch
+    4. arch review
+    5. production go/no-go
+    6. experiment planning
+    7. experiment and refine arch 
