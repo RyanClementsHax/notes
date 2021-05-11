@@ -21,6 +21,20 @@ label.form-group-required :after {
 }
 ```
 
+## Button link
+```css
+.btn-link {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.btn-link:hover {
+  text-decoration: underline;
+}
+```
+
 ## [Auto growing inputs and textareas](https://css-tricks.com/auto-growing-inputs-textareas/)
 - cannot do this without js
 

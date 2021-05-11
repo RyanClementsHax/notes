@@ -73,3 +73,88 @@ function getBreakpoints() {
 ```
 - this seems to have problems sometimes where the initial render doesn't grab these
 - there probably is a way around it that I haven't figured out yet
+
+## Reducing bundle size
+- bootstrap can be quite large and can bloat initial bundle sizes
+- you could load from a cdn, but this doesn't allow for customization unless you host your custom bootstrap on a cdn
+- there is a post css plugin that is supposed to purge css (I think its called purge css) that removes all unused css, so that's worth trying
+- another solution is to use code splitting
+  - only load the parts of bootstrap you need on initial render
+  - defer the other parts of bootstrap
+  - the following is the file that is imported when you `@import "bootstrap";` in scss or `import 'bootstrap';` in js (bootstrap v4.6)
+    ```scss
+    // node_modules/bootstrap/scss/bootstrap.scss
+
+    /*!
+     * Bootstrap v4.6.0 (https://getbootstrap.com/)
+     * Copyright 2011-2021 The Bootstrap Authors
+     * Copyright 2011-2021 Twitter, Inc.
+     * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+     */
+
+    @import "functions";
+    @import "variables";
+    @import "mixins";
+    @import "root";
+    @import "reboot";
+    @import "type";
+    @import "images";
+    @import "code";
+    @import "grid";
+    @import "tables";
+    @import "forms";
+    @import "buttons";
+    @import "transitions";
+    @import "dropdown";
+    @import "button-group";
+    @import "input-group";
+    @import "custom-forms";
+    @import "nav";
+    @import "navbar";
+    @import "card";
+    @import "breadcrumb";
+    @import "pagination";
+    @import "badge";
+    @import "jumbotron";
+    @import "alert";
+    @import "progress";
+    @import "media";
+    @import "list-group";
+    @import "close";
+    @import "toasts";
+    @import "modal";
+    @import "tooltip";
+    @import "popover";
+    @import "carousel";
+    @import "spinners";
+    @import "utilities";
+    @import "print";
+    ```
+  - what you need to do is take the import statements that you need immediately and shove them into an `initial-bootstrap.scss` file that you import immediately
+  - the other imports can be put in a `deferred-bootstrap.scss` file
+  - you also have the opportunity to not include things you don't need
+    - ex: no websites I work on need `@import "print";` so I can leave that out
+  - this still allows you to customize bootstrap as specified in their docs
+  - also note that some of these statements import files that consist of more import statements, like `@import "utilities";` (code below)
+    ```scss
+    @import "utilities/align";
+    @import "utilities/background";
+    @import "utilities/borders";
+    @import "utilities/clearfix";
+    @import "utilities/display";
+    @import "utilities/embed";
+    @import "utilities/flex";
+    @import "utilities/float";
+    @import "utilities/interactions";
+    @import "utilities/overflow";
+    @import "utilities/position";
+    @import "utilities/screenreaders";
+    @import "utilities/shadows";
+    @import "utilities/sizing";
+    @import "utilities/spacing";
+    @import "utilities/stretched-link";
+    @import "utilities/text";
+    @import "utilities/visibility";
+    ```
+  - so there is more opportunity to further reduce bundle size
+  - it is smart to keep `@import "reboot";` because it normalizes browser css
