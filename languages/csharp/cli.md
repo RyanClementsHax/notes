@@ -2,6 +2,11 @@
 
 ## Installing the SDK
 - [there is a command line helper for installing this](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-install-script)
+- installing on ubuntu
+    ```bash
+    sudo apt-get install -y dotnet-sdk-3.1 # donet core 3.1
+    sudo apt-get install -y dotnet-sdk-5.0 # dotnet 5.0
+    ```
 
 ## Uninstalling an sdk
 - [there is a script for doing this](https://docs.microsoft.com/en-us/dotnet/core/additional-tools/uninstall-tool?tabs=windows)

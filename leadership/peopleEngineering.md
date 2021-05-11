@@ -12,5 +12,11 @@
 - problems can disappear if people feel important
 - angry callers calling customer support can be disarmed if thanked for their complaint and complimented for their keen eye (genuinely of course)
 
+## Trust
+- very hard to earn
+- easier to earn when you suffer with others
+- coin base makes all new engineering managers start by writing code with the team
+  - easier to earn trust than to have to earn it over many more months of managing the team
+
 ## Tips
 - read up on what people are interested in before meeting them; it helps you create good conversation with them and helps make them feel imporant and interesting (plus who doesn't love being nerd sniped)
