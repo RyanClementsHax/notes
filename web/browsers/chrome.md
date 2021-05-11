@@ -9,6 +9,11 @@
 
 ### Rendering
 - allows you to modify rendering settings to emulate browsers or users with preferences/disabilities
+- [this is how rendering works](https://developers.google.com/web/fundamentals/performance/rendering)
+  - make sure you don't hit expensive layers if you want to remain performant
+
+### Performance
+- [list of features](https://developer.chrome.com/docs/devtools/evaluate-performance/reference/)
 
 ### Lighthouse
 - [Why is Largest Contentful Paint almost 4 seconds?](https://stackoverflow.com/questions/62327643/why-is-largest-contentful-paint-almost-4-seconds)

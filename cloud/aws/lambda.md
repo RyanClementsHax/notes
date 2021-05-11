@@ -19,3 +19,5 @@
   - python
   - ruby
 - can support any language through a runtime api
+- never do a direct cost between lambda and ec2
+  - it doesn't take into account all of the redundancy, scalability, fault tolerance, management, etc that lambda does for you

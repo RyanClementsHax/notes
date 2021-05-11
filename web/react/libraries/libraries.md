@@ -4,3 +4,5 @@
 - [react-parallax-tilt](https://github.com/mkosir/react-parallax-tilt)
 - [react-functional-select](https://github.com/based-ghost/react-functional-select)
 - [react-pdf](https://react-pdf.org/)
+- [mantine](https://mantine.dev/)
+  - component library

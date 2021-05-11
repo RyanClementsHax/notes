@@ -40,3 +40,7 @@
 
 ## `server`
 - code in this folder only gets run on the server
+
+## Tools
+- [next-code-elimination](https://next-code-elimination.vercel.app/)
+  - shows you the output of the SSR

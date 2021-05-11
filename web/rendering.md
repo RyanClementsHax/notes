@@ -4,6 +4,8 @@
 - initial page load is super fast
 - more noticeable on slower connections
 - only requires one round trip to make the page functional
+- hydration
+  - the process when the javascript code is run and makes the page fully interactive
 
 ## CSR (Client Side Rendering)
 - subsequent page loads are typically faster because they only require additional data (unless you do lazy loading or code splitting)

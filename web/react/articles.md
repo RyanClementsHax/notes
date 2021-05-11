@@ -7,3 +7,7 @@
 - [Get Started With React By Building A Whac-A-Mole Game](https://www.smashingmagazine.com/2021/05/get-started-whac-a-mole-react-game/)
   - really good use of hooks
   - shows js timers edge case
+- [React Table Guide And Best React Table Examples React](https://flatlogic.com/blog/react-table-guide-and-best-react-table-examples/)
+- [React Components as TypeScript Generic Functions](https://javascript.plainenglish.io/react-components-as-typescript-generic-functions-8aa83afff597)
+- [How to build a table of contents in React](https://www.emgoto.com/react-table-of-contents/)
+  - good stuff with intersection observers
