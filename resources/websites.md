@@ -13,11 +13,17 @@
 - [frontendmasters.com](https://frontendmasters.com/)
   - [Production-Grade Next.js](https://frontendmasters.com/courses/production-next/)
 - [leveluptutorials.com](https://www.leveluptutorials.com/)
+- [frontendmentor.io](https://www.frontendmentor.io/)
+  - can build real frontends at different difficulties and share them with the community
+  - focused on intermediate programers
+
+## Blogs
+- [https://www.robinwieruch.de/](https://www.robinwieruch.de/)
+  - a really cool blog
+  - worth emulating
 
 ## Practice
 - [kata-log.rocks](https://kata-log.rocks/starter)
-
-## Practice
 - [flexboxfroggy.com](https://flexboxfroggy.com/)
 - [cssgridgarden.com](https://cssgridgarden.com/)
 

@@ -33,6 +33,10 @@
 ### Codebuild
 - managed service for pipeline tasks
 - used by codepipeline for tasks
+- [caching](https://docs.aws.amazon.com/codebuild/latest/userguide/build-caching.html)
+  - local caching only works for the instance itself, and thus doesn't share its cache with other instances
+  - this is why caching docker images doesn't work as well as you might want it to when you are running infrequent builds
+  - it seems that sometimes you can get lucky that your build will run on the same lambda with the cache still hot (but it's very infrequent)
 - building docker images
   - doesn't do a good job of caching docker images
     - to get around this [you have to create an ECR repository as the cache](https://aws.amazon.com/blogs/devops/reducing-docker-image-build-time-on-aws-codebuild-using-an-external-cache/)

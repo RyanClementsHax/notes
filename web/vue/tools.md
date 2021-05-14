@@ -20,3 +20,13 @@ Vue.directive("disable-all", {
   }
 });
 ```
+
+## [Passing slots through to child components](https://stackoverflow.com/questions/50891858/vue-how-to-pass-down-slots-inside-wrapper-component)
+```html
+<my-wrapper>
+  <b-table v-bind="$attrs" v-on="$listeners">
+    <template v-for="(_, slot) of $scopedSlots" v-slot:[slot]="scope"><slot :name="slot" v-bind="scope" /></template>
+  </b-table>
+</my-wrapper>
+```
+- this lets you pass all slots to the child component with binded scopes

@@ -41,6 +41,11 @@ docker rm $(docker ps -a -q)
 docker rmi $(docker images -a -q)
 ```
 
+## Delete all untagged images
+```bash
+docker rmi $(docker images | grep "^<none>" | awk "{print $3}")
+```
+
 ## Ports
 host_port:container_port
 
@@ -72,6 +77,15 @@ RUN cd src/
 # this will run in context of /app
 RUN npm install
 ```
+
+## [ENV](https://vsupalov.com/docker-env-vars/)
+- provides default values for your future environment variables
+- these can be accessed at build time and at run time
+- [difference between env and arg](https://vsupalov.com/docker-arg-vs-env/)
+
+## ARG
+- denotes a build argument
+- this is only available at build time
 
 ## Running containers
 - running a container with `-it` allows you to exit it without stopping it by pressing `ctrl+p` then `ctrl+q`
@@ -132,3 +146,11 @@ Start-Process "C:\Program Files\Docker\Docker\Docker Desktop.exe"
 
 ## [Rate limiting](https://www.docker.com/increase-rate-limits)
 - the only way around this is to create an account and use that and potentially pay, or use your own repo
+
+## Multi stage builds
+- these don't cache well on remote repos
+- you have to build and push each stage individually
+- [here](https://gist.github.com/evadne/8936c05b1961a4ef1b4e8d86354303d5) is an example
+- [he explains further](https://andrewlock.net/caching-docker-layers-on-serverless-build-hosts-with-multi-stage-builds---target,-and---cache-from/)
+- [this stack overflow post](https://stackoverflow.com/questions/52646303/is-it-possible-to-cache-multi-stage-docker-builds) seems to agree
+

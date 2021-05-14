@@ -12,6 +12,43 @@
 - [this](https://andrewlock.net/optimising-asp-net-core-apps-in-docker-avoiding-manually-copying-csproj-files/) article explains more
   - unfortunately, as this article explains, there is no good way to copy only certain files using a regex and retain the original folder structure
   - if you have multiple package files you need to install dependencies for, you have to manually copy each package file and place it into its final directory manually (which is brittle of course), or do tar ball hacks like this guy
+  - you can also have a fancy copy commands like this which will do the trick
+    ```docker
+    # Builder image
+    FROM microsoft/dotnet:2.1.402-sdk AS builder
+    WORKDIR /sln
+
+    COPY ./*.sln ./NuGet.config /*.props /*.targets ./
+
+    # Copy the main source project files
+    COPY src/*/*.csproj ./
+    RUN for file in $(ls *.csproj); do mkdir -p src/${file%.*}/ && mv $file src/${file%.*}/; done
+
+    # Copy the test project files
+    COPY test/*/*.csproj ./
+    RUN for file in $(ls *.csproj); do mkdir -p test/${file%.*}/ && mv $file test/${file%.*}/; done
+
+    RUN dotnet restore
+
+    # Copy across the rest of the source files
+    COPY ./test ./test
+    COPY ./src ./src
+
+    RUN dotnet build -c Release
+
+    RUN dotnet test "./test/AspNetCoreInDocker.Web.Tests/AspNetCoreInDocker.Web.Tests.csproj" \
+        -c Release --no-build --no-restore
+
+    RUN dotnet publish "./src/AspNetCoreInDocker.Web/AspNetCoreInDocker.Web.csproj" \
+        -c Release -o "../../dist" --no-restore
+
+    # App image
+    FROM microsoft/dotnet:2.1.3-aspnetcore-runtime-alpine
+    WORKDIR /app
+    ENTRYPOINT ["dotnet", "AspNetCoreInDocker.Web.dll"]
+    COPY --from=builder /sln/dist .
+    ```
+- 
 
 ## Gotchas
 

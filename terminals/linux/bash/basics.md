@@ -215,6 +215,14 @@ bash -c "echo 'hello world'"
     echo $upperCase
     # HELLO
     ```
+- [check if a string is empty](https://www.diskinternals.com/linux-reader/bash-if-string-not-empty/)
+    ```bash
+    var=""
+    if [ -z "$var" ]; then
+        echo "var is empty"
+    fi
+    ```
+
 
 ## Arrays
 - these are constructs that can only exist inside of bash so you cannot export them as variables from the script
@@ -279,6 +287,15 @@ bash -c "echo 'hello world'"
     join_by / var local tmp # var/local/tmp
     join_by , "${FOO[@]}" # a,b,c
     ```
+
+## [Functions](https://linuxize.com/post/bash-functions/)
+```bash
+function myFunc() {
+    echo "$1"
+}
+
+myFunc "Hello, world!"
+```
 
 ## Regexes
 - you can check strings against regexes

@@ -44,3 +44,9 @@
 ## Tools
 - [next-code-elimination](https://next-code-elimination.vercel.app/)
   - shows you the output of the SSR
+
+## [Reducing data sent to client](https://www.smashingmagazine.com/2021/05/reduce-data-sent-client-nextjs/)
+- this article explains a few ways to do it
+- essentially
+  - grab only the data you need
+  - prevent aggregation on the client

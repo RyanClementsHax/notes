@@ -42,3 +42,10 @@ setInterval(() => {
     process.stdout.cursorTo(position)
     process.stdout.clearLine(1)
   ```
+
+## Formatting json
+```js
+JSON.stringify({a:1,b:2,c:{d:1,e:[1,2]}}, null, "\t"); // tabs
+JSON.stringify({a:1,b:2,c:{d:1,e:[1,2]}}, null, 4); // 4 spaces
+```
+- the output needs to be rendered in a `<pre>` tag if you want the formatting to appear in the dom

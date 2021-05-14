@@ -66,6 +66,7 @@
   - a css property that requires vendor prefixes will automatically be added those prefixes by vue
   - [cannot style bind to a pseudo element](https://stackoverflow.com/questions/50625973/vue-js-v-bindstyle-pseudo-element-after-content-icon)
     - I would just create an actual element to do what you want
+  - [scoped css](https://vue-loader.vuejs.org/guide/scoped-css.html#child-component-root-elements)
 - conditional rendering
   - vue will try to reuse elements so if you don't want state to be shared between two rendering branches, you can use the `key` prop to differentiate them
   - `v-if` and `v-show` are [different](https://vuejs.org/v2/guide/conditional.html#v-if-vs-v-show)

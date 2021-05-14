@@ -91,3 +91,14 @@ find . -type f -exec unix2dos {} \;
 ```bash
 date +"%T"
 ```
+
+## [Remove last line](https://stackoverflow.com/questions/4881930/remove-the-last-line-from-a-file-in-bash/12349094#12349094)
+```bash
+head -n -1 foo.txt
+```
+
+## [Get filename from given path](https://www.cyberciti.biz/faq/bash-get-filename-from-given-path-on-linux-or-unix/)
+```bash
+basename /path/to/file
+# file
+```
