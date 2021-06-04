@@ -17,6 +17,11 @@ git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec
     git push -u origin new-name
     ```
 
+## (Chaning remote repo](https://stackoverflow.com/questions/2432764/how-to-change-the-uri-url-for-a-remote-git-repository)
+```bash
+git remote set-url origin new.git.url/here
+```
+
 ## Line endings
 - these can be annoying to manage in git, but there are facilities exposed to you as good 'ole [Scotty](https://www.hanselman.com/blog/carriage-returns-and-line-feeds-will-ultimately-bite-you-some-git-tips) shows us
 

@@ -153,4 +153,53 @@ Start-Process "C:\Program Files\Docker\Docker\Docker Desktop.exe"
 - [here](https://gist.github.com/evadne/8936c05b1961a4ef1b4e8d86354303d5) is an example
 - [he explains further](https://andrewlock.net/caching-docker-layers-on-serverless-build-hosts-with-multi-stage-builds---target,-and---cache-from/)
 - [this stack overflow post](https://stackoverflow.com/questions/52646303/is-it-possible-to-cache-multi-stage-docker-builds) seems to agree
+- to pull the images with a cache (`$image` will be the full path of your docker repo and image name i.e. `my.repo.com/my-image`)
+  1. get all of the stages from the `Dockerfile` (`$file` is the path to your `Dockerfile`)
+      ```bash
+      stages=$(cat $file | grep -oP '^FROM .+ (AS|as) \K(.+)$' | head -n -1) || true
+      ```
+      - `|| true` is to handle the case that there aren't any intermediate images
+  2. pull all of the intermediate stages
+      ```bash
+      for stage in $stages; do
+        docker pull "$image:cache-$stage" || true
+      done
+      ```
+      - in this example, the image layers are labeled as `cache-$stage` but this can be anything
+      - `|| true` is to handle the image label doesn't exist in the repo yet
+  3. pull the final image (`$tag` is the tag you want to build)
+      ```bash
+      docker pull "$image:$tag" || true
+      ```
+- to build with cache
+  1. get all of the stages from the `Dockerfile` (same as above)
+  2. generate all of the cache args
+      ```bash
+      cache_args=$(for stage in $stages; do echo "--cache-from $image:cache-$stage"; done)
+      ```
+  3. build each intermediate stages using the cache
+      ```bash
+      for stage in $stages; do
+        echo
+        echo "Building $image:cache-$stage"
+        docker build $build_args -t "$image:cache-$stage" --target "$stage" $args || break
+      done
+      ```
+  4. build the final stage
+      ```bash
+      docker build $build_args --cache-from "$image:$tag" -t "$image:$tag" $args
+      ```
+- to push to the cache
+  1. get all of the stages from the `Dockerfile` (same as above)
+  2. push all of the intermediate stages
+      ```bash
+      for stage in $stages; do
+        docker push "$image:cache-$stage"
+      done
+      ```
+      - the cache label convention should match the one for pulling
+  3. push the final image
+      ```bash
+      docker push "$image:$tag"
+      ```
 

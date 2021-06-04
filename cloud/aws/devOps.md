@@ -21,6 +21,11 @@
 - set up entire CD toolchain in minutes
 - secure
 
+### Codecommit
+- their SCM offering
+- it doesn't support pull request pipelines, but you can [build it out yourself](https://github.com/aws-samples/aws-codepipeline-multi-branch-strategy) using lambda, cloud formation, and event bridge
+  - [corresponding article](https://aws.amazon.com/blogs/devops/multi-branch-codepipeline-strategy-with-event-driven-architecture/)
+
 ### Codepipeline
 - managed service for automation of delivery pipeline for application updates
 - uses codecommit, codebuild, and codedeploy under the hood

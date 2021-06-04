@@ -16,6 +16,7 @@
 - [frontendmentor.io](https://www.frontendmentor.io/)
   - can build real frontends at different difficulties and share them with the community
   - focused on intermediate programers
+- [newline.co](https://www.newline.co/)
 
 ## Blogs
 - [https://www.robinwieruch.de/](https://www.robinwieruch.de/)

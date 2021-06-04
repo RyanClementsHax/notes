@@ -7,6 +7,8 @@
 - [Vue Sidebar Menu](https://github.com/yaminncco/vue-sidebar-menu)
 - [Inkline](https://inkline.io/)
   - component library
+- [VueUse](https://vueuse.org/functions.html#browser)
+  - basically a library of hooks for the composition api
 
 ## a11y
 - [vue-a11y](https://github.com/vue-a11y)

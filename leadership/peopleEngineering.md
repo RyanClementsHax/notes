@@ -20,3 +20,7 @@
 
 ## Tips
 - read up on what people are interested in before meeting them; it helps you create good conversation with them and helps make them feel imporant and interesting (plus who doesn't love being nerd sniped)
+- get the person to say yes multiple times before stating the point you want them to agree with
+- using "and" instead of "but" can help keep criticism positive and well accepted
+  - avoid: "You did great in algebra this semester, _but_ your english grade needs more work"
+  - do: "You did great in algebra this semester, _and_ if you study more in english you can get that grade up too"

@@ -41,3 +41,7 @@
   - the build cache will be shared though
   - you may run into permissions issues (i.e. jenkins not being part of the docker users group) if you do it this way
 - another solution, then, is to use a sidecar container like [socat](https://hub.docker.com/r/alpine/socat/)
+
+## Tips
+- having smaller changes being deployed into production frequently reduces the surface area of code you need to inspect when finding bugs
+  - this paired with feature flags can make batch sizes smaller

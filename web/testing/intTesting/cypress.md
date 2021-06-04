@@ -43,6 +43,9 @@ DEBUG=cypress:* npx cypress run
 ## Waiting on responses
 - use [cy.wait(@alias)](https://docs.cypress.io/api/commands/wait.html) to wait for responses
 
+## Controlling when a response is resolved
+- there isn't a way to do this out of the box yet, but [here](https://github.com/cypress-io/cypress/issues/3514) is a workaround
+
 ## Controlling dependencies during tests
 - you have a few options
 1. stub out network calls
@@ -90,6 +93,7 @@ DEBUG=cypress:* npx cypress run
 - [webpack-preprocessor](https://github.com/cypress-io/cypress/tree/master/npm/webpack-preprocessor#readme)
   - integrating webpack support into cypress test file compilation
   - [as of 3/27/20 doesn't work well with webpack 5.x](https://github.com/cypress-io/cypress/issues/15447)
+- [Cypress-Recorder](https://github.com/KabaLabs/Cypress-Recorder)
 
 ## Misc
 - it seems that on slower or overloaded dev machines, the cypress timeouts in the UI are sensitive to the window being visible

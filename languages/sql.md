@@ -75,3 +75,6 @@ select *
 from @tab
 where 'John' in (FirstName)
 ```
+
+## Parameters
+- using this in queries alleviates some of the concerns with sql injection because now you aren't doing string concatenation to construct the query

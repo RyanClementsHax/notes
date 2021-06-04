@@ -15,6 +15,10 @@
 - one cool thing to note is that with side navs, all items in view have equal weight to the visitor, but its a left to right priority for the top nav
 - [this article provides some objective comparisions](https://uxdesign.cc/top-navigation-vs-side-navigation-wich-one-is-better-24aa5d835643)
 - [so does this one](https://uxmovement.com/navigation/top-navigation-vs-left-navigation-which-works-better/#:~:text=A%20top%20navigation%20conserves%20more,left%20column%20of%20your%20page.&text=A%20top%20navigation%2C%20however%2C%20uses,your%20page%20with%20content%20only.)
+- [nielsen chimes in too](https://www.nngroup.com/articles/vertical-nav/)
+
+## Breadcrumbs
+- [when to use them](https://uxplanet.org/breadcrumbs-for-web-sites-what-when-and-how-9273dacf1960)
 
 ## Key value ux
 - there is surprisingly a lot that goes into this

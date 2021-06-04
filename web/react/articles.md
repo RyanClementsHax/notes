@@ -11,3 +11,7 @@
 - [React Components as TypeScript Generic Functions](https://javascript.plainenglish.io/react-components-as-typescript-generic-functions-8aa83afff597)
 - [How to build a table of contents in React](https://www.emgoto.com/react-table-of-contents/)
   - good stuff with intersection observers
+- [Building A Rich Text Editor (WYSIWYG)](https://www.smashingmagazine.com/2021/05/building-wysiwyg-editor-javascript-slatejs/)
+  - absolutely phenomenal
+- [Adding A Commenting System To A WYSIWYG Editor](https://www.smashingmagazine.com/2021/05/commenting-system-wysiwyg-editor/#top)
+  - absolutely phenomenal

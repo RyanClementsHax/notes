@@ -30,3 +30,29 @@ Vue.directive("disable-all", {
 </my-wrapper>
 ```
 - this lets you pass all slots to the child component with binded scopes
+
+## Submitting form in a modal with `ctrl + enter`
+```js
+{
+  // ...
+  mounted() {
+    document.addEventListener('keyup', this.onKeyup, false)
+  },
+  destroyed() {
+    document.removeEventListener('keyup', this.onKeyup, false)
+  },
+  methods: {
+    onKeyup(e) {
+      if (
+        this.$refs.modal.isShow &&
+        e.ctrlKey &&
+        e.keyCode === 13 /* enter */
+      ) {
+        this.onSubmit()
+      }
+    },
+  }
+  // ...
+}
+```
+  - there may be a better way of doing this, but this solution hooks an even listener globally, then only acts if the modal is in view

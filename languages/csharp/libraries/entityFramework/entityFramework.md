@@ -153,5 +153,17 @@ Scaffold-DbContext "Data Source=your_db_server_host_name; Integrated Security=Tr
   - after using that connection is used once and receiving this error, the connection seems to reset and work fine from then on
   - the easiest way to handle this is to disable pooling in the connection string with `Pooling=false`
 
+## Relationships
+
+### One to many
+- [should I use ICollection<T> or IEnumerable<T>](https://stackoverflow.com/questions/10113244/why-use-icollection-and-not-ienumerable-or-listt-on-many-many-one-many-relatio/10113331)
+- tldr: use the interface you need in your code
+
+## Exceptions
+- [EntityFramework.Exceptions](https://github.com/Giorgi/EntityFramework.Exceptions)
+  - this parses exceptions for you into objects you can reason about easily
+  - doing this yourself is painful
+  - there still seems to be ceremony around figuring out _exactly_ what failed, but at least for simple cases, this works well
+
 ## Misc
 - [Entity Framework doesn't provide DeleteAsync or AddAsync. Why?](https://stackoverflow.com/questions/42422656/entity-framework-doesnt-provide-deleteasync-or-addasync-why)

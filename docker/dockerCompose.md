@@ -62,3 +62,36 @@ docker-compose -f base.docker-compose.yml -f prod.docker-compose.yml up
 ## [extends](https://docs.docker.com/compose/extends/)
 - allows you to extend a service within another compose file
 - cannot extend services that have `depends_on` defined
+
+## Naming services
+- consider the following yml files
+  ```yml
+  # int_tests.docker-compose.yml
+  services:
+    db:
+      build:
+        image: some_db
+      ports:
+        - 1344:1433
+    tests:
+      depends_on:
+        - db
+      build:
+        context: .
+  ```
+  ```yml
+  # docker-compose.yml
+  services:
+    db:
+      build:
+        image: some_db
+      ports:
+        - 1344:1433
+    service:
+      depends_on:
+        - db
+      build:
+        context: .
+  ```
+- because both files declare a service called `db`, you can't stand up both services at same time without conflicts (btw they're silent)
+- you can fix this by making all service names unique

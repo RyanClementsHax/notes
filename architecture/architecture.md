@@ -17,3 +17,8 @@
 
 ## Dependencies
 - the more a service is depended upon, the lesser its ability it has to change
+
+## Polling
+- long polling
+  - where you keep a request open for a certain amount of time just in case the new data arrives within that time
+  - this can reduce the load introduced with normal polling

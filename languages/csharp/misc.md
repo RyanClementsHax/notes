@@ -49,3 +49,7 @@
 
 ## Inspecting generated code
 - you can use [sharplab.io](https://sharplab.io/) to see C# without all of its sugar
+
+## Starting processes
+- [there is no async version of process start](https://stackoverflow.com/questions/10788982/is-there-any-async-equivalent-of-process-start)
+  - this is a workaround for that though

@@ -9,6 +9,7 @@
   - `Object.freeze(...)` will prevent reactivity
   - if it is an object, the data is shared across all instances
   - if it is a function, the data is local
+  - don't try to access computed values from the data constructor
 - avoid arrow functions because they don't have a `this`
 - templates
   - can only have single root element
@@ -91,6 +92,20 @@
 - props
   - object or array defaults must be returned from a factory function
   - if you specify a default value, it must be of the type you specify too otherwise you will run into odd, slient errors
+  - enums
+    - these aren't supported out of the box, so you will need to set the type to `String` and implement a custom validator to do checking
+      ```js
+      {
+        // ...
+        props: {
+          mode: {
+            type: String,
+            default: 'create',
+            validator: x => ['create', 'edit'].includes(x)
+          }
+        }
+        // ...
+      }
 - watch
   - can get creative with watch properties
   - you can specify deep watches
