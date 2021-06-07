@@ -39,7 +39,7 @@
 - another solution for simple use cases is to bind the docker socket as a volume, ex: `docker run -v /var/run/docker.sock:/var/run/docker.sock ...`
   - this means that any containers created will be sibling containers, not child containers
   - the build cache will be shared though
-  - you may run into permissions issues (i.e. jenkins not being part of the docker users group) if you do it this way
+  - you may run into permissions issues (e.g. jenkins not being part of the docker users group) if you do it this way
 - another solution, then, is to use a sidecar container like [socat](https://hub.docker.com/r/alpine/socat/)
 
 ## Tips

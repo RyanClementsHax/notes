@@ -20,11 +20,11 @@
 ## Types of work
 - business (external)
   - changes that the business is asking of IT
-  - i.e. feature requests
+  - e.g. feature requests
 - internal
-  - i.e. implementing deployment pipelines
+  - e.g. implementing deployment pipelines
 - change work
-  - i.e. legal changes
+  - e.g. legal changes
 - fire fighting
   - "anti-work"
   - unplanned

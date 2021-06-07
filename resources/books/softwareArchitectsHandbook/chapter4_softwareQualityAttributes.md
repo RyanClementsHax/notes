@@ -42,7 +42,7 @@
 - measuring maintainability
   - lines of code (LOC)
     - physical LOC just counts lines of code
-    - logica LOC counts the lines of code that matter (i.e. no comments)
+    - logica LOC counts the lines of code that matter (e.g. no comments)
   - cyclomatic complexity
     - `CC = E - N + 2P`
   - depth of inheritance (DIT) tree

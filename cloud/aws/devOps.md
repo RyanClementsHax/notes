@@ -58,7 +58,7 @@
   - templates written as json or yml
   - automating the provisioning of rsources with these templates
   - handles dependency management
-    - i.e. it creates a vpc before it creates a security group
+    - e.g. it creates a vpc before it creates a security group
   - stores templates in s3
     - this will charge you
     - you can store these yourself to avoid this tho

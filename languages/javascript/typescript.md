@@ -47,7 +47,7 @@
 - this is assignable to every type
 - no type is assignable to never
 - handly for exhaustive checks
-- can be used as a return type to communicate that the function literally never returns (i.e. throws an exception always or terminates program)
+- can be used as a return type to communicate that the function literally never returns (e.g. throws an exception always or terminates program)
 
 ## [Functions](https://www.typescriptlang.org/docs/handbook/2/functions.html)
 - all parameters must be named
@@ -84,7 +84,7 @@
 ## `as const`
 - allows the type system to take values more literally instead of wider types
 - think of it as "locking" type definitions
-- i.e. `[8, 5]` is seen as a `number[]` which can have 0 or more numbers whereas `[8, 5] as const` is seen as an array of literally the numbers `8` and `5`
+- e.g. `[8, 5]` is seen as a `number[]` which can have 0 or more numbers whereas `[8, 5] as const` is seen as an array of literally the numbers `8` and `5`
 
 ## Objects
 

@@ -8,7 +8,7 @@
 - actions can return things whereas mutations cannot
 
 ## Eliminating boilerplate for async functions
-- sometimes you need to make changes to the state before, and after making a network call (i.e. updating loading and error state)
+- sometimes you need to make changes to the state before, and after making a network call (e.g. updating loading and error state)
 - writing out and dispatching every mutation around making the network call in the action will be cumbersome and repetitive if you have multiple network calls you make
 - it is easier to create a wrapper that will take a config object and create and dispatch the mutations for you like the following
     ```js

@@ -15,11 +15,11 @@
 - growth scales
     - qualitative
         - a scale that ties the scalability of a service to a higher level business metric
-        - i.e. number of orders for a delivery service application
+        - e.g. number of orders for a delivery service application
         - helpful for communicating scalability requirements between teams and talking to management
     - quantitative
         - numerical scale that ties the scalability of a service to a technical metric
-        - i.e. requests per second
+        - e.g. requests per second
     - both of these are needed for capacity planning
 - efficient use of resources
     - be careful when putting microservices on the same machine

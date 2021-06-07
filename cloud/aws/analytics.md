@@ -24,7 +24,7 @@
   - great for PCI-DCS and preventing id theft
 - rekognition
   - video/image analysis
-  - i.e. facial recognition
+  - e.g. facial recognition
 - comprehend
   - NLP service
   - fully managed

@@ -153,7 +153,7 @@ Start-Process "C:\Program Files\Docker\Docker\Docker Desktop.exe"
 - [here](https://gist.github.com/evadne/8936c05b1961a4ef1b4e8d86354303d5) is an example
 - [he explains further](https://andrewlock.net/caching-docker-layers-on-serverless-build-hosts-with-multi-stage-builds---target,-and---cache-from/)
 - [this stack overflow post](https://stackoverflow.com/questions/52646303/is-it-possible-to-cache-multi-stage-docker-builds) seems to agree
-- to pull the images with a cache (`$image` will be the full path of your docker repo and image name i.e. `my.repo.com/my-image`)
+- to pull the images with a cache (`$image` will be the full path of your docker repo and image name e.g. `my.repo.com/my-image`)
   1. get all of the stages from the `Dockerfile` (`$file` is the path to your `Dockerfile`)
       ```bash
       stages=$(cat $file | grep -oP '^FROM .+ (AS|as) \K(.+)$' | head -n -1) || true

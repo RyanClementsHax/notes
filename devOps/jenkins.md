@@ -82,7 +82,7 @@ volumes:
        - [felipecrs/jenkins-agent-dind](https://github.com/felipecrs/jenkins-agent-dind) is one open source option
    13. click `Container settings...`
    14. enter the network you want the container to be on for `Network`
-      - For local, containerized development, this will be the docker network configured in your compose file (i.e. `jenkins`)
+      - For local, containerized development, this will be the docker network configured in your compose file (e.g. `jenkins`)
    15. configure the `DOCKER_HOST` variable to be whatever you put in the `Docker Host URI` earlier
       - For local, containerized development, use `tcp://docker:2375`
       - Configuring this is how we can get the build agents to cache docker images by pointing it to the external docker host

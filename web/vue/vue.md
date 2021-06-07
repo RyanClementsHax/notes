@@ -14,7 +14,7 @@
 - templates
   - can only have single root element
   - interpolations
-    - support javascript, but only one statement (i.e. can't do control flow)
+    - support javascript, but only one statement (e.g. can't do control flow)
   - `v-bind` shorthand
     ```html
     <!-- full syntax -->

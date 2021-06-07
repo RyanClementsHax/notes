@@ -2,7 +2,7 @@
 
 - any tags used will be shown in billing reports
   - allows you to group related charges by assigning tags
-  - i.e. tagging all of your resources with the environment their in
+  - e.g. tagging all of your resources with the environment their in
 - reports can be stored in s3
   - could then be querried against using athena
 - CUR (Cost and Usage Report)

@@ -5,7 +5,7 @@
 - can reduce download size of data
 - its customizability makes cache-ability suffer, however
 - using this can make versioning less needed as long as you discipline yourself
-  - i.e. no removing fields
+  - e.g. no removing fields
 
 ## Libraries
 - [mercurius](https://github.com/mercurius-js/mercurius)

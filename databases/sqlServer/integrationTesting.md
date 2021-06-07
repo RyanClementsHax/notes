@@ -52,7 +52,7 @@
    - you also need to be cognizant of making sure that database resources are always released even on test failures else test execution may deadlock
 2. group tests that can be run in any order together and only restore after groups finish executing
    - ex: it may be the case that all of your read operations can be grouped together and won't need a snapshot restore
-   - ex: it also may be the case that your users data access tests could run in any order (i.e. they don't make any data changes that would fail other tests if run in the incorrect order) but not with orders data access tests so you could group users tests and orders tests separately and thus only have to do two restores instead of a restore for each one of those tests
+   - ex: it also may be the case that your users data access tests could run in any order (e.g. they don't make any data changes that would fail other tests if run in the incorrect order) but not with orders data access tests so you could group users tests and orders tests separately and thus only have to do two restores instead of a restore for each one of those tests
 3. order tests and selectively restore your snapshots
    - test ordering is considered an anti pattern, but rules need to be bent or broken to allow for optimizations
    - not all test frameworks have good ways of doing this
