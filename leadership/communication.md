@@ -27,3 +27,11 @@
   - these are literally manuals on how a person works
   - you can have all of your team members fill out theirs and share them
   - they can be very useful for a manager
+
+## Consensus
+- complete consensus is deceitful
+- no high functioning team has complete agreement
+- conflict can be healthy
+- rather than complete consensus, strive to make everyone heard
+  - makes them feel like they had input
+  - makes them feel like they have some ownership

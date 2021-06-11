@@ -7,6 +7,7 @@
 - [you should remove many optional fields from your forms](https://uxmovement.com/forms/optional-fields-you-should-remove-on-your-form/)
   - the fewer form inputs you have, the higher the converstion rate
   - if you need extra inputs on start up, you can ask after account creation with a "setup account" ux
+- [be careful with floating labels](https://medium.com/simple-human/floating-labels-are-a-bad-idea-82edb64220f6)
 
 ## Top vs side nav
 - no clear winner
@@ -24,3 +25,12 @@
 - there is surprisingly a lot that goes into this
 - lots of ways to implement this
 - [ref](https://design.mindsphere.io/patterns/key-value.html)
+
+## Colors
+- don't assume that color meaning is universal
+  - e.g. money is red in China
+- if you use red in your ui to mean danger, make sure it is consistently meaning danger
+- accent colors are good for calls to action
+
+## Skeletons
+- [skeleton guidelines](https://uxdesign.cc/what-you-should-know-about-skeleton-screens-a820c45a571a)

@@ -13,6 +13,7 @@
 - [ref](https://blog.sessionstack.com/how-javascript-works-the-internals-of-classes-and-inheritance-transpiling-in-babel-and-113612cdc220)
 
 ## Modules
+- by default, this has strict mode enabled
 - any file containing a top level `import` or `export` is considered a module
 - a file without any top level import or export declarations is treated as a script whose contents are available in the global scope (and therefore to modules as well)
 - modules are executed within their own scope, not in the global scope
@@ -23,3 +24,6 @@
 - not supported by all browsers and CANNOT be polyfilled
 - normal maps will hold on to strong references of objects thus preventing them from being garbage collected
 - this map holds a weak reference allowing for the map's hold on the object to not be counted towards garbage collection
+
+## Logging
+- `console.log` is synchronous so consider using a different logging solution for something in a production app

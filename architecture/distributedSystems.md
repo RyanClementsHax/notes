@@ -52,5 +52,12 @@
 ## Messaging
 - giving consumers leases for messages they consume allows for the message not to be lost and to quickly be consumed by some other consumer if that consumer goes down
 
+## Job cancellation
+- in a distributed system, you don't know which host received the request for the job, or which host is processing the job
+- if you load balance the request using a hash of some job id, you can guarantee that the same host will receive all requests for a given job
+  - this requires extra configuration in the load balancing layer of course
+- grpc is better for cancelling due to it's two way communication channel
+  - doesn't scale well at layer 4
+
 ## Misc
 - relaxing constraints on the business requirements can lead to opportunities like amazon overselling items, but handing out gift cards when they can't fulfill everything
