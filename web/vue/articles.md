@@ -6,3 +6,4 @@
   - goes over how template components make it onto the screen
   - also covers reactivity
 - [How to Securely Implement OAuth in Vue.js](https://fusionauth.io/blog/2020/08/06/securely-implement-oauth-vuejs/)
+- [Managing Shared State In Vue 3](https://www.smashingmagazine.com/2021/06/managing-shared-state-vue3/)

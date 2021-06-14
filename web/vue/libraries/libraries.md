@@ -9,6 +9,9 @@
   - component library
 - [VueUse](https://vueuse.org/functions.html#browser)
   - basically a library of hooks for the composition api
+- [Naive UI](https://www.naiveui.com/en-US/dark)
+  - excellent component library for vue 3
+  - supports typescript
 
 ## a11y
 - [vue-a11y](https://github.com/vue-a11y)

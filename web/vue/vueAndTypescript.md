@@ -5,6 +5,8 @@
 - [migration guide](https://medium.com/js-dojo/adding-typescript-to-your-existing-vuejs-2-6-app-aaa896c2d40a)
 - the `Vue.extend({})` function given doesn't have very good implicit typing so you have to use the generic version `Vue.extend<Data, Methods, Computed, Props>({})`
 - [@vue/composition-api](https://github.com/vuejs/composition-api) has a function in its library called `defineComponent` that does the same thing as the one in vue 3, it just doesn't do typing as well, but its very close
+  - this is my recommended approach as it also helps with migration and gives access to most of the composition api features
+  - it is also a relatively small library
 - do know that typescript types are erased at runtime so prop validation won't work the same way you expect
   - to get typescript type checking in your ide, you have to use `Vetur` for this by configuring `Vetur` as follows
     ```json

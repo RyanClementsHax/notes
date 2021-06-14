@@ -88,6 +88,153 @@ DEBUG=cypress:* npx cypress run
 - this is due to a corrupted cache
 - the quick fix (and seemingly the one that the cypress staff recommends) is to just delete the cache and reinstall by running `npx cypress install --force`
 
+## Webpack config
+- you can configure the way webpack is used under the hood by hooking into the `file:preprocessor` event
+1. install `@cypress/webpack-preprocessor` and `webpack`
+  - [as of 3/27/20 @cypress/webpack-preprocessor doesn't work well with webpack 5.x](https://github.com/cypress-io/cypress/issues/15447)
+2. create a webpack config for cypress (example config below that adds an alias and loads typescript files)
+    ```js
+    /* eslint-disable @typescript-eslint/no-var-requires */
+    const path = require('path')
+
+    module.exports = {
+      webpackOptions: {
+        resolve: {
+          extensions: ['.ts', '.js'],
+          alias: {
+            '@cypress': path.resolve(__dirname, './cypress')
+          }
+        },
+        module: {
+          rules: [
+            {
+              test: /\.ts$/,
+              exclude: [/node_modules/],
+              use: [
+                {
+                  loader: 'ts-loader'
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+    ```
+3. within `cypress/plugins/index.js` add the following configuration
+    ```js
+    /* eslint-disable @typescript-eslint/no-var-requires */
+    /// <reference types="cypress" />
+    // ***********************************************************
+    // This example plugins/index.js can be used to load plugins
+    //
+    // You can change the location of this file or turn off loading
+    // the plugins file with the 'pluginsFile' configuration option.
+    //
+    // You can read more here:
+    // https://on.cypress.io/plugins-guide
+    // ***********************************************************
+
+    // This function is called when a project is opened or re-opened (e.g. due to
+    // the project's config changing)
+    const webpackPreprocessor = require('@cypress/webpack-preprocessor')
+
+    module.exports = on => {
+      on(
+        'file:preprocessor',
+        webpackPreprocessor(require('../path/to/webpack.cypress.config'))
+      )
+    }
+    ```
+
+## Typescript
+- cypress works well with typescript, although you will need to add some additional configuration
+1. install `ts-loader`
+2. make sure you setup webpack config for cypress as seen in [webpack config](#webpack-config)
+3. modify the cypress webpack config to include the `ts-loader`
+    ```js
+    module.exports = {
+      webpackOptions: {
+        module: {
+          rules: [
+            {
+              test: /\.ts$/,
+              exclude: [/node_modules/],
+              use: [
+                {
+                  loader: 'ts-loader'
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+    ```
+
+### Typing custom commands
+- there are plenty of ways to do this, but adding a custom command boils down to three steps
+  1. declare the function
+  2. add the function type to the `Chainable` type in the `Cypress` namespace
+  3. register the command
+- here is one way to do it
+  1. create an object full of the commands you want to register
+      ```ts
+      const commands = {
+        func1(arg1: number): string { /* ... */ }
+        func2(arg1: SomeType): CustomType { /* ... */ }
+      }
+      ```
+  2. add the types to the namespace
+      ```ts
+      type cmdsType = typeof commands // can't extend typeof commands directly
+
+      declare global {
+        namespace Cypress {
+          interface Chainable extends cmdsType {}
+        }
+      }
+      ```
+  3. register the functions
+      ```ts
+      for (const [k, v] of Object.entries(commands)) {
+        Cypress.Commands.add(k, v)
+      }
+      ```
+
+### Typing custom assertions
+1. define the assertion
+    ```ts
+    chai.use((_chai: Chai.ChaiStatic) => {
+      _chai.Assertion.addMethod('inViewport', function () {
+        const subject = this._obj
+
+        const windowHeight = Cypress.config().viewportHeight
+        const bottomOfCurrentViewport = windowHeight || 0
+        const rect = subject[0].getBoundingClientRect()
+
+        this.assert(
+          (rect.top > 0 && rect.top < bottomOfCurrentViewport) ||
+            (rect.bottom > 0 && rect.bottom < bottomOfCurrentViewport),
+          'expected #{this} to be in viewport',
+          'expected #{this} to not be in viewport',
+          subject
+        )
+      })
+    })
+    ```
+2. register the type for the `should` syntax
+    ```ts
+    declare global {
+      namespace Cypress {
+        interface Chainer<Subject> {
+          (chainer: 'be.inViewport'): Chainable<Subject>
+          (chainer: 'not.be.inViewport'): Chainable<Subject>
+        }
+      }
+    }
+    ```
+
 ## Tools
 - for filling out a form without having to wait on each keypress, consider using [cypress-fill-command](https://github.com/DanielFerrariR/cypress-fill-command)
 - [webpack-preprocessor](https://github.com/cypress-io/cypress/tree/master/npm/webpack-preprocessor#readme)
