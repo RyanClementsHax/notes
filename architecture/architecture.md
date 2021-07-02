@@ -25,3 +25,10 @@
 - long polling
   - where you keep a request open for a certain amount of time just in case the new data arrives within that time
   - this can reduce the load introduced with normal polling
+
+## ADRs (Architectural Decision Records)
+- super useful for recording big decisions for projects
+- could be anything from language choice to architecture choice
+- the point is to write them down so you can refer to them later
+- very useful if your project will exist long enough to see employees turn over
+- [here](https://adr.github.io/madr/#the-template) is one good template (there are many)

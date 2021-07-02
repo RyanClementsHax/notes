@@ -149,9 +149,10 @@ DEBUG=cypress:* npx cypress run
 
 ## Typescript
 - cypress works well with typescript, although you will need to add some additional configuration
-1. install `ts-loader`
-2. make sure you setup webpack config for cypress as seen in [webpack config](#webpack-config)
-3. modify the cypress webpack config to include the `ts-loader`
+1. add `"cypress"` in your `tsconfig.json`'s `"types"` field
+2. install `ts-loader`
+3. make sure you setup webpack config for cypress as seen in [webpack config](#webpack-config)
+4. modify the cypress webpack config to include the `ts-loader`
     ```js
     module.exports = {
       webpackOptions: {
@@ -236,6 +237,10 @@ DEBUG=cypress:* npx cypress run
     ```
 
 ## Tools
+- it is recommended to use "page objects" to wrap all of the commands related to a specific page into one import
+- there is an [eslint plugin](https://github.com/cypress-io/eslint-plugin-cypress) for cypress
+- [cypress-axe](https://www.npmjs.com/package/cypress-axe) for a11y
+- [cypress-lighthouse](https://www.npmjs.com/package/cypress-lighthouse) for lighthouse testing
 - for filling out a form without having to wait on each keypress, consider using [cypress-fill-command](https://github.com/DanielFerrariR/cypress-fill-command)
 - [webpack-preprocessor](https://github.com/cypress-io/cypress/tree/master/npm/webpack-preprocessor#readme)
   - integrating webpack support into cypress test file compilation

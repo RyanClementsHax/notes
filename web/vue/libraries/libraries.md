@@ -12,6 +12,8 @@
 - [Naive UI](https://www.naiveui.com/en-US/dark)
   - excellent component library for vue 3
   - supports typescript
+- [Quasar](https://quasar.dev/)
+  - really good component library for vue 3
 
 ## a11y
 - [vue-a11y](https://github.com/vue-a11y)

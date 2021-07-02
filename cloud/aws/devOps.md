@@ -76,3 +76,8 @@
   - UI provided to create these
   - automates deployments of aws resources, but not applications and code onto hosts
     - not to on prem tho
+
+## CDK
+  - good library for IAC
+  - has a terraform plugin
+  - many patterns on the [internet](https://cdkpatterns.com/)

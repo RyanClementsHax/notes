@@ -1,5 +1,7 @@
 # Breakpoint plugin
 
+Note: `VueUse` has a [hook](https://vueuse.org/core/useBreakpoints/) that does all of this for you 
+
 - it can be very handy to be able to write something like `v-if="isSmallScreen"`
   - this allows the component to not be mounted in the dom as compared to just using `display: none;` in css which keeps it there
 - it is possible to create an observable that can be accessed by any component

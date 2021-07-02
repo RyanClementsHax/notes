@@ -44,6 +44,7 @@
 ## Tools
 - [next-code-elimination](https://next-code-elimination.vercel.app/)
   - shows you the output of the SSR
+- [eslint-config](https://github.com/ijsto/eslint-config)
 
 ## [Reducing data sent to client](https://www.smashingmagazine.com/2021/05/reduce-data-sent-client-nextjs/)
 - this article explains a few ways to do it

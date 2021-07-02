@@ -1,5 +1,7 @@
 # Chrome
 
+- auto updates making it a more secure platform for desktop apps than electron which hardcodes a version of chromium in its bundle
+
 ## Dev tools
 - typing `$0` in the console will give you the currently selected element
   - you can also use `$1` to get the secondly last selected element and so on

@@ -18,6 +18,10 @@
   - focused on intermediate programers
 - [newline.co](https://www.newline.co/)
 - [advancedreact.com](https://advancedreact.com/)
+- [educative.io](https://www.educative.io)
+  - [Microservice Architecture: Practical Implementation](https://www.educative.io/module/microservices-implementation)
+- [udemy.com](https://www.udemy.com)
+  - [Microservices with Node JS and React](https://www.udemy.com/course/microservices-with-node-js-and-react/)
 
 ## Blogs
 - [https://www.robinwieruch.de/](https://www.robinwieruch.de/)
@@ -43,6 +47,10 @@
 
 ## Tools
 - [crontab.guru](https://crontab.guru/)
+- [synk advisor](https://snyk.io/advisor/npm-package/aws-sdk)
+  - shows package health stats that are useful for deciding whether to take in a package or not
+- [synk vuln](https://snyk.io/vuln/npm:winston)
+  - shows package security stats that are also useful for deciding whether to take in a package or not
 
 ## Misc
 - [Software Folklore](http://beza1e1.tuxen.de/lore/index.html)
