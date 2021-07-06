@@ -40,6 +40,21 @@
 - avoid other large refactors at the same time if you can
   - javascript to typescript is a big enough jump
   - it is easy to get overwhelmed in problems if you don't focus on just this one
+- identify the parts of your project that are problematic to migrate and don't put them off
+  - its ok to postpone migrating this problematic parts until you understand typescript and migrating to typescript better, but it might not give you too much value to put it off
+  - you can learn a hell of a lot about typescript by migrating problematic parts
+  - getting the problematic parts done quicker can help with team morale
+- try to have "reference migrations" for the different "types" of migration patterns
+  - every project will ideally have different components and patterns that it reuses across the code base
+  - each component/pattern will have its own way of being expressed in typescript
+  - doing one migration of a given "type" (component/pattern) instance is usesful as a reference for when others try to migrate other instances of that "type"
+  - much like anything with software engineering, the first type implementing a pattern or technology is the most difficult because you probably don't have anything to reference
+    - think about how hard it is to write your first unit test from scratch as opposed to adding a unit test to a file that already has the framework set up, mocking implemented, etc
+  - for example, consider a simple front end that has components and state management patterns
+    - getting the first component migrated is the hard part
+    - other component migrations will build off of this first one
+    - even though you migrated a bunch of components, you will need to use different patterns for migrating your state management solution
+    - getting one example of how to migrate a state management file will serve as the reference migration better than the component migrations will
 - there are a collection of hard problems that you have to pay upfront. dont let this scare you because once you solve them once, its downhill from there. here they are
     1. how does typescript work?
     2. how do I onboard my team/coworkers to typescript?

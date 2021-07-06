@@ -19,6 +19,11 @@
 ## Logging
 - `console.log` is synchronous so consider using a different logging solution for something in a production app
 
+## Errors
+- because you can throw anything in javascript, not everything that can be caught has a stack trace so make sure you wrap whatever you want to throw in an `Error` if it doesn't already have a stack trace
+- uncaught errors will crash node
+- uncaught promise rejections currently don't crash node, but will eventually in future versions
+
 ## [Symbol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol)
 - `Symbol`s are often used to add unique property keys to an object that won’t collide with keys any other code might add to the object, and which are hidden from any mechanisms other code will typically use to access the object
 - every `Symbol()` call is guaranteed to return a unique `Symbol`
