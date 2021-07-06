@@ -124,3 +124,150 @@
     - this implementation doesn't quite handle errors well though
       - you will get uncaught promise rejections or uncaught error issues if something fails like if an s3 object its trying to zip doesn't exist
     - when maxed out on hardware, it does ~1Gig/min
+- here is a couple of snippets from a more robust implementation (much omitted do to it being proprietary)
+    ```ts
+    // handler.ts
+    import { S3Client } from '@aws-sdk/client-s3'
+    import { S3Service } from './s3Service'
+    import archiver from 'archiver'
+    import type { Archiver } from 'archiver'
+
+    const s3 = new S3Client({})
+    const s3Service = new S3Service(s3)
+
+    interface File {
+        fileName: string
+        key: string
+    }
+
+    interface ZipEvent {
+        bucket: string
+        destinationKey: string
+        files: File[]
+    }
+
+    const finalizeArchiveSafely = (archive: Archiver): Promise<void> => {
+        return new Promise((resolve, reject) => {
+            // if we dont reject on error, the archive.finalize() promise will resolve normally
+            // and the error will go unchecked causing the application to crash
+            archive.on('error', reject)
+            archive.finalize().then(resolve).catch(reject)
+        })
+    }
+
+    export default async (event: ZipEvent) => {
+        const archive = archiver('zip')
+
+        try {
+            for (const file of event.files) {
+                const downloadStream = s3Service.createLazyDownloadStreamFrom(event.bucket, file.key)
+                archive.append(
+                    downloadStream,
+                    {
+                        name: file.fileName
+                    }
+                )
+            }
+
+            // for whatever reason, if we try to await the promises individually, we get problems with trying to handle the errors produced by them
+            // for example, if we tried to await them individually and injected some error like told it to zip an object that didn't exist, both statements would throw
+            // one would be caught by the try catch and the other would be considered an unhandled promise rejection (bizarre, I know, but I kid you not)
+            // using Promise.all was the only solution that seemed to solve the issue for us
+            await Promise.all([
+                finalizeArchiveSafely(archive),
+                s3Service.uploadTo(event.bucket, event.destinationKey, archive)
+            ])
+        // with the robustness added, all errors will be caught by this catch block
+        // so no need to worry about unhandled promises or unhandled exceptions
+        } catch (e) {
+            // this makes sure that the archive stops archiving if there is an error
+            archive.abort()
+            throw e
+        }
+    }
+    ```
+    ```ts
+    // s3Service.ts
+    import { PassThrough } from 'stream'
+    import { GetObjectCommand } from '@aws-sdk/client-s3'
+    import { Upload } from '@aws-sdk/lib-storage'
+
+    import type { S3Client } from '@aws-sdk/client-s3'
+    import type { Readable } from 'stream'
+
+    export class S3Service {
+        constructor(private s3: S3Client) {}
+
+        // we need to lazy load the streams because archiver only works on one at a time
+        // if we create a stream to an object in s3, the connection will time out when no traffic is going over it
+        // this will be the case if multiple streams are opened at the same time and one of them is for a very large object
+        public createLazyDownloadStreamFrom(bucket: string, key: string): Readable {
+            let streamCreated = false
+            // create a dummy stream to pass on
+            const stream = new PassThrough()
+            // only when someone first connects to this stream do we fetch the object and feed the data through the dummy stream
+            stream.on('newListener', async event => {
+                if (!streamCreated && event == 'data') {
+                    await this.initDownloadStream(bucket, key, stream)
+                    streamCreated = true
+                }
+            })
+
+            return stream
+        }
+
+        public async uploadTo(
+            bucket: string,
+            key: string,
+            stream: Readable
+        ): Promise<void> {
+            const upload = new Upload({
+                client: this.s3,
+                params: {
+                    Bucket: bucket,
+                    Key: key,
+                    // we pipe to a passthrough to handle the case that the stream isn't initialized yet
+                    Body: stream.pipe(new PassThrough()),
+                    ContentType: 'application/zip'
+                }
+            })
+            await upload.done()
+        }
+
+
+        // if we don't pipe the errors into the stream, we will get unhandled exception errors in the console and won't be caught by any try/catch or .catch constructs that call createLazyDownloadStreamFrom since this initDownloadStream function is called in the callback function of .on('newListener') and thus isn't in the "call stack" of the call to createLazyDownloadStreamFrom
+        // for example, it is totally reasonable that the s3 object asked for doesn't exist
+        // in which case s3.send(new GetObjectCommand(/* */)) throws
+        private async initDownloadStream(
+            bucket: string,
+            key: string,
+            stream: PassThrough
+        ) {
+            try {
+                const { Body: body } = await this.s3.send(
+                    new GetObjectCommand({ Bucket: bucket, Key: key })
+                )
+                // we need to type narrow here since Body can be one of many things
+                if (!body) {
+                    stream.emit(
+                        'error',
+                        new Error(
+                            `got an undefined body from s3 when getting object ${bucket}/${key}`
+                        )
+                    )
+                } else if (!('on' in body)) {
+                    stream.emit(
+                        'error',
+                        new Error(
+                            `got a ReadableStream<any> (a stream used by browser fetch) or Blob from s3 when getting object ${bucket}/${key} instead of Readable`
+                        )
+                    )
+                } else {
+                    body.on('error', err => stream.emit('error', err)).pipe(stream)
+                }
+            } catch (e) {
+                stream.emit('error', e)
+            }
+        }
+    }
+    ```
