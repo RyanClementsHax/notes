@@ -124,7 +124,7 @@
     - this implementation doesn't quite handle errors well though
       - you will get uncaught promise rejections or uncaught error issues if something fails like if an s3 object its trying to zip doesn't exist
     - when maxed out on hardware, it does ~1Gig/min
-- here is a couple of snippets from a more robust implementation (much omitted do to it being proprietary)
+- [here](https://gist.github.com/amiantos/16bacc9ed742c91151fcf1a41012445e#gistcomment-3804034) is a couple of snippets from a more robust implementation (much omitted do to it being proprietary)
     ```ts
     // handler.ts
     import { S3Client } from '@aws-sdk/client-s3'

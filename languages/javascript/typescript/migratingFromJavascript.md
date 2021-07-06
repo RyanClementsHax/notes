@@ -16,6 +16,7 @@
 
 ## Tips
 - I recommend setting up typescript with eslint to help catch a lot of problems
+  - this includes eslint for other libraries you might use (e.g. jest and cypress offer eslint plugins)
 - it might be tempting to allow "loose" typescript (e.g. `any`) when making the migration, but this doesn't teach you to write good typescript and requires unnecessary relearning and rework
 - it is in your best interest to read through the entire documentation and watch a view vidoes on how typescript works
   - this enables you to make the migration with more tools

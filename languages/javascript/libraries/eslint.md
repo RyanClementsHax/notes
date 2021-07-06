@@ -1,5 +1,7 @@
 # Eslint
 
+- `--debug` is a handy flag for figuring out what eslint is doing
+
 ## [forbid-unneccessary-backticks](https://github.com/prettier/eslint-config-prettier#forbid-unnecessary-backticks)
 ```json
 {

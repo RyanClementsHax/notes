@@ -1,0 +1,31 @@
+{
+  "root": true,
+  "env": {
+    "node": true
+  },
+  "extends": [
+    // js/ts specific
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "typescript",
+    // jest
+    "plugin:jest/recommended",
+    "plugin:jest/style",
+    // must be last for prettier to work well with eslint
+    "prettier"
+  ],
+  "parserOptions": {
+    "parser": "@typescript-eslint/parser",
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "quotes": [
+      "warn",
+      "single",
+      { "avoidEscape": true, "allowTemplateLiterals": false }
+    ],
+    "no-console": "off",
+    "no-empty": "warn",
+    "@typescript-eslint/no-floating-promises": "error"
+  }
+}

@@ -41,3 +41,22 @@ relevantEntities = ids.map(id => entities.get(id)).filter((x): x is Entity => x 
     type Y = FooInternalType<number>
     // Y === InternalType<number>
     ```
+
+## Debugging
+- [here](https://gist.github.com/cecilemuller/2963155d0f249c1544289b78a1cdd695#gistcomment-3376582) is a launch configuration for debugging `ts-node` in VSCode
+    ```json
+    {
+      "name": "Launch TypeScript",
+      "type": "node",
+      "request": "launch",
+      "runtimeArgs": ["--nolazy", "-r", "ts-node/register"],
+      "args": ["./your_entrypoint_file.ts", "--transpile-only"],
+      "cwd": "${workspaceFolder}",
+      "internalConsoleOptions": "openOnSessionStart",
+      "skipFiles": ["<node_internals>/**", "node_modules/**"],
+      "env": {
+        "TS_NODE_PROJECT": "${workspaceFolder}/tsconfig.json"
+      }
+    }
+    ```
+    - the only problem with this is that I haven't found where VSCode puts the logs produced by running the application in this debug configuration
