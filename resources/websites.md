@@ -27,6 +27,8 @@
 - [https://www.robinwieruch.de/](https://www.robinwieruch.de/)
   - a really cool blog
   - worth emulating
+- [https://blog.ploeh.dk/](https://blog.ploeh.dk/)
+  - .net blogger
 
 ## Practice
 - [kata-log.rocks](https://kata-log.rocks/starter)

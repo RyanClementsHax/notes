@@ -43,3 +43,7 @@
 - the client will need to inspect the response to determine the statuses
 - [specification](https://evertpot.com/http/207-multi-status)
 - [how to use](https://softwareengineering.stackexchange.com/questions/329596/what-http-status-code-to-return-if-multiple-actions-finish-with-different-status)
+
+## Content-Type
+- when returning a binary file (e.g. when downloading a file), use `application/octet-stream`
+- try to match the header with the file type (Google docs does this)

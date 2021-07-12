@@ -18,6 +18,11 @@
 - [so does this one](https://uxmovement.com/navigation/top-navigation-vs-left-navigation-which-works-better/#:~:text=A%20top%20navigation%20conserves%20more,left%20column%20of%20your%20page.&text=A%20top%20navigation%2C%20however%2C%20uses,your%20page%20with%20content%20only.)
 - [nielsen chimes in too](https://www.nngroup.com/articles/vertical-nav/)
 
+## [Local navigation](https://www.nngroup.com/articles/local-navigation/?utm_source=Alertbox&utm_campaign=bb7945c7a6-EMAIL_CAMPAIGN_2020_11_12_08_52_COPY_01&utm_medium=email&utm_term=0_7f29a2b335-bb7945c7a6-40549993)
+- this is a separate nav construct apart from the global navigation that helps users navigate the subcategories of the global navigation selected
+- this should not be more salient than the global navigation as research shows that users were more likely to think the local navigation options were the only ones that existed (as if the global ones didn't exist)
+- there should be minimum interaction cost with this navigation construct
+
 ## Breadcrumbs
 - [when to use them](https://uxplanet.org/breadcrumbs-for-web-sites-what-when-and-how-9273dacf1960)
 

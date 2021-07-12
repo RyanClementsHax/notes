@@ -1,5 +1,8 @@
 # CSS
 
+- tip: overriding css frequently (e.g. `!imporant`) is a sign that you need to make new classes/rules and that your css system is too complex
+  - (think about how easy tailwind is to use because they have rules that work very well together with sensible defaults that are easy to override)
+
 ## Sticky
 
 ### Multiple sticky headers
@@ -61,3 +64,7 @@ label.form-group-required :after {
 
 ## [will-change](https://developer.mozilla.org/en-US/docs/Web/CSS/will-change)
 - gives a hint to the css engine that a property will change so it can do optimzations ahead of time
+
+## Media queries
+- these DO NOT add ANYTHING to specificity of rules
+- cannot use custom properties in media queries
