@@ -1,6 +1,10 @@
-# OAUTH
+# Auth
 
-## Setup with Swagger
+## [Globally apply auth to endpoints](https://andrewlock.net/setting-global-authorization-policies-using-the-defaultpolicy-and-the-fallbackpolicy-in-aspnet-core-3/)
+
+## OAUTH
+
+### Setup with Swagger
 
 ```cs
 services
@@ -19,7 +23,7 @@ services
     })
 ```
 
-## Config
+### Config
 ```cs
 /// <summary>
 /// Call to hold AAD configuration
@@ -35,7 +39,7 @@ public class AzureADSettings
 }
 ```
 
-## Auth logger
+### Auth logger
 ```cs
 public class AuthenticationLogger
 {
