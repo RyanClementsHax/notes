@@ -35,6 +35,7 @@
 ### Interfaces
 - interfaces are more easily extendable
 - can participate in declaration merging
+  - i.e. you can easily add more to the same interface
 - always named in error messages
 - can only be used to declare the names of an object, not rename primitives
 - typescript recommends to use interfaces until you need types
