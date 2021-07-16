@@ -1,7 +1,7 @@
 # CSS
 
-- tip: overriding css frequently (e.g. `!imporant`) is a sign that you need to make new classes/rules and that your css system is too complex
-  - (think about how easy tailwind is to use because they have rules that work very well together with sensible defaults that are easy to override)
+## Overflow
+- overflow hidden is really good for forcing border radius with overlapping content, but bad for tooltips that need to expand outside of that box
 
 ## Sticky
 
@@ -68,3 +68,7 @@ label.form-group-required :after {
 ## Media queries
 - these DO NOT add ANYTHING to specificity of rules
 - cannot use custom properties in media queries
+
+## Tips
+- overriding css frequently (reactive css) (e.g. `!imporant`) is a sign that you need to make new classes/rules and that your css system is too complex
+  - (think about how easy tailwind is to use because they have rules that work very well together with sensible defaults that are easy to override)
