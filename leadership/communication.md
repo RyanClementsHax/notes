@@ -7,6 +7,11 @@
 - the level of specificity communicates certainty
   - this is why scrum poker uses 20 instead of 21
 
+## Presentations
+- when pitching a product/idea to someone or some group, always frame it in a way that interests THEM
+  - don't talk about why YOU think the product/idea is great/interesting
+  - talk about why THEY should care about the product/idea and what problems it solves for THEM
+
 ## Critique
 - remember that someone’s work is their lively hood so critiquing it should be done with care
 - seek first to understand

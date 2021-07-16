@@ -71,3 +71,7 @@
    ```
 1. After you build the project, the generated client should be created and show up in the obj folder of the project
 1. If the api updates, you can update the client by going back to the "Connected Services" page in VS and "Refreshing" the reference.
+
+## Example requests
+- [here](https://github.com/mattfrear/Swashbuckle.Examples) is a repo dedicated to this
+- setting up example requests in swagger is complicated and requires extra setup

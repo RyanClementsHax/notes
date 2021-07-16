@@ -39,6 +39,7 @@
 - always named in error messages
 - can only be used to declare the names of an object, not rename primitives
 - typescript recommends to use interfaces until you need types
+- these compile faster than types
 
 ## Type assertions
 - used **only** for static type checking purposes
