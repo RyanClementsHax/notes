@@ -147,105 +147,15 @@ DEBUG=cypress:* npx cypress run
     }
     ```
 
-## Typescript
-- cypress works well with typescript, although you will need to add some additional configuration
-1. add `"cypress"` in your `tsconfig.json`'s `"types"` field
-2. install `ts-loader`
-3. make sure you setup webpack config for cypress as seen in [webpack config](#webpack-config)
-4. modify the cypress webpack config to include the `ts-loader`
-    ```js
-    module.exports = {
-      webpackOptions: {
-        module: {
-          rules: [
-            {
-              test: /\.ts$/,
-              exclude: [/node_modules/],
-              use: [
-                {
-                  loader: 'ts-loader'
-                }
-              ]
-            }
-          ]
-        }
-      }
-    }
-    ```
-
-### Typing custom commands
-- there are plenty of ways to do this, but adding a custom command boils down to three steps
-  1. declare the function
-  2. add the function type to the `Chainable` type in the `Cypress` namespace
-  3. register the command
-- here is one way to do it
-  1. create an object full of the commands you want to register
-      ```ts
-      const commands = {
-        func1(arg1: number): string { /* ... */ }
-        func2(arg1: SomeType): CustomType { /* ... */ }
-      }
-      ```
-  2. add the types to the namespace
-      ```ts
-      type cmdsType = typeof commands // can't extend typeof commands directly
-
-      declare global {
-        namespace Cypress {
-          interface Chainable extends cmdsType {}
-        }
-      }
-      ```
-  3. register the functions
-      ```ts
-      for (const [k, v] of Object.entries(commands)) {
-        Cypress.Commands.add(k, v)
-      }
-      ```
-
-### Typing custom assertions
-1. define the assertion
-    ```ts
-    chai.use((_chai: Chai.ChaiStatic) => {
-      _chai.Assertion.addMethod('inViewport', function () {
-        const subject = this._obj
-
-        const windowHeight = Cypress.config().viewportHeight
-        const bottomOfCurrentViewport = windowHeight || 0
-        const rect = subject[0].getBoundingClientRect()
-
-        this.assert(
-          (rect.top > 0 && rect.top < bottomOfCurrentViewport) ||
-            (rect.bottom > 0 && rect.bottom < bottomOfCurrentViewport),
-          'expected #{this} to be in viewport',
-          'expected #{this} to not be in viewport',
-          subject
-        )
-      })
-    })
-    ```
-2. register the type for the `should` syntax
-    ```ts
-    declare global {
-      namespace Cypress {
-        interface Chainer<Subject> {
-          (chainer: 'be.inViewport'): Chainable<Subject>
-          (chainer: 'not.be.inViewport'): Chainable<Subject>
-        }
-      }
-    }
-    ```
-
-## Tools
-- it is recommended to use "page objects" to wrap all of the commands related to a specific page into one import
-- there is an [eslint plugin](https://github.com/cypress-io/eslint-plugin-cypress) for cypress
-- [cypress-axe](https://www.npmjs.com/package/cypress-axe) for a11y
-- [cypress-lighthouse](https://www.npmjs.com/package/cypress-lighthouse) for lighthouse testing
-- for filling out a form without having to wait on each keypress, consider using [cypress-fill-command](https://github.com/DanielFerrariR/cypress-fill-command)
-- [webpack-preprocessor](https://github.com/cypress-io/cypress/tree/master/npm/webpack-preprocessor#readme)
-  - integrating webpack support into cypress test file compilation
-  - [as of 3/27/20 doesn't work well with webpack 5.x](https://github.com/cypress-io/cypress/issues/15447)
-- [Cypress-Recorder](https://github.com/KabaLabs/Cypress-Recorder)
+## Cypress is "too fast"
+- sometimes Cypress starts executing commands before your app is ready
+- this happened to me when async components weren't finished downloading and cypress was chugging along like it was totally ready leading to silent errors
+- [this](https://www.cypress.io/blog/2018/02/05/when-can-the-test-start/) article explains more
+- there are a few solutions
+  - hook into the dom apis to know when certain handlers are set up
+  - set up visual queues that cypress can wait on like loading indicators
+  - wait on the network being idle if waiting on assets being downloaded
+    - [this](https://github.com/cypress-io/cypress/issues/1773#issuecomment-813812612) is a pretty decent example
 
 ## Misc
 - it seems that on slower or overloaded dev machines, the cypress timeouts in the UI are sensitive to the window being visible

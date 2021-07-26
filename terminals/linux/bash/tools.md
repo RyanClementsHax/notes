@@ -102,3 +102,9 @@ head -n -1 foo.txt
 basename /path/to/file
 # file
 ```
+
+## [Monitor changes in a file](https://serverfault.com/questions/1669/shell-command-to-monitor-changes-in-a-file/1670)
+```bash
+tail -f myFile.txt
+```
+- good for following the progress of curl when it is outputted to a file

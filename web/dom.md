@@ -6,4 +6,7 @@
 - [css tricks article](https://css-tricks.com/an-explanation-of-how-the-intersection-observer-watches/)
 
 ## Browser bugs
-- you can test for browser bugs by inserting the potentially broken elements into the dom, then checking the functionality (this is what jquery does) 
+- you can test for browser bugs by inserting the potentially broken elements into the dom, then checking the functionality (this is what jquery does)
+
+## [requestAnimationFrame](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame)
+- this is used for handling dom updates when things like scroll updates happen more frequently than the dom rerenders

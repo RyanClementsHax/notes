@@ -45,6 +45,13 @@
 ## `Task.WhenAll`
 - the async version of `Task.WaitAll`
 
+## `Task.Run`
+- avoid using this without cancellation tokens because otherwise you will have runaway threads
+- use this to call cpu bound tasks
+- avoid using in cpu bound method to create "fake" asyncronicity
+  - let the caller decide how to mitigate this
+  - doing so communicates that the method is "inherently" asynchronous and will lead to confusion when the thread pool is starved
+
 ## `Channel`
 - acts as an async concurrent message queue
 - creating one

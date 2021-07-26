@@ -8,3 +8,6 @@
   - css in js option
 - [mantine](https://mantine.dev/)
   - component library
+- [fre](https://github.com/yisar/fre)
+  - a VERY small implementation of a subset of React
+  - good for learning

@@ -39,7 +39,7 @@
   - ways to mitigate
     - user reads from the same replica
       - e.g. hash requests by user id
-- causually related writes
+- causually related writes (i think also called consistent prefix reads)
   - ways to mitigate
     - could force these writes to happen on the same partition
       - not always efficitient
@@ -47,3 +47,36 @@
   - what if a user has multiple devices they are accessing the data from?
     - this necessitates that some meta data is stored in a centralized service
   - what if a user's request isn't handled by the same data center?
+
+### Avoiding conflict
+- auto incrementing keys make it much harder for replicas to converge and leads to very annoying bugs
+- can ensure consistency by having consistent writes go through the same leader
+- use synchronous leader replication, but this defeats the point of horizontally scaling
+
+## Edge cases
+- data center going down
+- user changes location (thus connecting to a different leader)
+- quorum writes not being rolled back even though committed on a few nodes
+
+## Resolving conflict
+- use a timestamp on the writes and use a last write wins approach
+  - this does require some sort of clock sync
+  - can alleviate with something like lamport clocks or vector(?) clocks
+  - if clocks aren't synced, problems can arise due to clock skew
+- use some unique id to break ties
+- can assign each replica an arbitrary id and use that to break ties
+- some writes can tollerate "merging" the two together
+- could bubble up to application level conflict resolution
+  - this should be very fast
+- use [CRDTs](https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type)
+- when using a quorum, you only need the read number to be guaranteed to overlap the write number
+
+## Lag
+- this is when replicas fall behind by some amount of log entries
+- this will lead to problems if unchecked
+- this should be monitored and alleviated when it arises
+- this is easier to do with leader systems, but difficult to do in leaderless systems
+
+## Handling down nodes
+- a sloppy quorum is a tradeoff
+  - this is when the write is committed even though quorum couldn't be reached

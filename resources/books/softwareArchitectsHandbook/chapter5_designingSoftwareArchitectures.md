@@ -182,4 +182,19 @@
     4. arch review
     5. production go/no-go
     6. experiment planning
-    7. experiment and refine arch 
+    7. experiment and refine arch
+- ADM (Architecture Development Method)
+  - a core part of TOGAF (The Open Group Architecture Framework)
+  - complex state diagram for steps
+  - focuses on evaluating the current architecture, validating the target architecture, then creating a migration plan to get from current to target
+
+## Tracking architecture design process
+- use your current system of work (e.g. scrum, kanban)
+- it is ideal to use an agile framework since it pairs well with the iterative nature of these architecture design frameworks
+- prioritizing work (DIVE)
+  - Dependencies
+  - Insure against risks
+  - business Value
+  - Estimated Effort
+- don't expect your arch backlog to be static
+  - it evolves as the arch evolves

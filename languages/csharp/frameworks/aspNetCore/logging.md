@@ -24,3 +24,8 @@ private static ILogger _logger = LoggerFactory.Create(x => x.AddConsole()).Creat
 
 ## Logging categories
 - [configure logging](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging/?view=aspnetcore-5.0#configure-logging)
+
+## Scopes
+- because c# evaluates the `when` clauses of exception handling before it unwinds the stack traces, you can log in context of the scopes of the throwing code by logging in the `when` expressions
+- if you log in the catch blocks themselves, you will lose any scope you created
+- see [this](https://blog.stephencleary.com/2020/06/a-new-pattern-for-exception-logging.html) for more details
