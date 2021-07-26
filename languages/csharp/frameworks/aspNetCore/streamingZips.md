@@ -271,6 +271,11 @@ public class DownloadsController : ControllerBase
 }
 ```
 
+### Testing this code
+- testing is straightforward no matter what implementation you go with
+- the trick is to get the zip archive to output to a stream "buffer" of sorts that you can pass into `ZipArchive` to unzip and make assertions
+- I recommend using `System.IO.Pipelines.Pipe` to achieve this
+
 ### Conclusion
 - this implementation is not ideal, and neither is the one provided by Stephen Cleary
 - each have their up sides and down sides

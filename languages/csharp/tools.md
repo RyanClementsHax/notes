@@ -106,3 +106,16 @@ public void MyFunction<T>() where T : MyBaseType
     // ...
 }
 ```
+
+## [enum to IEnumerable<Enum>](https://stackoverflow.com/questions/12447473/how-can-i-create-an-ienumerable-from-an-enum)
+```cs
+public enum City
+{
+    London    = 1,
+    Liverpool  = 20,
+    Leeds       = 25
+}
+```
+```cs
+IEnumerable<City> allCityValues = (City[])Enum.GetValues(typeof(City));
+```

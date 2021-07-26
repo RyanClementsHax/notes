@@ -1,4 +1,4 @@
-# Typescript
+# Cypress With Typescript
 
 - cypress works well with typescript, although you will need to add some additional configuration
 1. add `"cypress"` in your `tsconfig.json`'s `"types"` field

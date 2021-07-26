@@ -8,5 +8,6 @@
   - integrating webpack support into cypress test file compilation
   - [as of 3/27/20 doesn't work well with webpack 5.x](https://github.com/cypress-io/cypress/issues/15447)
 - [Cypress-Recorder](https://github.com/KabaLabs/Cypress-Recorder)
+  - cypress handles this out of the box now
 - [cypress-wait-until](https://github.com/NoriSte/cypress-wait-until#readme)
   - waits for a predicate to be true
