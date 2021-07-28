@@ -114,5 +114,9 @@ type ColorfulCircle = Colorful & Circle;
 ```
 - this merges the `Circle` and `Colorful` interfaces into one type alias
 
+## [Extract](https://www.typescriptlang.org/docs/handbook/utility-types.html#extracttype-union)
+- constructs a type by extracting from `Type` all union members that are assignable to `Union`
+- useful for expressing a type as a subset of a union
+
 ## [Wiki](https://github.com/microsoft/TypeScript/wiki)
 - [Performance](https://github.com/microsoft/TypeScript/wiki/Performance)

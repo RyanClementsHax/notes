@@ -119,3 +119,12 @@ public enum City
 ```cs
 IEnumerable<City> allCityValues = (City[])Enum.GetValues(typeof(City));
 ```
+
+## Getting the home path
+```cs
+public static string GetHomePath() =>
+    (Environment.OSVersion.Platform == PlatformID.Unix || Environment.OSVersion.Platform == PlatformID.MacOSX)
+        ? Environment.GetEnvironmentVariable("HOME")
+        : Environment.ExpandEnvironmentVariables("%HOMEDRIVE%%HOMEPATH%");
+```
+- this will get the home path when running on windows, mac, or linux

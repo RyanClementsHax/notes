@@ -14,6 +14,15 @@
     - using an IP will run you into problems when NATs are used
   - this allows you to handle failures well too
 
+## Circuit breakers
+- this is when services cut connections to other services when they experience failures, then send a small amount of traffic to test if the service is available, then open the connection again if it is
+- another benefit aside from fault tolerance is that it allows a service to release resources like memory, threads, and sockets pessimistically instead of waiting for long timeouts everytime a request is made to a service it knows its down
+
+## Thundering herd
+- this is when a large amount of traffic happens in one instant due to traffic patterns or failures in the system
+- e.g. slack experiences a thundering herd when slack clients connect in the morning due to people going to work
+- e.g. if cache layers fail, then the database will experience a thundering herd of clients that are looking to fetch data from them given they can't get it from the cache any more
+
 ## Twitter's tweet problem
 - twitter wants to deliver tweets to users within 5 seconds of the tweet being tweeted
 - their first strategy was for a client to grab the new tweets of all the people they are following that they haven't seen yet, sort them by date, then display it

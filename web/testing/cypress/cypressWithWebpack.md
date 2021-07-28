@@ -6,7 +6,6 @@
   - [as of 3/27/20 @cypress/webpack-preprocessor doesn't work well with webpack 5.x](https://github.com/cypress-io/cypress/issues/15447)
 2. create a webpack config for cypress (example config below that adds an alias and loads typescript files)
     ```js
-    /* eslint-disable @typescript-eslint/no-var-requires */
     const path = require('path')
 
     module.exports = {
@@ -35,7 +34,6 @@
     ```
 3. within `cypress/plugins/index.js` add the following configuration
     ```js
-    /* eslint-disable @typescript-eslint/no-var-requires */
     /// <reference types="cypress" />
     // ***********************************************************
     // This example plugins/index.js can be used to load plugins

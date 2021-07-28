@@ -1,4 +1,4 @@
-# Vue and Typescript
+# Vue With Typescript
 
 ## Vue2 + typescript
 - not well supported
@@ -31,6 +31,35 @@
 ## Vue 3 + typescript
 - supported out of the box
 - please use vue 3 with typescript if you can
+
+### `reactive`
+- this hook takes an object and makes all of its fields reactive
+- this is good for objects created in setup that need to be reactive arbitrarily
+- this works with typescript, but becasue it does some recursive typing unwrapping any refs that are in those types, any nominal value the types once had are erased
+```ts
+type MyType =
+  | "this"
+  | "that"
+
+interface MyInterface {
+  field1: string
+  field2: MyType
+}
+
+var obj = {
+  field1: "foo",
+  field2: "bar"
+}
+
+var reactiveObj = reactive(obj)
+/*
+  this will appear as the following type without any reference to MyInterface or MyType
+  {
+    field1: string,
+    field2: "this" | "that"
+  }
+*/
+```
 
 ### [Directives](https://www.itread01.com/content/1505211611.html)
 - unfortunately the docs don't specify this api well in typescript
