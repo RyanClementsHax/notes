@@ -78,3 +78,7 @@
         Assert.AreEqual("bar", options);
     }
     ```
+
+## [ServiceDescriptor](https://www.c-sharpcorner.com/article/using-servicedescriptor-to-register-dependencies-in-asp-net-core/)
+- this is a low level way to interact with the DI system
+- seems like you can ignore this unless you are creating complex DI extensions

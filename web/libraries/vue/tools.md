@@ -201,10 +201,10 @@ export default disableAll
       states: T
     ): UseCombinedAsyncStateReturn<T> =>
       ({
-        loading: computed(() => Object.values(states).some(x => x.loading.value)),
+        loading: computed(() => Object.values(states).some(x => x.loading)),
         err: computed(() =>
           Object.values(states)
-            .map(x => x.err?.value)
+            .map(x => x.err)
             .find(x => x)
         ),
         ...Object.entries(states)
