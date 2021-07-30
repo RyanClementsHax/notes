@@ -128,3 +128,4 @@ public static string GetHomePath() =>
         : Environment.ExpandEnvironmentVariables("%HOMEDRIVE%%HOMEPATH%");
 ```
 - this will get the home path when running on windows, mac, or linux
+- `%HOMEDRIVE%%HOMEPATH%` [won't work on older windows systems](https://stackoverflow.com/questions/39573548/cant-expand-environment-variables-with-c-sharp-using-windows-7) so you will have to resort to something like `Environment.GetFolderPath(Environment.SpecialFolder.Desktop)`
