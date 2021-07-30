@@ -86,5 +86,21 @@
   - you need to monitor all nodes and their clock skew
   - if a node has too much clock skew, immediately remediate by fixing or killing the node to prevent problems
 
+## [Never make these assumptions](https://www.youtube.com/watch?v=gfh-VCTwMw8&ab_channel=NDCConferences)
+1. the network is reliable
+  - sometimes connections are only reliable in one direction (sometimes happens with misconfigured switches)
+2. latency is zero
+3. bandwidth is infinite
+4. the network is secure
+5. topology doesn't change
+6. there is one administrator
+7. transport cost is zero
+8. the network is homogeneous
+9.  you trust each other
+
+## Performance guarantees
+- GC pauses are a nightmare for services that need to provide some guarantee of performance or latency or something of the like
+- some services get around this, like those in the financial sector, that tell the clients to hold off on calling them when they see it is almost time for a GC pause, and when they can get a break, they garbage collect, then resume service
+
 ## Misc
 - relaxing constraints on the business requirements can lead to opportunities like amazon overselling items, but handing out gift cards when they can't fulfill everything
