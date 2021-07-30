@@ -77,6 +77,7 @@ module.exports = {
 ## [Usage with webpack](https://webpack.js.org/plugins/stylelint-webpack-plugin/)
 
 ## [stylelint-no-unsupported-browser-features](https://github.com/ismay/stylelint-no-unsupported-browser-features)
+
 - this is a stylelint plugin that uses your [.browserslistrc](https://github.com/browserslist/browserslist) to assert that you are only using css that is compatible with the browsers that you target
 - you also end up learning a lot about browser compatibility in the process too!
 - tip: use `npx browserslist --config=".browserslistrc"` to list out the browsers that your `.browserslistrc` file specifies
