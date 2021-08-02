@@ -18,3 +18,4 @@
   - map or reduce jobs don't need to know how the data is procured
 - map reduce jobs are limited, but shine when they are piped between each other
 - the framework will often schedule jobs near the data to reduce network load and increase data locality
+- map reduce preserves ordering even though data is processed locally and in small batches
