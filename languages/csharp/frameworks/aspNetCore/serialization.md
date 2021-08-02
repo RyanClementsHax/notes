@@ -4,10 +4,13 @@
 - this is where libraries like `Newtonsoft` come in
 
 ## Deserializing the body in controllers
+
 - use `[FromBody]` in the parameter definition
 
 ## Including serialization
+
 - this is as simple as including the serialization you want in the `ConfigureServices` method
+
 ```cs
 // this example configures Newtonsoft for controllers
 services

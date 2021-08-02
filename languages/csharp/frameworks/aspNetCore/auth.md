@@ -24,6 +24,7 @@ services
 ```
 
 ### Config
+
 ```cs
 /// <summary>
 /// Call to hold AAD configuration
@@ -40,6 +41,7 @@ public class AzureADSettings
 ```
 
 ### Auth logger
+
 ```cs
 public class AuthenticationLogger
 {

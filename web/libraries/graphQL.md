@@ -8,4 +8,5 @@
   - e.g. no removing fields
 
 ## Libraries
+
 - [mercurius](https://github.com/mercurius-js/mercurius)

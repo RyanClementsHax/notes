@@ -1,6 +1,7 @@
 # Tools
 
 ## Property count equals
+
 ```cs
 /// <summary>
 /// Asserts that he given type has exactly a number of properties.
@@ -19,6 +20,7 @@ public static void PropertyCountEquals(int count, Type type)
 ```
 
 ## Collection assert extensions
+
 ```cs
 /// <summary>
 /// Calls .ToList() on both of the IEnumerables first then checks to make sure the lengths are equal,
@@ -67,11 +69,14 @@ public static void AssertAll<T>(this IEnumerable<T> enumerable, Action<T> assert
 ```
 
 ## Writing a large test using docker compose
+
 - refer to [Large Tests Using Docker](../../../docker/largeTestsUsingDocker.md) for more resources
+
 1. create a large test
 1. create a docker file that runs the test
     - the base image should be the sdk you are using instead of the runtime env (ex: `mcr.microsoft.com/dotnet/sdk:3.1`)
     - the entrypoint should be the test command with a [filter](https://docs.microsoft.com/en-us/dotnet/core/testing/selective-unit-tests?pivots=mstest) for the test/tests you want to run
+
     ```dockerfile
     FROM mcr.microsoft.com/dotnet/sdk:3.1
     COPY . /app
@@ -79,8 +84,10 @@ public static void AssertAll<T>(this IEnumerable<T> enumerable, Action<T> assert
     RUN dotnet build
     ENTRYPOINT ["dotnet", "test", "--no-build", "--filter", "FullyQualifiedName=namespace.to.your.test.class.test_name"]
     ```
+
       - you can leave out the `RUN dotnet build` and `--no-build` flag if you want the build to happen when you run the container
-2. create a docker compose that starts your service using the docker file you created
+1. create a docker compose that starts your service using the docker file you created
+
     ```yml
     services:
       db:
@@ -96,8 +103,11 @@ public static void AssertAll<T>(this IEnumerable<T> enumerable, Action<T> assert
         depends_on:
           - db
     ```
-3. run the following commands to run your test
+
+1. run the following commands to run your test
+
     ```bash
     docker-compose -f your-large-test.docker-compose.yml up --build
     ```
-4. preferrably leave a comment on the large test and/or in the README with instructions on how to run this test
+
+1. preferrably leave a comment on the large test and/or in the README with instructions on how to run this test

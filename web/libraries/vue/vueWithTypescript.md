@@ -1,6 +1,7 @@
 # Vue With Typescript
 
 ## Vue2 + typescript
+
 - not well supported
 - [migration guide](https://medium.com/js-dojo/adding-typescript-to-your-existing-vuejs-2-6-app-aaa896c2d40a)
 - the `Vue.extend({})` function given doesn't have very good implicit typing so you have to use the generic version `Vue.extend<Data, Methods, Computed, Props>({})`
@@ -15,6 +16,7 @@
   - overall it makes for a great option for migrating from vue2 to vue 3
 - do know that typescript types are erased at runtime so prop validation won't work the same way you expect
   - to get typescript type checking in your ide, you have to use `Vetur` for this by configuring `Vetur` as follows
+
     ```json
     // .vscode/settings.json
     {
@@ -24,18 +26,22 @@
         "vetur.validation.templateProps": true
     }
     ```
+
     - prop validation for custom types is [currently broken](https://github.com/vuejs/vetur/issues/2343)
 - [vue-property-decorator](https://github.com/kaorun343/vue-property-decorator) gives as good type support as the other options with the same limitations with prop type validation
   - this is a more verbose option
 
 ## Vue 3 + typescript
+
 - supported out of the box
 - please use vue 3 with typescript if you can
 
 ### `reactive`
+
 - this hook takes an object and makes all of its fields reactive
 - this is good for objects created in setup that need to be reactive arbitrarily
 - this works with typescript, but becasue it does some recursive typing unwrapping any refs that are in those types, any nominal value the types once had are erased
+
 ```ts
 type MyType =
   | "this"
@@ -62,7 +68,9 @@ var reactiveObj = reactive(obj)
 ```
 
 ### [Directives](https://www.itread01.com/content/1505211611.html)
+
 - unfortunately the docs don't specify this api well in typescript
+
 ```ts
 // color-directive.ts
 

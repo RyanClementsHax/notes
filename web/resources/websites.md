@@ -3,6 +3,7 @@
 - [google web fundamentals](https://developers.google.com/web/fundamentals)
 
 ## Educative
+
 - css tricks lists a bunch [here](https://css-tricks.com/teaching-web-dev-for-free-is-good-business/)
 - [explorers.netlify.com](https://explorers.netlify.com/)
 - [scrimba.com](https://scrimba.com/)
@@ -19,6 +20,7 @@
   - good js/ts subscription based learning site
 
 ## Blogs
+
 - [https://www.robinwieruch.de/](https://www.robinwieruch.de/)
   - a really cool blog
   - worth emulating

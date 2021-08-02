@@ -12,6 +12,7 @@
   - good for reporting or other situations that can withstand the lag
 
 ## RDS
+
 - relational db service
 - not highly available by default unless its aurora
   - it really is just an instance under the hood
@@ -64,11 +65,12 @@
 - scales vertically not horizontally
 - resizable compute capacity
 - considered a "servered" offering
-- security groups 
+- security groups
   - used to control which IP address ranges can connect to your databases on a db instance
   - when you initially create a db instance, its firewall prevents any database access except through rules specified by an associated security group
 
 ## DynamoDB
+
 - similar to
   - mongo
   - cassandra
@@ -96,6 +98,7 @@
   - iot
 
 ## ElastiCache
+
 - read only
 - supports
   - redis
@@ -108,21 +111,25 @@
 - scalable
 
 ## Redshift
+
 - data warehouse
 - supports SQL
 - can choose multiple nodes
   - can support leader/worker nodes
 
 ## DocumentDB
+
 - mongo db offering
 - allows you to use existing mongo db drivers
 
 ## Neptune
+
 - graph db
 - fully managed
 - supports open graph apis for both Gremlin and SPARQL
 
 ## Database migration service
+
 - self explanatory
 - from any on prem db to any in cloud db
 - can consolidate dbs into redshift

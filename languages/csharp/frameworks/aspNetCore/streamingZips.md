@@ -5,6 +5,7 @@
 - the `ZipArchive` provided in `System.IO.Compression` has no concept of backpressure and provides no api to lazily create the zip stream
 
 ## Using custom IActionResult
+
 - the current implementation of `FileStreamResult` assumes that the stream passed in can be read from incrementally (as with most streams)
   - specifically, it eventually comes to [this](https://github.com/dotnet/aspnetcore/blob/39dccd7ca27389c12dfd877996afde55ff10fc00/src/Http/Shared/StreamCopyOperationInternal.cs#L36) function which causes the problem for us
   - this is bad for streaming zips, because `ZipArchive` writes directly to a stream and provides no stream we can read from
@@ -16,8 +17,10 @@
 - the following implementation replaces the default `FileStreamResultExecutor` with one that extends it and overrides the one method we need to change to make it work for this edge case thus allowing for all of the other file stream handling logic (like header setting, and logging) to not have to be duplicated
 
 ### `FileCallbackResultExecutor.cs`
+
 - this executor overrides the static method that we need to override
 - unfortunately, this requires us to override the instance method that calls it since you can't just override static methods without hiding them
+
 ```cs
 /// <summary>
 /// An <see cref="IActionResultExecutor{FileStreamResult}"/> for a file stream result.
@@ -119,7 +122,9 @@ public class FileCallbackResultExecutor : FileStreamResultExecutor
 ```
 
 ### `LoggerExtensions.cs`
+
 - in order to make the executor implementation match exactly, we need to duplicate the logger extension it access because the logger extension is marked as `internal` in aspnetcore
+
 ```cs
 /// <summary>
 /// This is a copy of https://github.com/dotnet/aspnetcore/blob/6c396e75d616674ba3b89e6cd44ce38c3b5244a1/src/Mvc/Mvc.Core/src/MvcCoreLoggerExtensions.cs#L1005 which is internal
@@ -147,8 +152,10 @@ internal static class LoggerExtensions
 ```
 
 ### `CallbackStream.cs`
+
 - because we break the Liskov Substitution Principle here, this isn't the prettiest solution, but we are in a situation where we need to choose our poison
 - this uses the same "callback" philosophy as Stephen Clearly
+
 ```cs
 /// <summary>
 /// This is a stream that will only push contents to a stream passed into <see cref="CallbackStream.CopyToAsync(Stream, int, CancellationToken)" />
@@ -204,7 +211,9 @@ public class CallbackStream : Stream
 ```
 
 ### `Startup.cs`
+
 - we need to add our custom executor to the DI container so it overrides the one that is [automatically included in MVC](https://github.com/dotnet/aspnetcore/blob/39dccd7ca27389c12dfd877996afde55ff10fc00/src/Mvc/Mvc.Core/src/DependencyInjection/MvcCoreServiceCollectionExtensions.cs#L258)
+
 ```cs
 public void ConfigureServices(IServiceCollection services)
 {
@@ -215,7 +224,9 @@ public void ConfigureServices(IServiceCollection services)
 ```
 
 ### `Controller.cs`
+
 - as long as we use our `CallbackStream`, we can leverage all of the hard work put into making returning file streams easy
+
 ```cs
 [ApiController]
 [Route("/downloads")]
@@ -272,11 +283,13 @@ public class DownloadsController : ControllerBase
 ```
 
 ### Testing this code
+
 - testing is straightforward no matter what implementation you go with
 - the trick is to get the zip archive to output to a stream "buffer" of sorts that you can pass into `ZipArchive` to unzip and make assertions
 - I recommend using `System.IO.Pipelines.Pipe` to achieve this
 
 ### Conclusion
+
 - this implementation is not ideal, and neither is the one provided by Stephen Cleary
 - each have their up sides and down sides
 - in the end, choose the poison you are comfortable with

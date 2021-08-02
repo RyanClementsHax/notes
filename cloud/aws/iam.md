@@ -25,6 +25,7 @@
   - must obtain cert from external source to use in iam
 
 ## Best practices
+
 - delete your root access keys
 - activate MFA on root account
 - create individual IAM users
@@ -32,12 +33,14 @@
 - apply an IAM password policy
 
 ## Policies
+
 - inline policies are for one off permissions
 - managed policies exist separately from users or groups
 - explicit `Deny`'s will always override any allows
 - written in json (not yml)
 
 ## Roles
+
 - secure way to grant permissions to entities that you trust
 - can apply to
   - iam user in another account

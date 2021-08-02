@@ -1,8 +1,10 @@
 # Tools
 
 ## [Disabling all inputs within component](https://stackoverflow.com/questions/55905055/vue-need-to-disable-all-inputs-on-page)
+
 - to avoid having to put `:disabled="myBoolean"` on every form, you could use a directive to handle this for you
 - here is a typescript version
+
 ```ts
 import type { DirectiveFunction } from 'vue'
 
@@ -26,6 +28,7 @@ export default disableAll
 ```
 
 ## [Passing slots through to child components](https://stackoverflow.com/questions/50891858/vue-how-to-pass-down-slots-inside-wrapper-component)
+
 ```html
 <my-wrapper>
   <b-table v-bind="$attrs" v-on="$listeners">
@@ -33,9 +36,11 @@ export default disableAll
   </b-table>
 </my-wrapper>
 ```
+
 - this lets you pass all slots to the child component with binded scopes
 
 ## Submitting form in a modal with `ctrl + enter`
+
 ```js
 {
   // ...
@@ -59,11 +64,14 @@ export default disableAll
   // ...
 }
 ```
-  - there may be a better way of doing this, but this solution hooks an even listener globally, then only acts if the modal is in view
+
+- there may be a better way of doing this, but this solution hooks an even listener globally, then only acts if the modal is in view
 
 ## `useAxios` composable
+
 - the version provided in [vueuse](https://vueuse.org/integrations/useAxios/) has limitations so here is one that allows you to reexecute, but doesn't support everything the vueuse version offers like cancelling requests
 - the following is heavily inspired by that same hook however
+
     ```ts
     // axiosComposables.ts
     import axios, { AxiosResponse, AxiosRequestConfig, AxiosResponse, AxiosInstance } from 'axios'
@@ -144,14 +152,18 @@ export default disableAll
       }
     }
     ```
+
 - to use, first inject axios at some higher level (like the root) to get dependency injection set up
   - there is likely a better way to set up this dependency injection
+
     ```ts
     setup() {
       useProvideAxios()
     }
     ```
+
 - then call it like any other function
+
     ```ts
     setup() {
       const { data, err, loading, execute } = useAxios<ResponseBody, RequestBody>(
@@ -168,7 +180,9 @@ export default disableAll
       }
     },
     ```
+
 - you can also create a helper method to compose loading and error states
+
     ```ts
     // end of axiosComposables.ts
 
@@ -214,7 +228,9 @@ export default disableAll
       // Object.entries and Object.values don't have great typescript support so we have to resort to a hack
       } as unknown as UseCombinedAsyncStateReturn<T>)
     ```
+
 - then use it like this
+
     ```ts
     setup() {
       const create = useAxios<CreateResponseBody, CreateRequestBody>(
@@ -242,10 +258,12 @@ export default disableAll
     ```
 
 ## Reloading an async component
+
 - vue doesn't have the ability to reload an async component so you have to build this out yourself
 - this implementation wraps an async component and injects a `$reload` event listener which will reload the component
 - all any component (the async component, the loading component, or error component) would have to do to trigger the reload is call `$emit('$reload')`
 - it you can also use a provider/inject pattern to pass down this functionality
+
   ```ts
   // would import these directly from vue if not using the @vue/composition-api plugin
   import {
@@ -299,7 +317,9 @@ export default disableAll
       }
     })
   ```
+
 - using it is as simple as
+
     ```ts
     withReload(() => import('./path/to/component.vue')
     // or

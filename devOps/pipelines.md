@@ -1,19 +1,23 @@
 # Pipelines
 
 ## Deploying to prod
+
 - it is dangerous to have a pipeline deploy to prod directly because it means your CI system has prod keys
 - it is preferrable to have the CI system publish a new container or artifact which a separate system deploys
   - the separate system can be configured to deploy the new container or artifact via polling or web hook
 
 ## Packaging your app
+
 - dont package your app with the creds it needs to run because it likely has to sit in a container registry somewhere and is now tied to the environment it lives in
 - packaging config with app because that means you have to redeploy everytime you change config or secrets (ex: if your current secrets are compromised)
 
 ## Branches
+
 - it is important to delete unused branches because pipelines typically do scans of the repo for some of its actions
 - having 10k branches will cause this step to take a long time
 
 ## [Docker in docker](http://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/)
+
 - it is valuable to be able to run docker commands in a pipeline
   - integration tests
   - building images
@@ -43,5 +47,6 @@
 - another solution, then, is to use a sidecar container like [socat](https://hub.docker.com/r/alpine/socat/)
 
 ## Tips
+
 - having smaller changes being deployed into production frequently reduces the surface area of code you need to inspect when finding bugs
   - this paired with feature flags can make batch sizes smaller

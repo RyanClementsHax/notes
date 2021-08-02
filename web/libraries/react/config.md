@@ -1,6 +1,7 @@
 # Config
 
 ## Absolute imports
+
 ```json
 // jsconfig.json in root directory
 {
@@ -12,14 +13,18 @@
 ```
 
 ## Env vars
+
 - I'm not sure if this is the best way, but you can use `envsub` (npm package) to do interpolate env vars into a template file
-    - `public/config.js` will be excluded from the repo, but included as a script in `index.html`
+  - `public/config.js` will be excluded from the repo, but included as a script in `index.html`
+
     ```json
     "prestart": "envsub --syntax dollar-both --env-file local.env public/config.template.js public/config.js",
     ```
+
     ```env
     FOO = bar
     ```
+
     ```js
     // public/config.template.js
     window.config = {

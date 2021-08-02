@@ -4,7 +4,9 @@
   - bad stuff can happen
 
 ## Exception handling
+
 - you should be able to use something like the following, but at the time of writing this, it only works in `IIS Express` as reported by my first `Aspnet Core` github [issue](https://github.com/dotnet/aspnetcore/issues/31024)!
+
     ```cs
     app.UseExceptionHandler(builder =>
         builder.Run(async context =>
@@ -22,8 +24,10 @@
             await context.Response.WriteAsync("There was an error caught in the exception handler lambda");
         }));
     ```
-    - as stated in the github issue, this is an intentional design on the part of the aspnet core team
+
+  - as stated in the github issue, this is an intentional design on the part of the aspnet core team
 - as a work around, you can use the following
+
     ```cs
     app.Use(async (context, next) =>
     {

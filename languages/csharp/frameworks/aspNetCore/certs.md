@@ -1,16 +1,19 @@
 # Certs
 
 ## Creating one
+
 ```bash
 dotnet dev-certs https --clean
 dotnet dev-certs https -t
 ```
+
 - there seems to be support for only one cert at a time, hence why you need to clean the certs before creating a new one
 - [Unable to configure HTTPS endpoint. No server certificate was specified, and the default developer certificate could not be found](https://stackoverflow.com/questions/53300480/unable-to-configure-https-endpoint-no-server-certificate-was-specified-and-the)
   - this error means that the server couldn't find the certificate
   - either you didn't create one, or it cannot find one on the path given
 
 ## With docker
+
 - launching the docker or docker compose support that visual studio provides automatically handles all of this for you (I have no idea what it does)
   - it seems to create multiple certificates specific to each container you spin up
 - if you're not using visual studio, you need to create dev certs manually, then point kestrel to use them
@@ -23,8 +26,10 @@ dotnet dev-certs https -t
   - make sure the following volume exists on your container
     - `${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro`
   - now add the following environment variables in your container
+
     ```yml
     ASPNETCORE_Kestrel__Certificates__Default__Path: /root/.aspnet/https/dotnet-dev.pfx
     ASPNETCORE_Kestrel__Certificates__Default__Password: password
     ```
+
   - now kestrel should be happy

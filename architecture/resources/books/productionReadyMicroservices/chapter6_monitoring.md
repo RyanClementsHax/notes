@@ -53,4 +53,5 @@
   - should be brief
   - no more than two developers at a time
   - schedule should be publicized and accessible by everyone in the org
-  - 
+
+  -

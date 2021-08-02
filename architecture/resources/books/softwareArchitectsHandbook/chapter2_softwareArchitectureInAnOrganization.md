@@ -1,6 +1,7 @@
 # Chapter 2: Software Architecture in an Organization
 
 ## Risks
+
 - functional
   - incorrect requirements
   - lack of participation from end users/business analysts
@@ -28,6 +29,7 @@
   - organizational issues
 
 ## Risk mitigation
+
 - risk avoidance
   - changing the project in some way to eliminate the risk altogether
   - ex: not chosing a poorly supported framework

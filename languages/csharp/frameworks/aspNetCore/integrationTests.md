@@ -2,7 +2,8 @@
 
 - these are suprisingly simple to set up
 - [the docs](https://docs.microsoft.com/en-us/aspnet/core/test/integration-tests?view=aspnetcore-5.0) show you how to create a test host factory
-    - you need `Microsoft.AspNetCore.Mvc.Testing` for this
+  - you need `Microsoft.AspNetCore.Mvc.Testing` for this
+
     ```cs
     public class TestWebApplicationFactory<TStartup> : WebApplicationFactory<TStartup> where TStartup : class
     {
@@ -23,9 +24,11 @@
                 });
     }
     ```
-    - this essentially starts up the application exactly how `Startup.cs` configures it to, but here you can overwrite the things you need to to make it testable
-    - this example uses `Microsoft.Extensions.Configuration` for `AddInMemoryCollection` and `Microsoft.Extensions.Configuration.EnvironmentVariables` for `AddEnvironmentVariables`
+
+  - this essentially starts up the application exactly how `Startup.cs` configures it to, but here you can overwrite the things you need to to make it testable
+  - this example uses `Microsoft.Extensions.Configuration` for `AddInMemoryCollection` and `Microsoft.Extensions.Configuration.EnvironmentVariables` for `AddEnvironmentVariables`
 - then your test base can look like this (this only supports sequential execution of tests)
+
     ```cs
     // TestBase.cs
     [TestClass, TestCategory("Large")]
@@ -54,10 +57,12 @@
             => _scope.Dispose();
     }
     ```
-    - `_factory.CreateClient();` creates an `HttpClient` you can use
-    - you can get any services you need by first creating an `IServiceScope` from `_factory.Services.CreateScope();` then resolving the service with `_scope.ServiceProvider.GetRequiredService<SomeService>();`
-      - note that when `_scope.Dispose();` is called, any services created from that scope will also dispose
+
+  - `_factory.CreateClient();` creates an `HttpClient` you can use
+  - you can get any services you need by first creating an `IServiceScope` from `_factory.Services.CreateScope();` then resolving the service with `_scope.ServiceProvider.GetRequiredService<SomeService>();`
+    - note that when `_scope.Dispose();` is called, any services created from that scope will also dispose
 - then your test can look like this
+
     ```cs
     // ThingsTests.cs
     [TestClass]
@@ -76,12 +81,15 @@
         }
     }
     ```
-    - it is recommended you install `System.Net.Http.Json` and `Microsoft.AspNet.WebApi.Client` to have some handy extension methods for deserializing responses
+
+  - it is recommended you install `System.Net.Http.Json` and `Microsoft.AspNet.WebApi.Client` to have some handy extension methods for deserializing responses
 
 ## With EF Core
+
 - start up with the above code
 - to get the db context in the tests, resolve it from the scope created
   - it is best practice to delete the database then recreate it on every test run to ensure that you are always starting off with a fresh db
+
     ```cs
     // TestBase.cs
     [TestInitialize]
@@ -93,7 +101,9 @@
         await _db.Database.EnsureCreatedAsync();
     }
     ```
+
 - if you update the databse with your service tests, note that the db context you resolved in the `Setup` method won't see these changes, so just recreate the context to get these updates
+
     ```cs
     // TestBase.cs
     protected void RefreshContext()
@@ -103,6 +113,7 @@
         _db = _scope.ServiceProvider.GetRequiredService<AppDbContext>();
     }
     ```
+
     ```cs
     // ThingsTests.cs
     [TestMethod]
@@ -116,6 +127,7 @@
         // _db is now able to see that the item is deleted
     }
     ```
+
 - see [the docker notes](../../../../docker/largeTestsUsingDocker.md) for setting this up with docker compose
   - pretty much all you need to be wary of is making sure you have the right config loaded
   - you also need to be sure that the database is able to serve requests by the time your tests start using it

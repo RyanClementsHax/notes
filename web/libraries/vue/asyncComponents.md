@@ -6,6 +6,7 @@
 - [lazy loading and code splitting in vue js](https://vueschool.io/articles/vuejs-tutorials/lazy-loading-and-code-splitting-in-vue-js/)
 
 ## Programatic refresh of failed load
+
 ```js
 // import...
 
@@ -42,6 +43,7 @@ function getAsync(promiseFactory, loading = LOADING, error = ERROR) {
   }
 }
 ```
+
 - the method is listed on [this](https://github.com/vuejs/vue/issues/9788#issuecomment-520519960) github issue comment
 - it works well
 - just be sure to pass down the listener if you are dispatching the event from a child component

@@ -3,7 +3,7 @@
 - provides *logical* computers
 - scales
 - ip addresses
-  - public 
+  - public
     - dynamic
       - can only assign this at launch time
     - static (elastic)
@@ -54,6 +54,7 @@
   - makes recommendations of compute services to be used for the workload
 
 ## AMI (Amazon Machine Image)
+
 - OS
 - ids are region specific
 - community
@@ -86,6 +87,7 @@
 - can copy ami into another region to use it there
 
 ## Instance Type
+
 - processor
 - general purpose
 - compute optimized
@@ -109,6 +111,7 @@
   - U: bare metal
 
 ## Networking
+
 - ENI (Elastic Network Interface)
   - virtual network card for ec2 instances
   - it allows
@@ -153,10 +156,12 @@
     - not supported with windows, only linux
 
 ## EFS (Elastic File Share)
+
 - the aws cloud offering for a file share
 - petabyte scale
 
 ## EBS (Elastic Block Storage)
+
 - disk
 - in same AZ as instance
 - only one ebs volume to one ec2 instance
@@ -239,6 +244,7 @@
   - good to prevent continued charging for ebs volumes associated with an instance you dont use
 
 ## Instance store
+
 - ephemeral
 - not supported by all instance types
 - cannot attach additional instance store volumes after creating the instance
@@ -247,10 +253,12 @@
 - by default root volume deleted on termination
 
 ## Lifecyle
+
 - stoping an instance means you can restart it
 - terminating an instance means you totally delete it
 
 ## Purchasing options
+
 - on demand
   - charged by the second at the hourly rate
   - use cases
@@ -332,6 +340,7 @@
         - this parameter in valid only when used in combination with lowestPrice
 
 ## Hibernate
+
 - ec2 startup process
   - os boots
   - bootstrap scripts run
@@ -355,6 +364,7 @@
   - can't be hibernated for more than 60 days
 
 ## How you will be charged
+
 - purchasing options
 - instance type
 - EBS optimized
@@ -363,6 +373,7 @@
 - Region
 
 ## Benefits
+
 - elastic web-scale computing
 - full root control of server
 - flexible options
@@ -373,6 +384,7 @@
 - very easy to start
 
 ## Primary use cases
+
 - multi-tier web apps
 - web servers
 - batch processing
@@ -380,6 +392,7 @@
 - GPU intensive workloads
 
 ## Security groups
+
 - all inbound traffic is denied by default
 - all outbound traffic is allowed by default
 - stateful

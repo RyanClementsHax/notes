@@ -1,6 +1,7 @@
 # Dev Ops
 
 ## Opsworks
+
 - config mgmt service
 - helps you configure and operate applications using Chef and Puppet
 - has concept of layers that form a stack
@@ -16,17 +17,20 @@
 ## Code suite
 
 ### Codestar
+
 - unified user interface
 - enabling you to manage your software development activities in one place easily
 - set up entire CD toolchain in minutes
 - secure
 
 ### Codecommit
+
 - their SCM offering
 - it doesn't support pull request pipelines, but you can [build it out yourself](https://github.com/aws-samples/aws-codepipeline-multi-branch-strategy) using lambda, cloud formation, and event bridge
   - [corresponding article](https://aws.amazon.com/blogs/devops/multi-branch-codepipeline-strategy-with-event-driven-architecture/)
 
 ### Codepipeline
+
 - managed service for automation of delivery pipeline for application updates
 - uses codecommit, codebuild, and codedeploy under the hood
 - cannot alone provision IT infrastructure
@@ -36,6 +40,7 @@
 - [creating custom actions](https://docs.aws.amazon.com/codepipeline/latest/userguide/actions-create-custom-action.html)
 
 ### Codebuild
+
 - managed service for pipeline tasks
 - used by codepipeline for tasks
 - [caching](https://docs.aws.amazon.com/codebuild/latest/userguide/build-caching.html)
@@ -49,35 +54,38 @@
     - to get around this, [you either need to create an account and use it, use ECR as your repository, or throw the code build task in your own vpc](https://cloudkatha.com/too-many-requests-you-reached-pull-rate-limit/#:~:text=Reddit%20Pinterest%20WhatsApp-,AWS%20CodeBuild%3A%20toomanyrequests%3A%20You%20have%20reached%20your%20pull%20rate%20limit,Docker%20Hub%20went%20into%20effect.&text=Free%20Docker%20Hub%20users%20are,pull%20requests%20per%20six%20hours.)
 
 ### Codedeploy
-  - self explanatory
-  - automate installation of applications to hosts, ec2 instances, lambda, or on prem servers
-  - uses targets like ec2, s3, and beanstalk for deploying generated artifacts
+
+- self explanatory
+- automate installation of applications to hosts, ec2 instances, lambda, or on prem servers
+- uses targets like ec2, s3, and beanstalk for deploying generated artifacts
 
 ## Cloud formation
-  - infrastructure as code
-  - templates written as json or yml
-  - automating the provisioning of rsources with these templates
-  - handles dependency management
-    - e.g. it creates a vpc before it creates a security group
-  - stores templates in s3
-    - this will charge you
-    - you can store these yourself to avoid this tho
-  - automatic rollback if errors occur
-  - only charged for things created
-  - can create templates from existing resources
-  - creates resources within "stacks"
-    - collection of resources that you can manage as a single unit
-  - stack sets
-    - enables you to create, update, or delete stacks across multiple accounts and regions in a single operation
-  - change sets
-    - allow you to preview how proposed changes to a stack might impact your running resources
-  - drift protection
-    - detect any changes you made to resources outside of cloud formation templates
-  - UI provided to create these
-  - automates deployments of aws resources, but not applications and code onto hosts
-    - not to on prem tho
+
+- infrastructure as code
+- templates written as json or yml
+- automating the provisioning of rsources with these templates
+- handles dependency management
+  - e.g. it creates a vpc before it creates a security group
+- stores templates in s3
+  - this will charge you
+  - you can store these yourself to avoid this tho
+- automatic rollback if errors occur
+- only charged for things created
+- can create templates from existing resources
+- creates resources within "stacks"
+  - collection of resources that you can manage as a single unit
+- stack sets
+  - enables you to create, update, or delete stacks across multiple accounts and regions in a single operation
+- change sets
+  - allow you to preview how proposed changes to a stack might impact your running resources
+- drift protection
+  - detect any changes you made to resources outside of cloud formation templates
+- UI provided to create these
+- automates deployments of aws resources, but not applications and code onto hosts
+  - not to on prem tho
 
 ## CDK
-  - good library for IAC
-  - has a terraform plugin
-  - many patterns on the [internet](https://cdkpatterns.com/)
+
+- good library for IAC
+- has a terraform plugin
+- many patterns on the [internet](https://cdkpatterns.com/)

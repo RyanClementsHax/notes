@@ -1,6 +1,7 @@
 # Themes
 
-## Themes I really like:
+## Themes I really like
+
 - fino
 - agnoster
 - sakro

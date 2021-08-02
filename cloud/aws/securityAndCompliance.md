@@ -1,6 +1,7 @@
 # Security And Compliance
 
 ## Shared responsibility model
+
 - aws
   - responsible for phyiscal layer through to the virtualization layer
   - responsible for the physical security of the data center
@@ -10,6 +11,7 @@
   - security 'in' the cloud
 
 ## Penetration testing
+
 - approved pen testing assessments
   - EC2, NAT Gateways, ELB
   - RDS
@@ -32,6 +34,7 @@
   - i think it's also called the acceptable use policy
 
 ## AWS KMS (Key Management Service)
+
 - can generate keys in an AWS CloudHSM hardware cluster
 - can import keys from another service
 - data is submitted directly to KMS for encryption/decryption using the master keys
@@ -54,6 +57,7 @@
   - can't integrate them with iam
 
 ## Login/permission services
+
 - STS (Security Token Service)
   - web service that enables you to request temporary, limited-privilege credentials for aws iam users, federated users, or aws services with roles
 - sso
@@ -68,6 +72,7 @@
   - provides multiple ways to use amazon cloud directory and microsoft active directory with other aws services
 
 ## Other security services
+
 - AWS Organizations
   - managing multiple aws accounts
 - Amazon GuardDuty
@@ -161,5 +166,6 @@
   - stored in s3 as log files
 
 ## Compliance
+
 - aws is hella compliant with a lot of things
 - by using them, you can remain compliant

@@ -16,17 +16,21 @@
   - this requires a mature organization though
 
 ## Tenancy
+
 - [differences between multi and single tenancy](https://www.netsolutions.com/insights/5-reasons-why-you-should-choose-multi-tenant-architecture-for-your-saas-application/)
 
 ## Dependencies
+
 - the more a service is depended upon, the lesser its ability it has to change
 
 ## Polling
+
 - long polling
   - where you keep a request open for a certain amount of time just in case the new data arrives within that time
   - this can reduce the load introduced with normal polling
 
 ## ADRs (Architectural Decision Records)
+
 - super useful for recording big decisions for projects
 - could be anything from language choice to architecture choice
 - the point is to write them down so you can refer to them later

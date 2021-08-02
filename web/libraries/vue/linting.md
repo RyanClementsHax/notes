@@ -3,6 +3,7 @@
 The following is an example with vue using typescript
 
 ## Packages
+
 ```json
 {
   // ...
@@ -27,6 +28,7 @@ The following is an example with vue using typescript
 ```
 
 ## Example `.eslintrc`
+
 ```json
 {
   "root": true,

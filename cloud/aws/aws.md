@@ -18,11 +18,13 @@
   - when decommissioned, they are destroyed in accordance with industry-standard practices
 
 ## Regions
+
 - distinct geographic area
 - made up of 2 or more availability zones
 - set up services in multiple regions for disaster recovery
 
 ### Availability zones
+
 - identified by the region prefix with an alphabetic character at the end (a-z)
   - what is considered 1a for one account might be totally different for another account (its randomized)
 - where resources located
@@ -30,14 +32,17 @@
 - availability zones in same region have low latency between each other
 
 ## Edge locations
+
 - CDN cache locations
 - where Cloud Front stores its data
 - tons of these
 
 ### Points of presence
+
 - edge places where AWS can replicate data
 
 ## Other services
+
 - lightsail
   - private virtual server
   - for getting started very quickly

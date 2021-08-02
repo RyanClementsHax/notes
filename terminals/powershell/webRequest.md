@@ -1,6 +1,7 @@
 # Web Request
 
 ## Get request piped into a for each
+
 ```powershell
 $baseUrl = "example.com/thing"
 

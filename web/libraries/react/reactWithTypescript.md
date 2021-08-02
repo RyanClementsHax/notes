@@ -1,15 +1,19 @@
 # React with Typescript
 
 ## Functional components
+
 - you need to use `React.FC` to type children in functional components
 - you can type the props directly without that type helper if you don't have any children to consider
 
 ## `useRef`
+
 - to get a read only ref, use the `!` operator: `const ref = useRef<HTMLInputElement>(null!);`j
 
 ## [Polymorphic react components](https://www.benmvp.com/blog/polymorphic-react-components-typescript/)
+
 - getting props typed correctly for dynamic tags is difficult
 - this is the end solution of the article, but read it to understand what is going on here fully
+
 ```ts
 // Source: https://github.com/emotion-js/emotion/blob/master/packages/styled-base/types/helper.d.ts
 // A more precise version of just React.ComponentPropsWithRef on its own

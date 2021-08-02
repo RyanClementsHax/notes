@@ -1,6 +1,7 @@
 # Consistency
 
 ## Consistency guarantees
+
 - read after write
   - ways to mitigate
     - reading from the leader in cases where you need this and read from the follower in other cases
@@ -23,16 +24,19 @@
   - what if a user's request isn't handled by the same data center?
 
 ### Avoiding conflict
+
 - auto incrementing keys make it much harder for replicas to converge and leads to very annoying bugs
 - can ensure consistency by having consistent writes go through the same leader
 - use synchronous leader replication, but this defeats the point of horizontally scaling
 
 ## Edge cases
+
 - data center going down
 - user changes location (thus connecting to a different leader)
 - quorum writes not being rolled back even though committed on a few nodes
 
 ## Resolving conflict
+
 - use a timestamp on the writes and use a last write wins approach
   - this does require some sort of clock sync
   - can alleviate with something like lamport clocks or vector(?) clocks

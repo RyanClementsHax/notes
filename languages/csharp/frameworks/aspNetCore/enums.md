@@ -1,6 +1,7 @@
 # Enums
 
-# Serializing enums
+## Serializing enums
+
 ```cs
 services
     .AddControllers()

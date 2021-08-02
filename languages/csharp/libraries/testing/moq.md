@@ -1,22 +1,27 @@
 # Moq
 
 ## [Moq - Non-overridable members may not be used in setup / verification expressions](https://stackoverflow.com/questions/56905578/moq-non-overridable-members-may-not-be-used-in-setup-verification-expression)
+
 - moq creates an instance of the class if it is mocking out a concrete type
 - any fields/methods it mocks MUST be overridable (i.e. virtual)
 - please use interfaces if possible
   - it makes everything so much easier
 
 ## Mocking funcs
+
 ```cs
 var mockCallback = new Mock<Func<Stream, CancellationToken, Task>>();
 mockCallback.Setup(x => x.Invoke(It.IsAny<Stream>(), It.IsAny<CancellationToken>()))
     .Returns(Task.CompletedTask);
 ```
-  - its simpler than you think
-  - the trick is to mock out the `.Invoke` method
+
+- its simpler than you think
+- the trick is to mock out the `.Invoke` method
 
 ## Mocking HttpContext
+
 - you can use mock objects
+
     ```cs
     // if you need to mock out the request object too
     var mockRequest = new Mock<HttpRequest>();
@@ -41,7 +46,9 @@ mockCallback.Setup(x => x.Invoke(It.IsAny<Stream>(), It.IsAny<CancellationToken>
     mockHttpContext.Setup(x => x.RequestAborted)
         .Returns(token);
     ```
+
 - you can also instantiate a version of it yourself
+
     ```cs
     new DefaultHttpContext()
     {
@@ -51,7 +58,9 @@ mockCallback.Setup(x => x.Invoke(It.IsAny<Stream>(), It.IsAny<CancellationToken>
     ```
 
 ## Mocking `HttpClient`
+
 - [ref](https://gingter.org/2018/07/26/how-to-mock-httpclient-in-your-net-c-unit-tests/)
+
 ```cs
 // ARRANGE
 var handlerMock = new Mock<HttpMessageHandler>(MockBehavior.Strict);
@@ -102,8 +111,10 @@ handlerMock.Protected().Verify(
 ```
 
 ## Verifying setters
+
 - sometimes you want to verify that a property was set to something
 - in this case, use `VerifySet` on the mock object
+
 ```cs
 var value = "foo";
 var mockMyObject = new Mock<MyObject>();
@@ -112,19 +123,24 @@ mockMyObject.VerifySet(x => x.SomeString = value);
 ```
 
 ## [Mock Behavior](https://github.com/Moq/moq4/wiki/Quickstart#customizing-mock-behavior)
+
 - this configures the strictness of the mock
 - setting to `Strict` will cause the mock to throw if a method/property wasn't explicitly mocked out
 
 ## Spies
+
 - they aren't called this in the library, but we can instantiate an object that calls all the instance methods as normal, but we can assert on access and invokations
 - just set `CallBase = true` when creating the mock
+
 ```cs
 var mock = new Mock<IFoo> { CallBase = true };
 ```
 
 ## [LINQ to Mocks](https://github.com/Moq/moq4/wiki/Quickstart#linq-to-mocks)
+
 - you can use a special syntax to define mock objects instead of creating everything from scratch
 - its composable too
+
 ```cs
 var services = Mock.Of<IServiceProvider>(sp =>
     sp.GetService(typeof(IRepository)) == Mock.Of<IRepository>(r => r.IsAuthenticated == true) &&

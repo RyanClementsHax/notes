@@ -1,6 +1,7 @@
 # Patching Service
 
 ## Main service
+
 ``` csharp
 public abstract class PatchService<TDbContext, TModel, TEntity> : IPatchService<TModel, TEntity>
     where TDbContext : DbContext

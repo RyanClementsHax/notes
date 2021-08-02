@@ -1,6 +1,7 @@
 # Chapter 3: Understanding the Domain
 
 ## DDD
+
 - DDD translators can become bottlenecks so avoid them
 - use a ubiquitous language that everyone abides to
 - entities
@@ -23,6 +24,7 @@
   - may map to a single domain
 
 ## Requirements engineering
+
 - sometimes you need to coerce requirements out of people
 - types of requirements
   - business

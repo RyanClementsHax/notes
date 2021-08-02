@@ -1,6 +1,7 @@
 # Flags
 
 - you can implement a flag enum by using the `System.FlagsAttribute` on an enum, where every member is an exponent of 2 starting with 0 (so that they compile down to a single bit in the underlying integer representation)
+
     ```cs
     [Flags]
     public enum Permissions
@@ -18,7 +19,9 @@
         Wallet = 512
     }
     ```
+
 - you can represent an `All` member by setting its number to twice the biggest number minus one (assuming that all bits are represented by a member)
+
     ```cs
     public enum Permissions
     {
@@ -26,8 +29,10 @@
         All = 1023
     }
     ```
+
 - you can make extension methods to provide methods around this
   - I have found the following to be helpful to expand and combine a flag
+
     ```cs
     public static class EnumFlagExt
     {

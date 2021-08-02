@@ -1,9 +1,11 @@
 # Dapper
 
 ## Split on
+
 - sql querries just return tabular data, so how does dapper know to structure the data as one to one, one to many, or many to many relationships in c# objects?
 - this is where the `splitOn` parameter comes in
 - consider the following classes
+
     ```cs
     public class Tag
     {
@@ -20,14 +22,18 @@
         public List<Tag> Tags { get; set; } 
     }
     ```
+
 - and then this sql
+
     ```sql
     select p.postid, headline, t.tagid, tagname
     from posts p 
     inner join posttags pt on pt.postid = p.postid
     inner join tags t on t.tagid = pt.tagid
     ```
+
 - this is how you would return a list of posts with their tags
+
     ```cs
     using (var connection = new SQLiteConnection(connString))
     {
@@ -57,7 +63,9 @@
         }
     }
     ```
+
 - consider this sql
+
     ```sql
     select p.postid, headline, firstname, lastname, t.tagid, tagname
     from posts p 
@@ -65,7 +73,9 @@
     inner join posttags pt on pt.postid = p.postid
     inner join tags t on t.tagid = pt.tagid
     ```
+
 - this is how you would put the data together in c#
+
     ```cs
     using (var connection = new SQLiteConnection(connString))
     {
@@ -98,8 +108,10 @@
     ```
 
 ## Query multiple
+
 - it is possible to execute multiple queries in one statement
 - it is unknown to me if you have the fancy splitting features available to you when using this feature
+
 ```cs
 string sql = "SELECT * FROM Invoice WHERE InvoiceID = @InvoiceID; SELECT * FROM InvoiceItem WHERE InvoiceID = @InvoiceID;";
 
@@ -116,6 +128,7 @@ using (var connection = My.ConnectionFactory())
 ```
 
 ## Query for a dictionary
+
 ```cs
 var dict = conn.Query(sql, args).ToDictionary(
     row => (string)row.UniqueString,
@@ -124,7 +137,9 @@ var dict = conn.Query(sql, args).ToDictionary(
 ```
 
 ## Get datetime as UTC
+
 - [you can use type handlers to accomplish this](https://stackoverflow.com/questions/12510299/get-datetime-as-utc-with-dapper)
+
 ```cs
 public class DateTimeHandler : SqlMapper.TypeHandler<DateTime>
 {
@@ -139,6 +154,7 @@ public class DateTimeHandler : SqlMapper.TypeHandler<DateTime>
     }
 }
 ```
+
 ```cs
 // in some startup file
 SqlMapper.AddTypeHandler(new DateTimeHandler());

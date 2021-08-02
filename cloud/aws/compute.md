@@ -1,6 +1,7 @@
 # Compute
 
 ## Elastic beanstalk
+
 - fastest way to deploy and application
 - reminds me of build packs
 - wide selection of application platforms
@@ -18,6 +19,7 @@
 - if you need to terminate instances, terminate your beanstalk instance
 
 ## Containers
+
 - ECS (Elastic Container Service)
   - container mgmt service that facilitates containers' mgmt on the cluster including running and stopping the containers
   - can use api calls
@@ -27,6 +29,7 @@
   - ECS and EKS compatible
 
 ## Other services
+
 - glue
   - ETL offering
 - device farm (mobile lab)

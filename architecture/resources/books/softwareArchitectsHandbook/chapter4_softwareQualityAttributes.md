@@ -5,6 +5,7 @@
   - a scalable application typically suffers in speed or consistency
 
 ## Internal vs external quality
+
 - internal
   - defined by code
   - will often have an impact on external quality
@@ -13,12 +14,14 @@
   - *ilities*
 
 ## Testing quality attributes
+
 - manually testing the software
 - creating benchmarks and using tools
 - performing code reviews and calculating code metrics
 - executing automatred tests
 
 ## Maintainability
+
 - allows for easier reverse engineering
 - the biggest cost of software tends to be in supporting it; thus, you can drive costs down by desiging a system to be maintainable
 - types
@@ -48,6 +51,7 @@
   - depth of inheritance (DIT) tree
 
 ## Usability
+
 - directly correlates with user satisfaction
 - user's perception of the quality of the software increases with usability
 - can be one of the cheapest ways to increase the quality of a software system
@@ -58,6 +62,7 @@
 - needs to be considered as early as the requirements phase
 
 ## Learnability
+
 - straight forward
 - very imporant for new users
 - includes how easy it is for experienced users to learn new functionality
@@ -71,6 +76,7 @@
   - FAQs
 
 ## Accessibility
+
 - can include
   - making software usable with just a keyboard
   - support for assistive tech like screen readers
@@ -81,6 +87,7 @@
   - logical tab order for controls and input fields
 
 ## Availability
+
 - how many 9's
 - achieving more 9's will result in diminishing returns and prevents your teams from focusing on other work
 - most users won't be able to tell the difference between 5 9's and 4 9's
@@ -114,6 +121,7 @@
   - exception prevention
 
 ## Other *ilities*
+
 - portability
   - also includes i18n and localization
     - changes in text should not change code

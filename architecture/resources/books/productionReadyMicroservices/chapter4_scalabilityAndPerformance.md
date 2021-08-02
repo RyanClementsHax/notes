@@ -1,53 +1,53 @@
 # Chapter 4: Scalability and Performance
 
 - check list
-    - its qualitative and quantitative growth scales are known
-    - it uses hardware resources efficiently
-    - its resource bottlenecks and requirements have been identified
-    - capacity planning is automated and performed on a scheduled basis
-    - its dependencies will scale with it
-    - it will scale with its clients
-    - its traffic patterns are understood
-    - traffic can be re-routed in case of failures
-    - it is written in a programming language that allows it to be scalable and performant
-    - it handles and processes tasks in a performant manner
-    - it handles and stores data in a scalable and performant way
+  - its qualitative and quantitative growth scales are known
+  - it uses hardware resources efficiently
+  - its resource bottlenecks and requirements have been identified
+  - capacity planning is automated and performed on a scheduled basis
+  - its dependencies will scale with it
+  - it will scale with its clients
+  - its traffic patterns are understood
+  - traffic can be re-routed in case of failures
+  - it is written in a programming language that allows it to be scalable and performant
+  - it handles and processes tasks in a performant manner
+  - it handles and stores data in a scalable and performant way
 - growth scales
-    - qualitative
-        - a scale that ties the scalability of a service to a higher level business metric
-        - e.g. number of orders for a delivery service application
-        - helpful for communicating scalability requirements between teams and talking to management
-    - quantitative
-        - numerical scale that ties the scalability of a service to a technical metric
-        - e.g. requests per second
-    - both of these are needed for capacity planning
+  - qualitative
+    - a scale that ties the scalability of a service to a higher level business metric
+    - e.g. number of orders for a delivery service application
+    - helpful for communicating scalability requirements between teams and talking to management
+  - quantitative
+    - numerical scale that ties the scalability of a service to a technical metric
+    - e.g. requests per second
+  - both of these are needed for capacity planning
 - efficient use of resources
-    - be careful when putting microservices on the same machine
-    - a abstraction layer like docker should be used
+  - be careful when putting microservices on the same machine
+  - a abstraction layer like docker should be used
 - resource awareness
-    - need good monitoring on resource utilization
-    - resources could be things like CPU, RAM, connections, port utilization, file handles, etc
-    - measure this for one instance to determine scalability needs
-    - vertical scaling should be avoided in favor of horizontal scaling and smart concurrent and partitioning strategies
-    - be sure to have enough lead time for hardware requests after capacity planning
+  - need good monitoring on resource utilization
+  - resources could be things like CPU, RAM, connections, port utilization, file handles, etc
+  - measure this for one instance to determine scalability needs
+  - vertical scaling should be avoided in favor of horizontal scaling and smart concurrent and partitioning strategies
+  - be sure to have enough lead time for hardware requests after capacity planning
 - dependency scaling
-    - this is much more helpful if the microservice standards are organization wide
-    - your dependencies need to scale with your service
-    - not doing this can be a huge source of bottlenecking
+  - this is much more helpful if the microservice standards are organization wide
+  - your dependencies need to scale with your service
+  - not doing this can be a huge source of bottlenecking
 - programming language
-    - choose the right tool for the job and understand that some languages are built with this in mind and/or have mature frameworks/ecosystems that allow for easy development of such services
-    - avoid using the "hot" language or framework unless you want to deal with lack of "google-ability"
-    - be careful of technical sprawl here
+  - choose the right tool for the job and understand that some languages are built with this in mind and/or have mature frameworks/ecosystems that allow for easy development of such services
+  - avoid using the "hot" language or framework unless you want to deal with lack of "google-ability"
+  - be careful of technical sprawl here
 - scalable data storage
-    - having a dedicated team for storage for all other teams to consume can be helpful
-        - allowing opt out options for teams that need specific databases is also helpful in this case
-    - allowing each team to manage their own database is another valid strategy, just be careful of technical sprawl
-    - watch out for database connections
-        - not closing them out can kill microservices or their ecosystems
-    - ask these questions before choosing what kind of storage you need
-        - what are the needed transactions per second of each microservice?
-        - what type of data does each microservice need to store?
-        - what is the schema needed by each microservice? and how often will it need to be changed?
-        - do the microservicvces need strong consistency or eventual consistency?
-        - are the microservicces read-heavy, write-heavy, or both?
-        - does the database need to be scaled horizontally or vertically?
+  - having a dedicated team for storage for all other teams to consume can be helpful
+    - allowing opt out options for teams that need specific databases is also helpful in this case
+  - allowing each team to manage their own database is another valid strategy, just be careful of technical sprawl
+  - watch out for database connections
+    - not closing them out can kill microservices or their ecosystems
+  - ask these questions before choosing what kind of storage you need
+    - what are the needed transactions per second of each microservice?
+    - what type of data does each microservice need to store?
+    - what is the schema needed by each microservice? and how often will it need to be changed?
+    - do the microservicvces need strong consistency or eventual consistency?
+    - are the microservicces read-heavy, write-heavy, or both?
+    - does the database need to be scaled horizontally or vertically?

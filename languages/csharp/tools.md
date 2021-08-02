@@ -1,22 +1,28 @@
 # Tools
 
 ## Accessing index in `foreach` loop
+
 - there is no way to do this without helper methods
+
 ```cs
 public static IEnumerable<(T item, int index)> WithIndex<T>(this IEnumerable<T> source)
 {
     return source.Select((item, index) => (item, index));
 }
 ```
+
 ```cs
 foreach (var (item, index) in collection.WithIndex())
 {
     DoSomething(item, index);
 }
 ```
+
 ## Object Copy Helper
+
 - this copies the properties from one object to another
 - it is preferred to use a tool like [AutoMapper](https://automapper.org/)
+
 ```cs
 public static class ObjectCopyHelper
 {
@@ -52,7 +58,9 @@ public static class ObjectCopyHelper
 ```
 
 ## Timing code
+
 - time an async action
+
     ```cs
     private static async Task<long> TimeActionAsync(Func<Task> a)
     {
@@ -63,7 +71,9 @@ public static class ObjectCopyHelper
         return w.ElapsedMilliseconds;
     }
     ```
+
 - time an async func
+
     ```cs
     private static async Task<(T, long)> TimeFuncAsync<T>(Func<Task<T>> a)
     {
@@ -76,20 +86,26 @@ public static class ObjectCopyHelper
     ```
 
 ## [String to Stream and back](https://www.csharp411.com/c-convert-string-to-stream-and-stream-to-string/)
+
 - from string to stream
+
     ```cs
     byte[] byteArray = Encoding.ASCII.GetBytes( test );
     MemoryStream stream = new MemoryStream( byteArray );
     ```
+
 - from stream to string
+
     ```cs
     StreamReader reader = new StreamReader( stream );
     string text = reader.ReadToEnd();
     ```
 
 ## `switch` on type parameter
+
 - because of reasons I'm not aware of, `switch` expressions that switch on type, can't use the types directly
 - instead, switching on their name would be better
+
 ```cs
 public void MyFunction<T>() where T : MyBaseType
 {
@@ -106,8 +122,10 @@ public void MyFunction<T>() where T : MyBaseType
     // ...
 }
 ```
-
+<!-- markdownlint-disable MD033 -->
 ## [enum to IEnumerable<Enum>](https://stackoverflow.com/questions/12447473/how-can-i-create-an-ienumerable-from-an-enum)
+<!-- markdownlint-enable MD033 -->
+
 ```cs
 public enum City
 {
@@ -116,16 +134,19 @@ public enum City
     Leeds       = 25
 }
 ```
+
 ```cs
 IEnumerable<City> allCityValues = (City[])Enum.GetValues(typeof(City));
 ```
 
 ## Getting the home path
+
 ```cs
 public static string GetHomePath() =>
     (Environment.OSVersion.Platform == PlatformID.Unix || Environment.OSVersion.Platform == PlatformID.MacOSX)
         ? Environment.GetEnvironmentVariable("HOME")
         : Environment.ExpandEnvironmentVariables("%HOMEDRIVE%%HOMEPATH%");
 ```
+
 - this will get the home path when running on windows, mac, or linux
 - `%HOMEDRIVE%%HOMEPATH%` [won't work on older windows systems](https://stackoverflow.com/questions/39573548/cant-expand-environment-variables-with-c-sharp-using-windows-7) so you will have to resort to something like `Environment.GetFolderPath(Environment.SpecialFolder.Desktop)`

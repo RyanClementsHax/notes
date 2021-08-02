@@ -1,6 +1,7 @@
 # VSCode
 
 ## Omnisharp
+
 - sometimes this doesn't load project properly
 - recloning the repo and reopening vscode a few times seems to resolve these issues for me
 - this could also be caused by large sln's
@@ -9,12 +10,15 @@
 - follow [this](https://stackoverflow.com/questions/47352611/visual-studio-code-doesnt-format-c-sharp-code) if you want omnisharp to auto format code
 
 ## Getting color scheme from current settings
+
 - [can generate json file](https://superuser.com/questions/1431557/is-there-any-place-i-can-find-all-the-hex-code-color-values-for-vscodes-defaul)
 
 ## Tasks
 
 ### Dotnet tasks
+
 - [example](https://github.com/graphql-dotnet/example-aspnetcore/blob/master/.vscode/tasks.json)
+
   ```json
   {
     "version": "2.0.0",
@@ -33,10 +37,11 @@
   }
   ```
 
-
 ### [Docker tasks](https://code.visualstudio.com/docs/containers/reference)
+
 - ensure you have the docker vscode extension installed as well as docker on your machine
 - example
+
   ```json
   {
     "label": "dev db rm volume",
@@ -48,7 +53,9 @@
   ```
 
 #### [Docker compose](https://code.visualstudio.com/docs/containers/reference#_docker-compose-task)
+
 - example
+
   ```json
   {
     "version": "2.0.0",
@@ -75,6 +82,7 @@
 ## Launch configurations
 
 ### Dotnet
+
 ```json
 {
   "name": "My.Api launch",
@@ -105,9 +113,10 @@
   }
 }
 ```
-  - this configuration runs an api and opens the browser to the swagger page automatically
-  - it also auto detects the url it is on from the console output
-  - it requires that there is a `build` task defined because of `"preLaunchTask": "build"`
+
+- this configuration runs an api and opens the browser to the swagger page automatically
+- it also auto detects the url it is on from the console output
+- it requires that there is a `build` task defined because of `"preLaunchTask": "build"`
 
 ```json
 {
@@ -120,10 +129,12 @@
   }
 }
 ```
-  - i believe this requires the c# vscode extension
-  - this allows you to attach to running dotnet core containers
+
+- i believe this requires the c# vscode extension
+- this allows you to attach to running dotnet core containers
 
 ### Compound
+
 ```json
 {
   "compounds": [
@@ -137,4 +148,5 @@
   ]
 }
 ```
-  - this section of the launch settings allows you to launch multiple launch configurations at once
+
+- this section of the launch settings allows you to launch multiple launch configurations at once

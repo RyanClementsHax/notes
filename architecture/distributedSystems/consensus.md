@@ -15,3 +15,5 @@
   - systems that tolerate this are often expensive to make and maintain
   - some sectors need this like aerospace where high levels of radiation manipulates bits
   - P2P applications is another example
+  - validation mitigates weak lying caused by corruption problems
+  - sanitizing your inputs is always good practice

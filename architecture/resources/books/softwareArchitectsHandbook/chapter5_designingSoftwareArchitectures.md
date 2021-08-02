@@ -1,7 +1,7 @@
 # Chapter 5: Designing Software Architectures
 
-
 ## Software architecture design
+
 - serves as technical guidance and typically occurs iteratively until the initial architecture is at a point where the development team can begin their work
 - making decisions
   - you need to get good at pro/con when making decisions
@@ -9,6 +9,7 @@
   - perfect is the enemy of good
 
 ## Terms
+
 - structure
   - groupings of and relations between elements
 - element
@@ -30,6 +31,7 @@
   - smallest level of abstraction
 
 ## Importance of design
+
 - a proper design determines whether the requirements and quality attributes can be satisfied
 - key decisions are made
   - it is easier to change major parts of architecture in the design phase than after implementing and depending on the inferior design
@@ -46,6 +48,7 @@
   - deployments
 
 ## Approaches
+
 - top down
   - start off at the system and decompose from there
   - advantages
@@ -93,13 +96,16 @@
   - typically a mix of both is healthy
 
 ## Greenfield systems
+
 - usually don't have a lot of architectures to referrence if this is a new domain
 - regardless, you will likely (and should) spend time creating prototypes to do proof of concepts and to explore the domain further
 
 ## Brownfield systems
+
 - once you understand the architecture already built and systems already being used, you can think of it as a greenfield project that's been through some iterations
 
 ## Architectural drivers
+
 - these are considerations that need to be made for the software system that are architecturally significant
 - they drive the design of the arch
 - design objectives
@@ -113,12 +119,14 @@
   - decisions imposed on the software architecture that typically cannot be changed
 
 ## Software architecture patterns
+
 - reference architecture
 - externally developed software
   - commercial
   - open source
 
 ## Design rationale
+
 - the design decisions for what was decided on and what WASN'T decided on should be documented for many reasons including
   - evaluation
   - verification
@@ -130,6 +138,7 @@
     - also can include variation points to let implementers modify the architecture to fit their own needs
 
 ## Using a systematic approach to architecture design
+
 - general model
   1. architectural analysis
   2. architectural synthesis
@@ -145,18 +154,18 @@
   - doesn't cover other parts like documentation
   - 8 steps
     1. review inputs
-      - design objectives
-      - primary functional requirements
-      - quality attribute scenarios
-      - constraints
-      - architectural concerns 
-    2. establish iteration goal by selecting inputs
-    3. choose one or more elements of the system to refine
-    4. choose one or more design concepts that satisfy the inputs
-    5. instantiate architectural elements, allocate responsibilities and define interfaces
-    6. sketch views and record design decisions
-    7. perform analysis of current design and review iteration goal and achievement of design purpose
-    8. iterating if necessary
+    - design objectives
+    - primary functional requirements
+    - quality attribute scenarios
+    - constraints
+    - architectural concerns
+    1. establish iteration goal by selecting inputs
+    1. choose one or more elements of the system to refine
+    1. choose one or more design concepts that satisfy the inputs
+    1. instantiate architectural elements, allocate responsibilities and define interfaces
+    1. sketch views and record design decisions
+    1. perform analysis of current design and review iteration goal and achievement of design purpose
+    1. iterating if necessary
 - Microsoft's technique for architecture and design
   - also iterative
   - 5 steps
@@ -189,6 +198,7 @@
   - focuses on evaluating the current architecture, validating the target architecture, then creating a migration plan to get from current to target
 
 ## Tracking architecture design process
+
 - use your current system of work (e.g. scrum, kanban)
 - it is ideal to use an agile framework since it pairs well with the iterative nature of these architecture design frameworks
 - prioritizing work (DIVE)

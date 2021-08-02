@@ -1,19 +1,24 @@
 # Configuration
 
 ## Microsoft.Extensions.Configuration.EnvironmentVariables
+
 - [This](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/?view=aspnetcore-5.0#environment-variables) details how env vars work with this library
 
 ## User Secrets
+
 - this can be configured with visual studio and only load when the environment is set to `Development` if you use the default host builder
 
 ## Stronly typed config
+
 - it might be tempting to only create getters for the properties you create for your config, but this will result in the properties never being bound
 
 ## Json
+
 - [empty arrays will always show up as null because of the way it transforms each record into strings](https://github.com/dotnet/extensions/issues/1341)
 - a hack for primitive type arrays is to use `"MyArray": [ null ],` in the configuration, but doesn't work for more complex types like strings, objects, and arrays
 - you could try to set a default empty array on the class like the following, but will any value from the json will always be overwritten, even though there is a [stack overflow post](https://stackoverflow.com/questions/46935614/why-does-a-property-get-initialized-to-a-null-instead-of-an-empty-list-from-conf) suggesting this
 - the best solution seems to initialize empty arrays using reflection after loading the configuration from these providers
+
     ```cs
     // ConfigExt.cs
     using System;
@@ -75,6 +80,7 @@
         }
     }
     ```
+
     ```cs
     // wherever you load config
     _config = new ConfigurationBuilder()
@@ -83,4 +89,5 @@
         .Get<Config>()
         .InitNullIEnumerables();
     ```
-    - this solution can also be easily extended to handle excluding certain values from initialization via attributes
+
+  - this solution can also be easily extended to handle excluding certain values from initialization via attributes
