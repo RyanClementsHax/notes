@@ -55,3 +55,10 @@
   - these are vectors that track the version numbers each node is on for a given piece of data
   - these help the node determine causal vs concurrent writes
   - these need extra overhead to handle things like deletes
+
+## CAP theorem
+
+- this is best decribed as "consistent or available when partitioned"
+- this only talks about linearizable dbs and network failures, but not delayed networks, dead nodes, and other tradeoffs
+  - as a result, the CAP theorem isn't as applicable to practice today, but the fundamental points of the theorem still hold and are useful to build off of
+  - not even ram is linearizable

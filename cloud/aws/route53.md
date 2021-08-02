@@ -11,7 +11,7 @@
 - routing policy
   - simple
     - for a single resource that performs a given function for your domain
-    - ex: web server that serves content from some domain
+    - e.g. web server that serves content from some domain
   - failover
     - when you want to configure active-passive failover
     - one active app, and a standby one to be routed traffic to when the active one fails
@@ -35,7 +35,7 @@
     - when you want route 53 to respond to dns queries with up to eight healthy records selected at random
   - weighted
     - use to route traffic to multiple resources in proportions that you specify
-    - ex: 80% to one resource, 5% to another, and the rest to another
+    - e.g. 80% to one resource, 5% to another, and the rest to another
 - dns resolution updates take time to propagate
   - because it is a global service and need to wait for ttl to expire
   - by default, gotta give it 24h

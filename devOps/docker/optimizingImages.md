@@ -62,7 +62,7 @@
 - if you do this, however, the container will build, install, etc everything for the container's environment which may mismatch with the host environment
 - thus, if you try to run, build, install, etc on the host machine after the container dumps its artifacts onto your system, you may come by extremely odd, esoteric problems that are hard to google
 - you can fix this by cleaning your repo of build artifacts or recloning the repo
-- ex
+- e.g.
   - host machine: WSL `Ubuntu 20.04`
   - container image: `mcr.microsoft.com/dotnet/sdk:3.1` (debian based)
   - intent: building and running test code in the docker container for integration tests

@@ -53,11 +53,11 @@
      - you also need to handle the case that one of the catalogs isn't migrated or in a bad state some how
        - it is my recommendation that you fail the whole test run as there is something wrong with your process on creating the catalogs making the catalogs being used for testing unreliable
    - you need to implement a way for your tests to reserve catalogs
-     - ex: using a concurrent queue for tests to dequeue db connections from when they start execution and to enqueue when they are done with them
+     - e.g. using a concurrent queue for tests to dequeue db connections from when they start execution and to enqueue when they are done with them
    - you also need to be cognizant of making sure that database resources are always released even on test failures else test execution may deadlock
 2. group tests that can be run in any order together and only restore after groups finish executing
-   - ex: it may be the case that all of your read operations can be grouped together and won't need a snapshot restore
-   - ex: it also may be the case that your users data access tests could run in any order (e.g. they don't make any data changes that would fail other tests if run in the incorrect order) but not with orders data access tests so you could group users tests and orders tests separately and thus only have to do two restores instead of a restore for each one of those tests
+   - e.g. it may be the case that all of your read operations can be grouped together and won't need a snapshot restore
+   - e.g. it also may be the case that your users data access tests could run in any order (e.g. they don't make any data changes that would fail other tests if run in the incorrect order) but not with orders data access tests so you could group users tests and orders tests separately and thus only have to do two restores instead of a restore for each one of those tests
 3. order tests and selectively restore your snapshots
    - test ordering is considered an anti pattern, but rules need to be bent or broken to allow for optimizations
    - not all test frameworks have good ways of doing this

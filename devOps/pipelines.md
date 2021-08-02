@@ -40,7 +40,7 @@
   - the docker deamon was explicity designed to have exclusive access to `/var/lib/docker`
   - without caching however, every time you restart your inner docker, you will nuke your cache
 - the clean solution seems to be to use [sysbox](https://github.com/nestybox/sysbox)
-- another solution for simple use cases is to bind the docker socket as a volume, ex: `docker run -v /var/run/docker.sock:/var/run/docker.sock ...`
+- another solution for simple use cases is to bind the docker socket as a volume,e.g. `docker run -v /var/run/docker.sock:/var/run/docker.sock ...`
   - this means that any containers created will be sibling containers, not child containers
   - the build cache will be shared though
   - you may run into permissions issues (e.g. jenkins not being part of the docker users group) if you do it this way

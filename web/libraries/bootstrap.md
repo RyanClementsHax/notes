@@ -145,7 +145,7 @@ function getBreakpoints() {
   - what you need to do is take the import statements that you need immediately and shove them into an `initial-bootstrap.scss` file that you import immediately
   - the other imports can be put in a `deferred-bootstrap.scss` file
   - you also have the opportunity to not include things you don't need
-    - ex: no websites I work on need `@import "print";` so I can leave that out
+    - e.g. no websites I work on need `@import "print";` so I can leave that out
   - this still allows you to customize bootstrap as specified in their docs
   - also note that some of these statements import files that consist of more import statements, like `@import "utilities";` (code below)
 

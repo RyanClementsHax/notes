@@ -31,7 +31,7 @@
     - implementing new or updated requirements
   - adaptive
     - adapting software to changes in environment
-    - ex: OS upgrade
+    - e.g. OS upgrade
   - preventative
 - modifiability
   - the easier it is for someone to modify the code, the more maintainable it is

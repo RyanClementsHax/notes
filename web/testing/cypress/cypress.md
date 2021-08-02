@@ -46,7 +46,7 @@ DEBUG=cypress:* npx cypress run
      - you can ensure you are using the actual dependency within the testing
      - works well if your dependency code (like data access layer code) in the same project as your front end
      - some dependencies have facilities to do this
-       - ex: you can generate db reset scripts from entity framework and call them from a cypress task against the database
+       - e.g. you can generate db reset scripts from entity framework and call them from a cypress task against the database
    - cons
      - potentially need to reimplement logic or to implement clients if your dependency exists in a separate repo, don't have control over it, is written in a different language, no premade client already exists in a language callable within cypress, etc
      - need to keep this code up to date with the services they call/represent

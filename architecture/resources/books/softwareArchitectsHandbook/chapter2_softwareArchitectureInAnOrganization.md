@@ -32,10 +32,10 @@
 
 - risk avoidance
   - changing the project in some way to eliminate the risk altogether
-  - ex: not chosing a poorly supported framework
+  - e.g. not chosing a poorly supported framework
 - transferring risk to another party
-  - ex: hiring a subcontractor to do the work
+  - e.g. hiring a subcontractor to do the work
 - risk mitigation
-  - ex: pairing with a new team member
+  - e.g. pairing with a new team member
 - risk acceptance
-  - ex: continuing with a project knowing that a competitor could beat you to market first
+  - e.g. continuing with a project knowing that a competitor could beat you to market first

@@ -107,7 +107,7 @@ seq 5
     3. return code
         - this is the return code returned from a script when it exits (default is `0` even when it isn't specified)
 - you cannot assume that other scripts you referrence use these outputs in the way you expect\
-  - ex: should `sqlcmd` return a non-0 exit code when the sql command you sent through it had bad syntax, but reached the database just fine?
+  - e.g. should `sqlcmd` return a non-0 exit code when the sql command you sent through it had bad syntax, but reached the database just fine?
   - this is one reason why bash scripting can be painful
 - redirecting bash output
   - you can put `2>&1` to redirect stderr to stdout

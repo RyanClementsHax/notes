@@ -39,6 +39,7 @@
   - this level of isolation is fine for some applications but intolerable for others like analytics and backups
 - snapshot
   - this is where each transaction only sees a snapshot of the db at a given time
+  - makes reading happen from a consistent snapshot to avoid lock contention between readers and writers
   - good for analytics and backups
   - also use write locks
   - uses MVCC (Multi Version Concurrency Control) to handle multiple transactions at the same time
@@ -51,8 +52,24 @@
     - if replication is used, you will likely need to have some guarantee provided by the way you partitioned the data to avoid this
     - else you will need to resort to application level solutions
     - some dbs have the concept of constraints that get run to assert on state before the transaction is committed
+  - serial snapshot isolation is fundamentally not linearizable
+    - the whole point is that the snapshot doesn't include writes more recent than the snapshot
+- linearilability
+  - only has a recency guarantee and doesn't prevent write skew unless you do something like materializing conflicts
+  - this will make the system appear as if there is only one copy
+  - writes are atomic
+  - this also ensures "read your writes" consistency on all replicas
+  - this is a "recency" guarantee (i.e. you will always read the recently most written value)
+  - in overlapping reads during a write, some reads may see new value and some may see old but when a read sees the new value all other reads must see the new value too
+  - this can be used along side serializability (i.e. strict serializability)
+  - serial transaction ordering and two phase locking are usually linearizable
+  - uniqueness constraints need linearizability because you need to be sure no other write is concurrently claiming the resource
+  - provides total order guarantee
 - serializability
-  - the only way to avoid all race conditions
+  - avoids many race conditions
+  - guarantees that the system behaves as if the transactions happened in some serial order
+  - this may reorder transactions
+  - this can be used along side linearizability (i.e. strict serializability)
   - solved in a few ways
     - literally serializing the transactions
     - two phase lock
@@ -89,3 +106,43 @@
 - this is the guarantee that data won't be lost
 - this has changed definition over time from "data is written to disk" to "data is replicated"
 - this can never have a 100% guarantee
+
+## Ordering
+
+### Total order
+
+- when every read and write can be sequenced
+- implies causal order
+- provided by linearizable systems
+- this is easily done with single leader replication
+- cannot guarantee that this is immediately seen on all nodes however
+- all you can guarantee is that when the system stabilizes, the order will be the same on all nodes
+- total order broadcast
+  - this requires reliable and totally ordered delivery
+  - you need this for uniqueness guarantee
+  - you can build linearizable systems off of this
+  - this has the added benefit over lamport clocks in that there are no gaps in order numbers
+- the following are equivalent concepts (i.e. if you have one, you can build any other off of it)
+  - total order broadcast
+  - linearizable compare and set
+  - locks and leases
+  - atomic commit
+  - membership service
+  - uniqueness constraint
+
+### Causal order
+
+- when all writes that are causally related can be ordered
+- does not imply total order
+- to provide this you need to track what transactions read what data
+  - this can be done with version vectors
+    - doesn't scale well
+  - sequence or timestamps can be used
+    - preferrably with a logical clock
+    - don't need a leader to generate unique numbers across replicas though
+    - one can use lamport clocks
+
+### Lamport clocks
+
+- not version vectors
+- version vectors can distinguish if two ops are concurrent or causally dependent whereas lamport clocks enforce total ordering

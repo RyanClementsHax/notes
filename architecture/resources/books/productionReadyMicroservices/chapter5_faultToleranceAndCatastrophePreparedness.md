@@ -10,9 +10,9 @@
 - identify and architect away single points of failure
 - identify failure scenarios
   - internal
-    - ex: host, logic failures
+    - e.g. host, logic failures
   - external
-    - ex: queue, datacenter, other microservice failures
+    - e.g. queue, datacenter, other microservice failures
 - test for these failures
   - code testing
   - load testing

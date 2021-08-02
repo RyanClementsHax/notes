@@ -7,7 +7,7 @@
   - it is preferred to go for naturally occuring IDs or public keys
   - this helps with the location independence property distrib systems should have
 - progressive web apps might connect to different db when coming back online which will lead to consistency issues
-- ex
+- e.g.
   - bank statements become immutable after the month and any adjustments are added on to a new statement which makes transactions so much easier
 
 ## Databases
@@ -125,7 +125,7 @@
   - there are just too many edge cases
   - sometimes you need to bail out to human intervention to handle the things that in the real world happen, but in theory can haver happen
     - application code can also handle these cases
-  - ex: what if a node loses all of the data it owns? (i.e. anmesia)
+  - e.g. what if a node loses all of the data it owns? (i.e. anmesia)
 - the whole point of these properties is that they provide grounds for reasoning about a complicated system/algorithm
 
 ### Safety
@@ -135,6 +135,15 @@
 ### Liveness
 
 - this is a guarantee that something good will eventually happen
+
+## Communication channels
+
+- it is possible for data to propogate faster on one channel than another
+- this is very reasonable for the plethora of ways a network can fail or degrade
+- e.g. a service writes a value to an eventually consistent database and publishes a message to a message queue
+  - it is possible that some service on the receiving end of the message queue will receive the message before the replica it queries to get the value has the most recent write
+- in short, you can't guarantee that data will be consistent by the time a message is received on the receiving end of one of these channels
+- you need to provide some guarantee like linearizability to make this work
 
 ## Misc
 

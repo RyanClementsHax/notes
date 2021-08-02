@@ -30,9 +30,16 @@
 - leader-follower
   - really good for low write and high read scenarios
   - this runs into problems when the followers are dispersed geographically because it essentially necessitates async replication
+  - this doesn't handle fault tolerance very well
+  - this is potentially linearizable
+    - it depends on the system being able to know who the leader is
+    - failover may ruin linearizability if some data is lost in failover
 - leaderless
   - really good for scale
   - provides weaker consistency guarantees
+  - probably linearizable
+    - race conditions still possible even with quorums even though some people say that a dynamo style db can be
+    - it is safe to assume that this isn't linearizable
 - multileader
   - avoids single point of failure as in leader-follower topology
   - extra overlead with syncing leaders
@@ -49,3 +56,8 @@
 
 - a sloppy quorum is a tradeoff
   - this is when the write is committed even though quorum couldn't be reached
+
+## Leader electon
+
+- can use a lock of sorts, but it must be linearizable
+- services like zookeeper and etcd can provide this

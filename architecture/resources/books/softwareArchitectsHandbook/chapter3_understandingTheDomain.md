@@ -13,7 +13,7 @@
   - defined by their attributes
 - aggregates
   - groupings of entities and value objects that are treated as a single unit
-  - ex: a course object that contains lesson plans and a professor
+  - e.g. a course object that contains lesson plans and a professor
 - subdomains
   - a partition of the entire domain
   - the subdomains that are fundamental to an organization are called core domains
