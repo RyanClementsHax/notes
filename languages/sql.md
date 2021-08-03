@@ -1,7 +1,9 @@
 # SQL
 
 ## `@@Identity`
+
 - returns the most recently generated identity value
+
     ```sql
     select max(id) as MaxUsedIdentity
     from EmployeeData
@@ -19,6 +21,7 @@
     ```
 
 ## `sys.databases`
+
 - contains information about all the databases on the server
 - can be querried like any other table
 
@@ -30,7 +33,7 @@
 ## Idempotent Scripts
 
 - Can be useful if a script needed to be able to be run more than once but only have a single effect
-- Many ways to do this but here is one of the easiest 
+- Many ways to do this but here is one of the easiest
 
     ```sql
     IF NOT EXISTS (SELECT 1 FROM SOME_TABLE WHERE ID = 123)
@@ -43,18 +46,23 @@
 
     END
     ```
-- If you are in a highly concurrent env where this needs to happen in a transaction, Microsoft has a good article on this: https://devblogs.microsoft.com/azure-sql/the-insert-if-not-exists-challenge-a-solution/
+
+- If you are in a highly concurrent env where this needs to happen in a transaction, Microsoft has a good article on this: <https://devblogs.microsoft.com/azure-sql/the-insert-if-not-exists-challenge-a-solution/>
 
 ## Strings
 
 ### Escape char
+
 - `'`, its a single quote
+
     ```sql
     '''hello''' -- 'hello'
     ```
 
 ## case statement
+
 - can be used to conditionally return something in a select clause
+
 ```sql
 select OrderID, Quantity,
 case
@@ -66,7 +74,9 @@ from OrderDetails;
 ```
 
 ## Table variables
+
 - there isn't a way in sql to declare an array so you have to use a table
+
 ```sql
 declare  @tab table(FirstName  varchar(100))
 insert into @tab   values('John'),('Sarah'),('George')
@@ -77,4 +87,5 @@ where 'John' in (FirstName)
 ```
 
 ## Parameters
+
 - using this in queries alleviates some of the concerns with sql injection because now you aren't doing string concatenation to construct the query

@@ -36,6 +36,11 @@
 - supported out of the box
 - please use vue 3 with typescript if you can
 
+## Vetur
+
+- vetur seems to need setup functions always return something, else it breaks template interpolation
+  - if your setup function doesnt return anything, just add `return {}` to the end of the setup function to make vetur happy
+
 ### `reactive`
 
 - this hook takes an object and makes all of its fields reactive

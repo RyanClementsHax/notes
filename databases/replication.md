@@ -8,11 +8,12 @@
 
 ## Replication stategies
 
-- sending the queries to replicas for them to perform on their own will run into problems if the query uses non-deterministic features like getting the current time or if the query order matters
+- statement based replication: sending the queries to replicas for them to perform on their own will run into problems if the query uses non-deterministic features like getting the current time or if the query order matters
   - you can mitigate this by precomputing those non-deterministic functions, but you run into edge cases quickly
   - you could also not allow this for queries that use them and fallback to other strategies
-- another solution is to send the products of the queries to the replicas, but this can run into problems if the write was particularly large or if the nodes are on different versions (and thus implement serialization differently)
-- row based replication tends to work the best because it is a logical way to represent the data which allows for version mismatches and avoids managing non-determinism
+  - any queries that have limit without order by statements are a bad idea because this introduced nondeterminism when run on multiple nodes since the memory layout is different for each
+- binary (?) replication: another solution is to send the products of the queries to the replicas, but this can run into problems if the write was particularly large or if the nodes are on different versions (and thus implement serialization differently)
+- row based replication: tends to work the best because it is a logical way to represent the data which allows for version mismatches and avoids managing non-determinism
 
 ## Application level replication
 

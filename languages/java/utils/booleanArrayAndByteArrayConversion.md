@@ -1,6 +1,7 @@
 # Boolean Array And Byte Array Conversion
 
 ## Boolean array to byte array
+
 ```java
 public byte[] toByteArray(boolean[] bitField) {
     int dataLength = bitField.length % 8 == 0
@@ -22,6 +23,7 @@ public byte[] toByteArray(boolean[] bitField) {
 ```
 
 ## Byte array to boolean array
+
 ```java
 public boolean[] toBooleanArray(byte[] data) {
     boolean[] bitField = new boolean[bitFieldLength];
