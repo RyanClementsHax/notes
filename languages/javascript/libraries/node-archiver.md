@@ -1,8 +1,10 @@
 # Node Archiver
 
 ## Errors
+
 - if an error happens in the archive (e.g. `archive.on('error', () => {})`) it won't end the archiving process (e.g. `archive.finalize()` resolves without problem)
   - to fix this, you can use this helper function
+
     ```ts
     // pass in an archive you are creating
     function finalizeArchiveSafely(archive: Archiver): Promise<void> {
