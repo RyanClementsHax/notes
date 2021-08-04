@@ -91,3 +91,7 @@
     ```
 
   - this solution can also be easily extended to handle excluding certain values from initialization via attributes
+
+## Custom deserialization
+
+- customizing how values are deserialized from configuration values [isn't currently supported](https://github.com/dotnet/runtime/issues/36540)
