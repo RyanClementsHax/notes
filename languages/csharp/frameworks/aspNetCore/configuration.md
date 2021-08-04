@@ -95,3 +95,7 @@
 ## Custom deserialization
 
 - customizing how values are deserialized from configuration values [isn't currently supported](https://github.com/dotnet/runtime/issues/36540)
+
+## [Argument 2: cannot convert from 'Microsoft.Extensions.Configuration.IConfigurationSection' to 'System.Action'](https://github.com/dotnet/AspNetCore.Docs/issues/18833)
+
+- TLDR: include the package `Microsoft.Extensions.Options.ConfigurationExtensions`

@@ -30,6 +30,9 @@
 ### Order
 
 - you can't always trust that events will be received in order due to the nature of distributed systems
+- in data warehouses, the nondeterministic order of these events is called SCD (Slowly Changing Dimension)
+  - could alleviate by introducing a unique identifier for each verion of a record
+  - this prevents you from using log compaction however
 
 ### Windowing
 
@@ -63,3 +66,11 @@
     - this adds load on the db which may not be wanted
     - can have cache to reduce load
     - can solve with change data capture, but now you're doing stream - stream
+
+### Microbatching
+
+- batch jobs provide exactly once semantics, but streams can't do this because there aren't any batches
+- microbatching is a tradeoff
+- this is where streams are implicitly divided into very small tumbling windows to provide exactly once semantics
+- if output leaves stream processor (e.g. email sent) there is no way to undo that, and you lose ability to restart failed tasks
+  - need atomic commit in order to get this working

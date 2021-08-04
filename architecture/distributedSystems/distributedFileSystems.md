@@ -38,6 +38,8 @@
     - all messages passed in one iteration will be delivered in the next iteration
     - writing the state to durable storage between stages helps with fault tolerance
     - messages can saturate the network though
+- the fault tolerant nature of this (i.e. you can rerun any task and produce the same output) creates exactly once semantics
+  - i.e. the output appears as if the job was run once
 
 ### Uses
 
