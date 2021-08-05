@@ -21,10 +21,9 @@
 - great for config validation
 - [OPA](https://www.openpolicyagent.org/docs/latest/ecosystem/) (Open Policy Agent)
 
-## Anti-fragile architecture
+## [Anti-fragile architecture](https://www.se-radio.net/2020/01/episode-396-barry-oreilly-on-antifragile-architecture/)
 
-- [ref](https://www.se-radio.net/2020/01/episode-396-barry-oreilly-on-antifragile-architecture/)
-  - the show notes have lots of good resources in them
+- the show notes have lots of good resources in them
 - the quality of a system is tied to its ability to withstand complexity not how well it adheres to a spec
 - complexity exists outside of code
 - how we can deal with complexity
@@ -52,10 +51,6 @@
 - its ok not to know everything
   - complex systems are exactly that and no experienced group of people can predict anything no matter how experienced they are
 - everyone has a different viewpoint on complexity and what is considered complex
-
-## Messaging
-
-- giving consumers leases for messages they consume allows for the message not to be lost and to quickly be consumed by some other consumer if that consumer goes down
 
 ## Job cancellation
 
@@ -144,6 +139,12 @@
   - it is possible that some service on the receiving end of the message queue will receive the message before the replica it queries to get the value has the most recent write
 - in short, you can't guarantee that data will be consistent by the time a message is received on the receiving end of one of these channels
 - you need to provide some guarantee like linearizability to make this work
+
+## Idempotence
+
+- a very good property to have as it improve fault tolerance
+- it does rely on the system to preserve order, be deterministic, and no other node can update thee same value
+- can create exactly once semantics using this
 
 ## Misc
 

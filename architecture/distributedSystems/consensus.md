@@ -59,3 +59,7 @@
 - these allow for exactly once message delivery guarantees
   - this does require the same protocol to be used in all parties
 - distributed consensus uses two rounds of voting and quorums to ensure consensus
+- this is very similar to derived data
+  - transactions provide linearizability though
+  - derived data is async whereas transaction provide synchronicity
+  - derived data is a better approach with not great support for distributed transaction protocols like XA

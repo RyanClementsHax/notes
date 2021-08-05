@@ -74,3 +74,12 @@
 - this is where streams are implicitly divided into very small tumbling windows to provide exactly once semantics
 - if output leaves stream processor (e.g. email sent) there is no way to undo that, and you lose ability to restart failed tasks
   - need atomic commit in order to get this working
+
+## Recovering from failure
+
+- could keep operator state on the local machine
+  - this is quick and easily accessed
+  - not very durable
+- could use db
+  - but this is slower since it needs a network call
+- remote vs local storage tradeoffs can change depending on needs and development in this area

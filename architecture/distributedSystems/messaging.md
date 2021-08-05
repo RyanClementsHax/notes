@@ -1,5 +1,7 @@
 # Messaging
 
+- giving consumers leases for messages they consume allows for the message not to be lost and to quickly be consumed by some other consumer if that consumer goes down
+
 ## Prefetch
 
 - messaging libraries like RabbitMQ have a prefetch option that will configure how many messages it grabs
