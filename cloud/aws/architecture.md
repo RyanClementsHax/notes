@@ -95,6 +95,7 @@
 - like rabbitmq
 - pull service
 - created at the region level
+- [here is a way to mock it out with a docker container](https://github.com/p4tin/goaws)
 
 ## Debugging
 
