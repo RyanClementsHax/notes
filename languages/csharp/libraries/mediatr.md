@@ -115,3 +115,4 @@
 
 - [ref](https://timdeschryver.dev/blog/creating-a-new-csharp-api-validate-incoming-requests)
 - [ref](https://stackoverflow.com/questions/54104138/mediatr-fluent-validation-response-from-pipeline-behavior)
+- instead of rolling your own solution, instead use [Hellang.Middleware.ProblemDetails](https://github.com/khellang/Middleware)
