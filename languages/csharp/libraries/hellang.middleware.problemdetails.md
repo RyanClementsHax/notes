@@ -38,23 +38,16 @@ public void Configure(IApplicationBuilder app)
 - first create an extension for the middleware that maps the exception to produce a validation problem details
 
     ```cs
-    public static class ProblemDetailsExtensions
-    {
-        public static void MapFluentValidationExceptions(this ProblemDetailsOptions options) =>
-            options.Map<ValidationException>((ctx, ex) =>
-            {
-                var factory = ctx.RequestServices.GetRequiredService<ProblemDetailsFactory>();
-
-                var errors = ex.Errors
-                    .GroupBy(x => x.PropertyName)
-                    .ToDictionary(
-                        x => x.Key,
-                        x => x.Select(x => x.ErrorMessage).ToArray()
-                    );
-
-                return factory.CreateValidationProblemDetails(ctx, errors);
-            });
-    }
+    public static void MapFluentValidationExceptions(this ProblemDetailsOptions options) =>
+        options.Map<ValidationException>((ctx, ex) => ctx.RequestServices
+            .GetRequiredService<ProblemDetailsFactory>()
+            .CreateValidationProblemDetails(ctx, ex.Errors
+                .GroupBy(x => x.PropertyName)
+                .ToDictionary(
+                    x => x.Key,
+                    x => x.Select(x => x.ErrorMessage).ToArray()
+                )
+            ));
     ```
 
 - then use it when configuring the middleware
@@ -64,4 +57,18 @@ public void Configure(IApplicationBuilder app)
     {
         options.MapFluentValidationExceptions();
     })
+    ```
+
+## Other examples
+
+- here is an example mapping a json patch exception
+
+    ```cs
+    public static void MapJsonPatchExceptions(this ProblemDetailsOptions options) =>
+        options.Map<JsonPatchException>((ctx, ex) => ctx.RequestServices
+            .GetRequiredService<ProblemDetailsFactory>()
+            .CreateValidationProblemDetails(ctx, new Dictionary<string, string[]>
+            {
+                ["Path"] = new[] { ex.Message }
+            }));
     ```

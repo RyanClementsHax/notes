@@ -158,3 +158,51 @@ public static string GetHomePath() =>
 ```cs
 return Interlocked.Increment(ref COUNTER);
 ```
+
+## Http client extensions
+
+- the default http client extensions that handle serialization and such don't come with post, patch, or delete functions (why???)
+- here are some helper functions for this
+- they're designed to match up as close as possible to the way the other http client extension methods were written
+
+```cs
+using Microsoft.AspNetCore.JsonPatch;
+using Newtonsoft.Json;
+using System.Net.Http;
+using System.Net.Http.Formatting;
+using System.Net.Http.Json;
+using System.Text;
+using System.Text.Json;
+using System.Threading;
+using System.Threading.Tasks;
+
+public static class HttpClientExtensions
+{
+    public static async Task<TResp> PostAsJsonAsync<TValue, TResp>(this HttpClient client, string requestUri, TValue value, JsonSerializerOptions options = null, CancellationToken cancellationToken = default)
+    {
+        var resp = await client.PostAsJsonAsync(requestUri, value, options, cancellationToken);
+        return await resp.Content.ReadAsAsync<TResp>(cancellationToken);
+    }
+
+    public static async Task<TResp> PatchAsJsonAsync<TValue, TResp>(this HttpClient client, string requestUri, TValue value, JsonSerializerSettings settings = null, CancellationToken cancellationToken = default)
+    {
+        var str = JsonConvert.SerializeObject(value, settings);
+        var content = new StringContent(str, Encoding.UTF8, "application/json-patch+json");
+        var resp = await client.PatchAsync(requestUri, content, cancellationToken);
+        return await resp.Content.ReadAsAsync<TResp>(cancellationToken);
+    }
+
+    public static async Task<HttpResponseMessage> PatchAsJsonAsync<T>(this HttpClient client, string requestUri, T value, MediaTypeFormatter formatter = null, CancellationToken cancellationToken = default)
+    {
+        var content = new ObjectContent<T>(value, formatter ?? new JsonMediaTypeFormatter());
+        return await client.PatchAsync(requestUri, content, cancellationToken);
+    }
+
+    public static async Task<TResp> DeleteAsync<TResp>(this HttpClient client, string requestUri, CancellationToken cancellationToken = default)
+    {
+        var resp = await client.DeleteAsync(requestUri, cancellationToken);
+        return await resp.Content.ReadAsAsync<TResp>(cancellationToken);
+    }
+}
+```
+  
