@@ -3,14 +3,17 @@
 ## S3
 
 ### [s3.getObject(params).createReadStream() timeouts](https://github.com/aws/aws-sdk-js/issues/2087)
+
 - TLDR: if no traffic goes over the connection, it timesout
 - Fix: don't open your streams until you need them (i.e. lazy load them)
 
 ### Zip file creation
+
 - using this sdk, we can stream files from s3, into [archiver](https://github.com/archiverjs/node-archiver), and back into s3 without causing any data to hit disk or accumulate in memory
   - it should be noted that zipping directly to the user's browser would probably be a better solution because it doesn't run into any problems with what to do with the zip file in s3 (e.g. how long do you keep it for? how do you deal with the double download transfer costs?)
 - [this](https://github.com/miratronix/s3-readable-stream) seems to be one attempt at simplifying streams to s3, but idk if it works
 - [this](https://gist.github.com/amiantos/16bacc9ed742c91151fcf1a41012445e) is a working example implemented for in lambda
+
     ```js
     // Lambda S3 Zipper
     // http://amiantos.net/zip-multiple-files-on-aws-s3/
@@ -121,10 +124,12 @@
         });
     };
     ```
-    - this implementation doesn't quite handle errors well though
-      - you will get uncaught promise rejections or uncaught error issues if something fails like if an s3 object its trying to zip doesn't exist
-    - when maxed out on hardware, it does ~1Gig/min
+
+  - this implementation doesn't quite handle errors well though
+    - you will get uncaught promise rejections or uncaught error issues if something fails like if an s3 object its trying to zip doesn't exist
+  - when maxed out on hardware, it does ~1Gig/min
 - [here](https://gist.github.com/amiantos/16bacc9ed742c91151fcf1a41012445e#gistcomment-3804034) is a couple of snippets from a more robust implementation (much omitted do to it being proprietary)
+
     ```ts
     // handler.ts
     import { S3Client } from '@aws-sdk/client-s3'
@@ -186,6 +191,7 @@
         }
     }
     ```
+
     ```ts
     // s3Service.ts
     import { PassThrough } from 'stream'

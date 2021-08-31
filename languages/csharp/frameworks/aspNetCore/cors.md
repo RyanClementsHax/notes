@@ -5,7 +5,8 @@
   - attribute
   - endpoint routing
 
-# Configuring CORS
+## Configuring CORS
+
 ```cs
 services
     .AddCors(options =>
@@ -20,6 +21,7 @@ services
             });
     })
 ```
+
 ```cs
 app
     .UseRouting()

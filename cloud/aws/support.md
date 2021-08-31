@@ -1,4 +1,5 @@
 # Support
+
 - different plans
   - basic (free with any account)
   - developer: $29/mo
@@ -51,6 +52,7 @@
     - critical functions of your application aren't available
 
 ## AWS Trusted Advisor
+
 - all accounts have access to this
 - helps with
   - cost optimization
@@ -73,17 +75,20 @@
 - business and enterprise support customers get accss to all 115 checks
 
 ## AWS Service Health Dashboard
+
 - displays general status of aws services
 - can set up alerts, cloud watch events
 - scheduled changes
 
 ## AWS Personal Health Dashboard
+
 - like service health dashboard, but only contains the services that you would be affected by
 - provides alerts and remediate guidance when aws is experiencing events that may impact you
 - a personalized view of the health of AWS services, and alerts when your resources are impacted
 - all accounts have access to this
 
 ## Handling compromised accounts
+
 - change your AWS root account password
 - change all IAM users' passwords
 - delete or rotate all programmatic api access keys
@@ -91,6 +96,7 @@
 - respond to any notifications you received from aws through the aws support center and/or contact aws support to open a support case
 
 ## IEM (Infrastructure Event Management)
+
 - service to help prepare enterprise support customers (and business support customers for an additional fee) plan for large-scale events
 - such as
   - application launches
@@ -100,6 +106,7 @@
 - real-time support during the important moments
 
 ## APN Consulting Partners
+
 - professional services firms that help customers design, architect, build, migrate, and manage their workloads and applications on aws
 - include
   - system integrators
@@ -109,6 +116,7 @@
   - value-added resellers
 
 ## APN Technology Partners
+
 - software solutions that are either hosted on, or integrated with aws
 - include
   - ISVs (Independent Software Vendors)
@@ -118,9 +126,11 @@
   - management and security vendors
 
 ## AWS Support Concierge Service
+
 - assists customers with accounts and billing inquiries
 
 ## AWS Abuse Team
+
 - assists when aws resourcees are being used to engage in
   - span
   - port scanning
@@ -132,11 +142,13 @@
 - not customer support (that is different)
 
 ## AWS Operations Support
+
 - enterprise support program
 - provides operations assessments and analysis to identify gaps across the operations lifecycle
 - also gives recommendations based on best practices
 
 ## Migration Acceleration Program
+
 - designed to help enterprises that are committed to a migration journey achieve a range of business benefits by migrating existing workloads to aws
 - provide
   - consulting support
@@ -151,6 +163,7 @@
   - progessional services team
 
 ## Migration services
+
 - cloud endure migration
   - simplifies the process of migrating applications from physical, virtual, and cloud-based infra
   - ensures that they are fully operational in any aws region without compatibility issues

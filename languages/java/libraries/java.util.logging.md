@@ -1,6 +1,7 @@
 # java.util.logging
 
 ## Log to file with formatting
+
 ```java
 Logger logger = Logger.getLogger("logger name");
 logger.setUseParentHandlers(false);

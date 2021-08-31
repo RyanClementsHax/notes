@@ -1,9 +1,11 @@
 # REST
 
 ## Problem details
+
 - [Problem details](https://lakitna.medium.com/understanding-problem-json-adf68e5cf1f8) is a standard for returning details of an error
 
 ## Bulk operations
+
 - you may be tempted to implement a bulk operation for an api, but there are some considerations
 - rest, philosphically, operates on single resources and each endpoint returns an individual status code
   - bulking will break this

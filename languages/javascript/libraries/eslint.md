@@ -3,6 +3,7 @@
 - `--debug` is a handy flag for figuring out what eslint is doing
 
 ## [forbid-unneccessary-backticks](https://github.com/prettier/eslint-config-prettier#forbid-unnecessary-backticks)
+
 ```json
 {
     // ...
@@ -20,7 +21,9 @@
 ```
 
 ## Typescript integration
+
 - this is an example `.eslintrc` that integrates with typescript and prettier
+
     ```json
     {
         "root": true,
@@ -54,12 +57,14 @@
         }
     }
     ```
-    - the `tsconfig` used for linting needs to include all of the files needed for linting
-      - not doing this will cause errors in linting
-    - if need be, you can create a separate `tsconfig.eslint.json` that extends the one you already have for your project
-        ```json
-        {
-            "extends": "./tsconfig.json",
-            "include": ["src", "*.js", "*.json"]
-        }
-        ```
+
+  - the `tsconfig` used for linting needs to include all of the files needed for linting
+    - not doing this will cause errors in linting
+  - if need be, you can create a separate `tsconfig.eslint.json` that extends the one you already have for your project
+
+    ```json
+    {
+        "extends": "./tsconfig.json",
+        "include": ["src", "*.js", "*.json"]
+    }
+    ```

@@ -1,6 +1,7 @@
 # Git Ops
 
 ## Benefits
+
 - you always know what is in production
 - great for auditing
 - can recreate anything from scratch if it fails

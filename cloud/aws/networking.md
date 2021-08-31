@@ -1,6 +1,7 @@
 # Networking
 
 ## VPC (Virtual Private Cloud)
+
 - does not span over region
 - default vpc created when account created
 - spans all availability zones in the region
@@ -36,6 +37,7 @@
     - elastic network interface with a private ip address from the ip address range of your subnet
 
 ## IGWs (Internet Gateways)
+
 - allow instances in VPC to communicate with internet
 - highly available
 - no bandwidth constraints
@@ -46,6 +48,7 @@
   - so even though the routing tables will still point to the IGW, there won't be any internet access because it is detached
 
 ## Networking security
+
 - NACL (Network Access Control List)
   - associate with subnets
   - firewall on the subnet level
@@ -60,6 +63,7 @@
   - firewall on the instance/serve level
 
 ## Other services
+
 - direct connect
   - ability to connect on-prem servers into the VPC via a VPN
   - without going over the internet

@@ -1,13 +1,17 @@
 # Mediatr
 
 ## Validating requests in the pipeline
+
 - [MediatR.Extensions.FluentValidation.AspNetCore](https://github.com/GetoXs/MediatR.Extensions.FluentValidation.AspNetCore) will automatically hook up a pipeline behavior for you
+
     ```cs
     // Startup.cs
     services
         .AddFluentValidation(new[] { typeof(Startup).Assembly });
     ```
+
 - if you use this library, your feature code can look like this
+
     ```cs
     public static class Create
     {
@@ -46,8 +50,10 @@
         }
     }
     ```
+
 - this by default returns 500's on validation errors unless caught by other behaviors or middleware in the request pipeline
 - the following is an example of using middleware to handle these validation exceptions
+
     ```cs
     // Startup.cs
     app
@@ -55,6 +61,7 @@
         .UseExceptionHandlerMiddleware()
         // ...
     ```
+
     ```cs
     public static class ExceptionHandlerMiddleware
     {
@@ -105,5 +112,7 @@
                 }));
     }
     ```
+
 - [ref](https://timdeschryver.dev/blog/creating-a-new-csharp-api-validate-incoming-requests)
 - [ref](https://stackoverflow.com/questions/54104138/mediatr-fluent-validation-response-from-pipeline-behavior)
+- instead of rolling your own solution, instead use [Hellang.Middleware.ProblemDetails](https://github.com/khellang/Middleware)

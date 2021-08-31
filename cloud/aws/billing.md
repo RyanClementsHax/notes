@@ -11,6 +11,7 @@
   - granular billing data like CUR but with different permutations on the data
 
 ## Organizations
+
 - allow you to manage billing and access to multiple aws accounts
 - root account is a logical entity or parent contianer for all accounts and organization units within an organization
   - automatically created along with the aws organization
@@ -32,6 +33,7 @@
 - can manage control to multiple aws services
 
 ## Pricing model
+
 - pay as you go
 - charges stop when you stop using that service
   - except for reserved instances and things like that
@@ -96,20 +98,24 @@
     - 'on-demand capacity reservations' that customers can allocate to their needs
 
 ## TCO (Total Cost of Ownership) Calculator
+
 - free tool for calculating cost and comparing with other options
 
 ## AWS Simple Calculator
+
 - being replaced by AWS Pricing Calculator
 - estimates cost based on a scenario
 - can provide a per-service breakdown of cost
 - can help identify most costly scenarios
 
 ## Cost Explorer
+
 - free tool that allows you to view charts of your costs
 - forecasts what you will use over the next 13mo including the current month
 - identifies areas that need further inquiry
 
 ## AWS Budgets
+
 - give the user the status of user-set budgets and provide forecasts of estimated costs
 - does not give graphical representation of data
 - uses cost explorer to show the breakdown of your budget and forecast estimated costs
@@ -119,5 +125,6 @@
   - after that it is $0.02 per budget per day after that
 
 ## AWS Reports
+
 - gives a composite view of costs and usage
 - gives a granular perspective of usage and billing without usage-based forecasts

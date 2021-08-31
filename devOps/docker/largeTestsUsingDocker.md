@@ -7,6 +7,7 @@
   - these have more complex examples and go more into depth
 
 1. setup a docker file that runs your tests like this
+
     ```dockerfile
     FROM mcr.microsoft.com/dotnet/sdk:5.0
 
@@ -20,8 +21,10 @@
     WORKDIR /src/My.Api.IntegrationTests/
     RUN dotnet build --no-restore
     ```
+
       - this copies the `.sln` and `.csproj` files before the build to take advantage of docker layer caching
 2. create your docker compose file with env variable overrides to point to the service running in docker compose
+
     ```yml
     services:
       db:
@@ -41,12 +44,15 @@
         environment:
           ConnectionString: "some connection string that references the db used in docker compose"
     ```
+
     - consider using [wait_for_it.sh](https://github.com/vishnubob/wait-for-it)
     - it is a handy script that waits for the port to open before running the tests, can be replaced for other methods of waiting
 3. `docker-compose up`
-  - yeah, its that simple
+
+- yeah, its that simple
 
 - this script is really handy for monitoring the progress of your tests for CI
+
     ```bash
     # author: https://blog.harrison.dev/2016/06/19/integration-testing-with-docker-compose.html
     RED='\033[0;31m'

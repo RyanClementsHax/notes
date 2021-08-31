@@ -1,8 +1,10 @@
 # Testing Entity Framework
 
 ## SQLite issues
+
 - put this in the context class to avoid errors with the date format for `SQLite`
-    - `SQLite` is handy when you want to use it for in memory unit testing
+  - `SQLite` is handy when you want to use it for in memory unit testing
+
     ```cs
     if (Database.ProviderName == "Microsoft.EntityFrameworkCore.Sqlite")
     {
@@ -11,7 +13,9 @@
             .HasConversion(new DateTimeOffsetToBinaryConverter());
     }
     ```
+
     or more generically
+
     ```cs
     if (Database.ProviderName == "Microsoft.EntityFrameworkCore.Sqlite")
     {

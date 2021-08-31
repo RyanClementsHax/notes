@@ -1,7 +1,9 @@
 # LINQ
 
 ## Async lambdas
+
 - doesn't work out of the box with linq, but [you can write wrappers](https://stackoverflow.com/questions/36445257/linq-and-async-lambdas)
+
     ```cs
     public static class AsyncExtensions
     {
@@ -31,7 +33,9 @@
     ```
 
 ## Permuting values
+
 - [ref](https://stackoverflow.com/questions/3575925/linq-to-return-all-pairs-of-elements-from-two-lists)
+
 ```cs
 public static IEnumerable<IEnumerable<T>> CartesianProduct<T>(this IEnumerable<IEnumerable<T>> sequences)
 {

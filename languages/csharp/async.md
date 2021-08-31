@@ -1,6 +1,7 @@
 # Async
 
 ## Best practices
+
 - [AsyncGuidance.md](https://github.com/davidfowl/AspNetCoreDiagnosticScenarios/blob/master/AsyncGuidance.md) by David Fowl
 - Asynchrony is viral
   - if you use `async`/`await`, use it in the entire call stack
@@ -40,33 +41,51 @@
   - exceptions thrown will be automatically wrapped in the returned task instead of surprising the call with an actual exception
 
 ## `Task.WaitAll`
+
 - give it an `IEnumerable<Task>` and it will block until all of the tasks complete
 
 ## `Task.WhenAll`
+
 - the async version of `Task.WaitAll`
 
+## `Task.Run`
+
+- avoid using this without cancellation tokens because otherwise you will have runaway threads
+- use this to call cpu bound tasks
+- avoid using in cpu bound method to create "fake" asyncronicity
+  - let the caller decide how to mitigate this
+  - doing so communicates that the method is "inherently" asynchronous and will lead to confusion when the thread pool is starved
+
 ## `Channel`
+
 - acts as an async concurrent message queue
 - creating one
+
     ```cs
     // unbounded
     var unboundedChannel = Channel.CreateUnbounded<string>();
     // bounded to 5 items
     var boundedChannel = Channel.CreateBounded<string>(capacity: 5);
     ```
+
 - bounded channels will suspend the producers if the channel is at capacity until capacity opens
 - reading
+
     ```cs
     var msg = await channel.Reader.ReadAsync().AsTask()
     ```
+
 - writing
+
     ```cs
     await channel.Writer.WriteAsync(msg).AsTask();
     ```
 
 ## [Processing tasks as they complete](https://devblogs.microsoft.com/pfxteam/processing-tasks-as-they-complete/)
+
 - [doing this performantly](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/start-multiple-async-tasks-and-process-them-as-they-complete)
 - doing this performantly and nicely
+
   ```cs
   public static class TaskExt
   {

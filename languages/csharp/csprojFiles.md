@@ -1,6 +1,7 @@
 # .csproj Files
 
 ## Including a file into the build that isn't code
+
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
 

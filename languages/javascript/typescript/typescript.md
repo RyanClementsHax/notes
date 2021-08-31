@@ -39,6 +39,7 @@
 - always named in error messages
 - can only be used to declare the names of an object, not rename primitives
 - typescript recommends to use interfaces until you need types
+- these compile faster than types
 
 ## Type assertions
 - used **only** for static type checking purposes
@@ -112,6 +113,10 @@ interface Circle {
 type ColorfulCircle = Colorful & Circle;
 ```
 - this merges the `Circle` and `Colorful` interfaces into one type alias
+
+## [Extract](https://www.typescriptlang.org/docs/handbook/utility-types.html#extracttype-union)
+- constructs a type by extracting from `Type` all union members that are assignable to `Union`
+- useful for expressing a type as a subset of a union
 
 ## [Wiki](https://github.com/microsoft/TypeScript/wiki)
 - [Performance](https://github.com/microsoft/TypeScript/wiki/Performance)

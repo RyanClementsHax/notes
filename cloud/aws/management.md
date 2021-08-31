@@ -1,6 +1,7 @@
 # Management
 
 ## Workflow services
+
 - quick start
   - ability to use templates for AWS architecture like bash-in-host
   - automates deployments aligned with best practice
@@ -16,6 +17,7 @@
   - can be multi-tiered application architectures
 
 ## Management services
+
 - license manager
   - differentiating, maintaining third-party software provisioning vendor licenses
   - decreases the risk of license expiry and the penalties
@@ -50,6 +52,7 @@
   - supports hierarchies
 
 ## Other services
+
 - cloud9
   - web based ide
   - serverless
