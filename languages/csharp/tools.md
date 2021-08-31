@@ -150,3 +150,11 @@ public static string GetHomePath() =>
 
 - this will get the home path when running on windows, mac, or linux
 - `%HOMEDRIVE%%HOMEPATH%` [won't work on older windows systems](https://stackoverflow.com/questions/39573548/cant-expand-environment-variables-with-c-sharp-using-windows-7) so you will have to resort to something like `Environment.GetFolderPath(Environment.SpecialFolder.Desktop)`
+
+## [Thread safe counter](https://stackoverflow.com/a/13181780)
+
+- [does not work with properties](https://stackoverflow.com/questions/4518956/a-property-or-indexer-may-not-be-passed-as-an-out-or-ref-parameter) (i.e. `Interlocked.Increment(ref obj.Property)`)
+
+```cs
+return Interlocked.Increment(ref COUNTER);
+```

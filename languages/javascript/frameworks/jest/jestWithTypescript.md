@@ -23,8 +23,10 @@
 - here is a helper type for working with the `mockFn` function (the types they provide are verbose and hard to understand)
 
     ```ts
+    import { CalledWithMock } from 'jest-mock-extended'
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     // the "T &" is so that it can be casted to anything that requires the type of the function you are mocking
-    type MockFn<T extends (...args: any) => any> = T & CalledWithMock<ReturnType<T>, Parameters<T>>
+    export type MockFn<T extends (...args: any) => any> = T & CalledWithMock<ReturnType<T>, Parameters<T>>
     ```
 
 ### With ts-jest

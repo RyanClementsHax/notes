@@ -18,3 +18,4 @@
 - [Freelance React Developer Checklist](https://www.robinwieruch.de/freelance-react-developer?utm_campaign=Robin%20Wieruch%20-%20A%20Developer%27s%20Newsletter&utm_medium=email&utm_source=Revue%20newsletter)
 - [Before you memo](https://overreacted.io/before-you-memo/)
   - a list of things to do to avoid expensive renders before reaching for `useMemo`
+- [Authentication Patterns for Next.js](https://leerob.io/blog/nextjs-authentication)

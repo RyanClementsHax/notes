@@ -150,3 +150,7 @@
 ```
 
 - this section of the launch settings allows you to launch multiple launch configurations at once
+
+## [Variables](https://code.visualstudio.com/docs/editor/variables-reference)
+
+- can also take in [user input](https://code.visualstudio.com/docs/editor/variables-reference#_input-variables)

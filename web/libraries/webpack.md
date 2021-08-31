@@ -20,3 +20,8 @@
 ```js
 devtool: process.env.NODE_ENV === 'development' ? 'source-map' : undefined
 ```
+
+## ["Invalid Host Header"](https://stackoverflow.com/questions/43619644/i-am-getting-an-invalid-host-header-message-when-connecting-to-webpack-dev-ser)
+
+- this can happen when trying to use a reverse proxy locally
+- to fix, set `disableHostCheck: true` on the `devServer` config

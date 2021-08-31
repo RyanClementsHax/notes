@@ -97,3 +97,24 @@ public class MockYourDbContext : YourDbContext
     }
 }
 ```
+
+## Mocking Queryable
+
+- don't do this yourself
+- instead use something like [MockQueryable](https://github.com/romantitov/MockQueryable)
+
+## Using in memory db
+
+- this is not thread safe (i.e. if you run tests in parallel)
+- to ensure isolation, make sure each test [makes its own db](https://stackoverflow.com/questions/47335920/entity-framework-core-inmemory-database-tests-break-when-run-in-parallel)
+  - configured via the `databaseName` parameter
+
+    ```cs
+    new DbContextOptionsBuilder<MyDbContext>()
+        .UseInMemoryDatabase(databaseName: $"test-{Interlocked.Increment(ref dbIdCounter)}")
+        .Options;
+    ```
+
+- cannot migrate an in memory db because it isn't relational
+
+-

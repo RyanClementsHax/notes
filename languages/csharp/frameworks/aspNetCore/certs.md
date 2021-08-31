@@ -11,6 +11,23 @@ dotnet dev-certs https -t
 - [Unable to configure HTTPS endpoint. No server certificate was specified, and the default developer certificate could not be found](https://stackoverflow.com/questions/53300480/unable-to-configure-https-endpoint-no-server-certificate-was-specified-and-the)
   - this error means that the server couldn't find the certificate
   - either you didn't create one, or it cannot find one on the path given
+  - sometimes you just need to restart visual studio for it to pick up properly
+- [Example instructions](https://github.com/dotnet-labs/JwtAuthDemo/tree/master/webapi/https)
+
+    ```bash
+    dotnet dev-certs https -ep aspnetapp.pfx -p mypassword123
+    dotnet dev-certs https --trust
+    ```
+
+    ```ps1
+    # ps1
+    dotnet dev-certs https -ep $env:USERPROFILE\.aspnet\https\aspnetapp.pfx -p mypassword123
+    ```
+
+    ```cmd
+    REM cmd
+    dotnet dev-certs https -ep %USERPROFILE%\.aspnet\https\aspnetapp.pfx -p mypassword123
+    ```
 
 ## With docker
 

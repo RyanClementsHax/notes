@@ -26,6 +26,17 @@ services:
       context: .
 ```
 
+### Default networks
+
+- by default, the network created will be named after the folder you run the command from
+- to change this, do the following in the docker compose file
+
+```yml
+networks:
+  default:
+    name: my_custom_name
+```
+
 ## Force recreating the containers
 
 - add `--force-recreate` to `docker-compose up` to recreate the containers (using cache) instead of spinning up the last container made

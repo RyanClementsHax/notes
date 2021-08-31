@@ -85,3 +85,7 @@ const newRegex = new RegExp(
     .replace(/(^\/|\/$|\/([igm]+)$)/g, '')}`
 )
 ```
+
+## [Creating an array from 1 to n](https://stackoverflow.com/questions/3746725/how-to-create-an-array-containing-1-n)
+
+- there are [plenty](https://stackoverflow.com/a/33352604) of ways to do this
