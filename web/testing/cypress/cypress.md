@@ -89,6 +89,11 @@ DEBUG=cypress:* npx cypress run
   - wait on the network being idle if waiting on assets being downloaded
     - [this](https://github.com/cypress-io/cypress/issues/1773#issuecomment-813812612) is a pretty decent example
 
+## [Variables and aliases](https://docs.cypress.io/guides/core-concepts/variables-and-aliases)
+
+- goes over how to work with variables in cypress
+- because of the task queue nature of cypress commands, using variables the way you're used to will lead to confusing bugs
+
 ## Misc
 
 - it seems that on slower or overloaded dev machines, the cypress timeouts in the UI are sensitive to the window being visible

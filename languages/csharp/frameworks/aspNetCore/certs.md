@@ -50,3 +50,4 @@ dotnet dev-certs https -t
     ```
 
   - now kestrel should be happy
+- [here are the docs for setting up certs and dotnet with docker compose](https://docs.microsoft.com/en-us/aspnet/core/security/docker-compose-https?view=aspnetcore-5.0)
