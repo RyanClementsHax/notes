@@ -13,3 +13,9 @@
 - [External Login Providers in ASP.NET Core](https://www.blinkingcaret.com/2017/05/03/external-login-providers-in-asp-net-core/)
   - read this several times to understand how authn/z works under the hook with aspnet
   - also has good information on how external logins are managed
+- Andrew Lock authentication series
+  - [Introduction to Authentication with ASP.NET Core](https://andrewlock.net/introduction-to-authentication-with-asp-net-core/)
+  - [Exploring the cookie authentication middleware in ASP.NET Core](https://andrewlock.net/exploring-the-cookieauthenticationmiddleware-in-asp-net-core/)
+  - [A look behind the JWT bearer authentication middleware in ASP.NET Core](https://andrewlock.net/a-look-behind-the-jwt-bearer-authentication-middleware-in-asp-net-core/)
+- [Work with the application model in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/application-model?view=aspnetcore-5.0)
+- [Filters in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/filters)
