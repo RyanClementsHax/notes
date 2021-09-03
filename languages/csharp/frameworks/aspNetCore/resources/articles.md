@@ -1,11 +1,14 @@
 # Articles
 
 - [JWT Token Authentication with Cookies in ASP.NET Core](https://amanagrawal.blog/2017/09/18/jwt-token-authentication-with-cookies-in-asp-net-core/amp/)
+  - shows how to use jwts as the cookie ticket format
+  - [Github repo](https://github.com/explorer14/JwtAuthenticationHelper)
 - [ASP.NET Core 3.1 JWT Cookie Authentication](https://spin.atomicobject.com/2020/07/25/net-core-jwt-cookie-authentication/)
 - [JWT Auth in ASP.NET Core](https://codeburst.io/jwt-auth-in-asp-net-core-148fb72bed03)
   - [related repo](https://github.com/dotnet-labs/JwtAuthDemo)
 - [ASP.NET Core 5 — JWT Authentication Tutorial with Example API](https://medium.com/c-sharp-progarmming/asp-net-core-5-jwt-authentication-tutorial-with-example-api-aa59e80d02da)
 - [Why isn't my ASP.NET Core environment-specific configuration loading?](https://andrewlock.net/why-isnt-my-asp-net-core-environment-specific-configuration-loading/)
+  - good for understanding how env specific config is loaded
 - [Aspnet Core Identity](https://github.com/chsakell/aspnet-core-identity)
   - good series on explaining how aspnet core identity works
   - the repo doesn't work as of 9/21 due to cross site cookie issues
@@ -19,3 +22,6 @@
   - [A look behind the JWT bearer authentication middleware in ASP.NET Core](https://andrewlock.net/a-look-behind-the-jwt-bearer-authentication-middleware-in-asp-net-core/)
 - [Work with the application model in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/application-model?view=aspnetcore-5.0)
 - [Filters in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/filters)
+- [Use cookie authentication without ASP.NET Core Identity](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/cookie?view=aspnetcore-5.0#reacting-to-back-end-changes)
+  - good for understanding how to use events to hook into cookie events
+  - its even DI friendly

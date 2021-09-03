@@ -103,3 +103,9 @@
 - because attributes are instantiated when applied to their targets, there is no opportunity to pass in a DI context to their constructors
 - if you need DI in the attribute, use one of the special types provided (see link)
   - they have edge cases you need to consider though
+- you can also use a [filter factory](https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/filters?view=aspnetcore-5.0#ifilterfactory)
+  - this is the preferred way
+
+## [Using middleware in the filter pipeline](https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/filters?view=aspnetcore-5.0#using-middleware-in-the-filter-pipeline)
+
+- this will make the middleware a resource filter
