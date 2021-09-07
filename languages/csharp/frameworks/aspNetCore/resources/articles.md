@@ -25,3 +25,8 @@
 - [Use cookie authentication without ASP.NET Core Identity](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/cookie?view=aspnetcore-5.0#reacting-to-back-end-changes)
   - good for understanding how to use events to hook into cookie events
   - its even DI friendly
+- [Adding validation to strongly typed configuration objects in ASP.NET Core](https://andrewlock.net/adding-validation-to-strongly-typed-configuration-objects-in-asp-net-core/)
+  - only good for startup validation
+  - doesn't work for config reloading
+  - use [NetEscapades.Configuration.Validation](https://www.nuget.org/packages/NetEscapades.Configuration.Validation/) to handle this for you
+- [Exploring IStartupFilter in ASP.NET Core](https://andrewlock.net/exploring-istartupfilter-in-asp-net-core/)
