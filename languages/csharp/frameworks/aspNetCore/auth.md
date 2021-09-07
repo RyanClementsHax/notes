@@ -93,3 +93,12 @@ public class AuthenticationLogger
 - can even use it to help [build refresh token capabilities](https://try2explore.com/questions/10986609)
 - has a token system that you can hook into for things like password reset
   - [can even build your own token providers](https://andrewlock.net/implementing-custom-token-providers-for-passwordless-authentication-in-asp-net-core-identity/)
+
+## Handling expiration
+
+- handling cookie expiration
+  - instead of returning a 401, 403, or something of the like, you can [silently refresh](https://stackoverflow.com/questions/38890172/how-to-handle-cookie-expiration-in-asp-net-core)
+  - you can even use DI within these events by extending `CookieEvents` and setting that type on the cookie options
+- handling jwt expriation
+  - you can [silently refresh](https://stackoverflow.com/questions/52175302/handling-expired-refresh-tokens-in-asp-net-core) too
+  - like with cookie expriation, you can use DI in the events as well

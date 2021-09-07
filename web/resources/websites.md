@@ -21,6 +21,7 @@
 
 ## Blogs
 
-- [https://www.robinwieruch.de/](https://www.robinwieruch.de/)
+- [robinwieruch.de](https://www.robinwieruch.de/)
   - a really cool blog
   - worth emulating
+- [thewidlarzgroup.com](https://thewidlarzgroup.com/blog/)

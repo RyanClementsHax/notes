@@ -19,3 +19,4 @@
 - [Before you memo](https://overreacted.io/before-you-memo/)
   - a list of things to do to avoid expensive renders before reaching for `useMemo`
 - [Authentication Patterns for Next.js](https://leerob.io/blog/nextjs-authentication)
+- [NextJS SSR - JWT (Access/Refresh Token) Authentication with external Backend](https://thewidlarzgroup.com/nextjs-auth/)
