@@ -104,6 +104,8 @@ find . -type f -exec dos2unix {} \;
 find . -type f -exec unix2dos {} \;
 ```
 
+- [excluding a directory](https://stackoverflow.com/questions/4210042/how-to-exclude-a-directory-in-find-command)
+
 ## Print date
 
 ```bash
