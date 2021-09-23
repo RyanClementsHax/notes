@@ -1,6 +1,6 @@
 # Eslint
 
-- `--debug` is a handy flag for figuring out what eslint is doing
+- `--debug` is a handy flag for figuring out what eslint is doing [ref](https://github.com/eslint/eslint/issues/1101)
 
 ## [forbid-unneccessary-backticks](https://github.com/prettier/eslint-config-prettier#forbid-unnecessary-backticks)
 

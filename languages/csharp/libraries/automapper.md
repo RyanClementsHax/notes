@@ -20,3 +20,9 @@
 - by default, it will map collections for you
 - by default, null collections are mapped to empty collections
   - if you don't want this, [you need to set the option](https://stackoverflow.com/questions/35293356/automapper-returning-an-empty-collection-i-want-a-null/56241910#56241910)
+
+## With unit tests
+
+- don't mock automapper directly, instead use it like you would in actual code
+- even the creator says [mocking isn't necessary](https://github.com/AutoMapper/AutoMapper/issues/3175)
+- you may have to create a service provider, register all of the profiles like you do in your startup, then resolve `IMapper` but its worth it

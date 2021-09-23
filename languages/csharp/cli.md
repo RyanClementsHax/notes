@@ -3,6 +3,7 @@
 ## Installing the SDK
 
 - [there is a command line helper for installing this](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-install-script)
+  - [also found here](https://dotnet.microsoft.com/download/dotnet/scripts)
 - installing on ubuntu
 
     ```bash

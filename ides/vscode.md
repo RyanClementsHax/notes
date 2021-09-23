@@ -79,6 +79,61 @@
   }
   ```
 
+#### Compound tasks
+
+- there is no direct equivalent to compound launch configurations, but you can make a task that depends on multiple other tasks
+
+```json
+{
+    "label": "all the tasks!",
+    "type": "shell",
+    "command": "echo all ran!",
+    "dependsOn": [
+      "task1",
+      "task2",
+      "task3"
+    ],
+    "problemMatcher": []
+}
+```
+
+#### Task groups
+
+- tasks can be grouped into `build` or `test` tasks which will have special tooling in vscode
+
+```json
+  {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "build",
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+        "command": "dotnet",
+        "type": "process",
+        "args": ["build", "${workspaceFolder}/My.Api.sln"],
+        "problemMatcher": "$msCompile"
+      },
+      {
+        "label": "run unit tests",
+        "group": {
+          "kind": "test",
+          "isDefault": true
+        },
+        "command": "dotnet",
+        "type": "process",
+        "args": ["test"],
+        "problemMatcher": "$msCompile",
+        "options": {
+          "cwd": "${workspaceFolder}/My.Api.UnitTests"
+        }
+      }
+    ]
+  }
+```
+
 ## Launch configurations
 
 ### Dotnet
@@ -150,3 +205,7 @@
 ```
 
 - this section of the launch settings allows you to launch multiple launch configurations at once
+
+## [Variables](https://code.visualstudio.com/docs/editor/variables-reference)
+
+- can also take in [user input](https://code.visualstudio.com/docs/editor/variables-reference#_input-variables)

@@ -11,3 +11,4 @@
 - [fre](https://github.com/yisar/fre)
   - a VERY small implementation of a subset of React
   - good for learning
+- [beautiful-react-hooks](https://github.com/antonioru/beautiful-react-hooks)

@@ -17,7 +17,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env, AppDbCon
 }
 ```
 
-### Migration
+### Migrations
 
 ```bash
 dotnet ef database update last_migration_name --startup-project your_database_project --verbose

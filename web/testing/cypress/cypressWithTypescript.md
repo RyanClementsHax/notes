@@ -1,6 +1,8 @@
 # Cypress With Typescript
 
-- cypress works well with typescript, although you will need to add some additional configuration
+- cypress works well with typescript out of the box
+- it is recommended to keep a special `tsconfig.json` within the `cypress` folder to keep cypress types from conflicting with others (e.g. jest types)
+- if you need to manually configure, you can do something like the following
 
 1. add `"cypress"` in your `tsconfig.json`'s `"types"` field
 2. install `ts-loader`

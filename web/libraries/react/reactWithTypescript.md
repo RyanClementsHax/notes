@@ -1,5 +1,7 @@
 # React with Typescript
 
+- [cheat sheet](https://github.com/typescript-cheatsheets/react)
+
 ## Functional components
 
 - you need to use `React.FC` to type children in functional components

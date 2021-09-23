@@ -8,3 +8,5 @@
 - [Front end performance 2021 Free Pdf Checklist](https://www.smashingmagazine.com/2021/01/front-end-performance-2021-free-pdf-checklist/)
 - [Scripts: async, defer](https://javascript.info/script-async-defer)
 - [Webpack HMR](https://blog.jakoblind.no/webpack-hmr/)
+- [Static vs. Dynamic vs. Jamstack: Where’s The Line?](https://css-tricks.com/static-vs-dynamic-vs-jamstack-wheres-the-line/)
+- [How is Design Important as a Developer and What Can You Do to Level Up?](https://www.colbyfayock.com/posts/how-is-design-important-as-a-developer-and-what-can-you-do-to-level-up)

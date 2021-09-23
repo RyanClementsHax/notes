@@ -5,7 +5,7 @@
   - attribute
   - endpoint routing
 
-## Configuring CORS
+## [Configuring CORS](https://docs.microsoft.com/en-us/aspnet/core/security/cors?view=aspnetcore-5.0#credentials-in-cross-origin-requests)
 
 ```cs
 services
