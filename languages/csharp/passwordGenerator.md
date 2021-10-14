@@ -16,7 +16,7 @@ public class Program
         //Cryptographically secure random generator
 		using var randomNumberGenerator = new RNGCryptoServiceProvider();
         
-        //Where we will store the password temporarily
+        //Where we will store the password temporarily. We want 512 random bytes.
         var passwordBytes = new byte[512];
         
         //Fill the password buffer with random bytes
