@@ -9,3 +9,5 @@
     1. write css for the browsers that don't have support
     2. use feature queries to check if the feature exists
     3. write the feature specific code in that query block (a lot like mobile first design)
+- [Conditional Border Radius In CSS](https://ishadeed.com/article/conditional-border-radius/)
+- [How to Create a CSS Typewriter Effect for your Website](https://www.sitepoint.com/css-typewriter-effect/)

@@ -29,3 +29,5 @@
 - [How to create an SVG gradient loading spinner](https://www.benmvp.com/blog/how-to-create-circle-svg-gradient-loading-spinner/)
   - apparently it is difficult to create an svg gradient loading spinner due to no ability to declare a granient radially
   - the trick is to use two semi circles as the article explains
+- [The Perils of Rehydration](https://www.joshwcomeau.com/react/the-perils-of-rehydration/)
+  - tldr: actually understand what it means to render on the server and then hydrate on the client

@@ -36,3 +36,5 @@
 - chrome underwent a major change in how it handles cross site cookies
 - read [this](https://auth0.com/blog/browser-behavior-changes-what-developers-need-to-know/) to understand more
   - tldr: they changed the default way they handle cross site cookies to keep sites safer
+
+## [Devtools](https://developer.chrome.com/docs/devtools/)

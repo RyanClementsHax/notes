@@ -25,3 +25,5 @@
   - a really cool blog
   - worth emulating
 - [thewidlarzgroup.com](https://thewidlarzgroup.com/blog/)
+- [leighhalliday.com](https://www.leighhalliday.com/)
+- [web.dev](https://web.dev/)

@@ -14,3 +14,4 @@
 ## NDC Conferences
 
 - [GraphQL, gRPC or REST? Resolving the API Developer's Dilemma - Rob Crowley](https://www.youtube.com/watch?v=l_P6m3JTyp0&ab_channel=NDCConferences)
+- [Six Little Lines of Fail - Jimmy Bogard](https://www.youtube.com/watch?v=VvUdvte1V3s&list=WL&index=5&ab_channel=NDCConferences)

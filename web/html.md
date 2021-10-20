@@ -30,3 +30,7 @@
 - this only works for scripts with a `src` attribute
 - this is good for scripts that are independent from the dom or other scripts like google analytics scripts
 - these scripts are executed as soon as they are loaded and parsed irrelevant of the state of the dom parsing
+
+## Forms
+
+- buttons are of type `submit` by default so if you want a button to not submit the form, you need to put [type="button" on the button element](https://stackoverflow.com/questions/932653/how-to-prevent-buttons-from-submitting-forms)

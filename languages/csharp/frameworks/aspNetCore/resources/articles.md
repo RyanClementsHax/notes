@@ -30,3 +30,5 @@
   - doesn't work for config reloading
   - use [NetEscapades.Configuration.Validation](https://www.nuget.org/packages/NetEscapades.Configuration.Validation/) to handle this for you
 - [Exploring IStartupFilter in ASP.NET Core](https://andrewlock.net/exploring-istartupfilter-in-asp-net-core/)
+- [Looking inside ConfigurationManager in .NET 6](https://andrewlock.net/exploring-dotnet-6-part-1-looking-inside-configurationmanager-in-dotnet-6/)
+- [Comparing WebApplicationBuilder to the Generic Host](https://andrewlock.net/exploring-dotnet-6-part-2-comparing-webapplicationbuilder-to-the-generic-host/)

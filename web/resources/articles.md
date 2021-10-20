@@ -12,3 +12,10 @@
 - [How is Design Important as a Developer and What Can You Do to Level Up?](https://www.colbyfayock.com/posts/how-is-design-important-as-a-developer-and-what-can-you-do-to-level-up)
 - [Small Bundles, Fast Pages: What To Do With Too Much JavaScript](https://calibreapp.com/blog/bundle-size-optimization?utm_source=Perf.email&utm_campaign=1c5a924166-Perf+Email+%2384&utm_medium=email&utm_term=0_7cba5dc7bd-1c5a924166-1386021716)
   - strategies for dealing with bundle size
+- [Bundling non-JavaScript resources](https://web.dev/bundling-non-js-resources/)
+- [How to win at CORS](https://jakearchibald.com/2021/cors/?ref=sidebar)
+  - great starter for understanding how CORS works
+- [How I built a modern website in 2021](https://kentcdodds.com/blog/how-i-built-a-modern-website-in-2021)
+- [How Renault improved its bounce and conversion rates by measuring and optimizing Largest Contentful Paint](https://web.dev/renault/)
+- [THE ART OF DECEPTION, LIGHTHOUSE SCORE EDITION](https://www.zachleat.com/web/lighthouse-deception/)
+- [Minify and compress network payloads with brotli](https://web.dev/codelab-text-compression-brotli/)

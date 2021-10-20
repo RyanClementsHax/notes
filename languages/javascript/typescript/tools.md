@@ -1,29 +1,37 @@
 # Tools
 
 ## Refining T|undefined to T in filter
+
 ```ts
 function notUndefined<T>(x: T | undefined): x is T {
     return x !== undefined;
 }
 relevantEntities = ids.map(id => entities.get(id)).filter(notUndefined);
 ```
+
 or anonymously
+
 ```ts
 relevantEntities = ids.map(id => entities.get(id)).filter((x): x is Entity => x !== undefined);
 ```
 
 ## [Disabling a button](https://stackoverflow.com/questions/31635975/how-to-enble-disable-a-button-in-typescript-1-5/31640983)
+
 - you need to cast the html element before accessing element specific properties
+
 ```ts
 (<HTMLInputElement> document.getElementById("btnExcel")).disabled = true;
 ```
 
 ## Class type
+
 - [right now](https://github.com/microsoft/TypeScript/issues/17572), there is no good way to represent a `Class` so to speak in typescript
 
 ## Generic return type
+
 - [right now](https://github.com/microsoft/TypeScript/issues/37181), there is no good way to represent something like `ReturnType<typeof genericFunction<T>>` in typescript
 - [here](https://stackoverflow.com/a/64919133/16236573) is a hack
+
     ```ts
     // foo is an imported function that I have no control over
     function foo<T>(e: T): InternalType<T> {
@@ -43,7 +51,9 @@ relevantEntities = ids.map(id => entities.get(id)).filter((x): x is Entity => x 
     ```
 
 ## Debugging
+
 - [here](https://gist.github.com/cecilemuller/2963155d0f249c1544289b78a1cdd695#gistcomment-3376582) is a launch configuration for debugging `ts-node` in VSCode
+
     ```json
     {
       "name": "Launch TypeScript",
@@ -59,4 +69,20 @@ relevantEntities = ids.map(id => entities.get(id)).filter((x): x is Entity => x 
       }
     }
     ```
-    - the only problem with this is that I haven't found where VSCode puts the logs produced by running the application in this debug configuration
+
+  - the only problem with this is that I haven't found where VSCode puts the logs produced by running the application in this debug configuration
+
+## [Making a single property optional](https://stackoverflow.com/questions/43159887/make-a-single-property-optional-in-typescript)
+
+```ts
+type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>
+type PartialBy<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>
+
+interface Person {
+  name: string;
+  hometown: string;
+  nickname: string;
+}
+
+type MakePersonInput = PartialBy<Person, 'nickname'>
+```

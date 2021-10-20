@@ -8,10 +8,12 @@
 - [udemy.com](https://www.udemy.com)
   - [Microservices with Node JS and React](https://www.udemy.com/course/microservices-with-node-js-and-react/)
 - [cloud academy](https://cloudacademy.com/)
+- [sitepoint.com](https://www.sitepoint.com/)
 
 ## Networking
 
 - [confs.tech](https://confs.tech/javascript)
+- [alltechconferences.com](https://www.alltechconferences.com/)
 
 ## Blogs
 

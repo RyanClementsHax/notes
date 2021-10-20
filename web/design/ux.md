@@ -46,3 +46,8 @@
 ## Skeletons
 
 - [skeleton guidelines](https://uxdesign.cc/what-you-should-know-about-skeleton-screens-a820c45a571a)
+
+## Emtpy state
+
+- [Designing Empty States in Complex Applications: 3 Guidelines](https://www.nngroup.com/articles/empty-state-interface-design/)
+- essentially, show the user that something is empty or loading, otherwise they think its broken

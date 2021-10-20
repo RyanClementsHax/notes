@@ -22,3 +22,38 @@
 
 - clear wipes invocations from the current mocks
 - reset totally resets them (preferred)
+
+## Extending expect
+
+```ts
+// this example adds a matcher that asserts that what was passed into it was a func
+// it also takes an optional callback for more assertions
+
+// include this block if you are using typescript
+declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
+  namespace jest {
+    interface Expect {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      func: <T = (...params: any[]) => any>(cb?: (fn: T) => void) => void
+    }
+  }
+}
+
+expect.extend({
+  func(received, cb) {
+    if (typeof received !== 'function') {
+      return {
+        pass: false,
+        message: () => 'expected received to be a function'
+      }
+    } else {
+      cb?.(received)
+      return {
+        pass: true,
+        message: () => 'expected received not to be a function'
+      }
+    }
+  }
+})
+```
