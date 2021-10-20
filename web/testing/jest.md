@@ -45,16 +45,3 @@ const mockImport = (importName, mock) => {
   jest.mock(importName, () => mock);
 };
 ```
-
-## Matchers
-
-- the `expect.fail('msg')` doesn't seem to exist, so below is a way to make it
-
-```js
-expect.extend({
-  fail: (_, message) => ({
-    pass: false,
-    message: () => message,
-  })
-});
-```

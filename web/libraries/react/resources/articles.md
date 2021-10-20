@@ -20,3 +20,12 @@
   - a list of things to do to avoid expensive renders before reaching for `useMemo`
 - [Authentication Patterns for Next.js](https://leerob.io/blog/nextjs-authentication)
 - [NextJS SSR - JWT (Access/Refresh Token) Authentication with external Backend](https://thewidlarzgroup.com/nextjs-auth/)
+- [Getting Sassy with styled-components](https://medium.com/styled-components/getting-sassy-with-sass-styled-theme-9a375cfb78e8)
+  - pretty standard info
+  - juicy section on how to set up sass variable extraction with styled components
+- [styled-components](https://www.robinwieruch.de/styled-components)
+  - a review of the different patterns on how to use styled components within code
+  - the import part is for a team to agree on one pattern and use it consistently
+- [How to create an SVG gradient loading spinner](https://www.benmvp.com/blog/how-to-create-circle-svg-gradient-loading-spinner/)
+  - apparently it is difficult to create an svg gradient loading spinner due to no ability to declare a granient radially
+  - the trick is to use two semi circles as the article explains

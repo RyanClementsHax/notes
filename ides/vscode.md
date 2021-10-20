@@ -209,3 +209,8 @@
 ## [Variables](https://code.visualstudio.com/docs/editor/variables-reference)
 
 - can also take in [user input](https://code.visualstudio.com/docs/editor/variables-reference#_input-variables)
+
+## JS debug
+
+- vscode now ships with a js debugger built into the ide
+- allows you to debug in chrome too (no more downloading the debug chrome extension)

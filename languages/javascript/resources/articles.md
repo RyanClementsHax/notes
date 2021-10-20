@@ -4,3 +4,5 @@
 - [5 JavaSript GitHub Repositories for Interview Prep!](https://pranav-birajdar.vercel.app/blog/5-javasript-github-repositories-for-interview-prep-306h)
 - ['return await promise' vs 'return promise' in JavaScript](https://dmitripavlutin.com/return-await-promise-javascript/)
   - it essentially boils down to error handling inconsistencies
+- [Web Scraping with Javascript and Node.js](https://www.zenrows.com/blog/web-scraping-with-javascript-and-nodejs)
+  - its easier than you think

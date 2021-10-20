@@ -25,3 +25,4 @@ devtool: process.env.NODE_ENV === 'development' ? 'source-map' : undefined
 
 - this can happen when trying to use a reverse proxy locally
 - to fix, set `disableHostCheck: true` on the `devServer` config
+- the reason why this exists is explained by [this article](https://medium.com/webpack/webpack-dev-server-middleware-security-issues-1489d950874a)

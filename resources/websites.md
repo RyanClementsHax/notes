@@ -7,6 +7,7 @@
   - [Microservice Architecture: Practical Implementation](https://www.educative.io/module/microservices-implementation)
 - [udemy.com](https://www.udemy.com)
   - [Microservices with Node JS and React](https://www.udemy.com/course/microservices-with-node-js-and-react/)
+- [cloud academy](https://cloudacademy.com/)
 
 ## Networking
 

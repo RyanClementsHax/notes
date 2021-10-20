@@ -30,3 +30,9 @@
 ## [Increasing default text size](https://mcmw.abilitynet.org.uk/making-text-larger-google-chrome-windows-10)
 
 ## [Use chrome in ubuntu wsl](https://scottspence.com/2021/01/05/use-chrome-in-ubuntu-wsl/)
+
+## Cookies
+
+- chrome underwent a major change in how it handles cross site cookies
+- read [this](https://auth0.com/blog/browser-behavior-changes-what-developers-need-to-know/) to understand more
+  - tldr: they changed the default way they handle cross site cookies to keep sites safer
