@@ -19,3 +19,15 @@
 - [How Renault improved its bounce and conversion rates by measuring and optimizing Largest Contentful Paint](https://web.dev/renault/)
 - [THE ART OF DECEPTION, LIGHTHOUSE SCORE EDITION](https://www.zachleat.com/web/lighthouse-deception/)
 - [Minify and compress network payloads with brotli](https://web.dev/codelab-text-compression-brotli/)
+- [Different versions of your site can be running at the same time](https://jakearchibald.com/2020/multiple-versions-same-time/)
+- [THE BUTTON CHEAT SHEET](https://www.buttoncheatsheet.com/)
+- [#26 HTMHell special: tasty buttons](https://www.htmhell.dev/26-tasty-buttons/)
+- [Optimize Cumulative Layout Shift](https://web.dev/optimize-cls/)
+- [How to Implement and Style the Dialog Element](https://tympanus.net/codrops/2021/10/06/how-to-implement-and-style-the-dialog-element/)
+- [Layout patterns](https://web.dev/patterns/layout/)
+- [Configurability in a Design System](https://www.benmvp.com/blog/configurability-design-system)
+  - don't make a11y optional
+  - composition is your friend
+  - build a themeing solution if needed
+  - only build out what is needed and expose callbacks where appropriate
+- [Scroll-Linked Animations With the Web Animations API (WAAPI) and ScrollTimeline](https://css-tricks.com/scroll-linked-animations-with-the-web-animations-api-waapi-and-scrolltimeline/)

@@ -9,6 +9,8 @@
   - [Microservices with Node JS and React](https://www.udemy.com/course/microservices-with-node-js-and-react/)
 - [cloud academy](https://cloudacademy.com/)
 - [sitepoint.com](https://www.sitepoint.com/)
+- [pirple.com](https://www.pirple.com/)
+  - [The Node.js Master Class](https://www.pirple.com/nodejs-master-class)
 
 ## Networking
 
@@ -18,6 +20,7 @@
 ## Blogs
 
 - [geekrodion.com](https://geekrodion.com/blog/programming)
+- [mahesh's blog](https://maheshba.bitbucket.io/blog/)
 
 ## Practice
 

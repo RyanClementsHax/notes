@@ -31,3 +31,8 @@
   - the trick is to use two semi circles as the article explains
 - [The Perils of Rehydration](https://www.joshwcomeau.com/react/the-perils-of-rehydration/)
   - tldr: actually understand what it means to render on the server and then hydrate on the client
+- [A Visual Guide to React Rendering - Cheat Sheet](https://alexsidorenko.com/blog/react-render-cheat-sheet/)
+- [File-based routing with React Router](https://omarelhawary.me/blog/file-based-routing-with-react-router)
+- [A technical breakdown of react-three-fiber](https://codyb.co/articles/a-technical-breakdown-of-react-three-fiber)
+- [Build your own React](https://pomb.us/build-your-own-react/)
+  - FANTASTIC explanation for how react works under the hood

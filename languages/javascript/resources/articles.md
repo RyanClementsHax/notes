@@ -6,3 +6,9 @@
   - it essentially boils down to error handling inconsistencies
 - [Web Scraping with Javascript and Node.js](https://www.zenrows.com/blog/web-scraping-with-javascript-and-nodejs)
   - its easier than you think
+- [Overengineering a Blog](https://blog.andrewbran.ch/overengineering-a-blog/)
+  - imbeding monaco into a blog
+- [ES modules: A cartoon deep-dive](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/)
+  - explains how es modules work
+- [package-lock.json](https://docs.npmjs.com/cli/v7/configuring-npm/package-lock-json)
+- [yarn.lock](https://classic.yarnpkg.com/en/docs/yarn-lock/)

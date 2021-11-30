@@ -11,3 +11,7 @@
     3. write the feature specific code in that query block (a lot like mobile first design)
 - [Conditional Border Radius In CSS](https://ishadeed.com/article/conditional-border-radius/)
 - [How to Create a CSS Typewriter Effect for your Website](https://www.sitepoint.com/css-typewriter-effect/)
+- [The Process of Building a CSS Framework](https://tympanus.net/codrops/2021/10/25/the-process-of-building-a-css-framework/)
+- [A Clever Sticky Footer Technique](https://css-tricks.com/a-clever-sticky-footer-technique/)
+- [Quick and Dirty Bootstrap Overrides at Runtime](https://css-tricks.com/quick-and-dirty-bootstrap-overrides-at-runtime/)
+- [Parallax Powered by CSS Custom Properties](https://css-tricks.com/parallax-powered-by-css-custom-properties/)

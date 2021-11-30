@@ -1,6 +1,10 @@
 # Websites
 
 - [google web fundamentals](https://developers.google.com/web/fundamentals)
+- [Morphing Submit Button](https://codepen.io/jkantner/full/zYdaBPJ)
+- [metatags.io](https://metatags.io/)
+  - tool to debug and generate meta tag code for any website
+  - helpful seo tool
 
 ## Educative
 
@@ -27,3 +31,6 @@
 - [thewidlarzgroup.com](https://thewidlarzgroup.com/blog/)
 - [leighhalliday.com](https://www.leighhalliday.com/)
 - [web.dev](https://web.dev/)
+- [brianlovin.com](https://brianlovin.com/)
+- [pomb.us](https://pomb.us/)
+- [ivov.dev](https://ivov.dev/)
