@@ -23,3 +23,9 @@
 - comments all too easily fade into the background and rust
 - comments don't make up for bad code and are not type checked
 - never talk about other code in a comment (can't guarantee that code will exist)
+
+## Naming
+
+- variable names should be as long and descriptive as the scope they are used in
+  - i.e. `i` in for loops has a very small scope
+- function names should be inversely proportional to the scope they are used in because they are supposed to be more abstract the larger scope they live in

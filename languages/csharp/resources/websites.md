@@ -6,4 +6,5 @@
 
 - [blog.ploeh.dk](https://blog.ploeh.dk/)
 - [blog.stephencleary.com](https://blog.stephencleary.com/)
-- [andrewlock.net/](https://andrewlock.net/)
+- [andrewlock.net](https://andrewlock.net/)
+- [lazy-electron.com](https://www.lazy-electron.com/year-archive/)

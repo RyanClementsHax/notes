@@ -5,3 +5,5 @@
 - [A Complete Guide to Dark Mode on the Web](https://css-tricks.com/a-complete-guide-to-dark-mode-on-the-web/)
 - [The Golden Ratio and User-Interface Design](https://www.nngroup.com/articles/golden-ratio-ui-design/)
 - [Designing Accordions: Best practices](https://blog.prototypr.io/designing-the-accordion-best-practices-3c1bd54bf26e)
+- [7 Practical Tips for Cheating at Design](https://medium.com/refactoring-ui/7-practical-tips-for-cheating-at-design-40c736799886)
+- [Redesigning Laravel.io](https://medium.com/refactoring-ui/redesigning-laravel-io-c47ac495dff0)
