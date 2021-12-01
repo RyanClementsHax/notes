@@ -7,3 +7,5 @@
 - [undraw.co](https://undraw.co/)
   - mit licensed images
 - [unsplash.com](https://unsplash.com/)
+- [land-book.com](https://land-book.com/)
+- [siteinspire.com](https://www.siteinspire.com/)
