@@ -9,3 +9,4 @@
 - [unsplash.com](https://unsplash.com/)
 - [land-book.com](https://land-book.com/)
 - [siteinspire.com](https://www.siteinspire.com/)
+- [heropatterns.com](https://heropatterns.com/)
