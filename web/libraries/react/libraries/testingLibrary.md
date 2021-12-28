@@ -16,3 +16,8 @@
 - some components may render really funky results and have a hard time working with testing library's api
   - e.g. the select component in the material UI doesn't use a native select component
 - [one way is to mock out the component or use special props to disable the "funkiness"](https://newbedev.com/react-testing-library-on-change-for-material-ui-select-component)
+
+## [Testing tables](https://github.com/testing-library/dom-testing-library/issues/583)
+
+- it can be difficult to test components that render tables cuz there isn't a pretty way to query a table for data
+- the workaround for now seems to be to set a test id for each row

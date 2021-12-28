@@ -8,3 +8,4 @@
 - [7 Practical Tips for Cheating at Design](https://medium.com/refactoring-ui/7-practical-tips-for-cheating-at-design-40c736799886)
 - [Redesigning Laravel.io](https://medium.com/refactoring-ui/redesigning-laravel-io-c47ac495dff0)
 - [🔥 Design Tips](https://twitter.com/i/events/994601867987619840)
+- [atomic design](https://bradfrost.com/blog/post/atomic-web-design/)

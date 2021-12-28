@@ -31,3 +31,5 @@
   - build a themeing solution if needed
   - only build out what is needed and expose callbacks where appropriate
 - [Scroll-Linked Animations With the Web Animations API (WAAPI) and ScrollTimeline](https://css-tricks.com/scroll-linked-animations-with-the-web-animations-api-waapi-and-scrolltimeline/)
+- [Swapping Fill Color on Image Tag SVGs (Using CSS Filters!)](https://medium.com/@union_io/swapping-fill-color-on-image-tag-svgs-using-css-filters-fa4818bf7ec6)
+  - useful to know when trying to theme svgs

@@ -4,32 +4,32 @@
 
 ```js
 const getMethods = (obj) => {
-    let properties = new Set()
-    let currentObj = obj
+  let properties = new Set();
+  let currentObj = obj;
 
-    do {
-        Object.getOwnPropertyNames(currentObj)
-            .map((item) => properties.add(item))
-    } while ((currentObj = Object.getPrototypeOf(currentObj)))
+  do {
+    Object.getOwnPropertyNames(currentObj).map((item) => properties.add(item));
+  } while ((currentObj = Object.getPrototypeOf(currentObj)));
 
-    return [...properties.keys()]
-        .filter((item) => typeof obj[item] === 'function')
-}
+  return [...properties.keys()].filter(
+    (item) => typeof obj[item] === "function"
+  );
+};
 ```
 
 ## Otp logger
 
 ```js
 // otpLogger.js
-var totp = require('totp-generator')
-var otpKey = "some key"
+var totp = require("totp-generator");
+var otpKey = "some key";
 
-let generateToken = () => totp(otpKey)
+let generateToken = () => totp(otpKey);
 
-let currentOtp = generateToken()
+let currentOtp = generateToken();
 setInterval(() => {
-  console.log(generateToken())
-}, 250)
+  console.log(generateToken());
+}, 250);
 ```
 
 - run with `node ./otpLogger.js`
@@ -39,22 +39,22 @@ setInterval(() => {
 - clears a line and resets cursor to the beginning
 
   ```js
-    process.stdout.clearLine()
-    process.stdout.cursorTo(0)
+  process.stdout.clearLine();
+  process.stdout.cursorTo(0);
   ```
 
 - moves the cursor to a positin, then clears everything to the right
 
   ```js
-    process.stdout.cursorTo(position)
-    process.stdout.clearLine(1)
+  process.stdout.cursorTo(position);
+  process.stdout.clearLine(1);
   ```
 
 ## Formatting json
 
 ```js
-JSON.stringify({a:1,b:2,c:{d:1,e:[1,2]}}, null, "\t"); // tabs
-JSON.stringify({a:1,b:2,c:{d:1,e:[1,2]}}, null, 4); // 4 spaces
+JSON.stringify({ a: 1, b: 2, c: { d: 1, e: [1, 2] } }, null, "\t"); // tabs
+JSON.stringify({ a: 1, b: 2, c: { d: 1, e: [1, 2] } }, null, 4); // 4 spaces
 ```
 
 - the output needs to be rendered in a `<pre>` tag if you want the formatting to appear in the dom
@@ -82,8 +82,8 @@ const newRegex = new RegExp(
   `some pattern${regexToInterpolate
     .toString()
     /* remove some regex syntax that prevents it from being interpolated into another regex */
-    .replace(/(^\/|\/$|\/([igm]+)$)/g, '')}`
-)
+    .replace(/(^\/|\/$|\/([igm]+)$)/g, "")}`
+);
 ```
 
 ## [Creating an array from 1 to n](https://stackoverflow.com/questions/3746725/how-to-create-an-array-containing-1-n)

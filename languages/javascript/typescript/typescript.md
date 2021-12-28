@@ -146,6 +146,11 @@ type ColorfulCircle = Colorful & Circle;
 
 - order matters so start with the most specific and work your way down
 
+## Generic arrow functions in tsx files
+
+- `<T>` confuses the typescript compiler
+- to get around it, [use <T,> instead](https://stackoverflow.com/questions/41112313/how-to-use-generics-with-arrow-functions-in-typescript-jsx-with-react/66940216#66940216)
+
 ## [Wiki](https://github.com/microsoft/TypeScript/wiki)
 
 - [Performance](https://github.com/microsoft/TypeScript/wiki/Performance)

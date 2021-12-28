@@ -36,3 +36,10 @@
 - [A technical breakdown of react-three-fiber](https://codyb.co/articles/a-technical-breakdown-of-react-three-fiber)
 - [Build your own React](https://pomb.us/build-your-own-react/)
   - FANTASTIC explanation for how react works under the hood
+- [React Fiber Architecture](https://github.com/acdlite/react-fiber-architecture)
+- [Inside Fiber: an in-depth overview of the new reconciliation algorithm in React](https://blog.ag-grid.com/inside-fiber-an-in-depth-overview-of-the-new-reconciliation-algorithm-in-react/)
+- [Why React Suspense Will Be a Game Changer](https://indepth.dev/posts/1044/why-react-suspense-will-be-a-game-changer)
+- [In-depth explanation of state and props update in React](https://indepth.dev/posts/1009/in-depth-explanation-of-state-and-props-update-in-react)
+- [The how and why on React’s usage of linked list in Fiber to walk the component’s tree](https://indepth.dev/posts/1007/the-how-and-why-on-reacts-usage-of-linked-list-in-fiber-to-walk-the-components-tree)
+- [Inside Fiber: in-depth overview of the new reconciliation algorithm in React](https://indepth.dev/posts/1008/inside-fiber-in-depth-overview-of-the-new-reconciliation-algorithm-in-react)
+- [Top React component libraries (2021 edition)](https://retool.com/blog/react-component-libraries/)

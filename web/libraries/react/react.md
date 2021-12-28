@@ -6,3 +6,5 @@
   - circumvents the build system
   - wont cause compilation errors if something is wrong
   - provides no cache busting guarantees
+
+## [flushSync](https://stackoverflow.com/questions/62725935/what-does-flushsync-do-in-react)

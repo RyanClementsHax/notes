@@ -12,3 +12,5 @@
   - explains how es modules work
 - [package-lock.json](https://docs.npmjs.com/cli/v7/configuring-npm/package-lock-json)
 - [yarn.lock](https://classic.yarnpkg.com/en/docs/yarn-lock/)
+- [What the heck are CJS, AMD, UMD, and ESM in Javascript?](https://dev.to/iggredible/what-the-heck-are-cjs-amd-umd-and-esm-ikm)
+- [ES modules: A cartoon deep-dive](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/)
