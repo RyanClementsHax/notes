@@ -21,15 +21,15 @@
 // A more precise version of just React.ComponentPropsWithRef on its own
 export type PropsOf<
   C extends keyof JSX.IntrinsicElements | React.JSXElementConstructor<any>
-> = JSX.LibraryManagedAttributes<C, React.ComponentPropsWithRef<C>>
+> = JSX.LibraryManagedAttributes<C, React.ComponentPropsWithRef<C>>;
 
 type AsProp<C extends React.ElementType> = {
   /**
    * An override of the default HTML tag.
    * Can also be another React component.
    */
-  as?: C
-}
+  as?: C;
+};
 
 /**
  * Allows for extending a set of props (`ExtendedProps`) by an overriding set of props
@@ -39,7 +39,7 @@ type AsProp<C extends React.ElementType> = {
 export type ExtendableProps<
   ExtendedProps = {},
   OverrideProps = {}
-> = OverrideProps & Omit<ExtendedProps, keyof OverrideProps>
+> = OverrideProps & Omit<ExtendedProps, keyof OverrideProps>;
 
 /**
  * Allows for inheriting the props from the specified element type so that
@@ -49,7 +49,7 @@ export type ExtendableProps<
 export type InheritableElementProps<
   C extends React.ElementType,
   Props = {}
-> = ExtendableProps<PropsOf<C>, Props>
+> = ExtendableProps<PropsOf<C>, Props>;
 
 /**
  * A more sophisticated version of `InheritableElementProps` where
@@ -58,5 +58,5 @@ export type InheritableElementProps<
 export type PolymorphicComponentProps<
   C extends React.ElementType,
   Props = {}
-> = InheritableElementProps<C, Props & AsProp<C>>
+> = InheritableElementProps<C, Props & AsProp<C>>;
 ```

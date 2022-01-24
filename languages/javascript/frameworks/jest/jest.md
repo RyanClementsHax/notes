@@ -35,25 +35,27 @@ declare global {
   namespace jest {
     interface Expect {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      func: <T = (...params: any[]) => any>(cb?: (fn: T) => void) => void
+      func: <T = (...params: any[]) => any>(cb?: (fn: T) => void) => void;
     }
   }
 }
 
 expect.extend({
   func(received, cb) {
-    if (typeof received !== 'function') {
+    if (typeof received !== "function") {
       return {
         pass: false,
-        message: () => 'expected received to be a function'
-      }
+        message: () => "expected received to be a function",
+      };
     } else {
-      cb?.(received)
+      cb?.(received);
       return {
         pass: true,
-        message: () => 'expected received not to be a function'
-      }
+        message: () => "expected received not to be a function",
+      };
     }
-  }
-})
+  },
+});
 ```
+
+## [Mocking modules](https://remarkablemark.org/blog/2021/07/01/jest-mock-node-modules-create-react-app/)

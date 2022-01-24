@@ -1,5 +1,9 @@
 # Html
 
+## Semantic HTML
+
+- [cheat sheet](https://learn-the-web.algonquindesign.ca/topics/html-semantics-cheat-sheet/)
+
 ## Meta tags
 
 ```html
@@ -9,9 +13,9 @@
 - this controls the width and scale of the viewport, so, for example, our web application won't look like a desktop screen on a mobile browser
 - you can "simulate" response headers [with `http-equiv` attributes on meta tags](https://stackoverflow.com/questions/1341089/is-there-a-meta-tag-to-turn-off-caching-in-all-browsers)
 
-    ```html
-    <meta http-equiv="Cache-Control" content="no-store" />
-    ```
+  ```html
+  <meta http-equiv="Cache-Control" content="no-store" />
+  ```
 
   - this isn't well supported
   - just use actual headers instead

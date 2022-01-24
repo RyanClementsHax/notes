@@ -89,3 +89,21 @@ const newRegex = new RegExp(
 ## [Creating an array from 1 to n](https://stackoverflow.com/questions/3746725/how-to-create-an-array-containing-1-n)
 
 - there are [plenty](https://stackoverflow.com/a/33352604) of ways to do this
+
+## Format zip
+
+```ts
+const formatZip = (valueStr: string): string => {
+  const nums = valueStr.match(/\d/g);
+  if (nums === null) {
+    return "";
+  } else if (nums.length <= 5) {
+    return nums.join("");
+  } else if (5 < nums.length) {
+    const firstFive = nums.slice(0, 5).join("");
+    const nextFour = nums.slice(5, 9).join("");
+    return `${firstFive}-${nextFour}`;
+  }
+  return "";
+};
+```

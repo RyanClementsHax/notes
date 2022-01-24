@@ -15,3 +15,5 @@
 - [A Clever Sticky Footer Technique](https://css-tricks.com/a-clever-sticky-footer-technique/)
 - [Quick and Dirty Bootstrap Overrides at Runtime](https://css-tricks.com/quick-and-dirty-bootstrap-overrides-at-runtime/)
 - [Parallax Powered by CSS Custom Properties](https://css-tricks.com/parallax-powered-by-css-custom-properties/)
+- [A Unified Styling Language](https://medium.com/seek-blog/a-unified-styling-language-d0c208de2660)
+  - a great explanation of the benefits of css in js

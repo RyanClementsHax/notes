@@ -33,3 +33,6 @@
 - [Scroll-Linked Animations With the Web Animations API (WAAPI) and ScrollTimeline](https://css-tricks.com/scroll-linked-animations-with-the-web-animations-api-waapi-and-scrolltimeline/)
 - [Swapping Fill Color on Image Tag SVGs (Using CSS Filters!)](https://medium.com/@union_io/swapping-fill-color-on-image-tag-svgs-using-css-filters-fa4818bf7ec6)
   - useful to know when trying to theme svgs
+- [30 Frontend Tips](https://kittygiraudel.com/2022/01/04/30-frontend-tips/)
+- [Improving Core Web Vitals, A Smashing Magazine Case Study](https://www.smashingmagazine.com/2021/12/core-web-vitals-case-study-smashing-magazine/)
+- [How My Website Works](https://brianlovin.com/writing/how-my-website-works)

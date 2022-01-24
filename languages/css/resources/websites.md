@@ -10,4 +10,6 @@
 - [tailwind-kit.com](https://www.tailwind-kit.com/components)
 - [Shadow Palette Generator](https://www.joshwcomeau.com/shadow-palette/)
   - [explanation article](https://www.joshwcomeau.com/css/introducing-shadow-palette-generator/)
+- [Gradient Generator](https://www.joshwcomeau.com/gradient-generator/)
+  - [explanation article](https://www.joshwcomeau.com/css/make-beautiful-gradients/)
 - [tailwindcomponents.com](https://tailwindcomponents.com/)

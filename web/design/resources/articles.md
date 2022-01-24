@@ -9,3 +9,4 @@
 - [Redesigning Laravel.io](https://medium.com/refactoring-ui/redesigning-laravel-io-c47ac495dff0)
 - [🔥 Design Tips](https://twitter.com/i/events/994601867987619840)
 - [atomic design](https://bradfrost.com/blog/post/atomic-web-design/)
+- [Full Featured Themes in Figma](https://gos.si/blog/full-featured-themes-in-figma/)
