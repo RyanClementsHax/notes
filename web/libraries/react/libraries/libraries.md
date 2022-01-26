@@ -11,6 +11,9 @@
 - [fre](https://github.com/yisar/fre)
   - a VERY small implementation of a subset of React
   - good for learning
+- [yoshi](https://github.com/joeldenning/utahjs-2019)
+  - another small implementation of a subset of React
+  - very good for learning
 - [beautiful-react-hooks](https://github.com/antonioru/beautiful-react-hooks)
 - [react-menu](https://szhsin.github.io/react-menu/)
 - [Accessible UI Component Libraries Roundup](https://www.digitala11y.com/accessible-ui-component-libraries-roundup/)
