@@ -50,3 +50,4 @@
 - [React: Event Bubbling and Capturing](https://www.robinwieruch.de/react-event-bubbling-capturing/)
 - [PDF from React Component](https://www.robinwieruch.de/react-component-to-pdf/)
 - [Image from React Component (JPG or PNG)](https://www.robinwieruch.de/react-component-to-image/)
+- [Concurrent UI Patterns (Experimental)](https://reactjs.org/docs/concurrent-mode-patterns.html#the-three-steps)
