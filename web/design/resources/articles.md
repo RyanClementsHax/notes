@@ -10,3 +10,5 @@
 - [🔥 Design Tips](https://twitter.com/i/events/994601867987619840)
 - [atomic design](https://bradfrost.com/blog/post/atomic-web-design/)
 - [Full Featured Themes in Figma](https://gos.si/blog/full-featured-themes-in-figma/)
+- [Traditional and Hybrid Category Pages](https://www.nngroup.com/articles/category-pages/)
+- [Consistency Sin](https://furbo.org/2022/01/11/consistency-sin/)

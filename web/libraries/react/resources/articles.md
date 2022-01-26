@@ -51,3 +51,6 @@
 - [PDF from React Component](https://www.robinwieruch.de/react-component-to-pdf/)
 - [Image from React Component (JPG or PNG)](https://www.robinwieruch.de/react-component-to-image/)
 - [Concurrent UI Patterns (Experimental)](https://reactjs.org/docs/concurrent-mode-patterns.html#the-three-steps)
+- [New Suspense SSR Architecture in React 18](https://github.com/reactwg/react-18/discussions/37)
+- [Keeping browser interactive during hydration](https://github.com/reactwg/react-18/discussions/38)
+- [Good advice on JSX conditionals](https://thoughtspile.github.io/2022/01/17/jsx-conditionals/)

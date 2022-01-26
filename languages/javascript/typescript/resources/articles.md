@@ -6,3 +6,4 @@
 - [The Fibonacci squence in TypeScript](https://javascript.plainenglish.io/the-fibonacci-sequence-in-typescript-4401bd3b9d1f)
 - [Enhance TypeScript Code Samples with Compiler Diagnostic](https://fatihkalifa.com/typescript-twoslash)
 - [Etsy’s Journey to TypeScript](https://codeascraft.com/2021/11/08/etsys-journey-to-typescript/)
+- [TypeScript Cheat Sheets](https://www.typescriptlang.org/cheatsheets?ck_subscriber_id=1547059803)
