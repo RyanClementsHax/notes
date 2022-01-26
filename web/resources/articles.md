@@ -36,3 +36,11 @@
 - [30 Frontend Tips](https://kittygiraudel.com/2022/01/04/30-frontend-tips/)
 - [Improving Core Web Vitals, A Smashing Magazine Case Study](https://www.smashingmagazine.com/2021/12/core-web-vitals-case-study-smashing-magazine/)
 - [How My Website Works](https://brianlovin.com/writing/how-my-website-works)
+- [How The Economic Times passed Core Web Vitals thresholds and achieved an overall 43% better bounce rate](https://web.dev/economic-times-cwv/)
+- [Apply instant loading with the PRPL pattern](https://web.dev/apply-instant-loading-with-prpl/)
+  - push/preload
+  - render
+  - pre-cache
+  - lazy load
+- [Rendering on the Web](https://developers.google.com/web/updates/2019/02/rendering-on-the-web)
+  - goes over the spectrum of rendering techniques like ssr, ssg, csr, etc
