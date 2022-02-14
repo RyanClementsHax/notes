@@ -44,3 +44,8 @@
   - lazy load
 - [Rendering on the Web](https://developers.google.com/web/updates/2019/02/rendering-on-the-web)
   - goes over the spectrum of rendering techniques like ssr, ssg, csr, etc
+- [How to avoid layout shifts caused by web fonts](https://simonhearne.com/2021/layout-shifts-webfonts/)
+  - excellent read
+- [Caching Header Best Practices](https://simonhearne.com/2022/caching-header-best-practices/)
+  - must read to understand caching headers
+- [Why Efficient Hydration in JavaScript Frameworks is so Challenging](https://dev.to/this-is-learning/why-efficient-hydration-in-javascript-frameworks-is-so-challenging-1ca3)

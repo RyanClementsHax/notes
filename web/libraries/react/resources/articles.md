@@ -54,3 +54,9 @@
 - [New Suspense SSR Architecture in React 18](https://github.com/reactwg/react-18/discussions/37)
 - [Keeping browser interactive during hydration](https://github.com/reactwg/react-18/discussions/38)
 - [Good advice on JSX conditionals](https://thoughtspile.github.io/2022/01/17/jsx-conditionals/)
+- [One simple trick to optimize React re-renders](https://kentcdodds.com/blog/optimize-react-re-renders)
+  - TLDR: pass components with expensive renders as children/props to components that rerender often
+- [How React server components work: an in-depth guide](https://blog.plasmic.app/posts/how-react-server-components-work/)
+- [Handling async React component effects after unmount](https://www.benmvp.com/blog/handling-async-react-component-effects-after-unmount/)
+- [Automatic Batching in React 18: What You Should Know](https://blog.bitsrc.io/automatic-batching-in-react-18-what-you-should-know-d50141dc096e)
+- [Server-Side Rendering from zero to hero](https://dev.to/alexsergey/server-side-rendering-from-zero-to-hero-2610)

@@ -160,3 +160,7 @@ type ColorfulCircle = Colorful & Circle;
   - interfaces also display consistently better, whereas type aliases to intersections can't be displayed in part of other intersections
   - type relationships between interfaces are also cached, as opposed to intersection types as a whole
   - a final noteworthy difference is that when checking against a target intersection type, every constituent is checked before checking against the "effective"/"flattened" type.
+
+## [Allow conditionally setting optional properties in a mapped type](https://github.com/microsoft/TypeScript/issues/36126)
+
+- it is not easy to make a field conditional based on some considtion in typescript

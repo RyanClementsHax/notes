@@ -20,3 +20,5 @@
   - [reakit](https://reakit.io/)
   - [reach](https://reach.tech/)
   - [radix-ui](https://www.radix-ui.com/)
+- [rockpack](https://github.com/AlexSergey/rockpack)
+  - out of the box support for react for everything from spa to ssr

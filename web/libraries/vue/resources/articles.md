@@ -8,3 +8,4 @@
 - [How to Securely Implement OAuth in Vue.js](https://fusionauth.io/blog/2020/08/06/securely-implement-oauth-vuejs/)
 - [Managing Shared State In Vue 3](https://www.smashingmagazine.com/2021/06/managing-shared-state-vue3/)
 - [How to drastically reduce your bundle size and load time in Vue.js](https://medium.com/shard-labs/how-to-drastically-reduce-your-bundle-size-and-load-time-in-vue-js-54370d513fdf)
+- [Server-Side Rendering (SSR)](https://vuejs.org/guide/scaling-up/ssr.html)

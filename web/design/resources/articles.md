@@ -12,3 +12,4 @@
 - [Full Featured Themes in Figma](https://gos.si/blog/full-featured-themes-in-figma/)
 - [Traditional and Hybrid Category Pages](https://www.nngroup.com/articles/category-pages/)
 - [Consistency Sin](https://furbo.org/2022/01/11/consistency-sin/)
+- [Organising Design Systems](https://medium.com/razorpay-design/organising-design-systems-3f191c4e00c0)

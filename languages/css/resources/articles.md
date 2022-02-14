@@ -17,3 +17,4 @@
 - [Parallax Powered by CSS Custom Properties](https://css-tricks.com/parallax-powered-by-css-custom-properties/)
 - [A Unified Styling Language](https://medium.com/seek-blog/a-unified-styling-language-d0c208de2660)
   - a great explanation of the benefits of css in js
+- [Yes, I can connect to a DB in CSS](https://www.leemeichin.com/posts/yes-i-can-connect-to-a-db-in-css.html?ck_subscriber_id=1547059803)

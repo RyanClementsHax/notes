@@ -5,3 +5,4 @@
 - [Building an effective Image Component](https://web.dev/image-component/)
 - [Collaborative Deploy Previews not working on pages returned from function](https://answers.netlify.com/t/collaborative-deploy-previews-not-working-on-pages-returned-from-function/40939/3)
 - [React Server Components in Next.js 12](https://blog.logrocket.com/react-server-components-nextjs-12/)
+- [Avoiding React act warning when accessibility testing next/link with jest-axe](https://www.benmvp.com/blog/avoiding-react-act-warning-when-accessibility-testing-next-link-jest-axe/)
