@@ -23,9 +23,9 @@
 
 ```css
 label.form-group-required :after {
-    content: ' *';
-    color: red;
-    font-weight: 800;
+  content: " *";
+  color: red;
+  font-weight: 800;
 }
 ```
 
@@ -81,6 +81,11 @@ label.form-group-required :after {
 
 - these DO NOT add ANYTHING to specificity of rules
 - cannot use custom properties in media queries
+
+## :first-letter
+
+- selects the first letter of the text this selects
+- requires that it is applied to elements that [are not inline elements](https://stackoverflow.com/questions/7631722/css-first-letter-not-working)
 
 ## Tips
 

@@ -60,3 +60,4 @@
 - [Handling async React component effects after unmount](https://www.benmvp.com/blog/handling-async-react-component-effects-after-unmount/)
 - [Automatic Batching in React 18: What You Should Know](https://blog.bitsrc.io/automatic-batching-in-react-18-what-you-should-know-d50141dc096e)
 - [Server-Side Rendering from zero to hero](https://dev.to/alexsergey/server-side-rendering-from-zero-to-hero-2610)
+- [React useLayoutEffect vs. useEffect with examples](https://blog.logrocket.com/useeffect-vs-uselayouteffect-examples/)

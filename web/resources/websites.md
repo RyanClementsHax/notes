@@ -5,6 +5,8 @@
 - [metatags.io](https://metatags.io/)
   - tool to debug and generate meta tag code for any website
   - helpful seo tool
+- [boxy-svg.com](https://boxy-svg.com/)
+  - allows you to create and edit svg's really well
 
 ## Educative
 

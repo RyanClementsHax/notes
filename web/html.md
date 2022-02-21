@@ -3,6 +3,7 @@
 ## Semantic HTML
 
 - [cheat sheet](https://learn-the-web.algonquindesign.ca/topics/html-semantics-cheat-sheet/)
+- [cheat sheet](https://digital.com/tools/html-cheatsheet/)
 
 ## Meta tags
 

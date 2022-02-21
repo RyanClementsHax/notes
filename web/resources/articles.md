@@ -49,3 +49,6 @@
 - [Caching Header Best Practices](https://simonhearne.com/2022/caching-header-best-practices/)
   - must read to understand caching headers
 - [Why Efficient Hydration in JavaScript Frameworks is so Challenging](https://dev.to/this-is-learning/why-efficient-hydration-in-javascript-frameworks-is-so-challenging-1ca3)
+- [What happens when you type google.com into a browser](https://github.com/alex/what-happens-when)
+  - a VERY thorough answer to this common interview question
+  - good for practicing this interview question

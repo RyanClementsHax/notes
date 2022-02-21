@@ -13,3 +13,5 @@
 - [Traditional and Hybrid Category Pages](https://www.nngroup.com/articles/category-pages/)
 - [Consistency Sin](https://furbo.org/2022/01/11/consistency-sin/)
 - [Organising Design Systems](https://medium.com/razorpay-design/organising-design-systems-3f191c4e00c0)
+- [Checkboxes vs. Radio Buttons](https://www.nngroup.com/articles/checkboxes-vs-radio-buttons/)
+- [Checkbox vs Toggle Switch](https://uxplanet.org/checkbox-vs-toggle-switch-7fc6e83f10b8)

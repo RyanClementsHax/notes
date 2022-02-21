@@ -10,3 +10,8 @@
 - [land-book.com](https://land-book.com/)
 - [siteinspire.com](https://www.siteinspire.com/)
 - [heropatterns.com](https://heropatterns.com/)
+- [vercel.com/design](https://vercel.com/design/brands#next-js)
+  - vercel's design language system
+- [vectorlogo.zone](https://www.vectorlogo.zone/)
+  - lots of svg logos for all kinds of brands
+- [uxchecklist.github.io](http://uxchecklist.github.io/)
