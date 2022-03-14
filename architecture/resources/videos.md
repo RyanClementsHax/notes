@@ -3,6 +3,10 @@
 - [Tech Dummies Narendra L](https://www.youtube.com/c/TechDummiesNarendraL)
   - [Google docs system design](https://www.youtube.com/playlist?list=PLkQkbY7JNJuAzL-6SEwRjBfZa2htjnT-Z)
 
+## GOTO
+
+- [When To Use Microservices (And When Not To!) • Sam Newman & Martin Fowler • GOTO 2020](https://www.youtube.com/watch?v=GBTdnfD6s5Q&feature=youtu.be&ab_channel=GOTOConferences)
+
 ## InfoQ
 
 - [Scaling Instagram Infrastructure](https://www.youtube.com/watch?v=hnpzNAPiC0E&ab_channel=InfoQ)

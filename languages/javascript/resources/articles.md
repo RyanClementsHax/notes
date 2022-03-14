@@ -14,3 +14,4 @@
 - [yarn.lock](https://classic.yarnpkg.com/en/docs/yarn-lock/)
 - [What the heck are CJS, AMD, UMD, and ESM in Javascript?](https://dev.to/iggredible/what-the-heck-are-cjs-amd-umd-and-esm-ikm)
 - [ES modules: A cartoon deep-dive](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/)
+- [How to Read the ECMAScript Specification](https://timothygu.me/es-howto/)
