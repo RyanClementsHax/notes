@@ -68,7 +68,7 @@
   - this is a clock that's based on what we humans are used to
   - this needs an NTP server to sync with
   - when syncing with an NTP server, the clock might speed up or slow down to preserve ordering and resync overtime
-    - this is called *slew*
+    - this is called _slew_
   - if a machine is firewalled from its NTP server, the clock will continue to drift silently
   - multiple NTP servers are often used to mitigate a single point of failure
 - monotonic clock
@@ -77,7 +77,7 @@
   - comparing values across machines is useless
   - these are good for timeouts
 - leap seconds
-  - these can be *smeared* over time to preserve ordering
+  - these can be _smeared_ over time to preserve ordering
 - clock reseting
   - mobile devices have the ability to change their clock
   - should not be trusted because of cases where it is advantageous for a person to change time like in gaming
@@ -93,7 +93,7 @@
 
 1. the network is reliable
 
-- sometimes connections are only reliable in one direction (sometimes happens with misconfigured switches)
+   - sometimes connections are only reliable in one direction (sometimes happens with misconfigured switches)
 
 1. latency is zero
 1. bandwidth is infinite
