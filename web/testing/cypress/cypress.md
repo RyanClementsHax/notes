@@ -6,6 +6,12 @@
 
 ## WSL
 
+### WSLg instructions
+
+Make sure your system can run gui apps by refrencing the [installation docs](https://docs.microsoft.com/en-us/windows/wsl/tutorials/gui-apps) (basically you just need to be on the right windows build, wsl version, and have a special driver installed)
+
+### Legacy instructions
+
 - out of the box, cannot open the GUI with `npx cypress open`, you need to do [a lot of round about things](https://nickymeuleman.netlify.app/blog/gui-on-wsl2-cypress/) to get a GUI working
 - even then, [not everything works](https://github.com/cypress-io/cypress/issues/15251)
 - if you have a GUI configured, and `npx cypress run` hangs, it is likely because the `DISPLAY` env var is set to point to the `X-Server`
