@@ -52,3 +52,5 @@
 - [What happens when you type google.com into a browser](https://github.com/alex/what-happens-when)
   - a VERY thorough answer to this common interview question
   - good for practicing this interview question
+- [Implementing JavaScript Delay for Cookie Consent Banner](https://dariusz.wieckiewicz.org/en/implementing-js-delay-for-cookie-consent-banner/)
+- [Accessible Cards](https://kittygiraudel.com/2022/04/02/accessible-cards/)

@@ -15,3 +15,5 @@
 - [Organising Design Systems](https://medium.com/razorpay-design/organising-design-systems-3f191c4e00c0)
 - [Checkboxes vs. Radio Buttons](https://www.nngroup.com/articles/checkboxes-vs-radio-buttons/)
 - [Checkbox vs Toggle Switch](https://uxplanet.org/checkbox-vs-toggle-switch-7fc6e83f10b8)
+- [Designing Better Breadcrumbs](https://www.smashingmagazine.com/2022/04/designing-better-breadcrumbs/)
+- [Data Tables: Four Major User Tasks](https://www.nngroup.com/articles/data-tables/)
