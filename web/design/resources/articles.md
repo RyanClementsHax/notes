@@ -17,3 +17,4 @@
 - [Checkbox vs Toggle Switch](https://uxplanet.org/checkbox-vs-toggle-switch-7fc6e83f10b8)
 - [Designing Better Breadcrumbs](https://www.smashingmagazine.com/2022/04/designing-better-breadcrumbs/)
 - [Data Tables: Four Major User Tasks](https://www.nngroup.com/articles/data-tables/)
+- [The "dark yellow problem" in design system color palettes](https://uxdesign.cc/the-dark-yellow-problem-in-design-system-color-palettes-a0db1eedc99d)

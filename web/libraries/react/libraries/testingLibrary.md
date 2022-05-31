@@ -22,6 +22,10 @@
 - it can be difficult to test components that render tables cuz there isn't a pretty way to query a table for data
 - the workaround for now seems to be to set a test id for each row
 
+## Flusing promises
+
+- [this issue](https://github.com/testing-library/react-testing-library/issues/11#issuecomment-375118702) and [this issue](https://github.com/testing-library/react-testing-library/issues/999#issuecomment-1098053307) do a good job at explaining how to do this
+
 ## Getting inner text
 
 - its not defined in jsdom
